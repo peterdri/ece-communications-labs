@@ -1,12 +1,14 @@
 ---
 layout: labitem
-title: Part 1
+title: Part 1 - AM transmitters
 permalink: /ece350/lab1/AM-transmitters
 firstHeading: Part 1 - Understanding and transmitting AM waveforms
 course: ece350
+next: /ece350/lab1/AM-receivers
+prev: /ece350/lab1
 ---
 
-[**Back to Lab 1 Intro**](introduction.md) | [**Begin Part 2**](part2.md)
+<!-- [**Back to Lab 1 Intro**](introduction.md) | [**Begin Part 2**](part2.md) -->
 
 ## Objectives
 
@@ -241,6 +243,6 @@ From this lab part, keep the following files to submit to your TA after the seco
 
 **Do not attach the `top_block.py` or `.dat` files. You will use some of the `.dat` files in the next part though, so don't delete them yet!**
 
----
+<!-- ---
 
-[**Back to Lab 1 Intro**](introduction.md) | [**Begin Part 2**](part2.md)
+[**Back to Lab 1 Intro**](introduction.md) | [**Begin Part 2**](part2.md) -->

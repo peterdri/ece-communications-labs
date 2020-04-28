@@ -1,12 +1,14 @@
 ---
 layout: labitem
-title: Part 2
+title: Part 2 - PSK pulse shaping
 permalink: /ece350/lab4/PSK-pulse-shaping
 firstHeading: Part 2 - PSK pulse shaping
 course: ece350
+prev: /ece350/lab4/FSK-eye-diagram
+next: /ece350/lab4/FLEX-sync
 ---
 
-[**Back to Part 1**](FSK-eye-diagram.md) | [**Continue to Part 3**](FLEX-sync.md)
+<!-- [**Back to Part 1**](FSK-eye-diagram.md) | [**Continue to Part 3**](FLEX-sync.md) -->
 
 ## Objectives
 
@@ -156,5 +158,5 @@ From this part of the lab keep the following files to submit to your TA after th
 
 - The answer to [Question 4](#deliverable-question-4)
 
-
-[**Back to Part 1**](FSK-eye-diagram.md) | [**Continue to Part 3**](FLEX-sync.md)
+<!-- ---
+[**Back to Part 1**](FSK-eye-diagram.md) | [**Continue to Part 3**](FLEX-sync.md) -->

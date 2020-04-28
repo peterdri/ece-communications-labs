@@ -1,12 +1,14 @@
 ---
 layout: labitem
-title: Part 3
+title: Part 3 - FM receiver with USRP
 permalink: /ece350/lab3/FM-receiver-USRP
 firstHeading: Part 3 - FM receiver with USRP
 course: ece350
+prev: /ece350/lab3/FM-receiver-simulation
+next: /ece350/lab3/conclusion
 ---
 
-[**Back to Part 2**](FM-receiver-simulation.md) | [**Continue to conclusion**](conclusion.md)
+<!-- [**Back to Part 2**](FM-receiver-simulation.md) | [**Continue to conclusion**](conclusion.md) -->
 
 ## Objectives
 
@@ -110,6 +112,6 @@ From this lab part, there are the following deliverables:
 <!-- - `FM_receiver.grc` -->
 - The answers to [Question 2](#deliverable-question-2) and [Question 3](#deliverable-question-3).
 
----
+<!-- ---
 
-[**Back to Part 2**](FM-receiver-simulation.md) | [**Continue to conclusion**](conclusion.md)
+[**Back to Part 2**](FM-receiver-simulation.md) | [**Continue to conclusion**](conclusion.md) -->

@@ -1,9 +1,10 @@
 ---
 layout: labitem
-title: Lab 2 #Used for header nav
+title: Lab 2  - SSB, IQ and USRP Tutorial #Used for header nav
 firstHeading: Lab 2  - SSB, IQ and USRP Tutorial
-permalink: /ece350/lab2/
+permalink: /ece350/lab2
 course: ece350
+next: /ece350/lab2/IQ-USRP
 ---
 
 In this lab you will use the Universal Software Radio Peripherial (USRP) for both receiving and transmitting signals. The USRP is a I/Q receiver with wide bandwidth (100 MHz sampling rate), programmable center frequency, programmable gain and choice of sample rates.
@@ -25,6 +26,6 @@ You will then begin using complex signals to create an SSB demodulator. As you w
 
 >There are also a number of questions included within the text which are not denoted "deliverable". Written answers to these questions are not required, but an effort should be made to think about and answer these questions as they are encountered
 
----
+<!-- ---
 
-[**Begin Part 1**](USRP-IQ.md)
+[**Begin Part 1**](USRP-IQ.md) -->

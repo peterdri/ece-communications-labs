@@ -1,12 +1,14 @@
 ---
 layout: labitem
-title: Part 1
+title: Part 1 - FSK eye diagram
 permalink: /ece350/lab4/FSK-eye-diagram
 firstHeading: Part 1 - FSK eye diagram
 course: ece350
+prev: /ece350/lab4
+next: /ece350/lab4/PSK-pulse-shaping
 ---
 
-[**Back to introduction**](introduction.md) | [**Begin Part 2**](PSK-pulse-shaping.md)
+<!-- [**Back to introduction**](introduction.md) | [**Begin Part 2**](PSK-pulse-shaping.md) -->
 
 ## Objectives
 
@@ -126,6 +128,6 @@ From this lab part, keep the following for later submission to your TA:
 
 - The answers to [Question 1](#deliverable-question-1), [Question 2](#deliverable-question-2), and [Question 3](#deliverable-question-3).
 
----
+<!-- ---
 
-[**Back to introduction**](introduction.md) | [**Begin Part 2**](PSK-pulse-shaping.md)
+[**Back to introduction**](introduction.md) | [**Begin Part 2**](PSK-pulse-shaping.md) -->

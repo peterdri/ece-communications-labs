@@ -1,12 +1,14 @@
 ---
 layout: labitem
-title: Part 3
+title: Part 3 - FLEX Frame Synchronizer
 permalink: /ece350/lab4/FLEX-sync
 firstHeading: Part 3 - FLEX Frame Synchronizer
 course: ece350
+prev: /ece350/lab4/PSK-pulse-shaping
+next: /ece350/lab4/conclusion
 ---
 
-[**Back to Part 2**](PSK-pulse-shaping.md) | [**Continue to conclusion**](conclusion.md)
+<!-- [**Back to Part 2**](PSK-pulse-shaping.md) | [**Continue to conclusion**](conclusion.md) -->
 
 ## Objectives
 
@@ -124,5 +126,5 @@ From this part of the lab keep the following files to submit to your TA after th
 
 - The answers to [Question 5](#deliverable-question-5) and [Question 6](#deliverable-question-6).
 
----
-[**Back to Part 2**](PSK-pulse-shaping.md) | [**Continue to conclusion**](conclusion.md)
+<!-- ---
+[**Back to Part 2**](PSK-pulse-shaping.md) | [**Continue to conclusion**](conclusion.md) -->

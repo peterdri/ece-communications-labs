@@ -1,0 +1,18 @@
+<div style="display: flex;">
+
+    {% if include.prev_name %}
+        {% assign pbtnclass = "secondary" %}
+        {% if include.prev_class %}
+            {% assign pbtnclass = include.prev_class %}
+        {% endif %}
+        <a href="{{ include.prev_link | relative_url }}" class="btn btn-{{ pbtnclass }}" role="button">{{ include.prev_name }}</a>
+    {% endif %}
+    {% if include.next_name %}
+        {% assign nbtnclass = "primary" %}
+        {% if include.next_class %}
+            {% assign nbtnclass = include.next_class %}
+        {% endif %}
+        <a style="margin-left: auto;" href="{{ include.next_link | relative_url }}" class="btn btn-{{ nbtnclass }}" role="button">{{ include.next_name }}</a>
+    {% endif %}
+
+</div>

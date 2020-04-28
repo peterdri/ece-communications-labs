@@ -1,9 +1,10 @@
 ---
 layout: labitem
-title: Lab 1 #Used for header nav
+title: Lab 1 - AM Signals #Used for header nav
 firstHeading: Lab 1 - AM Signals
-permalink: /ece350/lab1/
+permalink: /ece350/lab1
 course: ece350
+next: /ece350/lab1/AM-transmitters
 ---
 
 **This lab relies on a basic understanding of GNU Radio. It is strongly suggested to step through the [two available tutorials](../intro/introduction.md) before beginning this lab (_they don't take long_).**
@@ -31,6 +32,6 @@ To understand how demodulation techniques work, please review the theory of [AM 
 
 >There are also a number of questions included within the text which are not denoted "deliverable". Written answers to these questions are not required, but an effort should be made to think about and answer these questions as they are encountered.
 
----
+<!-- ---
 
-[**Begin Part 1**](part1.md)
+[**Begin Part 1**](part1.md) -->

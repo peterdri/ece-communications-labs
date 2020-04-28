@@ -10,14 +10,15 @@ layout: default
 
   <header style="display:flex">
     <div style="flex: 3">
-      <h1>{{ page.firstHeading | escape }}</h1>
+      <h1>{{ page.title | escape }}</h1>
     </div>
     
     <div style="flex:1">
-      <a style="border:1px solid grey; border-radius:5px; padding:5px" href="{{site.github.repository_url}}/edit/master/{{page.path}}">Improve this page</a>
+      <a href="{{site.github.repository_url}}/edit/master/{{page.path}}" class="btn btn-outline-info" role="button">Improve this page</a>
     </div>
   </header>
-
+  
+  
   {{ content }}
 
 </article>

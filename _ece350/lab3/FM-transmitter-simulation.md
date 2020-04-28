@@ -1,12 +1,14 @@
 ---
 layout: labitem
-title: Part 1
+title: Part 1 - FM transmitter simulation
 permalink: /ece350/lab3/FM-transmitter-sim
 firstHeading: Part 1 - FM transmitter simulation
 course: ece350
+prev: /ece350/lab3
+next: /ece350/lab3/FM-receiver-simulation
 ---
 
-[**Back to Lab 3 Intro**](introduction.md) | [**Begin Part 2**](FM-receiver-simulation.md)
+<!-- [**Back to Lab 3 Intro**](introduction.md) | [**Begin Part 2**](FM-receiver-simulation.md) -->
 
 ## Objectives
 
@@ -225,6 +227,6 @@ From this lab part, keep the following for later submission to your TA:
 
 **Do not attach the `top_block.py` or `.dat` files. You will use some of the `.dat` files in the next part though, so don't delete them yet!**
 
----
+<!-- ---
 
-[**Back to Lab 3 Intro**](introduction.md) | [**Begin Part 2**](FM-receiver-simulation.md)
+[**Back to Lab 3 Intro**](introduction.md) | [**Begin Part 2**](FM-receiver-simulation.md) -->

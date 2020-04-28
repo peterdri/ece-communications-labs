@@ -1,9 +1,10 @@
 ---
 layout: labitem
-title: Lab 3 #Used for header nav
-firstHeading: Lab 3  - FM signals
-permalink: /ece350/lab3/
+title: Lab 3 - FM signals #Used for header nav
+firstHeading: Lab 3 - FM signals
+permalink: /ece350/lab3
 course: ece350
+next: /ece350/lab3/FM-transmitter-sim
 ---
 
 In this lab you will create an FM modulator and demodulator, and then use the Universal Software Radio Peripherial (USRP) to receive FM signals in real-time.
@@ -25,6 +26,6 @@ As you work, consider the following questions:
 
 >There are also a number of questions included within the text which are not denoted "deliverable". Written answers to these questions are not required, but an effort should be made to think about and answer these questions as they are encountered
 
----
+<!-- ---
 
-[**Begin Part 1**](FM-transmitter-simulation.md)
+[**Begin Part 1**](FM-transmitter-simulation.md) -->

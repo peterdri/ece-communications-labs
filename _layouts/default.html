@@ -10,10 +10,53 @@
     <div class="py-5">
       <div class="container page-content">
           {{ content }}
-      </div>
-    </div>
+
+          {% if page.prev and page.next %}
+
+          {% for pg in site.pages %}
+            {% if pg.permalink == page.prev %}
+              {% assign prev_title = pg.title %}
+            {% elsif pg.permalink == page.next %}
+              {% assign next_title = pg.title %}
+            {% endif %}
+          {% endfor %}
+            
+        
+          <hr />
+          {% include prev-next-btns.html prev_name=prev_title prev_link=page.prev next_name=next_title next_link=page.next %}
+          <br />
+        
+        {% elsif page.prev %}
+        
+          {% for pg in site.pages %}
+            {% if pg.permalink == page.prev %}
+              {% assign prev_title = pg.title %}
+            {% endif %}
+          {% endfor %}
+        
+          <hr />
+          {% include prev-next-btns.html prev_name=prev_title prev_link=page.prev %}
+          <br />
+        
+        {% else %}
+        
+        {% for pg in site.pages %}
+          {% if pg.permalink == page.next %}
+            {% assign next_title = pg.title %}
+          {% endif %}
+        {% endfor %}
+          <hr />
+          {% include prev-next-btns.html next_name=next_title next_link=page.next %}
+          <br />
+        {% endif %}
+        
+
 
     {%- include footer.html -%}
+      </div>  
+    </div>
+
+    
 
   </body>
 

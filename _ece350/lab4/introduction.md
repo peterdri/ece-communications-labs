@@ -1,9 +1,10 @@
 ---
 layout: labitem
-title: Lab 4 #Used for header nav
-firstHeading: Lab 4  - PSK signals and FLEX Sync
-permalink: /ece350/lab4/
+title: Lab 4 - PSK signals and FLEX Sync #Used for header nav
+firstHeading: Lab 4 - PSK signals and FLEX Sync
+permalink: /ece350/lab4
 course: ece350
+next: /ece350/lab4/FSK-eye-diagram
 ---
 
 In this lab you will:
@@ -25,6 +26,6 @@ At the end of the lab you will also be asked to evaluate your TA. The evaluation
 
 >There are also a number of questions included within the text which are not denoted "deliverable". Written answers to these questions are not required, but an effort should be made to think about and answer these questions as they are encountered
 
----
+<!-- ---
 
-[**Begin Part 1**](FSK-eye-diagram.md)
+[**Begin Part 1**](FSK-eye-diagram.md) -->

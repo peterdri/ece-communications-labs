@@ -1,12 +1,14 @@
 ---
 layout: labitem
-title: Lab 2 #Used for header nav
+title: Lab 2 - Conclusion #Used for header nav
 firstHeading: Lab 2  - Conclusion
 permalink: /ece350/lab2/conclusion
 course: ece350
+prev: /ece350/lab2/SSB-receiver
+next: /ece350/lab3
 ---
 
-[**Back to Part 2**](SSB-receiver.md) | [**Continue to Lab 3**](../lab3/introduction.md)
+<!-- [**Back to Part 2**](SSB-receiver.md) | [**Continue to Lab 3**](../lab3/introduction.md) -->
 
 In this lab you used a USRP to both transmit and receive complex data streams. You then built an SSB demodulator.
 
@@ -24,6 +26,6 @@ In this lab you used a USRP to both transmit and receive complex data streams. Y
 
 If you are unsure how to submit the deliverables, ask your TA.
 
----
+<!-- ---
 
-[**Back to Part 2**](SSB-receiver.md) | [**Continue to Lab 3**](../lab3/introduction.md)
+[**Back to Part 2**](SSB-receiver.md) | [**Continue to Lab 3**](../lab3/introduction.md) -->

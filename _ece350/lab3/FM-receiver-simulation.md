@@ -1,12 +1,14 @@
 ---
 layout: labitem
-title: Part 2
+title: Part 2 - FM receiver simulator
 permalink: /ece350/lab3/FM-receiver-simulation
 firstHeading: Part 2 - FM receiver simulator
 course: ece350
+prev: /ece350/lab3/FM-transmitter-sim
+next: /ece350/lab3/FM-receiver-USRP
 ---
 
-[**Back to Part 1**](FM-transmitter-simulation.md) | [**Begin Part 3**](FM-receiver-USRP.md)
+<!-- [**Back to Part 1**](FM-transmitter-simulation.md) | [**Begin Part 3**](FM-receiver-USRP.md) -->
 
 ## Objectives
 
@@ -155,6 +157,6 @@ From this lab part, keep the following for later submission to your TA:
 
 **Do not attach the `top_block.py` or `.dat` files.**
 
----
+<!-- ---
 
-[**Back to Part 1**](FM-transmitter-simulation.md) | [**Begin Part 3**](FM-receiver-USRP.md)
+[**Back to Part 1**](FM-transmitter-simulation.md) | [**Begin Part 3**](FM-receiver-USRP.md) -->

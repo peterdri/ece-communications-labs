@@ -1,12 +1,14 @@
 ---
 layout: labitem
-title: Part 2
+title: Part 2 - Receiving AM waveforms
 permalink: /ece350/lab1/AM-receivers
 firstHeading: Part 2 - Receiving AM waveforms
 course: ece350
+prev: /ece350/lab1/AM-transmitters
+next: /ece350/lab2
 ---
 
-[**Back to Part 1**](part1.md) | [**Continue to Lab 2**](../lab2/introduction.md)
+<!-- [**Back to Part 1**](part1.md) | [**Continue to Lab 2**](../lab2/introduction.md) -->
 
 ## Objectives
 
@@ -249,5 +251,5 @@ Combine these deliverables with those from the last part of the lab and submit t
 
 **Do not attach the `top_block.py` or `.dat` files.**
 
----
-[**Back to Part 1**](part1.md) | [**Continue to Lab 2**](../lab2/introduction.md)
+<!-- ---
+[**Back to Part 1**](part1.md) | [**Continue to Lab 2**](../lab2/introduction.md) -->

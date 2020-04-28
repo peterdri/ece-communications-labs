@@ -1,12 +1,14 @@
 ---
 layout: labitem
-title: Part 2
+title: Part 2 - Complex signals and receiving SSB waveforms
 permalink: /ece350/lab2/SSB-receiver
 firstHeading: Part 2 - Complex signals and receiving SSB waveforms
 course: ece350
+prev: /ece350/lab2/IQ-USRP
+next: /ece350/lab2/conclusion
 ---
 
-[**Back to Part 1**](USRP-IQ.md) | [**Continue to conclusion**](conclusion.md)
+<!-- [**Back to Part 1**](USRP-IQ.md) | [**Continue to conclusion**](conclusion.md) -->
 
 ## Objectives
 
@@ -336,5 +338,5 @@ From this part of the lab keep the following files to submit to your TA after th
 
 **Do not attach the `top_block.py` files to your submission.**
 
----
-[**Back to Part 1**](USRP-IQ.md) | [**Continue to conclusion**](conclusion.md)
+<!-- ---
+[**Back to Part 1**](USRP-IQ.md) | [**Continue to conclusion**](conclusion.md) -->

@@ -1,12 +1,14 @@
 ---
 layout: labitem
-title: Lab 3 #Used for header nav
-firstHeading: Lab 3  - Conclusion
+title: Lab 3  - Conclusion #Used for header nav
+firstHeading: Lab 3 - Conclusion
 permalink: /ece350/lab3/conclusion
 course: ece350
+prev: /ece350/lab3/FM-receiver-USRP
+next: /ece350/lab4
 ---
 
-[**Back to Part 3**](FM-receiver-USRP.md) | [**Continue to Lab 4**](../lab4/introduction.md)
+<!-- [**Back to Part 3**](FM-receiver-USRP.md) | [**Continue to Lab 4**](../lab4/introduction.md) -->
 
 In this lab you used a USRP and receive complex data streams. You both modulated and demodulated FM signals.
 
@@ -24,6 +26,6 @@ In this lab you used a USRP and receive complex data streams. You both modulated
 
 If you are unsure how to submit the deliverables, ask your TA.
 
----
+<!-- ---
 
-[**Back to Part 3**](FM-receiver-USRP.md) | [**Continue to Lab 4**](../lab4/introduction.md)
+[**Back to Part 3**](FM-receiver-USRP.md) | [**Continue to Lab 4**](../lab4/introduction.md) -->

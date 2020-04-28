@@ -24,8 +24,8 @@ repository: "mistic-lab/ece-communications-labs"
 
 # Build settings
 plugins:
-  - jekyll-feed
   - jekyll-sitemap
+  # - jekyll-feed
 
 include:
   - _ece350

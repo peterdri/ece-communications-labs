@@ -1,12 +1,14 @@
 ---
 layout: labitem
-title: Part 1
+title: Part 1 - IQ and using a USRP
 permalink: /ece350/lab2/IQ-USRP
 firstHeading: Part 1 - IQ and using a USRP
 course: ece350
+prev: /ece350/lab2
+next: /ece350/lab2/SSB-receiver
 ---
 
-[**Back to Lab 2 Intro**](introduction.md) | [**Begin Part 2**](SSB-receiver.md)
+<!-- [**Back to Lab 2 Intro**](introduction.md) | [**Begin Part 2**](SSB-receiver.md) -->
 
 ## Objectives
 
@@ -183,6 +185,6 @@ From this part of the lab keep the following files to submit to your TA:
 
 - The answers to [Question 1](#deliverable-question-1), [Question 2](#deliverable-question-2), [Question 3](#deliverable-question-3)
 
----
+<!-- ---
 
-[**Back to Lab 2 Intro**](introduction.md) | [**Begin Part 2**](SSB-receiver.md)
+[**Back to Lab 2 Intro**](introduction.md) | [**Begin Part 2**](SSB-receiver.md) -->
