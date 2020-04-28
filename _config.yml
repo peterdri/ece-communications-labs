@@ -32,7 +32,7 @@ include:
   - _ece450
   - _docs
 
-# A list of the pages to display in the navigation bar
+# A list of the pages to display in the navigation bar (handled in /_data/navigation.yml)
 header_pages:
 
 # Exclude from processing.

@@ -1,55 +1,39 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container">
-    <a class="navbar-brand" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="display:flex">
 
-    {% assign links = site.data.navigation %}
-    {% for link in links %}
-      {% if link.sublinks %}
-      {% else %}
-      <a class="navbar-text" href="{{ site.url }}{{ site.baseurl }}{{ link.url }}">{{ link.title }}</a>
-      {% endif %}
-    {% endfor %}
-    <li class="nav-item dropdown-menu">
-      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-      <div class="dropdown-menu" style="">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Separated link</a>
-      </div>
-    </li> -->
+  <div style="flex: 3">
+    <a class="navbar-brand" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+  </div> 
 
-    <!-- {%- assign page_paths = site.header_pages -%} -->
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <div style="flex: 1">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button> -->
-    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        {%- for path in page_paths -%}
-          {%- assign my_page = site.pages | where: "path", path | first -%}
-          {%- if my_page.title -%}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
-          </li>
-          {%- endif -%}
-        {% endfor -%}
-      </ul>
-    </div> -->
-  <!-- </div>
-</nav> -->
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        {% for item in site.data.navigation %}
+          {% if item.sublinks %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{item.url | relative_url}}" role="button" aria-haspopup="true" aria-expanded="false">{{ item.title }}</a>
+              <div class="dropdown-menu">
+                {% for sub in item.sublinks %}
+                  {% if sub.title == 'separator'%}
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item"></a>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">Logo</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      {% for item in site.data.navigation %}
-      <a class="nav-item nav-link" href="{{item.url}}">{{ item.title }}</a>
-      {% endfor %}  
-    </div>
+                  {% else %}
+                    <a class="dropdown-item" href="{{sub.url | relative_url}}">{{ sub.title }}</a>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </li>
+          {% else %}
+            <a class="nav-item nav-link" href="{{item.url | relative_url}}">{{ item.title }}</a>
+          {% endif %}
+        {% endfor %}  
+      </div>
   </div>
+
+  </div> 
 </nav>

@@ -10,7 +10,8 @@ layout: default
       <h1>{{ page.title }}</h1>
     </div>
     <div style="flex:1">
-      <a style="border:1px solid grey; border-radius:5px; padding:5px" href="{{site.github.repository_url}}/edit/master/{{page.path}}">Improve this page</a>
+      <button type="button" class="btn-outline-info" href="{{site.github.repository_url}}/edit/master/{{page.path}}">Improve this page</button>
+      <!-- <a style="border:1px solid grey; border-radius:5px; padding:5px" href="{{site.github.repository_url}}/edit/master/{{page.path}}">Improve this page</a> -->
     </div>
   </header>
   {%- endif -%}
@@ -19,7 +20,7 @@ layout: default
     {{ content }}
   </section>
 
-  {%- if site.posts.size > 0 -%}
+  <!-- {%- if site.posts.size > 0 -%}
     <p class="h4">{{ page.list_title | default: "Posts" }}</p>
     <ul class="list-unstyled">
       {%- for post in site.posts -%}
@@ -41,6 +42,6 @@ layout: default
     </ul>
 
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
-  {%- endif -%}
+  {%- endif -%} -->
 
 </div>
