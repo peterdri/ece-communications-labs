@@ -1,0 +1,14 @@
+- title: ECE350
+  url: /ece350/
+  sublinks:
+    - title: Intro tutorials
+      url: /ece350/intro/
+
+- title: ECE450
+  url: /ece450/
+  sublinks:
+    - title: Lab 1
+      url: /ece450/lab1/
+
+- title: Test1
+  url: /ece350/

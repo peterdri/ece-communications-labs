@@ -1,0 +1,31 @@
+ece350:
+
+  - title: Intro tutorials
+    url: ../intro
+
+  - title: Lab 1
+    url: ../lab1
+
+  - title: Lab 2
+    url: ../lab2
+
+  - title: Lab 3
+    url: ../lab3
+
+  - title: Lab 4
+    url: ../lab4
+
+ece450:
+
+  - title: Lab 1
+    url: ../lab1
+
+  - title: Lab 2
+    url: ../lab2
+
+  - title: Lab 3
+    url: ../lab3
+
+  - title: Lab 4
+    url: ../lab4
+    

@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<article>
+  <!-- This is for mathJax -->
+  <script type="text/javascript" async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+
+
+
+  <header style="display:flex">
+    <div style="flex: 3">
+      <h1>{{ page.firstHeading | escape }}</h1>
+    </div>
+    
+    <div style="flex:1">
+      <a style="border:1px solid grey; border-radius:5px; padding:5px" href="{{site.github.repository_url}}/edit/master/{{page.path}}">Improve this page</a>
+    </div>
+  </header>
+
+  {{ content }}
+
+</article>

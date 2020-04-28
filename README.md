@@ -1,21 +1,27 @@
+# ECE 350/450 Lab Manuals
 
-# Boostrap 4 Github Pages
+The lab manuals are hosted [here](https://mistic-lab.github.io/ece-communications-labs/).
 
-[![Build Status](https://travis-ci.org/nicolas-van/bootstrap-4-github-pages.svg?branch=master)](https://travis-ci.org/nicolas-van/bootstrap-4-github-pages)
+If you're a student just looking to complete the labs, go to that link. If you're me in a year trying to remember how to edit this this, or a course TA, or Peter, or a friendly student looking to suggest edits, below shows you how to build it.
 
-A [Bootstrap 4](https://getbootstrap.com/) start up project for [Github Pages](https://pages.github.com/) and [Jekyll](https://jekyllrb.com/).
+## Build instructions
 
-* A full Bootstrap 4 theme usable both on Github Pages and with a standalone Jekyll.
-* Recompiles Bootstrap from SCSS files, which allows to customize Bootstrap's variables and use Bootstrap themes.
-* Full support of Bootstrap's JavaScript plugins.
-* Supports all features of Github Pages and Jekyll.
+It's built using Jekyll. So if you push changes to master they should auto-publish. You'll need to issue a PR though and it will have to be approved by a mistic-lab admin.
 
-[See the website for demonstration and documentation](https://nicolas-van.github.io/bootstrap-4-github-pages/).
+If you want to work on it on your computer to ensure that your proposed changes don't mess everything up, you need to install Jekyll so you can serve it locally. Two obvious options:
 
-## Contribution
+1. Install ruby and jekyll (https://jekyllrb.com/docs/)
+2. Use a docker container (https://hub.docker.com/r/jekyll/jekyll)
+    - I use the following script to run the docker container
+    ``` bash
+    #!/bin/sh
+    IMAGE=jekyll/jekyll
+    JEKYLL_VERSION=3.8
 
-[See the contribution guide.](./CONTRIBUTING.md)
+    docker run --rm -v "$PWD":/srv/jekyll -it -p 3000:4000 "$IMAGE":"$JEKYLL_VERSION" "$@"
+    ```
+    - Which is used by
 
-## License
+      `$ myScript.sh jekyll serve --watch --drafts`
 
-[See the license file.](./LICENSE.md)
+      where jekyll serve gets you a locally hosted site running at http://localhost:3000/ece350-450-lab-manual/.

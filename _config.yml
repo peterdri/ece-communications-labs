@@ -14,13 +14,11 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: UVic ECE Communications Labs
-email: ""
 description: >- # this means to ignore newlines until "baseurl:"
-  A Bootstrap 4 start up project for Jekyll and Github Pages
+  Lab manuals for ECE 350 and 450
 #baseurl: "" # the subpath of your site, e.g. /blog
 #url: "" # the base hostname & protocol for your site, e.g. http://example.com
-#twitter_username: jekyllrb
-#github_username:  jekyll
+
 
 repository: "mistic-lab/ece-communications-labs"
 
@@ -28,6 +26,11 @@ repository: "mistic-lab/ece-communications-labs"
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+
+include:
+  - _ece350
+  - _ece450
+  - _docs
 
 # A list of the pages to display in the navigation bar
 header_pages:
