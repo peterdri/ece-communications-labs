@@ -2,7 +2,7 @@
 layout: labitem
 title: Part 2 - FM receiver simulator
 permalink: /ece350/lab3/FM-receiver-simulation
-firstHeading: Part 2 - FM receiver simulator
+
 course: ece350
 prev: /ece350/lab3/FM-transmitter-sim
 next: /ece350/lab3/FM-receiver-USRP

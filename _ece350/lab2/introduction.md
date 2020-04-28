@@ -1,7 +1,7 @@
 ---
 layout: labitem
 title: Lab 2  - SSB, IQ and USRP Tutorial #Used for header nav
-firstHeading: Lab 2  - SSB, IQ and USRP Tutorial
+
 permalink: /ece350/lab2
 course: ece350
 next: /ece350/lab2/IQ-USRP

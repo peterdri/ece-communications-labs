@@ -2,7 +2,7 @@
 layout: labitem
 title: Part 3 - FLEX Frame Synchronizer
 permalink: /ece350/lab4/FLEX-sync
-firstHeading: Part 3 - FLEX Frame Synchronizer
+
 course: ece350
 prev: /ece350/lab4/PSK-pulse-shaping
 next: /ece350/lab4/conclusion

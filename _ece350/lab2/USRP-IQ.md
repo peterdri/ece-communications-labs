@@ -2,7 +2,7 @@
 layout: labitem
 title: Part 1 - IQ and using a USRP
 permalink: /ece350/lab2/IQ-USRP
-firstHeading: Part 1 - IQ and using a USRP
+
 course: ece350
 prev: /ece350/lab2
 next: /ece350/lab2/SSB-receiver

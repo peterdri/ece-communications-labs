@@ -2,7 +2,7 @@
 layout: labitem
 title: Part 1 - FM transmitter simulation
 permalink: /ece350/lab3/FM-transmitter-sim
-firstHeading: Part 1 - FM transmitter simulation
+
 course: ece350
 prev: /ece350/lab3
 next: /ece350/lab3/FM-receiver-simulation

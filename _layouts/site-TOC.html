@@ -1,0 +1,63 @@
+---
+layout: default
+---
+
+
+<div>
+  {%- if page.title -%}
+  <header style="display:flex">
+    <div style="flex: 3">
+      <h1>{{ page.title }}</h1>
+    </div>
+    <div style="flex:1">
+      <a href="{{site.github.repository_url}}/edit/master/{{page.path}}" class="btn btn-outline-info" role="button">Improve this page</a>
+    </div>
+  </header>
+  {%- endif -%}
+
+  <section>
+    {{ content }}
+  </section>
+
+  <section>
+    {% for item in site.data.navigation %}
+      <h3 href="{{ item.url }}">{{ item.title }}</h3>
+        <ul>
+          {% for sub in item.sublinks %}
+            {% if sub.title != "separator"%}
+              <li><a href="{{ sub.url }}">{{ sub.title }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+    {% endfor %}
+  </section>
+
+  <table>
+    <tr>
+      {% for item in site.data.navigation %}
+      <td>
+        <table>
+          <thead>
+            <tr>
+              <td>{{item.title}}</td>
+            </tr>
+          </thead>
+          {% if item.sublinks %}
+          <tbody>
+            {% for sub in item.sublinks %}
+              {% if sub.title != "separator"%}
+                <tr>
+                  <td href="{{ sub.url }}">{{ sub.title }}</td>
+                </tr>
+              {% endif %}
+            {% endfor %}
+          </tbody>
+          {% endif %}
+        </table>
+      </td>
+      {% endfor %}
+
+    </tr>
+  </table>
+
+</div>

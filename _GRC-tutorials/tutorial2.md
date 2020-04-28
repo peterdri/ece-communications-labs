@@ -1,10 +1,10 @@
 ---
 layout: labitem
 title: Tutorial 2
-permalink: /ece350/intro/tutorial2
-firstHeading: Tutorial 2 - Variables and Controls
-course: ece350
-prev: /ece350/intro/tutorial1
+permalink: /GRC-tutorials/tutorial2
+
+course: GRC-tutorials
+prev: /GRC-tutorials/tutorial1
 next: /ece350/lab1
 ---
 

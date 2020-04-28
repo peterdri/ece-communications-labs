@@ -5,7 +5,7 @@
 title: ECE350
 layout: home
 course: ece350
-permalink: /ece350/
+permalink: /ece350
 next: /ece350/intro
 ---
 

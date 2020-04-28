@@ -1,8 +1,21 @@
-- title: ECE350
-  url: /ece350/
+- title: GRC tutorials
+  course: GRC-tutorials
   sublinks:
-    - title: Intro tutorials
-      url: /ece350/intro/
+    - title: Intro
+      url: /GRC-tutorials
+
+    - title: separator
+
+    - title: Tutorial 1
+      url: /GRC-tutorials/tutorial1
+    - title: Tutorial 2
+      url: /GRC-tutorials/tutorial2
+
+- title: ECE350
+  course: ece350
+  sublinks:
+    - title: Intro
+      url: /ece350
 
     - title: separator
 
@@ -16,7 +29,12 @@
       url: /ece350/lab4/
 
 - title: ECE450
-  url: /ece450/
+  course: ece450
   sublinks:
+    - title: Intro
+      url: /ece450
+
+    - title: separator
+
     - title: Lab 1
       url: /ece450/lab1/

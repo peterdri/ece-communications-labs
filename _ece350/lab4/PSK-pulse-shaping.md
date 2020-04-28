@@ -2,7 +2,7 @@
 layout: labitem
 title: Part 2 - PSK pulse shaping
 permalink: /ece350/lab4/PSK-pulse-shaping
-firstHeading: Part 2 - PSK pulse shaping
+
 course: ece350
 prev: /ece350/lab4/FSK-eye-diagram
 next: /ece350/lab4/FLEX-sync

@@ -1,7 +1,7 @@
 ---
 layout: labitem
 title: Lab 3  - Conclusion #Used for header nav
-firstHeading: Lab 3 - Conclusion
+
 permalink: /ece350/lab3/conclusion
 course: ece350
 prev: /ece350/lab3/FM-receiver-USRP

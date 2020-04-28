@@ -1,10 +1,10 @@
 ---
 layout: labitem
 title: Intro tutorials #Used for header nav
-firstHeading: Introductory GNU Radio Tutorials
-permalink: /ece350/intro
-course: ece350
-next: /ece350/intro/tutorial1
+
+permalink: /GRC-tutorials
+course: GRC-tutorials
+next: /GRC-tutorials/tutorial1
 ---
 
 The following tutorials were adapted from [Dr. Sharlene Katz' SDRProject](http://www.csun.edu/~skatz/katzpage/sdr_project/sdrproject.html) website and updated for GNU Radio 3.7. They are designed to get you familiar with various aspects of the GNU Radio Companion. You will also learn some basic tuning and demodulation techniques.

@@ -1,11 +1,11 @@
 ---
 layout: labitem
 title: Tutorial 1
-permalink: /ece350/intro/tutorial1
-firstHeading: Tutorial 1 - Using GNU Radio Companion
-course: ece350
-prev: /ece350/intro
-next: /ece350/intro/tutorial2
+permalink: /GRC-tutorials/tutorial1
+
+course: GRC-tutorials
+prev: /GRC-tutorials
+next: /GRC-tutorials/tutorial2
 ---
 
 ## Objectives

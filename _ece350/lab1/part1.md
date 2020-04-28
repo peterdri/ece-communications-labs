@@ -2,7 +2,7 @@
 layout: labitem
 title: Part 1 - AM transmitters
 permalink: /ece350/lab1/AM-transmitters
-firstHeading: Part 1 - Understanding and transmitting AM waveforms
+
 course: ece350
 next: /ece350/lab1/AM-receivers
 prev: /ece350/lab1

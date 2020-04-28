@@ -2,7 +2,7 @@
 layout: labitem
 title: Part 2 - Complex signals and receiving SSB waveforms
 permalink: /ece350/lab2/SSB-receiver
-firstHeading: Part 2 - Complex signals and receiving SSB waveforms
+
 course: ece350
 prev: /ece350/lab2/IQ-USRP
 next: /ece350/lab2/conclusion

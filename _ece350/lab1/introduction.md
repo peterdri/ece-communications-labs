@@ -1,13 +1,13 @@
 ---
 layout: labitem
 title: Lab 1 - AM Signals #Used for header nav
-firstHeading: Lab 1 - AM Signals
+
 permalink: /ece350/lab1
 course: ece350
 next: /ece350/lab1/AM-transmitters
 ---
 
-**This lab relies on a basic understanding of GNU Radio. It is strongly suggested to step through the [two available tutorials](../intro/introduction.md) before beginning this lab (_they don't take long_).**
+**This lab relies on a basic understanding of GNU Radio. It is strongly suggested to step through the [two available tutorials]({% link _GRC-tutorials/introduction.md %}) before beginning this lab (_they don't take long_).**
 
 This lab focuses on AM modulation/demodulation, both using real and complex signals.
 

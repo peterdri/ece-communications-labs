@@ -1,7 +1,7 @@
 ---
 layout: labitem
 title: Lab 4 - Conclusion #Used for header nav
-firstHeading: Lab 4 - Conclusion
+
 permalink: /ece350/lab4/conclusion
 course: ece350
 prev: /ece350/lab4/FLEX-sync

@@ -1,7 +1,7 @@
 ---
 layout: labitem
 title: Lab 4 - PSK signals and FLEX Sync #Used for header nav
-firstHeading: Lab 4 - PSK signals and FLEX Sync
+
 permalink: /ece350/lab4
 course: ece350
 next: /ece350/lab4/FSK-eye-diagram

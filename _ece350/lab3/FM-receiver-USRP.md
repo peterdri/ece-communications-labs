@@ -2,7 +2,7 @@
 layout: labitem
 title: Part 3 - FM receiver with USRP
 permalink: /ece350/lab3/FM-receiver-USRP
-firstHeading: Part 3 - FM receiver with USRP
+
 course: ece350
 prev: /ece350/lab3/FM-receiver-simulation
 next: /ece350/lab3/conclusion

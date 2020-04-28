@@ -2,7 +2,7 @@
 layout: labitem
 title: Part 1 - FSK eye diagram
 permalink: /ece350/lab4/FSK-eye-diagram
-firstHeading: Part 1 - FSK eye diagram
+
 course: ece350
 prev: /ece350/lab4
 next: /ece350/lab4/PSK-pulse-shaping

@@ -2,7 +2,7 @@
 layout: labitem
 title: Part 2 - Receiving AM waveforms
 permalink: /ece350/lab1/AM-receivers
-firstHeading: Part 2 - Receiving AM waveforms
+
 course: ece350
 prev: /ece350/lab1/AM-transmitters
 next: /ece350/lab2

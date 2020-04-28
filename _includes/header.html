@@ -15,7 +15,7 @@
         {% for item in site.data.navigation %}
           {% if item.sublinks %}
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{item.url | relative_url}}" role="button" aria-haspopup="true" aria-expanded="false">{{ item.title }}</a>
+              <a class="nav-link dropdown-toggle {% if page.course == item.course %}active{% endif %}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ item.title }}</a>
               <div class="dropdown-menu">
                 {% for sub in item.sublinks %}
                   {% if sub.title == 'separator'%}
@@ -23,13 +23,13 @@
                     <a class="dropdown-item"></a>
 
                   {% else %}
-                    <a class="dropdown-item" href="{{sub.url | relative_url}}">{{ sub.title }}</a>
+                    <a class="dropdown-item {% if page.url contains item.url %}active{% endif %}" href="{{sub.url | relative_url}}">{{ sub.title }}</a>
                   {% endif %}
                 {% endfor %}
               </div>
             </li>
           {% else %}
-            <a class="nav-item nav-link" href="{{item.url | relative_url}}">{{ item.title }}</a>
+            <a class="nav-item nav-link {% if page.url contains item.url %}active{% endif %}" href="{{item.url | relative_url}}">{{ item.title }}</a>
           {% endif %}
         {% endfor %}  
       </div>

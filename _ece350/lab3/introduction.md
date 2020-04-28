@@ -1,7 +1,7 @@
 ---
 layout: labitem
 title: Lab 3 - FM signals #Used for header nav
-firstHeading: Lab 3 - FM signals
+
 permalink: /ece350/lab3
 course: ece350
 next: /ece350/lab3/FM-transmitter-sim
