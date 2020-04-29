@@ -6,7 +6,7 @@ title: ECE350 Intro
 layout: home
 course: ece350
 permalink: /ece350
-next: /ece350/intro
+next: /ece350/lab1
 ---
 
 <!-- ## Introduction -->
@@ -36,5 +36,4 @@ The deliverables are described at the beginning of each section.
 
 > NOTE: You are encouraged to work at your own pace, using the scheduled lab period as a time to get assistance from a TA or the course instructor.
 
-<!-- {% include prev-next-btns.html next_name="Begin intro tutorials" next_link="/ece350/intro"%} -->
 

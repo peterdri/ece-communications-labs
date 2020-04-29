@@ -7,7 +7,7 @@ course: ece350
 next: /ece350/lab1/AM-transmitters
 ---
 
-**This lab relies on a basic understanding of GNU Radio. It is strongly suggested to step through the [two available tutorials]({% link _GRC-tutorials/introduction.md %}) before beginning this lab (_they don't take long_).**
+**This lab relies on a basic understanding of GNU Radio. It is strongly suggested to step through the [two available tutorials]({{site.baseurl}}{% link _GRC-tutorials/introduction.md %}) before beginning this lab (_they don't take long_).**
 
 This lab focuses on AM modulation/demodulation, both using real and complex signals.
 

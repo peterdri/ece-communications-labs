@@ -9,13 +9,13 @@ permalink: /ece450
 next: /ece450/lab1
 ---
 
-## Introduction
-
 This lab is meant to be a supplement to your ECE450 class. It will provide you with a way to explore the concepts and techniques discussed in class in a more hands on way. The course requires an SDR (software defined radio) as well as access to GNU Radio, Matlab and Simulink.
+
+If you are unfamiliar with GNU Radio, it is strongly recommended that you complete the [introductory GRC tutorials]({{site.baseurl}}{% link _GRC-tutorials/introduction.md%}) hosted on this site before trying these labs.
 
 ## Labs
 
-- Lab 1 - 
+- Lab 1 - Pulse-shaping and BER measurement
 - Lab 2 -
 - Lab 3 -
 - Lab 4 -
