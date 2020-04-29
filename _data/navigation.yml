@@ -20,13 +20,13 @@
     - title: separator
 
     - title: Lab 1
-      url: /ece350/lab1/
+      url: /ece350/lab1
     - title: Lab 2
-      url: /ece350/lab2/
+      url: /ece350/lab2
     - title: Lab 3
-      url: /ece350/lab3/
+      url: /ece350/lab3
     - title: Lab 4
-      url: /ece350/lab4/
+      url: /ece350/lab4
 
 - title: ECE450
   course: ece450
@@ -37,4 +37,4 @@
     - title: separator
 
     - title: Lab 1
-      url: /ece450/lab1/
+      url: /ece450/lab1

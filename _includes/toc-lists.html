@@ -11,14 +11,14 @@
                     </div>
                 </a>
                 {% for sub in item.sublinks %}
-                    <!-- {% if sub.title != "separator"%}
+                    {% if sub.title != "separator"%}
                         {% for pg in site.pages %}
                             {% if pg.permalink == sub.url %}
                                 {% assign sub_title = pg.title %}
                             {% endif %}
-                    {% endfor %} -->
+                        {% endfor %}
         
-                    <a class="list-group-item list-group-item-action" href="{{sub.url | relative_url}}">{{ sub.title }} </a>
+                    <a class="list-group-item list-group-item-action" href="{{sub.url | relative_url}}">{{ sub_title }} </a>
                     {% endif %}
                 {% endfor %}
             </div>

@@ -2,7 +2,7 @@
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-title: ECE450
+title: ECE450 Intro
 layout: home
 course: ece450
 permalink: /ece450

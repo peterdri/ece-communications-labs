@@ -9,11 +9,8 @@
       <div class="col-sm">
         <ul class="list-unstyled">
           <li>
-            {%- if site.github_username -%}
               {{ site.github_username | escape }}
-            {%- else -%}
-              {{ site.title | escape }}
-            {%- endif -%}
+              <a href="https://www.github.com/mistic-lab" title="Github"><i class="fa fa-github-square"></i></a>
           </li>
         </ul>
       </div>

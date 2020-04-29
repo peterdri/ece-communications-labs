@@ -1,6 +1,6 @@
 ---
 layout: labitem
-title: Intro tutorials #Used for header nav
+title: GRC Intro #Used for header nav
 
 permalink: /GRC-tutorials
 course: GRC-tutorials
