@@ -7,14 +7,11 @@
     <div class="row">
 
       <div class="col-sm">
-        <ul class="list-unstyled">
-          <li>
-              {{ site.github_username | escape }}
-              <a href="https://www.github.com/mistic-lab" title="Github"><i class="fa fa-github-square"></i></a>
-          </li>
-        </ul>
+          <a class="btn btn-default" target="_blank" rel="noopener" href="https://www.github.com/{{ site.repository }}" role="button">
+            <i class="fa fa-github fa-lg"></i>
+            Github
+          </a>
       </div>
-
 
       <div class="col-sm text-right">
         <p>{{- site.description | escape -}}</p>
