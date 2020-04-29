@@ -1,0 +1,28 @@
+<div class="row">
+    {% for item in site.data.navigation %}
+
+
+        <div class="col-lg-4">
+            <div class="bs-component">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{item.title}}</h5>
+                    </div>
+                </a>
+                {% for sub in item.sublinks %}
+                    <!-- {% if sub.title != "separator"%}
+                        {% for pg in site.pages %}
+                            {% if pg.permalink == sub.url %}
+                                {% assign sub_title = pg.title %}
+                            {% endif %}
+                    {% endfor %} -->
+        
+                    <a class="list-group-item list-group-item-action" href="{{sub.url | relative_url}}">{{ sub.title }} </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

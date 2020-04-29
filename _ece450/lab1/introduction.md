@@ -1,8 +1,8 @@
 ---
 layout: labitem
-title: ECE450 Lab 1 #Used for header nav
+title: Lab 1 - blah #Used for header nav
 
-permalink: /ece450/lab1/
+permalink: /ece450/lab1
 course: ece450
 ---
 
