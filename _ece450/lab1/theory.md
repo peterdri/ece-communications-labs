@@ -2,7 +2,7 @@
 layout: labitem
 title: Part 1 - Pulse shaping theory
 
-permalink: /ece450/lab1/pulse-shaping-theory
+permalink: /ece450/lab1/theory
 course: ece450
 prev: /ece450/lab1
 next: /ece450/lab1/square-pulse-shaping

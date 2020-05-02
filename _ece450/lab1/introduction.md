@@ -4,7 +4,7 @@ title: Lab 1 - Pulse shaping and BER measurement
 
 permalink: /ece450/lab1
 course: ece450
-next: /ece450/lab1/pulse-shaping-theory
+next: /ece450/lab1/theory
 ---
 
 In this lab, you will use GNURadio to construct a baseband digital communication system including data source, pulse shaping, AWGN channel, receiver and bit error rate counter.

@@ -44,6 +44,6 @@ Construct the following GRC flowgraph. It is very similar to the square pulse sh
 
 - Using the same method as in the [previous section of the lab]({% link _ece450/lab1/square-pulse-shaping.md %}), find the system delay and apply it. Again, it will differ by computer but mine was around 6.
 
-- Record the BER values for noise amplitudes of 0, 0.25, 0.5, 0.75 and 1.
+- Record the BER values for noise amplitudes of 0, 0.25, 0.5, 0.75 and 1, observe the noisy signal to see whether you can easily read the bitstream.
 
 {% include alert.html title="Deliverable question 3" class="info" content="How do the bit error values compare between square pulses and low pass filtered pulses? What is this attributable to?" %}

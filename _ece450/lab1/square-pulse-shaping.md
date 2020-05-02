@@ -4,7 +4,7 @@ title: Part 2 - Square pulse shaping
 
 permalink: /ece450/lab1/square-pulse-shaping
 course: ece450
-prev: /ece450/lab1/pulse-shaping-theory
+prev: /ece450/lab1/theory
 next: /ece450/lab1/lpf-pulse-shaping
 ---
 
@@ -72,7 +72,8 @@ Construct the following GRC flowgraph.
       __*Delay corrected bitstreams. BER=5%.*__
 
 - Once you have the delay parameter set, you can disable the blocks you used to capture that value. Record the Bit Error Rate for noise amplitudes of 0, 0.25, 0.5, 0.75 and 1. As you record these values, observe the transmitted noisy pulses.
-- Offset the delay by a single sample. Repeat recording the Bit Error Rate for the above four noise amplitudes. 
+
+- Offset the delay by a single sample. Repeat recording the Bit Error Rate for the above four noise amplitudes.
 
 {% include alert.html title="Deliverable question 1" class="info" content="What are the BER values you recorded for the perfectly delayed system? What are the BER values you recorded for the single sample offset system? List them."%}
 
