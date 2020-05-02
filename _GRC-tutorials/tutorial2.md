@@ -72,7 +72,7 @@ In this tutorial you will learn how to:
 
 - Execute the flowgraph. The scope and FFT views should now be visible on separate tabs labeled "Scope" and "Spectrum" respectively.
   
->Note: there are more advanced positional arguments available for within the tabs. For more information refer to the [QT GUI Tab Widget reference page](https://wiki.gnuradio.org/index.php/QT_GUI_Tab_Widget) and the [GUI Hint reference page](https://wiki.gnuradio.org/index.php/GUI_Hint). The GUI Hint can be used without tabs to position GUI elements on the default, untabbed window.
+{% include alert.html title="Note" content="There are more advanced positional arguments available for within the tabs. For more information refer to the [QT GUI Tab Widget reference page](https://wiki.gnuradio.org/index.php/QT_GUI_Tab_Widget) and the [GUI Hint reference page](https://wiki.gnuradio.org/index.php/GUI_Hint). The GUI Hint can be used without tabs to position GUI elements on the default, untabbed window." %}
 
 ## Conclusions
 

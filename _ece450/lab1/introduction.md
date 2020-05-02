@@ -21,3 +21,5 @@ You will learn about:
 ## Deliverables
 
 TBD
+
+{% include alert.html class="danger" title="Note" content="In the ECE 350 labs, flowgraphs were shown to you with all of the block values already set. This made it possible to complete the labs by only copying from pictures. In ECE 450 the flowgraphs presented do not have the block values pre-set. Use the flowgraphs as a guiding point, but you will have to adjust the block parameters depending on their purpose. If you can't figure something out, ask a TA!" %}

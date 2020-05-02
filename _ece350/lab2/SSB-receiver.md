@@ -116,7 +116,8 @@ This is far simpler when operating in the complex domain, as illustrated by the 
   - Add the block between the *File Source* and the *Throttle*.
 
   - Complete the properties window as shown below. The center frequency of 51500 will shift the entire spectrum down by 51500 Hz.
-  > Note: The function indicated in the *Taps* parameter generates the taps for a low pass filter with a gain of 1 (in the pass band), a sampling rate equal to `samp_rate` (256 kHz), a cutoff frequency of 2 kHz and a transition width of 100 Hz.
+
+{% include alert.html title="Note" content="The function indicated in the *Taps* parameter generates the taps for a low pass filter with a gain of 1 (in the pass band), a sampling rate equal to `samp_rate` (256 kHz), a cutoff frequency of 2 kHz and a transition width of 100 Hz." %}
 
   ![part1_freq_xlating_properties.png](./figures/part1_freq_xlating_properties.png)<br>
   __*Frequency Xlating FIR Filter properties dialog.*__
@@ -173,7 +174,7 @@ Once again, this is simpler using complex signals. The highlighted portion of th
   ![part1_weaver-complex-block-diagram-mix2.png](./figures/part1_weaver-complex-block-diagram-mix2.png)<br>
   __*Second frequency shift in the complex domain*__
 
-> Note that no addition is necessary, since the complex multiplication dealt with both the I and the Q streams.
+{% include alert.html title="Note" content="No addition is necessary since the complex multiplication dealt with both the I and the Q streams." %}
 
 - To do this on your flow graph, add a *Multiply* block as well as a *Signal Source* block. Ensure that the *Type* for both is *Complex*.
   - Remembering that the bandwidth for this signal is 3 kHz and we want to shift it off of 0 Hz. This means a shift of 1.5 kHz is necessary. This is a *Lower* Sideband signal (note that the block diagrams above are for *Upper* sideband demodulation), and so you want to shift the signal down by 1500 kHz. Knowing this, set the *Frequency* parameter of the *Signal Source* block appropriately.
@@ -250,7 +251,7 @@ The last demodulator you made was for LSB signals stored in a DAT file. You will
     __*WAV File Source properties dialog.*__
 
   - This WAV file was recorded using the I and Q streams for the R and L channels. By setting the block to have two output channels you will be able to use the full I/Q signal.
-    > Note that we normally would take I to be L and Q to be R, but in this case they are reversed.
+    {% include alert.html title="Note" content="We would normally take I to be L and Q to be R, but in this case they are reversed." %}
 
   - Add a [Float To Complex](https://wiki.gnuradio.org/index.php/Float_To_Complex) block to convert from I and Q to a complex signal.
 

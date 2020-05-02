@@ -82,7 +82,7 @@ You can also click on the magnifying glass (or binoculars, on some operating sys
 
 - The problem with this flowgraph is that although the sample rate is set to 32000, there is no block which enforces this sample rate. Therefore, the flowgraph will consume as much of the computer's resources as it possibly can which can cause the GRC software to lock up. To fix this problem, disconnect the *Signal Source* from the *QT GUI Time Sink* by clicking on the arrow and pressing the Delete key. Expand the *Misc* category and double-click on the [Throttle](https://wiki.gnuradio.org/index.php/Throttle). Connect this block between the *Signal Source* and the *QT GUI Time Sink* (click once on the out port of one block and the in port of the next block).
 
-    > Note: The input and output arrowheads will change to red. This indicates a problem with the flowgraph, in this case, the data types do not match. To fix the problem, double-click the *Throttle* and change the *Type* to *Float*.
+{% include alert.html title="Note" content="The input and output arrowheads will change to red. This indicates a problem with the flowgraph, in this case, the data types do not match. To fix the problem, double-click the *Throttle* and change the *Type* to *Float*." %}
 
     ![tutorial1_signal_source_scope_sink.png](./figures/tutorial1_signal_source_scope_sink.png)<br>
     __*Scope sink flowgraph with a throttle block.*__
@@ -146,7 +146,7 @@ the flowgraph and then execute it.
 
 - Replace the *Add* block with a [Multiply](https://wiki.gnuradio.org/index.php/Multiply) block. What output do you expect from the product of two sinusoids? Confirm your result on the Scope and FFT displays.
 
-    > Note: The other math operations under the *Math Operators* category and experiment with a few to see if the result is as expected.
+{% include alert.html title="Note" content="The other math operations under the *Math Operators* category and experiment with a few to see if the result is as expected." %}
 
 ## Filters
 

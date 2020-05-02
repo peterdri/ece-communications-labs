@@ -39,7 +39,7 @@ Although FLEX can use a variety of modulation schemes, the sync word (marker) is
 - Download [this data file](./data/FLEX_bits.wav). It is already demodulated for you.
 
 - Create a new flowgraph, and use a *WAV File Source* along with a *QT GUI Time Sink* to view the demodulated FSK. You should now see what looks like a digital waveform as shown.
-  > Note: the WAV file was recorded at 48 kHz.
+{% include alert.html title="Note" content="The WAV file was recorded at 48 kHz." %}
 
     ![flex_bits.png](./figures/flex_bits.png)<br>
     __*Demodulated FLEX signal*__
@@ -90,7 +90,7 @@ You are not going to be provided with a detailed walkthrough of how to obtain th
   ![flex_correlation.png](./figures/flex_correlation.png)<br>
   __*Correlation between sync word and data stream*__
 
-  > Note that the above figure is only the plot of the first few seconds. The actual file is much longer.
+  {% include alert.html title="Note" content="The above figure is only the plot of the first few seconds. The actual file is much longer." %}
 
 - You can now visually count the number of sync words by looking at the correlation, and find the spacing between them. If you prefer, this can also be done programatically using peak finding functions like:
   - Matlab: [findpeaks](https://www.mathworks.com/help/signal/ref/findpeaks.html)
@@ -114,7 +114,7 @@ What is the spacing (in ms) between the sync words?
 
 As an additional challenge (this is not a deliverable), try to decode some text. The letters and numbers are not encrypted. Some hints may be found [here](http://scholar.lib.vt.edu/theses/available/etd-10597-161936/unrestricted/THESIS.PDF), on pages 4-11.
 
-  > Note: It is not expected that successful decoding can be completed during the lab period. If you're interested, feel free to approach your TA for help in doing so.
+{% include alert.html title="Note" content="It is not expected that successful decoding can be completed during the lab period. If you're interested, feel free to approach your TA for help in doing so." %}
 
 ---
 

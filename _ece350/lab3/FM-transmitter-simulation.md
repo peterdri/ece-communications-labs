@@ -200,7 +200,7 @@ The integral of a square waveform is a triangular waveform with the same frequen
   ![fmtx_s-of-t-square-fft.png](./figures/fmtx_s-of-t-square-fft.png)<br>
   __*$$ s(t) $$ with default values in frequency domain*__
 
-> Note that the sidebands for FSK with a square wave message (`101010...`) do not follow the Bessel function values as they do for a sine wave message.
+{% include alert.html title="Note" content="The sidebands for FSK with a square wave message (`101010...`) do not follow the Bessel function values as they do for a sine wave message." %}
 
 - Set the sliders back to default values.
 

@@ -136,7 +136,7 @@ What actual pass-band frequency range does this correspond to?
 
 The bandwidth of an AM broadcast signal is 10 kHz (+/- 5 kHz from the carrier frequency). You may find it useful to click the *Stop* button on the FFT plot to see this more clearly.
 
->Note: many stations also include additional information outside of the 10 kHz bandwidth.
+{% include alert.html title="Note" content="many stations also include additional information outside of the 10 kHz bandwidth." %}
 
 In order to select the station at 710 kHz (0 kHz on the FFT display) we need to insert a filter to eliminate all but the one station that we want to receive. This is often referred to as a channel filter. Since the station at 710 kHz has been moved to 0 kHz (in the USRP) we will use a low pass filter. The station bandwidth is 10 kHz, so we will use a low pass filter that cuts off at 5 kHz.
 
@@ -153,11 +153,11 @@ The next step is to demodulate the signal. In the case of AM, the baseband signa
 
 - Insert the [Complex to Mag](https://wiki.gnuradio.org/index.php/Complex_to_Mag) block between the *Low Pass Filter* and the *Throttle*.
 
-  >Note: The titles of some of the blocks are now red and the Execute Flow Graph icon is dimmed. This indicates an error. Prior to adding this block, all of the block inputs and outputs were complex values. However, the output of the *Complex to Mag* block is *Float* (a real number). Thus, any blocks following this block should be Type: Float. **Modify the *Throttle* and *QT GUI Frequency Sink* accordingly**.
+{% include alert.html title="Note" content="The titles of some of the blocks are now red and the Execute Flow Graph icon is dimmed. This indicates an error. Prior to adding this block, all of the block inputs and outputs were complex values. However, the output of the *Complex to Mag* block is *Float* (a real number). Thus, any blocks following this block should be Type: Float. **Modify the *Throttle* and *QT GUI Frequency Sink* accordingly**." %}
 
 - Execute the flow graph. You should now observe the spectrum of the baseband signal.
 
-  >Note: Since the input data type to the *FFT Sink* is Float, only the positive frequency spectrum is displayed.
+{% include alert.html title="Note" content="Since the input data type to the *FFT Sink* is Float, only the positive frequency spectrum is displayed." %}
 
 ### Matching the Audio Sample Rate
 

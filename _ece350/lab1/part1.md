@@ -58,7 +58,7 @@ This lab is a guide to AM signal waveforms. In this part you will learn:
     ![part1_mult_const_properties.png](./figures/part1_mult_const_properties.png)<br>
     __*Multiple const properties properties*__
 
-  >Note that this flowgraph is the graphical form of the modulation waveform, __1+k_a * m(t)__, where __m(t)__ is the *Signal Source* block, 1 is the *Add Const* block, and __k_a__ is the *Multiply Const* block.
+  {% include alert.html title="Note" content="This flowgraph is the graphical form of the modulation waveform, __1+k_a * m(t)__, where __m(t)__ is the *Signal Source* block, 1 is the *Add Const* block, and __k_a__ is the *Multiply Const* block." %}
 
 - When executed, the three plots should look like the following:
 
@@ -109,7 +109,7 @@ Why is the spectrum symmetrical about 0 Hz?
 
 - Execute the flowgraph and after a few seconds kill it. Check that the `.dat` file now exists by browsing your file systems file explorer. You can now disable the *File Sink* block again.
 
-  >Note: if you execute the flowgraph while the *File Sink* block is enabled, and spend time analyzing the scope and frequency plots, it will be writing to file the entire time. Generally if you want to look at the plots for any duration, you should disable the *File Sink* block.
+  {% include alert.html title="Note" content="If you execute the flowgraph while the *File Sink* block is enabled, and spend time analyzing the scope and frequency plots, it will be writing to file the entire time. Generally if you want to look at the plots for any duration, you should disable the *File Sink* block." %}
 
   >A way to regulate the duration a flowgraph runs for is to use the [*Head* block](https://wiki.gnuradio.org/index.php/Head) to limit the number of samples that flow either from the input or into the *File Sink*.  
 

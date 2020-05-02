@@ -34,6 +34,6 @@ as well as four laboratories:
 
 The deliverables are described at the beginning of each section.
 
-> NOTE: You are encouraged to work at your own pace, using the scheduled lab period as a time to get assistance from a TA or the course instructor.
+{% include alert.html title="Note" content="You are encouraged to work at your own pace, using the scheduled lab period as a time to get assistance from a TA or the course instructor." %}
 
 

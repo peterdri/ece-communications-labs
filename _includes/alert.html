@@ -1,0 +1,8 @@
+{% assign alertClass = "primary" %}
+{% if include.class %}
+    {% assign alertClass = include.class %}
+{% endif %}
+<div class="alert alert-{{ alertClass }}">
+    <h5 class="alert-heading">{{include.title}}</h5>
+    <p class="mb-0">{{include.content}}</p>
+</div>
