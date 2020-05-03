@@ -18,7 +18,10 @@ You will implement a communications system using a square pulse for pulse shapin
 
 ## Part 2 deliverables
 
-TBD
+For this section, the deliverables are:
+
+- the answer to one deliverable question,
+- a dataset for later use in this lab.
 
 ---
 
@@ -46,7 +49,7 @@ Construct the following GRC flowgraph.
   - When the input signal transitions from above to below the "Low" threshold, the output becomes a 0.
   - For our input an intelligent starting place would be to have 0.25 and 0.75 as the threshold bounds, but you should set up two *QT GUI Range* blocks to control these values.
 
-- To evaluate the system performance, we can compute the BER of the system by using the *Error Rate* block. This block compares the two input bit streams. The "Window Size" parameter determines the number of samples used for the BER computation. Use a Window Size of 1000 and set the Bits per Symbol to 2.
+- To evaluate the system performance, we can compute the BER of the system by using the *Error Rate* block. This block compares the two input bit streams. The "Window Size" parameter determines the number of samples used for the BER computation. Use a Window Size of 10000 and set the Bits per Symbol to 1.
 
 - The output of the *Error Rate* block is a percentage (from 0 to 1) so set the limits of the *QT GUI Number Sink* to reflect this.
 
@@ -61,7 +64,7 @@ Construct the following GRC flowgraph.
       ![delay-qt-sink-config.png](figures/delay-qt-sink-config.png) <br>
       __*Sink params to make finding the delay grahically a little easier*__
 
-    - When you run the flowgraph you'll likely see an error rate of of between 25 and 50 percent. If you zoom in on the time series plot you'll see that the bitstreams are not aligned. Click "Stop" on the flowgraph so that everything freezes and zoom in, looking for offset patterns in the two streams. Once an offset has been found (as in the figure below), the delay can be adjusted by the correct number of samples. They delay will vary depending on your computer - it was between 12 and 18 for me.
+    - When you run the flowgraph you'll likely see an error rate of of between 25 and 50 percent. If you zoom in on the time series plot you'll see that the bitstreams are not aligned. Click "Stop" on the flowgraph so that everything freezes and zoom in (you will want to enable "Control Panel" in the block settings), looking for offset patterns in the two streams. Once an offset has been found (as in the figure below), the delay can be adjusted by the correct number of samples. They delay will vary depending on your computer - it was between 12 and 18 for me.
 
       ![un-delayed-bitstreams.png](figures/un-delayed-bitstreams.png)<br>
       __*A pattern found in the un-delayed bitstream. The blue bitstream between the blue arrows matches the red bitstream between the red arrows. BER=26%.*__
@@ -71,10 +74,15 @@ Construct the following GRC flowgraph.
       ![delayed-bitstreams.png](figures/delayed-bitstreams.png)<br>
       __*Delay corrected bitstreams. BER=5%.*__
 
-- Once you have the delay parameter set, you can disable the blocks you used to capture that value. Record the Bit Error Rate for noise amplitudes of 0, 0.25, 0.5, 0.75 and 1. As you record these values, observe the transmitted noisy pulses.
+- Once you have the delay parameter set, you can disable the blocks you used to capture that value.
 
-- Offset the delay by a single sample. Repeat recording the Bit Error Rate for the above four noise amplitudes.
+- Now collect a dataset of SNR and BER at noise amplitudes of 0.0, 0.1, 0.2, ... 0.9, 1.0.
+  - The Bit Error Rate can be read off of the *QT GUI Number Sink* output. After changing the noise amplitude, let the BER stabilize before recording it.
+  - To read the SNR, activate the "Control Panel" option in the *QT GUI Frequency Sink* block parameters. Then, while the flowgraph is running, set "Trace Options" to "Max Hold" and make sure the "Avg" slider is set to maximum. This should make it easier to read the signal SNR off of the generated spectrum.
+  - As you record these values, observe the transmitted noisy pulses and the spectrum. Is the spectral shape what you expected?
 
-{% include alert.html title="Deliverable question 1" class="info" content="What are the BER values you recorded for the perfectly delayed system? What are the BER values you recorded for the single sample offset system? List them."%}
+- Offset the delay by a single sample. Check the BER with 0 noise amplitude.
 
-{% include alert.html title="Deliverable question 2" class="info" content="What do you observations suggest about the relative impact on a communications system between a timing offset and noise?"%}
+{% include alert.html title="Deliverable question 1" class="info" content="What do you observations suggest about the relative impact on a communications system between a timing offset and noise?"%}
+
+Review the [section deliverables](#part-2-deliverables) beforing moving on.

@@ -10,13 +10,16 @@ next: /ece450/lab1/rrc-pulse-shaping
 
 ## Objectives
 
-You will implement a communications system using a Low Pass Filter (LPF) for pulse shaping. 
+You will implement a communications system using a Low Pass Filter (LPF) for pulse shaping.
 
 ---
 
 ## Part 3 deliverables
 
-TBD
+For this section, the deliverables are:
+
+- the answer to one deliverable question,
+- a dataset for later use in this lab.
 
 ---
 
@@ -44,6 +47,11 @@ Construct the following GRC flowgraph. It is very similar to the square pulse sh
 
 - Using the same method as in the [previous section of the lab]({% link _ece450/lab1/square-pulse-shaping.md %}), find the system delay and apply it. Again, it will differ by computer but mine was around 6.
 
-- Record the BER values for noise amplitudes of 0, 0.25, 0.5, 0.75 and 1, observe the noisy signal to see whether you can easily read the bitstream.
+- Now collect a dataset of SNR and BER at noise amplitudes of 0.0, 0.1, 0.2, ... 0.9, 1.0.
+  - The Bit Error Rate can be read off of the *QT GUI Number Sink* output. After changing the noise amplitude, let the BER stabilize before recording it.
+  - To read the SNR, activate the "Control Panel" option in the *QT GUI Frequency Sink* block parameters. Then, while the flowgraph is running, set "Trace Options" to "Max Hold" and make sure the "Avg" slider is set to maximum. This should make it easier to read the signal SNR off of the generated spectrum.
+  - As you record these values, observe the transmitted noisy pulses and the spectrum. Are you able to read the bitstream off of the received waveform? At which SNR can you no longer do this?
 
-{% include alert.html title="Deliverable question 3" class="info" content="How do the bit error values compare between square pulses and low pass filtered pulses? What is this attributable to?" %}
+{% include alert.html title="Deliverable question 2" class="info" content="How do the bit error values compare between square pulses and low pass filtered pulses? What is this attributable to?" %}
+
+Review the [section deliverables](#part-3-deliverables) beforing moving on.

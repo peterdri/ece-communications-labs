@@ -10,13 +10,16 @@ next: /ece450/lab1/BER-calculation
 
 ## Objectives
 
-You will implement a communications system using a Root Raised Cosine (RRC) filter for pulse shaping. 
+You will implement a communications system using a Root Raised Cosine (RRC) filter for pulse shaping.
 
 ---
 
 ## Part 4 deliverables
 
-TBD
+For this section, the deliverables are:
+
+- the answer to two deliverable questions,
+- a dataset for later use in this lab.
 
 ---
 
@@ -38,6 +41,15 @@ Construct the following GRC flowgraph. It is very similar to the previous pulse 
 
 - The delay can be found as before. For me it was 500 samples with the above listed filter parameters.
 
-- Note the added *QT GUI Frequency Sink* block. You will use it with "Trace hold" set to "Max" to measure the SNR of the received noisy signal.
+- Now collect a dataset of SNR and BER at noise amplitudes of 0.0, 0.1, 0.2, ... 0.9, 1.0.
+  - The Bit Error Rate can be read off of the *QT GUI Number Sink* output. After changing the noise amplitude, let the BER stabilize before recording it.
+  - To read the SNR, activate the "Control Panel" option in the *QT GUI Frequency Sink* block parameters. Then, while the flowgraph is running, set "Trace Options" to "Max Hold" and make sure the "Avg" slider is set to maximum. This should make it easier to read the signal SNR off of the generated spectrum.
+  - As you record these values, observe the transmitted noisy pulses and the spectrum. How does the spectral shape compare with the LPF version?
 
-- Record the BER values for noise amplitudes of 0, 0.25, 0.5, 0.75 and 1. Observe the transmitted noisy pulses to see whether you're able to visually read off the bitstream.
+- Change the noise amplitude back to 0 and offset the delay value by 1.
+
+{% include alert.html title="Deliverable question 3" class="info" content="Consider the time domain shape (impulse response) of the root raised cosine filter. In an ideal system, RRC filters have zero-ISI (inter-symbol interference). Why is this? It may help your understanding to draw multiple pulses `[1, 1, 1]` next to each other." %}
+
+{% include alert.html title="Deliverable question 4" class="info" content="Consider the relative impact of noise versus a timing offset on the system. Does the RRC filter fare any better than the square pulses did with an offset of 1 sample?" %}
+
+Review the [section deliverables](#part-4-deliverables) beforing moving on.

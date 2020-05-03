@@ -10,13 +10,17 @@ next: /ece450/lab1/conclusion
 
 ## Objectives
 
-You will implement a communications system using a Root Raised Cosine (RRC) filter for pulse shaping. 
+You will use the values recorded for each pulse shape to plot a BER-SNR curve.
 
 ---
 
 ## Part 5 deliverables
 
-TBD
+For this section, the deliverables are:
+
+- the answer to one deliverable question,
+- the code used to generate the BER curve (with the dataset hard coded into it),
+- the resulting BER curve as a .PNG image file.
 
 ---
 
@@ -24,11 +28,17 @@ TBD
 
 Using the values collected throughout this lab you can now generate a BER curve.
 
-### Calculating SNR
+You can use a programming language of your choice, but python or matlab have some handy tools for this job built in.
 
-- Remember from the textbook section 3.1.3.4 that the average power of zero-mean white noise is the variance [1].
-- Remember that the amplitude of the noise generated using the 
+The plot should have:
 
-## References:
+- a log scale on the y-axis
+- a linear scale on the x-axis
+- appropriate axes titles
+- a legend (one entry for each of "Square", "LPF", "RRC")
 
-[1] Sklar, B., & Ray, P. K. (2013). Digital Communications: Fundamentals and Applications (2nd ed.). Pearson. https://doi.org/10.1201/9781420049763.ch70
+A sample of what it might look like is included below (without labelling elements). **This sample had some curve-fitting/interpolation done to it which you do not need to do.**
+
+{% include alert.html title="Deliverable question 5" class="info" content="Provide insight into your results. What does the BER curve tell you about these pulse-shaping options?" %}
+
+Review the [section deliverables](#part-5-deliverables) beforing moving on.
