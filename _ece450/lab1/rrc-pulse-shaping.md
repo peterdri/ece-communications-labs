@@ -5,7 +5,7 @@ title: Part 4 - RRC pulse shaping
 permalink: /ece450/lab1/rrc-pulse-shaping
 course: ece450
 prev: /ece450/lab1/lpf-pulse-shaping
-next: /ece450/lab1/BER-calculation
+next: /ece450/lab1/calculating-ber
 ---
 
 ## Objectives

@@ -39,6 +39,9 @@ The plot should have:
 
 A sample of what it might look like is included below (without labelling elements). **This sample had some curve-fitting/interpolation done to it which you do not need to do.**
 
+  ![BER-curve.png](figures/BER-curve.png) <br>
+  __*Sample BER curve*__
+
 {% include alert.html title="Deliverable question 5" class="info" content="Provide insight into your results. What does the BER curve tell you about these pulse-shaping options?" %}
 
 Review the [section deliverables](#part-5-deliverables) beforing moving on.
