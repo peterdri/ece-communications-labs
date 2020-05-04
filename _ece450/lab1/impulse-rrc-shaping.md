@@ -1,10 +1,10 @@
 ---
 layout: labitem
-title: Part 4 - RRC pulse shaping
+title: Part 3 - RRC pulse shaping
 
-permalink: /ece450/lab1/rrc-pulse-shaping
+permalink: /ece450/lab1/impulse-rrc-shaping
 course: ece450
-prev: /ece450/lab1/lpf-pulse-shaping
+prev: /ece450/lab1/impulse-lpf-shaping
 next: /ece450/lab1/calculating-ber
 ---
 
@@ -14,7 +14,7 @@ You will implement a communications system using a Root Raised Cosine (RRC) filt
 
 ---
 
-## Part 4 deliverables
+## Part 3 deliverables
 
 For this section, the deliverables are:
 
@@ -27,7 +27,7 @@ For this section, the deliverables are:
 
 Construct the following GRC flowgraph. It is very similar to the previous pulse shaping flowgraphs. You can "File>Save As" in GRC in order to not begin from scratch again.
 
-  ![rrc-pulse-blank-flowgraph.png](figures/rrc-pulse-blank-flowgraph.png) <br>
+  ![impulses-rrc-blank-flowgraph.png](figures/impulses-rrc-blank-flowgraph.png) <br>
   __*Blank RRC pulse shaping flowgraph*__
 
 - The receiver chain is unchanged from the LPF version.
@@ -39,7 +39,7 @@ Construct the following GRC flowgraph. It is very similar to the previous pulse 
   - The interpolation factor is the same as for the previous pulse-shaping methods (and for all pulse shaping methods it is the number of samples per pulse when coming from a bit stream to a waveform).
   - The gain can be found in the same way as with the LPF pulse shaping. Measure the amplitude and set the gain such that the shaped pulses are 1 or 0.
 
-- The delay can be found as before. For me it was 500 samples with the above listed filter parameters.
+- The delay can be found as before. It is 500 samples with the above listed filter parameters.
 
 - Now collect a dataset of SNR and BER at noise amplitudes of 0.0, 0.1, 0.2, ... 0.9, 1.0.
   - The Bit Error Rate can be read off of the *QT GUI Number Sink* output. After changing the noise amplitude, let the BER stabilize before recording it.
@@ -48,8 +48,8 @@ Construct the following GRC flowgraph. It is very similar to the previous pulse 
 
 - Change the noise amplitude back to 0 and offset the delay value by 1.
 
-{% include alert.html title="Deliverable question 3" class="info" content="Consider the time domain shape (impulse response) of the root raised cosine filter. In an ideal system, RRC filters have zero-ISI (inter-symbol interference). Why is this? It may help your understanding to draw multiple pulses `[1, 1, 1]` next to each other." %}
+{% include alert.html title="Deliverable question 2" class="info" content="Consider the time domain shape (impulse response) of the root raised cosine filter. In an ideal system, RRC filters have zero-ISI (inter-symbol interference). Why is this? It may help your understanding to draw multiple pulses `[1, 1, 1]` next to each other." %}
 
-{% include alert.html title="Deliverable question 4" class="info" content="Consider the relative impact of noise versus a timing offset on the system. Does the RRC filter fare any better than the square pulses did with an offset of 1 sample?" %}
+{% include alert.html title="Deliverable question 3" class="info" content="Consider the relative impact of noise versus a timing offset on the system. Does the RRC filter fare any better than the square pulses did with an offset of 1 sample?" %}
 
-Review the [section deliverables](#part-4-deliverables) beforing moving on.
+Review the [section deliverables](#part-3-deliverables) beforing moving on.

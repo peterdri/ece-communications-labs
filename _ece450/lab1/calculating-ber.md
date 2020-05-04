@@ -1,16 +1,16 @@
 ---
 layout: labitem
-title: Part 5 - Calculating BER
+title: Part 4 - Calculating BER
 
 permalink: /ece450/lab1/calculating-ber
 course: ece450
-prev: /ece450/lab1/rrc-pulse-shaping
+prev: /ece450/lab1/impulse-rrc-shaping
 next: /ece450/lab1/conclusion
 ---
 
 ## Objectives
 
-You will use the values recorded for each pulse shape to plot a BER-SNR curve.
+You will use the values recorded for each pulse shape to plot a BER-SNR curve and then compare it with theory.
 
 ---
 
