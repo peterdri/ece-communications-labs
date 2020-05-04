@@ -2,17 +2,15 @@
 layout: labitem
 title: Part 2 - Square pulse shaping
 
-permalink: /ece450/lab1/square-pulse-shaping
+permalink: /ece450/lab1/square-pulse-lpf-shaping
 course: ece450
 prev: /ece450/lab1/theory
-next: /ece450/lab1/lpf-pulse-shaping
+next: /ece450/lab1/impulse-lpf-shaping
 ---
 
 ## Objectives
 
-You will implement a communications system using a square pulse for pulse shaping.
-
-<!-- TODO check under "Lab instructions" heading -->
+You will implement a communications system using square pulses for the input and a LPF (low pass filter) for pulse shaping.
 
 ---
 

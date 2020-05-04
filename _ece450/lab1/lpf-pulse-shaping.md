@@ -2,9 +2,9 @@
 layout: labitem
 title: Part 3 - LPF pulse shaping
 
-permalink: /ece450/lab1/lpf-pulse-shaping
+permalink: /ece450/lab1/impulse-lpf-shaping
 course: ece450
-prev: /ece450/lab1/square-pulse-shaping
+prev: /ece450/lab1/square-pulse-lpf-shaping
 next: /ece450/lab1/rrc-pulse-shaping
 ---
 
