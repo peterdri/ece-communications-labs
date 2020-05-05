@@ -18,7 +18,7 @@ You will use the values recorded for each pulse shape to plot a BER-SNR curve an
 
 For this section, the deliverables are:
 
-- the answer to one deliverable question,
+- the answer to two deliverable questions,
 - the code used to generate the BER curve (with the dataset hard coded into it),
 - the resulting BER curve as a .PNG image file.
 
@@ -35,13 +35,16 @@ The plot should have:
 - a log scale on the y-axis
 - a linear scale on the x-axis
 - appropriate axes titles
-- a legend (one entry for each of "Square", "LPF", "RRC")
+- a legend (one entry for each of: "LPF", "RRC", "Theory")
 
 A sample of what it might look like is included below (without labelling elements). **This sample had some curve-fitting/interpolation done to it which you do not need to do.**
 
   ![BER-curve.png](figures/BER-curve.png) <br>
   __*Sample BER curve*__
 
-{% include alert.html title="Deliverable question 5" class="info" content="Provide insight into your results. What does the BER curve tell you about these pulse-shaping options?" %}
+{% include alert.html title="Deliverable question 4" class="info" content="Provide insight into your results. What does the BER curve tell you about these pulse-shaping options?" %}
 
-Review the [section deliverables](#part-5-deliverables) beforing moving on.
+{% include alert.html title="Deliverable question 5" class="info" content="How similar are the LPF and RRC curves? If there is any difference, what causes it? _Hint: consider the energy per bit and how you controlled that in these flowgraphs._" %}
+
+
+Review the [section deliverables](#part-4-deliverables) beforing moving on.

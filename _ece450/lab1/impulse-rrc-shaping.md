@@ -18,7 +18,7 @@ You will implement a communications system using a Root Raised Cosine (RRC) filt
 
 For this section, the deliverables are:
 
-- the answer to two deliverable questions,
+- the answers to two deliverable questions,
 - a dataset for later use in this lab.
 
 ---
@@ -33,6 +33,7 @@ Construct the following GRC flowgraph. It is very similar to the previous pulse 
 - The receiver chain is unchanged from the LPF version.
 
 - The tranmitter chain is now pulse shaping with a *Root Raised Cosine Filter* block.
+  - The filter is of type "Float->Float (Interpolating)".
   - The filter roll-off factor ($$\alpha$$) indirectly specifies the bandwidth of the filter. Set $$\alpha=0.35$$.
   - An ideal RRC filter has an infinite number of taps but in practice must be windowed. Set the number of taps to the sampling rate.
   - The symbol rate is the pulse rate (considering we're operating a random source with one bit per symbol).
