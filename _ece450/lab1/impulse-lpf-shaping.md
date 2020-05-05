@@ -27,7 +27,7 @@ For this section, the deliverables are:
 
 Construct the following GRC flowgraph.
 
-  ![impulses-lpf-blank-flowgraph.png](figures/impulses-lpf-blank-flowgraph.png) <br>
+  ![impulses-lpf-blank-flowgraph.png](figures/impulses-lpf-blank-flowgraph.png)
   __*Blank impulse LPF shaping flowgraph*__
 
 - The `samp_rate` has been changed to 100 kHz and a `pulse_rate` variable added (at 1 kHz).
@@ -63,10 +63,10 @@ Construct the following GRC flowgraph.
 
 - Test the system by running it. Observe the time sink connected to the end of the receiver chain (below). Notice that the waveform amplitude is very low at the output of the filter. Find the amplitude of the pulse peaks and then change the "Gain" parameter in the *Low Pass Filter* block such that the waveform pulses peak at 1.
 
-    ![lpf-no-gain.png](figures/lpf-no-gain.png) <br>
+    ![lpf-no-gain.png](figures/lpf-no-gain.png)
     __*Output of LPF before gain is applied.*__
 
-    ![lpf-with-gain.png](figures/lpf-with-gain.png) <br>
+    ![lpf-with-gain.png](figures/lpf-with-gain.png)
     __*Output of LPF with the appropriate gain applied.*__
 
 ### Correcting timing offsets
@@ -80,17 +80,17 @@ Because the "received" bitstream is processed by more blocks before feeding into
   - Add a *QT GUI Time Sink* with two float inputs: one directly from the shift register source and one from the output of the threshold block (you will need a *Char To Float* block in there too).
   - It is helpful to configure the sink plot so that there are markers. This is helpful considering both inputs are bitstreams, which we want to align.
 
-      ![delay-qt-sink-config.png](figures/delay-qt-sink-config.png) <br>
+      ![delay-qt-sink-config.png](figures/delay-qt-sink-config.png)
       __*Sink params to make finding the delay grahically a little easier*__
 
     - When you run the flowgraph you'll likely see an error rate of near 50 percent. If you zoom in on the time series plot you'll see that the bitstreams are not aligned. Click "Stop" on the flowgraph so that everything freezes and zoom in (you will want to enable "Control Panel" in the block settings), looking for offset patterns in the two streams. Once an offset has been found (as in the figure below), the delay can be adjusted by the correct number of samples. The delay is mostly dependent on the length of the filter taps on use. For this system, the delay is greater than 0 samples and less than 10 samples.
 
-      ![un-delayed-bitstreams.png](figures/un-delayed-bitstreams.png)<br>
+      ![un-delayed-bitstreams.png](figures/un-delayed-bitstreams.png)
       __*A pattern found in the un-delayed bitstream. The blue bitstream between the blue arrows matches the red bitstream between the red arrows. BER=50%.*__
 
     - You will know you have the correct delay when your error rate drops to 0.
 
-      ![delayed-bitstreams.png](figures/delayed-bitstreams.png)<br>
+      ![delayed-bitstreams.png](figures/delayed-bitstreams.png)
       __*Delay corrected bitstreams. BER=0%.*__
 
 - Once you have the delay parameter set, you can disable the blocks you used to capture that value.

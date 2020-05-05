@@ -17,7 +17,7 @@ The theory for pulse shaping is covered in the [ECE 350 textbook]({{site.baseurl
 
 In order to practice pulse-shaping, it is convenient to have a random data source, with an equal number of logic 1s and 0s, or an equal number of positive and negative pulses. This can be achieved with a so-called linear feedback shift register (LFSR).
 
-  ![lfsr.png](./figures/lfsr.png) <br>
+  ![lfsr.png](./figures/lfsr.png)
   __*Linear feedback shift register*__
 
 At each time step (symbol time) $$T$$, the input on the left is determined by the XOR gate output and all the bits slide along one step and the output is the bit on the right. If the feedback shift register is of length $$M$$ and the feedback taps (XOR gates) are selected correctly, the output sequence will have length $$2^M -1$$ before it repeats.
@@ -57,7 +57,7 @@ The resulting message is written,
 
 The impulse (left) and frequency (right) responses of an RC filter are below. The impulse response is a sinc shape extending for a time usually truncated to $$6T$$ as shown.
 
-  ![RC-impulse.png](./figures/Raised-cosine-impulse.png)![RC-freq.png](./figures/Raised-cosine_filter.png) <br>
+  ![RC-impulse.png](./figures/Raised-cosine-impulse.png)![RC-freq.png](./figures/Raised-cosine_filter.png)
   __*Raised cosine impulse (left) and frequency (right) responses for various $$\beta$$ values [(By Krishnavedala - Own work, CC BY-SA 3.0)](https://commons.wikimedia.org/w/index.php?curid=15390895)*__
 
 ### Pulse shaping using a Root Raised Cosine (RRC) filter

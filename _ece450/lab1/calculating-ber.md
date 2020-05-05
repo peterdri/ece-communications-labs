@@ -41,7 +41,7 @@ For generating a simulated curve of the theoretical $$BER-\frac{E_b}{N_0}$$ revi
 
 A sample of what it might look like is included below (without labelling elements). **This sample had some curve-fitting/interpolation done to it which you do not need to do.**
 
-  ![BER-curve.png](figures/BER-curve.png) <br>
+  ![BER-curve.png](figures/BER-curve.png)
   __*Sample BER curve*__
 
 {% include alert.html title="Deliverable question 4" class="info" content="Provide insight into your results. What does the BER curve tell you about these pulse-shaping options?" %}
