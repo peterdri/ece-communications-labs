@@ -66,6 +66,24 @@ A receiver is optimum if the receiver filter matches the transmit filter. Thus w
 
 With a suitable low pass filter or RRC filter, the received data at sampling times $$ t=kT + \epsilon $$ is $$A_k \pm 1$$ (real) where $$\epsilon$$ is adjusted to sample in the middle of the pulse $$p(t)$$. $$\epsilon$$ is a timing offset to sample the data away from the transitions between different bits. This timing offset can be fixed manually. In practical systems, a timing recovery circuit is used to determine the timing offset automatically.
 
+## BER curves
+
+Is is standard to measure the performance of channels and modulation techniques using a $$BER-\frac{E_b}{N_0}$$ curve. This is closely related to the $$BER-SNR$$ curve as $$SNR = \frac{E_b}{N_0}\frac{f_b}{f_s}$$ (all in linear terms). This can be intuitively understood since the numerator is the total power of the received signal (energy-per-bit multiplied with the bit rate) while the denominator is the total noise power in the channel (noise power in 1 Hz multiplied with the number of Hz in the channel).
+
+For BPSK the function relating BER with SNR is,
+
+$$
+BER = Q\left( \sqrt{2\frac{E_b}{N_0}} \right) \text{all linear terms}
+$$
+
+where $$Q$$ is the Q-function (or gaussian survival function). Considering the relation between $$SNR$$ and $$\frac{E_b}{N_0} the above can be rewritten as
+
+$$
+BER = Q\left( \sqrt{2 \times SNR \times \frac{f_s}{f_b}} \right) \text{all linear terms}.
+$$
+
+So by measuring the SNR of a BPSK signal and knowing the sampling and pulse rates of the system you can generate a BER curve.
+
 ## Theory summary
 
 Pulse shaping can be done in multiple ways. Above, three methods are considered:
@@ -73,3 +91,5 @@ Pulse shaping can be done in multiple ways. Above, three methods are considered:
 1. Generate square pulses and LPF, often used in analog systems,
 2. Generate impulses and LPF with time domain an FIR or IIR filter,
 3. Generate impulses and filter with a frequency domain RRC filter.
+
+BER can be calculated by measuring the SNR of a signal and knowing the sampling and data rates of the communications link.
