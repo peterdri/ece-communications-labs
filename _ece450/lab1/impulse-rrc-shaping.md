@@ -30,8 +30,6 @@ Construct the following GRC flowgraph. It is very similar to the previous pulse 
   ![impulses-rrc-blank-flowgraph.png](figures/impulses-rrc-blank-flowgraph.png)
   __*Blank RRC pulse shaping flowgraph*__
 
-- The receiver chain is unchanged from the LPF version.
-
 - The tranmitter chain is now pulse shaping with a *Root Raised Cosine Filter* block.
   - The filter is of type "Float->Float (Interpolating)".
   - The filter roll-off factor ($$\alpha$$) indirectly specifies the bandwidth of the filter. Set $$\alpha=0.35$$.
@@ -40,7 +38,13 @@ Construct the following GRC flowgraph. It is very similar to the previous pulse 
   - The interpolation factor is the same as for the previous pulse-shaping methods (and for all pulse shaping methods it is the number of samples per pulse when coming from a bit stream to a waveform).
   - The gain can be found in the same way as with the LPF pulse shaping. Measure the amplitude and set the gain such that the shaped pulses are 1 or 0.
 
-- The delay can be found as before. It is 500 samples with the above listed filter parameters.
+- The receiver chain is now using a matching *Root Raised Cosine Filter* to obtain a final pulse shape that is a raised cosine (review [the theory section]({% link _ece450/lab1/theory.md %})).
+  - The filter is of type "Float->Float (Decimating)"
+  - Set the number of taps to the sampling rate.
+  - Set the symbol rate and decimation rates appropriately.
+  - Do not change the gain, the AGC is managing this afterwards.
+
+- The delay can be found as before. It is 1000 samples with the above listed filter parameters.
 
 - Now collect a dataset of SNR and BER at noise amplitudes of 0.0, 0.1, 0.2, ... 0.9, 1.0.
   - The Bit Error Rate can be read off of the *QT GUI Number Sink* output. After changing the noise amplitude, let the BER stabilize before recording it.

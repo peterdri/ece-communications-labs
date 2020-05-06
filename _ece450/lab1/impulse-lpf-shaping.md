@@ -42,7 +42,7 @@ Construct the following GRC flowgraph.
   - The "FIR Type" should be "Float->Float (Interpolating)",
   - the cutoff frequency has to capture the message frequency, so setting it to twice the pulse rate (`pulse_rate*2`) provides some wiggle room in the filter passband.
 
-- The WGN (White Gaussian Noise) is controlled by a *QT GUI Range* block. The "Amplitude" here indicates the noise standard deviation which be used for estimating the noise power. The noise power of pure White Gaussian noise is the variance of the distribution (considering that our distribution is zero-mean).
+- The WGN (White Gaussian Noise) is controlled by a *QT GUI Range* block. The "Amplitude" here indicates the noise standard deviation which be used for estimating the noise power. The noise power of pure White Gaussian noise is the variance of the distribution (text section 3.1.3.4).
 
 - The *Virtual Sink* and *Virtual Source* blocks can be considered as connected by an "invisible" line on the flowgraph. They can be used for more complex tasks, but here they just keep the flowgraph from being criss-crossed with lines. They are also used to simulate a "transmitter" and "receiver". In this case the *Virtual Sink* transmits the noisy baseband waveform while the *Virtual Source* receives it.
 
@@ -55,9 +55,9 @@ Construct the following GRC flowgraph.
   - When the input signal transitions from above to below the "Low" threshold, the output becomes a 0.
   - For our input an intelligent starting place would be to have 0.25 and 0.75 as the threshold bounds, but you should set up two *QT GUI Range* blocks to control these values.
 
-- To evaluate the system performance, we can compute the BER of the system by using the *Error Rate* block. This block compares the two input bit streams. The "Window Size" parameter determines the number of samples used for the BER computation. Use a Window Size of 1000000 and set the Bits per Symbol to 1.
+- To evaluate the system performance, we can compute the BER of the system by using the *Error Rate* block. This block compares the two input bit streams. The "Window Size" parameter determines the number of samples used for the BER computation. Use a Window Size of 10000000 and set the Bits per Symbol to 1.
 
-{% include alert.html title="Note" content="Ensure the Window Size is at least 1 million samples, if your computer is able, increase this number as much as you can. This directly impacts the resolution of your BER measurements. The larger the window, the more accurate the measurement!" %}
+{% include alert.html title="Note" content="Ensure the Window Size is at least 10 million samples, if your computer is able, increase this number as much as you can. This directly impacts the resolution of your BER measurements. The larger the window, the more accurate the measurement!" %}
 
 - The output of the *Error Rate* block is a percentage (from 0 to 1) so set the limits of the *QT GUI Number Sink* to reflect this.
 
@@ -95,12 +95,14 @@ Because the "received" bitstream is processed by more blocks before feeding into
 
 - Once you have the delay parameter set, you can disable the blocks you used to capture that value.
 
-- Now collect a dataset of SNR and BER at noise amplitudes of 0.0, 0.1, 0.2, ... 0.9, 1.0.
+<!-- - Now collect a dataset of SNR and BER at noise amplitudes of 0.0, 0.1, 0.2, ... 0.9, 1.0.
   - The Bit Error Rate can be read off of the *QT GUI Number Sink* output. After changing the noise amplitude, let the BER stabilize before recording it. Record it to as many decimal places as you feel confident about.
   - To read the SNR, activate the "Control Panel" option in the *QT GUI Frequency Sink* block parameters. Then, while the flowgraph is running, set "Trace Options" to "Max Hold" and make sure the "Avg" slider is set to maximum. This should make it easier to read the signal SNR off of the generated spectrum.
-  - As you record these values, observe the transmitted noisy pulses and the spectrum. Is the spectral shape what you expected?
+  - As you record these values, observe the transmitted noisy pulses and the spectrum. Is the spectral shape what you expected? -->
 
-- Offset the delay by a single sample. Check the BER with 0 noise amplitude.
+- Record the BER rate at SNRs of 60 dB, 30 dB and 10 dB.
+
+- Offset the delay by a single sample. Check the BER with no added noise.
 
 {% include alert.html title="Deliverable question 1" class="info" content="What do your observations suggest about the relative impact on a communications system between a timing offset and noise?"%}
 
