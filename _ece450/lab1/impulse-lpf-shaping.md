@@ -42,6 +42,8 @@ Construct the following GRC flowgraph.
   - The "FIR Type" should be "Float->Float (Interpolating)",
   - the cutoff frequency has to capture the message frequency, so setting it to twice the pulse rate (`pulse_rate*2`) provides some wiggle room in the filter passband.
 
+- Before adding noise the the signal, we want to measure the signal power so we use a *Multiply* block with both inputs being the signal. This gives us instantaneous power ($$s^2(t)$$) for later computing $$\frac{E_b}{N_0}$$. Set the length of the moving average filter to 1000000 (1M) and the scale to the inverse (the scale must be 1/Length in order to computer the actual moving average instead of a moving sum).
+
 - The WGN (White Gaussian Noise) is controlled by a *QT GUI Range* block. The "Amplitude" here indicates the noise standard deviation which be used for estimating the noise power. The noise power of pure White Gaussian noise is the variance of the distribution (text section 3.1.3.4).
 
 - The *Virtual Sink* and *Virtual Source* blocks can be considered as connected by an "invisible" line on the flowgraph. They can be used for more complex tasks, but here they just keep the flowgraph from being criss-crossed with lines. They are also used to simulate a "transmitter" and "receiver". In this case the *Virtual Sink* transmits the noisy baseband waveform while the *Virtual Source* receives it.
@@ -55,7 +57,7 @@ Construct the following GRC flowgraph.
   - When the input signal transitions from above to below the "Low" threshold, the output becomes a 0.
   - For our input an intelligent starting place would be to have 0.25 and 0.75 as the threshold bounds, but you should set up two *QT GUI Range* blocks to control these values.
 
-- To evaluate the system performance, we can compute the BER of the system by using the *Error Rate* block. This block compares the two input bit streams. The "Window Size" parameter determines the number of samples used for the BER computation. Use a Window Size of 10000000 and set the Bits per Symbol to 1.
+- To evaluate the system performance, we can compute the BER of the system by using the *Error Rate* block. This block compares the two input bit streams. The "Window Size" parameter determines the number of samples used for the BER computation. Use a Window Size of 10000000 (10M) and set the Bits per Symbol to 1 (since this is a BPSK signal).
 
 {% include alert.html title="Note" content="Ensure the Window Size is at least 10 million samples, if your computer is able, increase this number as much as you can. This directly impacts the resolution of your BER measurements. The larger the window, the more accurate the measurement!" %}
 
@@ -95,12 +97,7 @@ Because the "received" bitstream is processed by more blocks before feeding into
 
 - Once you have the delay parameter set, you can disable the blocks you used to capture that value.
 
-<!-- - Now collect a dataset of SNR and BER at noise amplitudes of 0.0, 0.1, 0.2, ... 0.9, 1.0.
-  - The Bit Error Rate can be read off of the *QT GUI Number Sink* output. After changing the noise amplitude, let the BER stabilize before recording it. Record it to as many decimal places as you feel confident about.
-  - To read the SNR, activate the "Control Panel" option in the *QT GUI Frequency Sink* block parameters. Then, while the flowgraph is running, set "Trace Options" to "Max Hold" and make sure the "Avg" slider is set to maximum. This should make it easier to read the signal SNR off of the generated spectrum.
-  - As you record these values, observe the transmitted noisy pulses and the spectrum. Is the spectral shape what you expected? -->
-
-- Record the BER rate at SNRs of 60 dB, 30 dB and 10 dB.
+- Record the BER rate at noise powers of 0.1, 0.5 and 1.
 
 - Offset the delay by a single sample. Check the BER with no added noise.
 

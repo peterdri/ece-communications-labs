@@ -22,7 +22,7 @@ You will learn about:
 
 In this lab there are the following deliverables:
 
-- a single page of answers to the deliverable questions laid out in the lab. In this lab there are 5 of them. They are all highlighted and labelled with their respective question numbers. Each question will require some thought and should be answered concisely with 1 to 2 sentences of text and perhaps an accompanying figure.
+- a single page of answers to the deliverable questions laid out in the lab. In this lab there are 6 of them. They are all highlighted and labelled with their respective question numbers. Each question will require some thought and should be answered concisely with 1 to 2 sentences of text and perhaps an accompanying figure.
 - a short code you write to generate a BER versus SNR curve
 - your final BER versus SNR curve figure
 
