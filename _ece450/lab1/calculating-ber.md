@@ -41,7 +41,7 @@ For generating a simulated curve of the theoretical $$BER-\frac{E_b}{N_0}$$ revi
 
 A sample of what it might look like is included below (without labelling elements).
 
-  ![BER-curve.png](figures/BER-curve.png)
+  ![BER-curve.png](figures/BER-curve.png)<br>
   __*Sample BER curve*__
 
 {% include alert.html title="Deliverable question 5" class="info" content="Provide insight into your results. What does the BER curve tell you about your communication system?" %}

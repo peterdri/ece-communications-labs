@@ -27,7 +27,7 @@ For this section, the deliverables are:
 
 Construct the following GRC flowgraph. It is very similar to the previous pulse shaping flowgraphs. You can "File>Save As" in GRC in order to not begin from scratch again.
 
-  ![impulses-rrc-blank-flowgraph.png](figures/impulses-rrc-blank-flowgraph.png)
+  ![impulses-rrc-blank-flowgraph.png](figures/impulses-rrc-blank-flowgraph.png)<br>
   __*Blank RRC pulse shaping flowgraph*__
 
 - The tranmitter chain is now pulse shaping with a *Root Raised Cosine Filter* block.
