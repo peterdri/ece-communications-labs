@@ -11,7 +11,7 @@ next: /ece450/lab1/impulse-lpf-shaping
 
 The theory for this lab is covered in the textbook "Digital Communications: Fundamentals and Applications", 2nd edition, by Bernard Sklar [1]. The text section numbers referenced below are from it. 
 
-## 1.1 GLFSR data source (text section 12.2.2)
+## GLFSR data source (section 12.2.2)
 
 In order to practice pulse-shaping, it is convenient to have a random data source, with an equal number of logic 1s and 0s, or an equal number of positive and negative pulses. This can be achieved with a so-called linear feedback shift register (LFSR).
 
@@ -20,7 +20,7 @@ In order to practice pulse-shaping, it is convenient to have a random data sourc
 
 At each time step (symbol time) $$T$$, the input on the left is determined by the XOR gate output and all the bits slide along one step and the output is the bit on the right. If the feedback shift register is of length $$M$$ and the feedback taps (XOR gates) are selected correctly, the output sequence will have length $$2^M -1$$ before it repeats.
 
-## 1.2 Creating a waveform from a bitstream (text section 1.2.5)
+## Creating a waveform from a bitstream (section 1.2.5)
 
 Given a bitstream input, a sampling frequency $$f_s$$ and symbol time $$T$$, there must be $$f_sT$$ samples per symbol in the waveform to be transmitted. This can be:
 
@@ -33,7 +33,7 @@ Given a square pulse shape, for a sampling frequency $$f_s$$ and symbol time $$T
 
 {% include alert.html title="Note" content="The symbol time is also referred to as the symbol length. The inverse is the symbol rate or pulse rate." %}
 
-## 1.3 Pulse shaping (text sections 1.1.2, 3.3.1)
+## Pulse shaping (sections 1.1.2, 3.3.1)
 
 When transmitting a signal, there are two reasons to pulse shape the squares or impulses of the newly interpolated or repeated bitstream:
 
@@ -44,13 +44,13 @@ Consider the data sequence from above represented by the sequence of impulses. T
 
 The filter coefficients of the FIR filter will be the pulse shape, $$p(t)$$ sampled at $$f_s$$. $$p(t)$$ can be any shape such as the options described below.
 
-### 1.3.1 Using a LPF
+### Using a LPF
 
 In order to smooth the waveform a low pass filter with some pulse shaping window like a Hamming window can be used.
 
 For the Nyquist criterion to be satisfied, the highest frequency in the datastream is $$\frac{f_s}{2} = \frac{1}{2T}$$. It follows that a square pulse or impulse can be low pass filtered at this frequency and retain all of the information in the binary data sequence which will be received/transmitted at that sampling frequency.
 
-### 1.3.2 Using a Raised Cosine (RC) filter (text sections 3.3.1.2)
+### Using a Raised Cosine (RC) filter (section 3.3.1.2)
 
 Pulse shaping windows can also be longer than the symbol length, for example a raised cosine pulse:
 
@@ -69,7 +69,7 @@ where $$r$$ is the roll-off factor (a measure of bandwidth beyond the Nyquist ba
 
 The RC filter is ideal in that at sampling times $$nT~\forall~n~\in~\mathbb{Z}$$, it is zero-ISI. This can be seen in the figure above. At the first symbol time, the value is 1, and for all others the value is 0.
 
-### 1.3.3 Using a Root Raised Cosine (RRC) filter (text section 3.3.3.2)
+### Using a Root Raised Cosine (RRC) filter (section 3.3.3.2)
 
 A receiver is optimum if the receiver filter matches the transmit filter. Thus we often use a Root Raised Cosine (RRC) pulse shaping filter at the transmitter and another RRC filter at the receiver, so that the combination of the two filters yields a Raised Cosine (RC) pulse shape at the receiver output. The RRC filter impulse response looks similar to the RC impulse response but with lower sidelobes.
 
@@ -80,7 +80,7 @@ The figure below shows the impulse response of a raised cosine pulse shape next 
   ![raised-cosine-impulse-response-2.png](./figures/raised-cosine-impulse-response-2.png)![root-raised-cosine-impulse-response.png](./figures/root-raised-cosine-impulse-response.png)<br>
   __*Raised cosine impulse response (left) and Root-raised cosine impulse response (right) for $$r=0.5$$ (text fig. 3.22) [1].*__
 
-## 1.4 BER curves (text sections 3.1.4 and 3.1.5)
+## BER curves (sections 3.1.4 and 3.1.5)
 
 Is is standard to measure the performance of channels and modulation techniques using a $$BER-\frac{E_b}{N_0}$$ curve. This is closely related to the $$BER-SNR$$ curve as
 
@@ -115,15 +115,13 @@ So by measuring the SNR of a BPSK signal you can generate a $$BER-\frac{E_b}{N_0
 
 {% include alert.html title="Note" content="This is not true for other modulations. Follow to derivation in text section 3.2.5 to see why." %}
 
-## 1.5 Theory summary
+## Theory summary
 
 Pulse shaping can be done in multiple ways. Above, three methods are considered:
 
 1. Generate a pulse stream from a bit stream and LPF using a window that minimizes spectral leakage.
 2. Generate a pulse stream from a bit stream and filter using a window that has a zero-ISI characteristic.
 3. Generate a pulse stream from a bit stream and filter using a window that has a zero-ISI characteristic when used at both the receiver and the transmitter.
-
-During this lab you will experiment with the first and third options.
 
 BER can be calculated by measuring the SNR of a BPSK signal.
 

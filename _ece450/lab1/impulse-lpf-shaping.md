@@ -44,7 +44,7 @@ Construct the following GRC flowgraph.
 
 - Before adding noise the the signal, we want to measure the signal power so we use a *Multiply* block with both inputs being the signal. This gives us instantaneous power ($$s^2(t)$$) for later computing $$\frac{E_b}{N_0}$$. Set the length of the moving average filter to 1000000 (1M) and the scale to the inverse (the scale must be 1/Length in order to computer the actual moving average instead of a moving sum).
 
-- The WGN (White Gaussian Noise) is controlled by a *QT GUI Range* block. The "Amplitude" here indicates the noise standard deviation which be used for estimating the noise power. The noise power of pure White Gaussian noise is the variance of the distribution (text section 3.1.3.4).
+- The WGN (White Gaussian Noise) is controlled by a *QT GUI Range* block. The "Amplitude" here indicates the noise standard deviation which be used for estimating the noise power. The noise power of pure White Gaussian noise is the variance of the distribution (text section 3.1.3.4). Use the *QT GUI Range* block to set this value.
 
 - The *Virtual Sink* and *Virtual Source* blocks can be considered as connected by an "invisible" line on the flowgraph. They can be used for more complex tasks, but here they just keep the flowgraph from being criss-crossed with lines. They are also used to simulate a "transmitter" and "receiver". In this case the *Virtual Sink* transmits the noisy baseband waveform while the *Virtual Source* receives it.
 
@@ -97,7 +97,7 @@ Because the "received" bitstream is processed by more blocks before feeding into
 
 - Once you have the delay parameter set, you can disable the blocks you used to capture that value.
 
-- Record the BER rate at noise powers of 0.1, 0.5 and 1.
+- Record the BER rate at several noise powers by setting the noise standard deviation to each of 0.1, 0.5 and 1.
 
 - Offset the delay by a single sample. Check the BER with no added noise.
 
