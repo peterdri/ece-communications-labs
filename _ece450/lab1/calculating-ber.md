@@ -39,7 +39,7 @@ The plot should have:
 
 For generating a simulated curve of the theoretical $$BER-\frac{E_b}{N_0}$$ review the theory section of this lab. For the Q-function, Matlab ships with [`qfunc()`](https://www.mathworks.com/help/comm/ref/qfunc.html) while python has [`norm.sf()`](https://docs.scipy.org/doc/scipy-0.19.1/reference/generated/scipy.stats.norm.html) included in the scipy package.
 
-A sample of what it might look like is included below (without labelling elements).
+A sample of what it might look like is included below.
 
   ![BER-curve.png](figures/BER-curve.png)<br>
   __*Sample BER curve*__
