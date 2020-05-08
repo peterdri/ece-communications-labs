@@ -4,5 +4,5 @@
 {% endif %}
 <div class="alert alert-{{ alertClass }}">
     <h5 class="alert-heading">{{include.title}}</h5>
-    <p class="mb-0">{{include.content}}</p>
+    <p class="mb-0">{{include.content | markdownify }}</p>
 </div>
