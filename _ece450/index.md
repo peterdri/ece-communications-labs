@@ -16,7 +16,7 @@ If you are unfamiliar with GNU Radio, it is strongly recommended that you comple
 ## Labs
 
 - Lab 1 - Pulse-shaping and BER measurement
-- Lab 2 -
+- Lab 2 - Communication in AWGN channels
 - Lab 3 -
 - Lab 4 -
 
@@ -27,5 +27,3 @@ The deliverables are different for each lab and are described at the beginning o
 ## Asynchronicity
 
 These labs are all designed to be done independently from a personal (or lab) computer. It is possible to complete the entire course's lab requirement without sitting through designated "lab hours". As such, you are encouraged to work at your own pace, **using the scheduled lab period as a time to get assistance from a TA or the course instructor**.
-
-

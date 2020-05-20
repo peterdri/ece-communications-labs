@@ -38,7 +38,7 @@ Construct the following GRC flowgraph. It is very similar to the previous pulse 
   - The interpolation factor is the same as for the previous pulse-shaping methods (and for all pulse shaping methods it is the number of samples per pulse when coming from a bit stream to a waveform).
   - The gain can be found in the same way as with the LPF pulse shaping. Measure the amplitude and set the gain such that the shaped pulses are 1 or 0.
 
-- The receiver chain is now using a matching *Root Raised Cosine Filter* to obtain a final pulse shape that is a raised cosine (review [the theory section]({% link _ece450/lab1/theory.md %}) for more on this).
+- The receiver chain is now using a matching *Root Raised Cosine Filter* to obtain a final pulse shape that is a raised cosine (review [the theory section]({{ site.baseurl }}{% link _ece450/lab1/theory.md %}) for more on this).
   - The filter is of type "Float->Float (Decimating)"
   - Set the number of taps to the sampling rate.
   - Set the symbol rate and decimation rates appropriately.
