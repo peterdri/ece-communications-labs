@@ -180,9 +180,12 @@ sigma = math.sqrt((sig_pwr/(10**(eb_n0_db/10)))*(samp_rate/symbol_rate)*0.5)
 
 ## Run the experiment
 
-1. Run the flowgraph. Record the BER at $$\frac{E_b}{N_0}$$ values of 0, 4, 8 dB. It will take some time for the BER values to stabilize. Grab a coffee.
-
-2. Offset the delay by a single sample. Check the BER with no added noise.
+1. Run the flowgraph.
+2. Observe the transmitted noisy pulses as you increase the Eb/N0 slider from 0 to 12 dB. At what point can you visually see the transmitted sequence?
+3. Record the BER at $$\frac{E_b}{N_0}$$ values of 0, 4, 8 dB. It will take some time for the BER values to stabilize. Grab a coffee.
+   - *The flowgraph takes time to transition between these values, it is often worth killing the flowgraph after a measurement and starting again with the desired Eb/N0 value as the default.*
+   - Plotting the time sink values also eats computational power. While waiting for the BER values to stabilize you may disable the *QT GUI Time Sink* blocks and any other unneeded QT GUI blocks.
+4. Offset the delay (in the *Skip Head* block) by a single sample. Check the BER with no added noise.
 
 {% include alert.html title="Deliverable question 1" class="info" content="What do your observations suggest about the relative impact on a communications system between a timing offset and noise?"%}
 
