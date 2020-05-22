@@ -1,10 +1,10 @@
 ---
 layout: labitem
-title: Lab 1 - Conclusion
+title: Lab 2 - Conclusion
 
-permalink: /ece450/lab1/conclusion
+permalink: /ece450/lab2/conclusion
 course: ece450
-prev: /ece450/lab1/calculating-ber
+prev: /ece450/lab2/calculating-ber
 next: /ece450/lab2
 ---
 

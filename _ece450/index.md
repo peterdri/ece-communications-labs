@@ -15,8 +15,8 @@ If you are unfamiliar with GNU Radio, it is strongly recommended that you comple
 
 ## Labs
 
-- Lab 1 - Pulse-shaping and BER measurement
-- Lab 2 - Communication in AWGN channels
+- Lab 1 - Communication in AWGN channels
+- Lab 2 - Pulse-shaping and matched filters
 - Lab 3 -
 - Lab 4 -
 

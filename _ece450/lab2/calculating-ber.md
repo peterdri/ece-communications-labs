@@ -2,10 +2,10 @@
 layout: labitem
 title: Part 4 - Calculating BER
 
-permalink: /ece450/lab1/calculating-ber
+permalink: /ece450/lab2/calculating-ber
 course: ece450
-prev: /ece450/lab1/impulse-rrc-shaping
-next: /ece450/lab1/conclusion
+prev: /ece450/lab2/impulse-rrc-shaping
+next: /ece450/lab2/conclusion
 ---
 
 ## Objectives
@@ -46,7 +46,7 @@ You collected a dataset of BER values for Eb/N0 values of 0, 2, 4, 6, 8 dB. Whil
 
 ### 3. Collected BER and calculated Eb/N0 values
 
-Remember back to the derivation for $$\sigma$$ done [previously in this lab]({{ site.baseurl }}{% link _ece450/lab1/impulse-lpf-shaping.md %}),
+Remember back to the derivation for $$\sigma$$ done [previously in this lab]({{ site.baseurl }}{% link _ece450/lab2/impulse-lpf-shaping.md %}),
 
 $$
 \frac{E_b}{N_0} = \frac{1}{2} \frac{a_i^2}{\sigma_0^2} \frac{W}{R}.

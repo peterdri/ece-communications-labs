@@ -2,10 +2,10 @@
 layout: labitem
 title: Part 2 - LPF pulse shaping
 
-permalink: /ece450/lab1/impulse-lpf-shaping
+permalink: /ece450/lab2/impulse-lpf-shaping
 course: ece450
-prev: /ece450/lab1/theory
-next: /ece450/lab1/impulse-rrc-shaping
+prev: /ece450/lab2/theory
+next: /ece450/lab2/impulse-rrc-shaping
 ---
 
 ## Objectives
@@ -44,7 +44,7 @@ This will be used to control the $$\frac{E_b}{N_0}$$ of the system later. Ensure
 
 ### GLFSR Source
 
-This block outputs a pseudo-random bit stream using a shift register as described in the [theory section]({{ site.baseurl }}{% link _ece450/lab1/theory.md %}). Set the Degree of the shift register to 10 (this is the LFSR's $$M$$ value). Set it to repeat.
+This block outputs a pseudo-random bit stream using a shift register as described in the [theory section of Lab 1]({{ site.baseurl }}{% link _ece450/lab1/theory.md %}). Set the Degree of the shift register to 10 (this is the LFSR's $$M$$ value). Set it to repeat.
 
 ### Char To Float & Add Const
 
@@ -81,6 +81,8 @@ For now, set the noise *Amplitude* to 0.
 
 These blocks can be considered as connected by an "invisible" line on the flowgraph. They can be used for more complex tasks, but here they just keep the flowgraph from being criss-crossed with lines. They are also used to simulate a "transmitter" and "receiver". In this case the *Virtual Sink* transmits the noisy baseband waveform while the *Virtual Source* receives it.
 
+Ensure that the *Stream ID* matches between the two.
+
 ### Decimating FIR Filter
 
 Set the decimation parameter appropriately (think back to the interpolation done in the LPF), remembering to reference the symbol and sample rate variables. The block fails to compile without a taps argument so set *Taps* to 1 (meaning there is 1 tap with a value of 1).
@@ -89,7 +91,7 @@ Set the decimation parameter appropriately (think back to the interpolation done
 
 This block outputs a 0 for every negative input and a 1 for every positive output.
 
-- Before adding noise the the signal, we want to measure the signal power so we use a *Multiply* block with both inputs being the signal. This gives us instantaneous power ($$s^2(t)$$) for later computing $$\frac{E_b}{N_0}$$. Set the length of the moving average filter to 1000000 (1M) and the scale to the inverse (the scale must be 1/Length in order to computer the actual moving average instead of a moving sum. GR erroneously makes this a "0" so you need to enter it as a decimal (0.0001 instea)).
+<!-- - Before adding noise the the signal, we want to measure the signal power so we use a *Multiply* block with both inputs being the signal. This gives us instantaneous power ($$s^2(t)$$) for later computing $$\frac{E_b}{N_0}$$. Set the length of the moving average filter to 1000000 (1M) and the scale to the inverse (the scale must be 1/Length in order to computer the actual moving average instead of a moving sum. GR erroneously makes this a "0" so you need to enter it as a decimal (0.0001 instead)). -->
 
 ### Pack K Bits
 

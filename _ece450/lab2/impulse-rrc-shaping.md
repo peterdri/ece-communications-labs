@@ -2,10 +2,10 @@
 layout: labitem
 title: Part 3 - RRC pulse shaping
 
-permalink: /ece450/lab1/impulse-rrc-shaping
+permalink: /ece450/lab2/impulse-rrc-shaping
 course: ece450
-prev: /ece450/lab1/impulse-lpf-shaping
-next: /ece450/lab1/calculating-ber
+prev: /ece450/lab2/impulse-lpf-shaping
+next: /ece450/lab2/calculating-ber
 ---
 
 ## Objectives
