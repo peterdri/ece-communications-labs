@@ -36,7 +36,7 @@ The `samp_rate` of this flowgraph is 100 kHz and the `symbol_rate` is 1 kHz. Lea
 
 ### Import
 
-The argument is `import math`. This will load the [python math library](https://docs.python.org/3/library/math.html). To call the library functions you would precede them with `math`. For example, to take the square root of the number 5 you would write `math.sqrt(5)` wherever you wanted the result.
+The argument is `import math`. This will load the [python math library](https://docs.python.org/3/library/math.html).
 
 ### QT GUI Range
 

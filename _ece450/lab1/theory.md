@@ -31,7 +31,15 @@ $$
 
 where $$SNR=\frac{S}{N}$$ (the signal to noise ratio), $$W$$ is the channel bandwidth and $$R$$ is the bit rate (all terms in the equation are linear). Hence $$\frac{E_b}{N_0}$$ is the signal to noise ratio normalized to the channel and the symbol rate. This can be intuitively understood when reorganized as $$SNR = \frac{E_b}{N_0}\frac{R}{W}$$ since the numerator is the total power of the received signal (energy-per-bit multiplied with the bit rate) while the denominator is the total noise power in the channel (noise power in 1 Hz multiplied with the number of Hz in the channel).
 
-It is shown in the text section 3.2.2 that for a binary signal in a gaussian noise channel, this can be further simplified to $$SNR_{MAX} = \frac{2E_b}{N_0}$$ (text eqn. 3.52).
+It is shown in the text section 3.2.2 that for a one-sample-per-symbol binary signal in a gaussian noise channel, the above equation 3.30 can be simplified to
+
+$$
+\frac{E_b}{N_0}$$ = \frac{SNR}{2}, \text{(rearranged text eqn. 3.52)},
+$$
+
+as $$W=\frac{f_s}{2}$$ and $$R=f_s$$.
+
+{% include alert.html title="Note" content="Notice that all of these equations are in linear units but that BER curves are presented with the $$\frac{E_b}{N_0}$$ values in decibels." %}
 
 We are interested in this because we want to know the probability of receiving the correct bit. Consider the following figure,
 
@@ -40,7 +48,7 @@ We are interested in this because we want to know the probability of receiving t
 
 At the entire symbol duration from $$a_1$$ to $$a_2$$ there is some probability in the tail of these gaussian distrubutions that the wrong signal is received. This area under the tail of a gaussian PDF (probability density function) is characterized by the Q-function (a.k.a. gaussian survival function, a.k.a. complementary error function, a.k.a. co-error function). See text section 3.2.1 for more on this, and text equation 3.4.4 for more on the Q-function.
 
-For BPSK the function relating BER with SNR is,
+For BPSK the function relating BER with $$\frac{E_b}{N_0}$$ is,
 
 $$
 BER = Q\left( \sqrt{2\frac{E_b}{N_0}} \right) \text{all linear terms}

@@ -18,8 +18,7 @@ You will implement a communications system using baseband BPSK and generate a hi
 
 For this section, the deliverables are:
 
-- the answer to one deliverable question,
-- a dataset for later use in this lab.
+- the answer to two deliverable question,
 
 ---
 
@@ -100,9 +99,12 @@ This will draw the output of the BER block on a number line. Set the maximum to 
 
 1. Run the flowgraph.
 2. Observe the histogram and constellation plots as you increase the sigma slider from 0 to 1 (which is equivalent to changing the noise power ($$\sigma^2$$) from 0 to 1 as well).
-3. Notice that the BER number sink value _increases_ while $$\sigma$$ increases. As the two bits in the histogram overlap, more bit errors occur.
-4. Find the $$\sigma$$ value at which point equally between the gaussian distributions (at 0) is completely flat (you can change histogram parameters and the granularity of the *QT GUI Range* widget to help with this). What is the BER at this point?
+3. Observe the $$log_{10}(BER)$$ value output from the number sink while $$\sigma$$ increases. As the two bits in the histogram overlap, more bit errors occur.
+4. Find the $$\sigma$$ value at which point the gaussian distributions are completely indistinguishable (you can change histogram parameters and the granularity of the *QT GUI Range* widget to help with this).
+   - Stop the flowgraph and set this $$\sigma$$ value as default. Start the flowgraph and check the BER at this point.
 
-{% include alert.html title="Deliverable question 1" class="info" content="What is the significants of the $$\sigma$$ value at which point the gaussians are indistinguishable?"%}
+{% include alert.html title="Deliverable question 1" class="info" content="What is the significance of the $$\sigma$$ value at which point the gaussians are indistinguishable?"%}
+
+{% include alert.html title="Deliverable question 2" class="info" content="What is the maximum BER value for a random binary bitstream made up of an equal number of 1s and 0s? Explain." %}
 
 Review the [section deliverables](#part-2-deliverables) before moving on.
