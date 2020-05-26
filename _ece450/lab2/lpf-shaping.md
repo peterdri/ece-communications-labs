@@ -2,10 +2,10 @@
 layout: labitem
 title: Part 2 - LPF pulse shaping
 
-permalink: /ece450/lab2/impulse-lpf-shaping
+permalink: /ece450/lab2/lpf-shaping
 course: ece450
 prev: /ece450/lab2/theory
-next: /ece450/lab2/impulse-rrc-shaping
+next: /ece450/lab2/rrc-shaping
 ---
 
 ## Objectives
@@ -27,20 +27,13 @@ For this section, the deliverables are:
 
 Construct the following GRC flowgraph.
 
-  ![impulses-lpf-blank-flowgraph.png](figures/impulses-lpf-blank-flowgraph.png)<br>
+  ![lpf-blank-flowgraph.png](figures/lpf-blank-flowgraph.png)<br>
   __*Blank impulse LPF shaping flowgraph*__
 
 ### Variables
 
-The `samp_rate` of this flowgraph is 100 kHz and the `symbol_rate` is 1 kHz. Leave the `sig_pwr` variable blank for now.
-
-### Import
-
-The argument is `import math`. This will load the [python math library](https://docs.python.org/3/library/math.html).
-
-### QT GUI Range
-
-This will be used to control the $$\frac{E_b}{N_0}$$ of the system later. Ensure it is labelled appropriately and the __*id*__ is `eb_n0_db`. The values should range from 0 to 12.
+- The `samp_rate` of this flowgraph is 100 kHz and the `symbol_rate` is 1 kHz.
+- Leave the `sigma` variable set to 0.
 
 ### GLFSR Source
 
@@ -75,7 +68,7 @@ The bitstream must be interpolated such that a single impulse happens at the `sy
 
 The *Amplitude* variable sets the noise standard deviation, $$\sigma$$. The noise power of pure White Gaussian noise is the variance of the distribution ($$\sigma^2$$) (text section 3.1.3.4). This means you can directly control the noise power by setting this value.
 
-For now, set the noise *Amplitude* to 0.
+Set the noise *Amplitude* to `sigma`.
 
 ### Virtual Sink & Virtual source
 
@@ -90,8 +83,6 @@ Set the decimation parameter appropriately (think back to the interpolation done
 ### Binary Slicer
 
 This block outputs a 0 for every negative input and a 1 for every positive output.
-
-<!-- - Before adding noise the the signal, we want to measure the signal power so we use a *Multiply* block with both inputs being the signal. This gives us instantaneous power ($$s^2(t)$$) for later computing $$\frac{E_b}{N_0}$$. Set the length of the moving average filter to 1000000 (1M) and the scale to the inverse (the scale must be 1/Length in order to computer the actual moving average instead of a moving sum. GR erroneously makes this a "0" so you need to enter it as a decimal (0.0001 instead)). -->
 
 ### Pack K Bits
 
@@ -133,61 +124,30 @@ Test the system by running it. Observe the time sink connected to the end of the
   ![lpf-with-gain.png](figures/lpf-with-gain.png)<br>
   __*Output of LPF with the appropriate gain applied.*__
 
-### Finding the signal power
-
-In order to control the simulation, we need to set the `Eb_N0_dB` range and have that control the noise power ($$\sigma$$) in the *Noise Source* block.
-
-Consider the following equations (some repeated from the theory section),
-
-$$
-\begin{eqnarray}
-  \frac{E_b}{N_0} = SNR\frac{W}{R}, &\text{(text eqn. 3.30)},\\
-
-  SNR = \frac{a_i^2}{\sigma_0^2}, &\text{(text eqn. 3.45)},\\
-
-  SNR_{MAX} = \frac{2E_b}{N_0}, &\text{(text eqn. 3.52)},
-\end{eqnarray}
-$$
-
-where $$a_i^2$$ is the signal power. Notice also that $$SNR$$ and $$\frac{E_b}{N_0}$$ are linear in these equations (unlike their normal use in decibels). Combining the three equations yields
-
-$$
-\frac{E_b}{N_0} = \frac{1}{2} \frac{a_i^2}{\sigma_0^2} \frac{W}{R}.
-$$
-
-Again remembering that all of these terms are linear, and that the objective is to set $$\sigma$$ using $$\frac{E_b}{N_0}$$ in decibels.
-
-Rearranging the above gives
-
-$$
-\sigma = \sqrt{\frac{1}{2} \frac{a_i^2}{10^{\frac{E_b}{N_0}/10}} \frac{W}{R}}.
-$$
-
-Of all these parameters the only one still missing is the signal power. Build the following three blocks to measure the signal power and attach the output of the LPF to both inputs of the multiply block.
-
-  ![power-measurement.png](figures/power-measurement.png)<br>
-  __*Flow diagram to measure average power of a data stream.*__
-
-The *Length* of the *Moving Average* block is 100000 and the *Scale* is the inverse (ensure that the inverse is a float and not an integer.)
-
-{% include alert.html title="Note" content="Ensure that the *Scale* parameter is a float and not an integer. GR versions < 3.8 are build on Python 2 and so 1/100000 will result in the int 0. GR versions 3.8+ are built on Python 3 and so the same argument will yield the float 0.00001. In GR versions < 3.8 this can be solved by casting the entire argument as a float by wrapping it with a `float()`." %}
-
-Run the flowgraph and record this power value. Take a second and consider whether the value you have measured is reasonable. The peaks of the LPF output are at about 1 after the gain adjustment above. Save this value in the `sig_pwr` variable block.
-
-Now all of the variables in the above derivation for $$\sigma$$ have been found. It is now possible to control the $$\frac{E_b}{N_0}$$ of the system by holding the signal power constant and varying the noise power. Enter the expression for $$\sigma$$ in the *Amplitude* parameter of the *Noise Source* block. It is repeated below for your convenience.
-
-```python
-sigma = math.sqrt((sig_pwr/(10**(eb_n0_db/10)))*(samp_rate/symbol_rate)*0.5)
-```
-
 ## Run the experiment
 
 1. Run the flowgraph.
-2. Observe the transmitted noisy pulses as you increase the Eb/N0 slider from 0 to 12 dB. At what point can you visually see the transmitted sequence?
-3. Record the BER at $$\frac{E_b}{N_0}$$ values of 0, 4, 8 dB. It will take some time for the BER values to stabilize. Grab a coffee.
-   - *The flowgraph takes time to transition between these values, it is often worth killing the flowgraph after a measurement and starting again with the desired Eb/N0 value as the default.*
+2. Record the BER at $$\sigma$$ values of `[0.7, 0.55, 0.44, 0.35, 0.28]`. You will need to kill the flowgraph each time you need to set a new value.
    - Plotting the time sink values also eats computational power. While waiting for the BER values to stabilize you may disable the *QT GUI Time Sink* blocks and any other unneeded QT GUI blocks.
-4. Offset the delay (in the *Skip Head* block) by a single sample. Check the BER with no added noise.
+3. Offset the delay (in the *Skip Head* block) by a single sample. Check the BER with no added noise.
+4. Measure output powers as described below.
+   - As shown in the [theory section]({{ site.baseurl }}{% link _ece450/lab2/theory.md %}), $$SNR_{MAX} = \frac{2E_b}{N_0}$$.
+   - Combined with $$SNR = \frac{a_i^2}{\sigma_0^2}$$ (text eqn. 3.45) it is clear that to calculate the $$\frac{E_b}{N_0}$$ value for each above recorded BER value we need to find the output signal power and output noise power.
+   - Build the following three blocks to measure the signal power and attach the output of the *Decimating Filter* to both inputs of the multiply block.
+
+     ![power-measurement.png](figures/power-measurement.png)<br>
+    __*Flow diagram to measure average power of a data stream.*__
+
+   - The *Length* of the *Moving Average* block is 100000 and the *Scale* is the inverse (ensure that the inverse is a float and not an integer.)
+
+   {% include alert.html title="Note" content="Ensure that the *Scale* parameter is a float and not an integer. GR versions < 3.8 are build on Python 2 and so 1/100000 will result in the int 0. GR versions 3.8+ are built on Python 3 and so the same argument will yield the float 0.00001. In GR versions < 3.8 this can be solved by casting the entire argument as a float by wrapping it with a `float()`." %}
+
+   - Disable the *Binary Slicer*, *Skip Head*, both *Pack K Bits* blocks, the *BER* and it's number sink block.
+   - Set the *Amplitude* of the *Noise Source* block to 0 so that the signal $$a_i$$ goes throught the LPF and decimation with no noise added before the power is measured.
+   - Measure this value and record it.
+   - Now measure the noise power by disabling the signal source and LPF. Measure and record the noise power at the output of the decimator for `sigma` values of `[0.7, 0.55, 0.44, 0.35, 0.28]`. It takes some time for these numbers to stabilize.
+
+At this point you should have recorded 5 BER values, 5 output noise power values and 1 output signal power value.
 
 {% include alert.html title="Deliverable question 1" class="info" content="What do your observations suggest about the relative impact on a communications system between a timing offset and noise?"%}
 

@@ -5,7 +5,7 @@ title: Part 1 - Theory
 permalink: /ece450/lab2/theory
 course: ece450
 prev: /ece450/lab2
-next: /ece450/lab2/impulse-lpf-shaping
+next: /ece450/lab2/lpf-shaping
 ---
 
 
