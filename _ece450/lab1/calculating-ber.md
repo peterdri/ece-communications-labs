@@ -10,7 +10,7 @@ next: /ece450/lab1/conclusion
 
 ## Objectives
 
-You will use the BER values recorded for the baseband BPSK communication systems (both uni- and bipolar) to plot the $$BER-\frac{a_1 - a_2}{2\sigma_0}$$ curves and compare them with theory.
+You will use the BER values recorded for the baseband BPSK communication systems (both uni- and bipolar) to plot the $$BER-\sigma$$ curves and compare them with theory.
 
 ---
 
@@ -26,7 +26,7 @@ For this section, the deliverables are:
 
 ## Generating a BER curve
 
-Using the values collected throughout this lab you can now generate a $$BER-\frac{a_1 - a_2}{2\sigma_0}$$ curve.
+Using the values collected throughout this lab you can now generate a $$BER-\sigma$$ curve.
 
 You can use a programming language of your choice, but python or matlab have some handy tools for this job built in.
 
@@ -45,7 +45,8 @@ Remember to plot two curves, one for bipolar ($$a_1, a_2 = 1, -1$$) and one for 
 
 ### 2. Collected BER and set $$\sigma$$ values
 
-You collected a dataset of BER values for $$\sigma$$ values of `[0.3, 0.35, 0.4, 0.45, 0.5, 0.6, 0.75, 1, 1.5, 3, 100]`. While plotting these remember that the BER values collected from the number sink are log10(BER). So to obtain the BER you will need to raise your collected values, -X by realizing that $$BER = 10^{-X}$$.
+<!-- You collected a dataset of BER values for $$\sigma$$ values of `[0.3, 0.35, 0.4, 0.45, 0.5, 0.6, 0.75, 1, 1.5, 3, 100]`. While plotting these remember that the BER values collected from the number sink are log10(BER). So to obtain the BER you will need to raise your collected values, -X by realizing that $$BER = 10^{-X}$$. -->
+You collected a dataset of BER values for $$\sigma$$ values of `[ 0.3, 0.5, 1, 1.5, 2, 3, 4, 5, 8, 12]`. While plotting these remember that the BER values collected from the number sink are log10(BER). So to obtain the BER you will need to raise your collected values, -X by realizing that $$BER = 10^{-X}$$.
 
 Remember to plot two curves, one for bipolar ($$a_1, a_2 = 1, -1$$) and one for unipolar ($$a_1, a_2 = 1, 0$$). You can use the same $$\sigma$$ values as those set during the experiment to ensure the curves will line up in the x-axis.
 
@@ -53,8 +54,8 @@ Remember to plot two curves, one for bipolar ($$a_1, a_2 = 1, -1$$) and one for 
 
 Now that you have the three curves, ensure that the plot has:
 
-- a log scale on the y-axis
-- a linear scale on the x-axis
+<!-- - a log scale on the y-axis -->
+<!-- - a linear scale on the x-axis -->
 - appropriate axes titles
 - a legend (one entry for each of: "unipolar sim.", "unipolar theory", "bipolar sim.", "bipolar theory")
 

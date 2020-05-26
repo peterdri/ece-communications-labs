@@ -33,13 +33,16 @@ The bipolar bits $$a_1$$ and $$a_2$$ are fixed at -1 and 1 by the *Char to Float
 ## Collect bipolar BER values
 
 1. Run the flowgraph.
-2. Record a BER value for each `sigma`  in `[0.3, 0.35, 0.4, 0.45, 0.5, 0.6, 0.75, 1, 1.5, 3, 100]` (**notice that the step size between the values changes**).
+<!-- 2. Record a BER value for each `sigma`  in `[0.3, 0.35, 0.4, 0.45, 0.5, 0.6, 0.75, 1, 1.5, 3, 100]` (**notice that the step size between the values changes**). -->
+2. Record a BER value for each `sigma`  in `[ 0.3, 0.5, 1, 1.5, 2, 3, 4, 5, 8, 12]` (**notice that the step size between the values changes**).
 
 {% include alert.html title="Note" content="Note you will have to kill the flowgraph each time you need to set a new `sigma` value. Changing it during runtime with a *QT GUI Range* or similar will result in large delays for the BER to stabilize." %}
 
 ## Build unipolar flowgraph
 
-Edit the flowgraph once more. Remove the *Add Const* block and set the *Scale* of the *Char to Float* block to 1. This is now a unipolar system. You may wish to add a constellation sink briefly to check that this is true (as below).
+Edit the flowgraph once more by removing the *Add Const* block and setting the *Scale* of the *Char to Float* block to 1.
+
+This is now a unipolar system. You may wish to add a constellation sink briefly to check that this is true (as below).
 
   ![unipolar-constellation.png](figures/unipolar-constellation.png)<br>
   __*Constellation plot of the unipolar system with no noise added*__
@@ -49,6 +52,7 @@ The unipolar bits $$a_1$$ and $$a_2$$ are now 0 and 1.
 ## Collect unipolar BER values
 
 1. Run the flowgraph.
-2. Record a BER value for each `sigma`  in `[0.3, 0.35, 0.4, 0.45, 0.5, 0.6, 0.75, 1, 1.5, 3, 100]` (**notice that the step size between the values changes**).
+<!-- 2. Record a BER value for each `sigma`  in `[0.3, 0.35, 0.4, 0.45, 0.5, 0.6, 0.75, 1, 1.5, 3, 100]` (**notice that the step size between the values changes**). -->
+2. Record a BER value for each `sigma`  in `[ 0.3, 0.5, 1, 1.5, 2, 3, 4, 5, 8, 12]` (**notice that the step size between the values changes**).
 
 Review the [section deliverables](#part-3-deliverables) before moving on.

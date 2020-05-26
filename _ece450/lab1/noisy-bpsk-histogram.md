@@ -111,5 +111,4 @@ This will draw the output of the BER block on a number line. Set the maximum to 
 
 {% include alert.html title="Deliverable question 3" class="info" content="What is the difference in noise resilience between the bipolar and the unipolar systems? How does this manifest in the histogram?" %}
 
-
 Review the [section deliverables](#part-2-deliverables) before moving on.
