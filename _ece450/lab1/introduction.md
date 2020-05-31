@@ -13,16 +13,16 @@ In this lab, you will use GNU Radio to simulate a digital baseband communication
 
 You will learn about:
 
-- baseband BPSK communication,
+- baseband communication,
 - bit errors.
 
 ## Deliverables
 
 In this lab there are the following deliverables:
 
-- a single page of answers to the deliverable questions laid out in the lab. In this lab there are 5 of them. They are all highlighted and labelled with their respective question numbers. Each question will require some thought and should be answered concisely with 1 to 2 sentences of text and perhaps an accompanying figure.
-- a short code you write to generate a BER versus $$\sigma$$ curve
-- your final BER versus $$\sigma$$ curve figure
+- a single page of answers to the deliverable questions laid out in the lab. In this lab there are 5 of them. They are all highlighted and labelled with their respective question numbers. Each question will require some thought and should be answered concisely with 1 to 2 sentences of text and perhaps an accompanying figure,
+- a short code you write to generate some BER curves,
+- your final BER curve figures.
 
 {% include alert.html title="Note" content="You will need access to Matlab (or Python) for this. If you wish to use Matlab it is free for UVic students at matlab.uvic.ca." %}
 

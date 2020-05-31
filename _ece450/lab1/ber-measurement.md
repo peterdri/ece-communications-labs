@@ -1,16 +1,18 @@
 ---
 layout: labitem
-title: Part 3 - Noisy BPSK BER measurement
+title: Part 3 - BER measurement
 
-permalink: /ece450/lab1/noisy-bpsk-ber
+permalink: /ece450/lab1/ber-measurement
 course: ece450
-prev: /ece450/lab1/noisy-bpsk-histogram
+prev: /ece450/lab1/histogram
 next: /ece450/lab1/calculating-ber
 ---
 
 ## Objectives
 
-You will implement a communications system using baseband BPSK and record data to later generate a BER curve with.
+You will implement a communications system using baseband pulses and record data to later generate a BER curve with. In the previous section the amplitude $$a$$ was kept constant and $$\sigma$$ was varied. By keeping the amplitude constant and varying $$\sigma$$, the nice histogram plots were generated. However, in a real communications system one would normally vary the amplitude (or power) and keep the noise power $$\sigma^2$$ constant, e.g. to represent the constant thermal noise.
+
+In the experiment outlined below it is okay to keep $$a$$ constant and vary $$\sigma$$ since the measured bit error rate depends only on the ratio of $$a$$ to $$\sigma$$.
 
 ---
 
@@ -33,8 +35,8 @@ The bipolar bits $$a_1$$ and $$a_2$$ are fixed at -1 and 1 by the *Char to Float
 ## Collect bipolar BER values
 
 1. Run the flowgraph.
-<!-- 2. Record a BER value for each `sigma`  in `[0.3, 0.35, 0.4, 0.45, 0.5, 0.6, 0.75, 1, 1.5, 3, 100]` (**notice that the step size between the values changes**). -->
 2. Record a BER value for each `sigma`  in `[ 0.3, 0.5, 1, 1.5, 2, 3, 4, 5, 8, 12]` (**notice that the step size between the values changes**).
+   - The reason for choosing these particular values of $$\sigma$$ is because we want to collect BER values over a logarithmically spaced set of values of $$\frac{a_1 - a_2}{2\sigma_0}
 
 {% include alert.html title="Note" content="Note you will have to kill the flowgraph each time you need to set a new `sigma` value. Changing it during runtime with a *QT GUI Range* or similar will result in large delays for the BER to stabilize." %}
 
@@ -42,17 +44,13 @@ The bipolar bits $$a_1$$ and $$a_2$$ are fixed at -1 and 1 by the *Char to Float
 
 Edit the flowgraph once more by removing the *Add Const* block and setting the *Scale* of the *Char to Float* block to 1.
 
-This is now a unipolar system. You may wish to add a constellation sink briefly to check that this is true (as below).
-
-  ![unipolar-constellation.png](figures/unipolar-constellation.png)<br>
-  __*Constellation plot of the unipolar system with no noise added*__
+This is now a unipolar system. You may wish to add a constellation sink briefly to check that this is true.
 
 The unipolar bits $$a_1$$ and $$a_2$$ are now 0 and 1.
 
 ## Collect unipolar BER values
 
 1. Run the flowgraph.
-<!-- 2. Record a BER value for each `sigma`  in `[0.3, 0.35, 0.4, 0.45, 0.5, 0.6, 0.75, 1, 1.5, 3, 100]` (**notice that the step size between the values changes**). -->
 2. Record a BER value for each `sigma`  in `[ 0.3, 0.5, 1, 1.5, 2, 3, 4, 5, 8, 12]` (**notice that the step size between the values changes**).
 
 Review the [section deliverables](#part-3-deliverables) before moving on.
