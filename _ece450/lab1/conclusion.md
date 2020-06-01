@@ -24,3 +24,7 @@ In this lab there are the following deliverables:
 - your final BER curve figures.
 
 Submit these three deliverables to your TA over coursespaces.
+
+## Optional
+
+Repeat the experiment where $$P(s_1) \neq 0.5$$ and find the threshold value that yields the minimum BER (see Sklar problem 3.6).
