@@ -36,7 +36,7 @@ The bipolar bits $$a_1$$ and $$a_2$$ are fixed at -1 and 1 by the *Char to Float
 
 1. Run the flowgraph.
 2. Record a BER value for each `sigma`  in `[ 0.3, 0.5, 1, 1.5, 2, 3, 4, 5, 8, 12]` (**notice that the step size between the values changes**).
-   - The reason for choosing these particular values of $$\sigma$$ is because we want to collect BER values over a logarithmically spaced set of values of $$\frac{a_1 - a_2}{2\sigma_0}
+   - The reason for choosing these particular values of $$\sigma$$ is because we want to collect BER values over a logarithmically spaced set of values of $$\frac{a_1 - a_2}{2\sigma_0}$$.
 
 {% include alert.html title="Note" content="Note you will have to kill the flowgraph each time you need to set a new `sigma` value. Changing it during runtime with a *QT GUI Range* or similar will result in large delays for the BER to stabilize." %}
 

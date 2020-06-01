@@ -18,7 +18,7 @@ You will implement a communications system using baseband pulses and generate a 
 
 For this section, the deliverables are:
 
-- the answer to three deliverable question,
+- the answer to two deliverable questions,
 
 ---
 
@@ -43,11 +43,11 @@ $$
 
 where $$y[n]$$ is the output stream made up of -1s and 1s and $$x[n]$$ is the input stream of 0s and 1s.
 
-Setting the *Scale* parameter of the *Char To Float* block to 0.5 and the *Constant* parameter of the *Add Const* block to -1. You can observe the output of the *Add Const* block using a *QT GUI Constellation Sink* to see that this is now a bipolar signal.
+Set the *Scale* parameter of the *Char To Float* block to 0.5 (this will divide the input by the scaling factor) and the *Constant* parameter of the *Add Const* block to -1. You can observe the output of the *Add Const* block using a *QT GUI Constellation Sink* to see that this is now a bipolar signal.
 
 ### Noise Source
 
-__Text section 3.1.3.4 and handwritten notes p. 37__ The noise power of pure White Gaussian noise is the variance of the distribution ($$\sigma^2$$) (text section 3.1.3.4).
+_Text section 3.1.3.4 and handwritten notes p. 37._ The noise power of pure White Gaussian noise is the variance of the distribution ($$\sigma^2$$) (text section 3.1.3.4).
 
 The *Amplitude* variable sets the noise standard deviation, $$\sigma$$. This means you can directly control the noise power by setting this value.
 
@@ -95,23 +95,19 @@ Set *Test Mode* to False, which will mean the block immediately starts outputtin
 
 ### QT GUI Number Sink
 
-This will draw the output of the BER block on a number line. Set the maximum to 0 (since $$10^0=1$$ meaning that every bit is wrong) and the minumum to -7.
+This GUI sink will draw the output of the BER block on a number line. Set the maximum to 0 (since $$10^0=1$$ meaning that every bit is wrong) and the minumum to -7 (where $$10^{-7}$$ is small enough a BER for our purposes).
 
 ## Run the experiment
 
 1. Run the flowgraph.
 2. Observe the histogram and constellation plots as you increase the sigma slider from 0 to 1 (which is equivalent to changing the noise power ($$\sigma^2$$) from 0 to 1 as well).
 3. Observe the $$log_{10}(BER)$$ value output from the number sink while $$\sigma$$ increases. As the two bits in the histogram overlap, more bit errors occur.
-4. Adjust $$\sigma$$ so that the histograms overlap a little bit. For this case there is a small but non-zero error rate. Guestimate what the BER would be for this value of $$\sigma$$ based on the area under the curve idea shown in the [theory section 1.2]({{ site.baseurl }}{% link _ece450/lab1/theory.md %})
-5. Find the $$\sigma$$ value at which point the gaussian distributions are completely indistinguishable (you can change histogram parameters and the granularity of the *QT GUI Range* widget to help with this).
-   - Stop the flowgraph and set this $$\sigma$$ value as default. Start the flowgraph and check the BER at this point.
-6. Disable the *Add Const* block and set the *Scale* parameter of the *Char To Float* to 1. This is now a unipolar communication system. Repeat steps 2-5 above with this unipolar system.
-7. Re-enable the *Add Const* block and set the *Scale* parameter of the *Char To Float* to 0.5 so that the system is bipolar again.
+4. Adjust $$\sigma$$ so that the histograms overlap a little bit. For this case there is a small but non-zero error rate. Estimate what the BER would be for this value of $$\sigma$$ based on the area under the curve idea shown in the [theory section 1.2]({{ site.baseurl }}{% link _ece450/lab1/theory.md %})
+5. Disable the *Add Const* block and set the *Scale* parameter of the *Char To Float* to 1. This is now a unipolar communication system. Repeat steps 2-4 above with this unipolar system.
+6. Re-enable the *Add Const* block and set the *Scale* parameter of the *Char To Float* to 0.5 so that the system is bipolar again.
 
-{% include alert.html title="Deliverable question 1" class="info" content="What is the significance of the $$\sigma$$ value at which point the gaussians are indistinguishable?"%}
+{% include alert.html title="Deliverable question 1" class="info" content="What is the maximum BER value for a random binary bitstream made up of an equal number of each bit? Explain." %}
 
-{% include alert.html title="Deliverable question 2" class="info" content="What is the maximum BER value for a random binary bitstream made up of an equal number of each bit? Explain." %}
-
-{% include alert.html title="Deliverable question 3" class="info" content="What is the difference in noise resilience between the bipolar and the unipolar systems? How does this manifest in the histogram?" %}
+{% include alert.html title="Deliverable question 2" class="info" content="What is the difference in noise resilience between the bipolar and the unipolar systems? How does this manifest in the histogram?" %}
 
 Review the [section deliverables](#part-2-deliverables) before moving on.

@@ -21,7 +21,7 @@ At each time step (symbol time) $$T$$, the input on the left is determined by th
 
 ## 1.2 Bit errors
 
-_From text sections 3.1.3 and 3.2.1. and handwritten notes pp 33-43_ For a digital communications link between two points, the performance is characterized by the probability of a bit error. The probability is calculated based on the probability density functions in the figure below.
+_From text sections 3.1.3 and 3.2.1. and handwritten notes pp 33-43._ For a digital communications link between two points, the performance is characterized by the probability of a bit error. The probability is calculated based on the probability density functions in the figure below.
 
   ![pdf-overlap.png](figures/pdf-overlap.png)<br>
   __* Overlapping conditional probability density functions (text fig. 3.2) [1]*__
