@@ -13,7 +13,7 @@ In this lab, you:
 - used GNU Radio to build a baseband communication system,
 - made a histogram of the noisy received bits and related that the the bit error values,
 - recorded BER values for several $$\sigma$$ values,
-- wrote a short script to turn them into $$BER-\sigma$$ and $$BER-\frac{a_1-a_2}{2\sigma}$$ curve.
+- wrote a short script to turn them into $$BER versus \sigma$$ and $$BER versus \frac{a_1-a_2}{2\sigma}$$ curve.
 
 ## Deliverables
 
