@@ -12,7 +12,7 @@ The theory for this lab is covered in the textbook "Digital Communications: Fund
 
 ## 1.1 GLFSR data source
 
-_From text section 12.2.2. and handwritten notes pp. 29 and 33_ In order to practice pulse-shaping, it is convenient to have a random data source, with an equal number of logic 1s and 0s, or an equal number of positive and negative pulses. This can be achieved with a so-called linear feedback shift register (LFSR).
+_From text section 12.2.2. and handwritten notes pp. 29 and 33_ In order to generate a random sequence of bits of testing a data link, it is convenient to have a random data source with an equal number of logic 1s and 0s, or an equal number of positive and negative pulses. This can be achieved with a so-called linear feedback shift register (LFSR).
 
   ![lfsr.png](figures/lfsr.png) <br>
   __*Linear feedback shift register*__

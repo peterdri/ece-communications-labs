@@ -10,7 +10,7 @@ next: /ece450/lab1/conclusion
 
 ## Objectives
 
-You will use the BER values recorded for the baseband communication systems (both uni- and bipolar) to plot the $$BER-\sigma$$ and $$BER-\frac{a_1-a_2}{2\sigma}$$ curves and compare them with theory.
+You will use the BER values recorded for the baseband communication systems (both uni- and bipolar) to plot the $$BER versus \sigma$$ and $$BER versus \frac{a_1-a_2}{2\sigma}$$ curves and compare them with theory.
 
 ---
 
@@ -37,7 +37,7 @@ Plot three curves on the same axes:
 
 ### 1. Theory
 
-For generating a simulated curve of the theoretical $$BER-\frac{a_1 - a_2}{2\sigma_0}$$ review [the theory section]({{ site.baseurl }}{% link _ece450/lab1/theory.md %}) of this lab.
+For generating a simulated curve of the theoretical $$BER versus \frac{a_1 - a_2}{2\sigma_0}$$ review [the theory section]({{ site.baseurl }}{% link _ece450/lab1/theory.md %}) of this lab.
 
 For the Q-function, Matlab ships with [`qfunc()`](https://www.mathworks.com/help/comm/ref/qfunc.html) while python has [`norm.sf()`](https://docs.scipy.org/doc/scipy-0.19.1/reference/generated/scipy.stats.norm.html) included in the scipy package.
 
