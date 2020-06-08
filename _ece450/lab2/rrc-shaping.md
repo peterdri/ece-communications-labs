@@ -69,39 +69,13 @@ The offset between sequences can be found as before. It is 1000 samples with the
 
 ### Validate the filter
 
-Ensure that the offset and matched filter are working by setting the *Amplitude* of the *Noise Source* block to 0 and checking that the BER is 0. 
+Ensure that the offset and matched filter are working by setting the *Amplitude* of the *Noise Source* block to 0 and checking that the BER is 0.
 
 ### Finding the signal power
 
-In order to control the simulation, we need to set the `eb_n0_db` variable and have that control the noise power ($$\sigma$$) in the *Noise Source* block.
+In order to control the simulation, we need to set the `eb_n0_db` variable and have that control the noise power ($$\sigma$$) in the *Noise Source* block. This can be done using the equation you derived in the prelab. In translating the equation into a line of python (so that it can be used in GNU Radio), see that $$f_{SYM}$$ is `symbol_rate` and $$f_s$$ is `samp_rate`.
 
-Consider the following equations (some repeated from the theory section),
-
-$$
-\begin{eqnarray}
-  \frac{E_b}{N_0} = SNR\frac{W}{R}, &\text{(text eqn. 3.30)},\\
-
-  SNR = \frac{a_i^2}{\sigma_0^2}, &\text{(text eqn. 3.45)},\\
-
-  SNR_{MAX} = \frac{2E_b}{N_0}, &\text{(text eqn. 3.52)},
-\end{eqnarray}
-$$
-
-where $$a_i^2$$ is the signal power. Notice also that $$SNR$$ and $$\frac{E_b}{N_0}$$ are linear in these equations (unlike their normal use in decibels). Combining the three equations yields
-
-$$
-\frac{E_b}{N_0} = \frac{1}{2} \frac{a_i^2}{\sigma_0^2} \frac{W}{R}.
-$$
-
-Again remembering that all of these terms are linear, and that the objective is to set $$\sigma$$ using $$\frac{E_b}{N_0}$$ in decibels.
-
-Rearranging the above gives
-
-$$
-\sigma = \sqrt{\frac{1}{2} \frac{a_i^2}{10^{\frac{E_b}{N_0}/10}} \frac{W}{R}}.
-$$
-
-Of all these parameters the only one still missing is the signal power. Build the following three blocks to measure the signal power and attach the output of the transmitting RRC to both inputs of the multiply block.
+In this equation, $$a_i^2$$ is the signal power. This is the only parameter still unknown. Build the following three blocks to measure the signal power and attach the output of the transmitting RRC to both inputs of the multiply block.
 
   ![power-measurement.png](figures/power-measurement.png)<br>
   __*Flow diagram to measure average power of a data stream.*__
@@ -112,11 +86,7 @@ The *Length* of the *Moving Average* block is 100000 and the *Scale* is the inve
 
 Run the flowgraph and record this power value. Take a second and consider whether the value you have measured is reasonable. The peaks of the RRC output are at about 1 after the gain adjustment above. Save the measured value in the `sig_pwr` variable block.
 
-Now all of the variables in the above derivation for $$\sigma$$ have been found. It is now possible to control the $$\frac{E_b}{N_0}$$ of the system by holding the signal power constant and varying the noise power. Enter the expression for $$\sigma$$ in the *Amplitude* parameter of the *Noise Source* block. It is repeated below.
-
-```python
-sigma = math.sqrt((sig_pwr/(10**(eb_n0_db/10)))*(samp_rate/symbol_rate)*0.5)
-```
+Now all of the variables in the above derivation for $$\sigma$$ have been found. It is now possible to control the $$\frac{E_b}{N_0} \text{ (dB)}$$ of the system by holding the signal power constant and varying the noise power. Enter the expression for $$\sigma$$ in the *Amplitude* parameter of the *Noise Source* block. It should be a function of `samp_rate`, `symbol_rate`, `sig_pwr`, and `eb_n0_db`.
 
 ## Running the experiment
 
@@ -128,7 +98,7 @@ sigma = math.sqrt((sig_pwr/(10**(eb_n0_db/10)))*(samp_rate/symbol_rate)*0.5)
      - Signal power (set noise power to 0).
      - Noise powers required for Eb/N0 of 0, 2, 4, 6, 8 dB (to do this, set the *Gain* in the Transmitting RRC to 0)
 
-{% include alert.html title="Deliverable question 3" class="info" content="Consider the relative impact of noise versus a timing offset on the system. Does the RRC filter fare any better than the square pulses did with an offset of 1 sample?" %}
+{% include alert.html title="Deliverable question 3" class="info" content="Consider the relative impact of noise versus a timing offset on the system. Does the RRC filter fare any better than the LPF did with an offset of 1 sample?" %}
 
 From this section you should have recorded 5 BER values, 5 output noise power values and 1 output signal power value.
 

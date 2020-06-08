@@ -57,7 +57,7 @@ The bitstream must be interpolated such that a single impulse happens at the `sy
 
 {% include alert.html title="Note" content="When possible it is best to not 'hard code' when you can reference variables. The interpolation rate can be set as a function of `samp_rate` and `symbol_rate`. You could type `samp_rate**2 * symbol_rate` in, and it would work (but that would be very wrong). This makes your program robust if you later change the sampling or symbol rate. " %}
 
-{% include alert.html title="Note" content="GRC often throws type errors like `Expression is invalid for type int`. To fix this you can either cast type by wrapping the argument in an `int()`, use the built in python operators like `//`, or use one of the math functions you previously imported like `math.ceil()`." %}
+{% include alert.html title="Note" content="GRC often throws type errors like `Expression is invalid for type int`. To fix this you can either cast type by wrapping the argument in an `int()` or use the built in python operator `//`." %}
 
 - A few other LPF parameters need to be adjusted:
   - The "FIR Type" should be "Float->Float (Interpolating)",
@@ -90,7 +90,7 @@ Set *K* to 8. This is the packet byte size that the later *BER* block requires.
 
 ### BER
 
-This computes the error between the two inputs. It outputs to log of the BER, so if it outputs a value of -2, the BER is $$10^-2=0.01$$.
+This computes the error between the two inputs. It outputs to log of the BER, so if it outputs a value of -2, the BER is $$10^{-2}=0.01$$.
 
 Set *Test Mode* to False, which will mean the block immediately starts outputting results (as opposed to waiting for the error rate to stabilize first). While *Test Mode* is False, the other parameters don't do anything, so you can leave them as they are.
 
