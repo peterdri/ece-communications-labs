@@ -55,7 +55,7 @@ The BER values collected from the number sink are log10(BER). So to obtain the B
 
 ### 3. RRC curve with user-set Eb/N0 values
 
-You collected a dataset of BER values for Eb/N0 values of 0, 2, 4, 6, 8 dB. Plot them against eachother (remembering that $$BER=10^{-X}$$).
+You collected a dataset of BER values for Eb/N0 values of 0, 2, 4, 6, 8 dB. Plot them against each other (remembering that $$BER=10^{-X}$$).
 
 ### 3. RRC curve with calculated Eb/N0 values
 
