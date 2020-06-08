@@ -21,9 +21,10 @@ You will learn about:
 ## Prelab
 
 1. Read the [theory page]({{site.baseurl}}{% link _ece450/lab2/theory.md%}) of this lab.
-2. Consider a matched filter. Derive an expression for $$\frac{E_b}{N_0}$$ in linear terms as a function of $$a_i, \sigma_0, W, R$$ (also all in linear terms). It will be helpful to reference the notes in Dr. Driessen's Worksheet #5 (Chapter 3). In particular take note of Sklar equations 3.30 and 3.45.
-3. Take the derived expression above and rearrange it to solve for $$\sigma_0$$. This time the expression should be a function of $$a_i, W, R$$ (in linear terms) and $$\frac{E_b}{N_0}$$ (in dB).
-4. Consider the the above derived expression for $$\sigma_0$$ in the context of a sampled system. $$a_i$$ is the signal amplitude (and so $$a_i^2$$ is the signal power), $$R$$ is the symbol frequency ($$f_{SYM}$$) and $$W$$ is the channel bandwidth. Rewrite the expression for $$\sigma$$ as a function of $$a_i^2$$, $$\frac{E_b}{N_0} \text{ (dB)}$$, $$f_{SYM}$$, and $$f_s$$.
+2. Read the notes at the start of Dr. Driessen's chapter 3 worksheets (Worksheet #5).
+3. Consider a matched filter. Derive an expression for $$\frac{E_b}{N_0}$$ in linear terms as a function of $$a_i, \sigma_0, W, R$$ (also all in linear terms). Sklar equations 3.30 and 3.45 are a good starting point.
+4. Take the derived expression above and rearrange it to solve for $$\sigma_0$$. This time the expression should be a function of $$a_i, W, R$$ (in linear terms) and $$\frac{E_b}{N_0}$$ (in dB).
+5. Consider the the above derived expression for $$\sigma_0$$ in the context of a sampled system. $$a_i$$ is the signal amplitude (and so $$a_i^2$$ is the signal power), $$R$$ is the symbol frequency ($$f_{SYM}$$) and $$W$$ is the channel bandwidth. Rewrite the expression for $$\sigma$$ as a function of $$a_i^2$$, $$\frac{E_b}{N_0} \text{ (dB)}$$, $$f_{SYM}$$, and $$f_s$$.
 
 {% include alert.html title="Prelab" content="Show this expression for $$\sigma_0$$ to your TA before beginning the lab." %}
 
