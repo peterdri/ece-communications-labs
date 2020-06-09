@@ -5,7 +5,7 @@ title: Lab 1 - Conclusion
 permalink: /ece450/lab1/conclusion
 course: ece450
 prev: /ece450/lab1/calculating-ber
-# next: /ece450/lab2
+next: /ece450/lab2
 ---
 
 In this lab, you:
