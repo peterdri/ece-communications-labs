@@ -46,7 +46,7 @@ For generating a simulated curve of the theoretical $$BER-\frac{E_b}{N_0}$$ revi
 Remember back to the derivation for $$\sigma$$ done [previously in this lab]({{ site.baseurl }}{% link _ece450/lab2/lpf-shaping.md %}), 
 
 $$
-\frac{E_b}{N_0}=\frac{1}{2}\frac{a_i^2}{\sigma_0^2}, \text{(all in linear terms)}
+\frac{E_b}{N_0}=\frac{1}{2}\frac{a_{out}^2}{\sigma_{out}^2}, \text{(all in linear terms)}
 $$
 
 Use the signal power and noise powers measured at the output of the matched filter to calculate Eb/N0 values to match the collected BER values.
