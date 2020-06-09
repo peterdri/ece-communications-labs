@@ -132,7 +132,7 @@ Test the system by running it. Observe the time sink connected to the end of the
 3. Offset the delay (in the *Skip Head* block) by a single sample. Check the BER with no added noise.
 4. Measure output powers as described below.
    - As shown in the [theory section]({{ site.baseurl }}{% link _ece450/lab2/theory.md %}), $$SNR_{MAX} = \frac{2E_b}{N_0}$$.
-   - Combined with $$SNR = \frac{a_i^2}{\sigma_0^2}$$ (text eqn. 3.45) it is clear that to calculate the $$\frac{E_b}{N_0}$$ value for each above recorded BER value we need to find the output signal power and output noise power.
+   - The $$SNR_{MAX}$$ is the ratio of the output signal and noise powers. To calculate the $$\frac{E_b}{N_0}$$ value for each above recorded BER value we need to find the output signal power and output noise power.
    - Build the following three blocks to measure the signal power and attach the output of the *Decimating Filter* to both inputs of the multiply block.
 
      ![power-measurement.png](figures/power-measurement.png)<br>

@@ -50,7 +50,7 @@ The filter coefficients of the FIR filter will be the pulse shape, $$p(t)$$ samp
 
 In order to smooth the waveform a low pass filter with some pulse shaping window like a Hamming window can be used.
 
-For the Nyquist criterion to be satisfied, the highest frequency in the datastream is $$\frac{f_s}{2} = \frac{1}{2T}$$. It follows that a square pulse or impulse can be low pass filtered at this frequency and retain all of the information in the binary data sequence which will be received/transmitted at that sampling frequency.
+For the Nyquist criterion to be satisfied, the highest frequency in the datastream is $$\frac{f_s}{2}$$. It follows that a square pulse or impulse can be low pass filtered at this frequency and retain all of the information in the binary data sequence which will be received/transmitted at that sampling frequency.
 
 ### 1.3.2 Using a Raised Cosine (RC) filter
 
