@@ -80,6 +80,8 @@ Ensure that the *Stream ID* matches between the two.
 
 Set the decimation parameter appropriately (think back to the interpolation done in the LPF), remembering to reference the symbol and sample rate variables. The block fails to compile without a taps argument so set *Taps* to 1 (meaning there is 1 tap with a value of 1).
 
+{% include alert.html title="Note" content="Some systems seem to throw a weird error unless the 1 is enclosed in square brackets. If you get this error try setting the taps to `[1]`."%}
+
 ### Binary Slicer
 
 This block outputs a 0 for every negative input and a 1 for every positive output.
