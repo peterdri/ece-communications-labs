@@ -96,7 +96,7 @@ This computes the error between the two inputs. It outputs to log of the BER, so
 
 Set *Test Mode* to False, which will mean the block immediately starts outputting results (as opposed to waiting for the error rate to stabilize first). While *Test Mode* is False, the other parameters don't do anything, so you can leave them as they are.
 
-### QT GUI Number sink
+### QT GUI Number Sink
 
 This will draw the output of the BER block on a number line. Set the maximum to 0 (since $$10^0=1$$ meaning that every bit is wrong) and the minumum to -7.
 
@@ -114,7 +114,7 @@ You will know you have the correct delay when your error rate drops to 0.
   ![delayed-bitstreams.png](figures/delayed-bitstreams.png)<br>
   __*Delay corrected bitstreams. BER=0%.*__
 
-This is a finicky task to find the correct delay and not the intent of the delay. Assuming you have correctly set your LPF parameters, the *Skip Head* block should have the *Num Items* argument set to 6. This means the first six block inputs are discarded before the input is sent directly to the output.
+It is a finicky task to find the correct delay and not the intent of the lab. So, assuming you have correctly set your LPF parameters the *Skip Head* block should have the *Num Items* argument set to 6. This means the first six block inputs are discarded before the input is sent directly to the output.
 
 ### Setting LPF Gain
 
@@ -147,7 +147,7 @@ Test the system by running it. Observe the time sink connected to the end of the
    - Disable the *Binary Slicer*, *Skip Head*, both *Pack K Bits* blocks, the *BER* and it's number sink block.
    - Set the *Amplitude* of the *Noise Source* block to 0 so that the signal $$a_i$$ goes throught the LPF and decimation with no noise added before the power is measured.
    - Measure this value and record it.
-   - Now measure the noise power by disabling the signal source and LPF. Measure and record the noise power at the output of the decimator for `sigma` values of `[0.7, 0.55, 0.44, 0.35, 0.28]`. It takes some time for these numbers to stabilize.
+   - Now measure the noise power by setting the gain of the LPF to 0. Measure and record the noise power at the output of the decimator for `sigma` values of `[0.7, 0.55, 0.44, 0.35, 0.28]`. It takes some time for these numbers to stabilize.
 
 At this point you should have recorded 5 BER values, 5 output noise power values and 1 output signal power value.
 
