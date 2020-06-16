@@ -35,6 +35,8 @@ Construct the following GRC flowgraph. It is very similar to the previous pulse 
 - Replace the `sigma` variable with an `eb_n0_db` variable and set the value to 0.
 - Leave the `sig_pwr` variable blank for now.
 
+{% include alert.html title="Note" content="GR version 3.8.0.0 on windows might cause problems if you don't cast the value to a `float()`." %}
+
 ### Import
 
 The argument is `import math`. This will load the [python math library](https://docs.python.org/3/library/math.html). To call the library functions you would precede them with `math`. For example, to take the square root of the number 5 you would write `math.sqrt(5)` wherever you wanted the result.
@@ -52,7 +54,7 @@ The tranmitter chain is now pulse shaping with a *Root Raised Cosine Filter* blo
 
 ### Root Raised Cosine Filter (Receiving)
 
-The receiver chain is now using a matching *Root Raised Cosine Filter* to obtain a final pulse shape that is a raised cosine (review [the theory section]({{ site.baseurl }}{% link _ece450/lab1/theory.md %}) for more on this).
+The receiver chain is now using a matching *Root Raised Cosine Filter* to obtain a final pulse shape that is a raised cosine (review [the theory section]({{ site.baseurl }}{% link _ece450/lab2/theory.md %}) for more on this).
 
 - The filter is of type "Float->Float (Decimating)"
 - Set the number of taps to the sampling rate.
@@ -92,8 +94,9 @@ Now all of the variables in the above derivation for $$\sigma$$ have been found.
 
 1. Run the flowgraph. Record the BER at $$\frac{E_b}{N_0}$$ values of 0, 2, 4, 6, 8 dB.
    - Plotting the time sink values also eats computational power. You may disable the *QT GUI Time Sink* blocks and any other unneeded QT GUI blocks.
+   - __* Ensure that when you change the `eb_n0_db` variable value that the Amplitude of the Noise Source also changes. If sigma is not changing something is wrong (if you're on windows, you might be able to wrap the `eb_n0_db` variable in a `float()` cast. *__
 2. Offset the delay (in the *Skip Head* block) by a single sample. Check the BER with no added noise.
-3. When the Eb/N0 value is discussed, it refers to the received energy per bit/noise power ratio. The $$\sigma$$ formula above is true for a matched filter as it relies on the input signal power and is true for WGN. What if this simulation was not a MF and not WGN? We will now conduct the appropriate measurements to find the Eb/N0 value independent of input signal or noise powers.
+3. When discussing an Eb/N0 value, it refers to the *received* energy per bit/noise power ratio. The $$\sigma$$ formula above is true for a matched filter as it relies on the *input* signal power and is true for WGN. What if this simulation was not a MF and not WGN? The standard method of calculating Eb/N0 would be to measure the output signal and noise powers as done in the [previous section]({{ site.baseurl }}{% link _ece450/lab2/lpf-shaping.md %}) of the lab. Conduct the appropriate measurements to find the Eb/N0 value independent of input signal or noise powers.
    - Add the __*Multiply->Moving Average->QT GUI Number Sink*__ power measuring chain to the output of the receiving RRC filter. Record a power measurement there for:
      - Signal power (set noise power to 0).
      - Noise powers required for Eb/N0 of 0, 2, 4, 6, 8 dB (to do this, set the *Gain* in the Transmitting RRC to 0)
