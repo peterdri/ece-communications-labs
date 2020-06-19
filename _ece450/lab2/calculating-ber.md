@@ -72,7 +72,7 @@ Now that you have the four curves, ensure that the plot has:
 
 A sample of what the plot might look like is included below (with all the labelling elements removed).
 
-  ![BER-curve.png](figures/BER-curve.png)<br>
+  ![ber-curve.png](figures/ber-curve.png)<br>
   __*Sample BER curve*__
 
 {% include alert.html title="Deliverable question 4" class="info" content="Provide insight into your results. What does the BER curve tell you about your communication system?" %}
