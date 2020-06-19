@@ -35,21 +35,16 @@ Construct the following GRC flowgraph.
 - The `samp_rate` of this flowgraph is 100 kHz and the `symbol_rate` is 1 kHz.
 - Leave the `sigma` variable set to 0.
 
-### GLFSR Source
+### Noise Source
 
-This block outputs a pseudo-random bit stream using a shift register as described in the [theory section of Lab 1]({{ site.baseurl }}{% link _ece450/lab1/theory.md %}). Set the Degree of the shift register to 10 (this is the LFSR's $$M$$ value). Set it to repeat.
+Remember that the *Amplitude* variable sets the noise standard deviation, $$\sigma$$. Use the following expression to set $$\sigma$$ using the `eb_n0_db` variable.
 
-### Char To Float & Add Const
+```python
+math.sqrt( sig_pwr/ (10**(eb_n0_db/10)) * samp_rate/symbol_rate )
+```
 
-The output of the GLFSR block is a series of 1's and 0's. In order to build a bipolar BPSK system the 0s must become -1s. This can be done using the following equation
+This is the same expression as from the theory but where $$\frac{E_b}{N_0}$$ is set in units of dB.
 
-$$
-y[n] = 2x[n]-1
-$$
-
-where $$y[n]$$ is the output stream made up of -1s and 1s and $$x[n]$$ is the input stream of 0s and 1s.
-
-Setting the *Scale* parameter of the *Char To Float* block to 0.5 and the *Constant* parameter of the *Add Const* block to -1. You can observe the output of the *Add Const* block using a *QT GUI Constellation Sink* to see that this is now a BPSK signal.
 
 ### Low Pass Filter
 

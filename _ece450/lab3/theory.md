@@ -68,10 +68,43 @@ When now multiplied with a carrier frequency the jump between the two message fr
 
 Notice that the phase of the transmitted signal is continuous. The changes between the two frequency tones are smooth since the complex baseband also has no jumps in phase. The frequency is all that changes between bits.
 
-## 1.2 Non-coherent FSK demodulation
+## 1.2 FSK demodulation
 
+### 1.2.1 Noncoherent FSK
 
+_Sklar text section 4.5.3._ There are several ways to demodulate FSK without considering the phase of the signal. The figure below shows one method which will be implemented during the lab. It measures the energy of the received waveform and compares it to the known energies of the two tone frequencies ($$\pm f_{dev}$$). Notice that for each frequency the I and the Q channels are orthogonal and then summed after squaring. This ensures that no matter what the phase of the incoming signal is the summed result will will match the energy of the known frequency.
 
+  ![fig-4-18.png](figures/fig-4-18.png)<br>
+  __*Non-coherent quadrature FSK receiver (Sklar. fig. 4.18).*__
+
+For a BFSK signal detected noncoherently, the minimum tone spacing is $$\frac{1}{T}=f_{sym}$$. This can be visualized as in the figure below where the zero-crossings of one tone must correspond with the peaks of the second tone. When discussing passband FSK the _frequency deviation_, being the offset from $$f_c$$, is discussed more than the minimum tone spacing. While the minimum tone spacing for noncoherent BFSK is $$f_{sym}$$, the frequency deviation is $$\frac{f_{sym}}{2}$$.
+
+  ![fig-4-20.png](figures/fig-4-20.png)<br>
+  __*Minimum tone spacing for noncoherently detected FSK (Sklar. fig. 4.20).*__
+
+### 1.2.2 Coherent FSK
+
+## 1.3 Theoretical BER
+
+### 1.3.1 Noncoherent FSK
+
+_Sklar text section 4.7.4._ The theoretical probability of a bit error for a binary orthogonal non-coherent FSK simulation is 
+
+$$
+P_B = \frac{1}{2}e^{-\frac{E_b}{2N_0}}, \text{(Sklar text eqn. 4.9.6)}.
+$$
+
+The $$\frac{E_b}{N_0}$$ value can be expressed in the same way as [Lab 2]({{site.baseurl}}{% link _ece450/lab2/theory.md%}),
+
+$$
+\frac{E_b}{N_0} = \frac{a_i^2}{\sigma_0^2}\frac{W}{R}, \text{(all linear terms)}.
+$$
+
+Remember that in Lab 2 the simulation was real, not complex. In the real case, $$\frac{W}{R} = \frac{1}{2}\frac{f_s}{f_{sym}}$$ since the channel bandwidth is half of the receiver sample rate. In the complex case, $$\frac{W}{R}=\frac{f_s}{f_{sym}}$$.
+
+<!-- Unlike Lab 2, the output signal and noise power ratio is not equal to $$\frac{E_b}{N_0}$$ since  -->
+
+### 1.3.2 Coherent FSK
 
 <!-- ## 1.5 Theory summary
 

@@ -10,7 +10,7 @@ next: /ece450/lab3/non-coherent-fsk
 
 ## Objectives
 
-You will build and study and FSK modulator.
+You will build and study a complex baseband FSK modulator.
 
 ---
 
@@ -27,21 +27,26 @@ For this section, the deliverables are:
 
 Construct the following GRC flowgraph.
 
-  ![lpf-blank-flowgraph.png](figures/lpf-blank-flowgraph.png)<br>
-  __*Blank impulse LPF shaping flowgraph*__
+  ![bfsk-tx-blank-flowgraph.png](figures/bfsk-tx-blank-flowgraph.png)<br>
+  __*Blank BFSK modulator flowgraph*__
 
 ### Variables
 
-- The `samp_rate` of this flowgraph is 100 kHz and the `symbol_rate` is 1 kHz.
-- Leave the `sigma` variable set to 0.
+- The `samp_rate` of this flowgraph is 76.8 kHz and the `symbol_rate` is 1200 Hz.
+- Set the `deviation` variable appropriately (review the [theory section]({{ site.baseurl }}{% link _ece450/lab3/theory.md %}) if needed).
+- Leave the other variables set to 0 for now.
+
+### Import
+
+Import the math library with `import math`.
 
 ### GLFSR Source
 
-This block outputs a pseudo-random bit stream using a shift register as described in the [theory section of Lab 1]({{ site.baseurl }}{% link _ece450/lab1/theory.md %}). Set the Degree of the shift register to 10 (this is the LFSR's $$M$$ value). Set it to repeat.
+This block outputs a pseudo-random bit stream using a shift register as described in the [theory section of Lab 1]({{ site.baseurl }}{% link _ece450/lab1/theory.md %}). Set the Degree of the shift register to 20 (this is the LFSR's $$M$$ value). Set it to repeat.
 
 ### Char To Float & Add Const
 
-The output of the GLFSR block is a series of 1's and 0's. In order to build a bipolar BPSK system the 0s must become -1s. This can be done using the following equation
+The output of the GLFSR block is a series of 1's and 0's. In order to build a bipolar signal the 0s must become -1s. This can be done using the following equation
 
 $$
 y[n] = 2x[n]-1
@@ -49,26 +54,85 @@ $$
 
 where $$y[n]$$ is the output stream made up of -1s and 1s and $$x[n]$$ is the input stream of 0s and 1s.
 
-Setting the *Scale* parameter of the *Char To Float* block to 0.5 and the *Constant* parameter of the *Add Const* block to -1. You can observe the output of the *Add Const* block using a *QT GUI Constellation Sink* to see that this is now a BPSK signal.
+Setting the *Scale* parameter of the *Char To Float* block to 0.5 and the *Constant* parameter of the *Add Const* block to -1. You can observe the output of the *Add Const* block using a *QT GUI Constellation Sink* to see that this is now a bipolar signal.
 
-### Low Pass Filter
+### Repeat
 
-The bitstream must be interpolated such that a single impulse happens at the `symbol_rate`. Then these impulses are to be pulse shaped. This can all be done directly in the *Low Pass Filter* block by setting the "Interpolation" parameter appropriately. Knowing the sampling and symbol rates, pick the appropriate interpolation rate.
+Now use the repeat block to turn the 1-sample-per-symbol signal into an M-sample-per-symbol square pulse-shaped signal. Use the `samp_rate` and `symbol_rate` variables.
 
-{% include alert.html title="Note" content="When possible it is best to not 'hard code' when you can reference variables. The interpolation rate can be set as a function of `samp_rate` and `symbol_rate`. You could type `samp_rate**2 * symbol_rate` in, and it would work (but that would be very wrong). This makes your program robust if you later change the sampling or symbol rate. " %}
+### Embedded Python Block
 
-{% include alert.html title="Note" content="GRC often throws type errors like `Expression is invalid for type int`. To fix this you can either cast type by wrapping the argument in an `int()` or use the built in python operator `//`." %}
+This block allows you to create a custom block by writing some Python and embedding it in the flowgraph. Recalling the expression for a sampled complex baseband BFSK signal, the output of the *Repeat* block is $$m(\alpha)$$. This *Embedded Python Block* will be made into a cumculative sum block so that the output of the block is the integral, $$\int_0^t m(\alpha)d\alpha$$.
 
-- A few other LPF parameters need to be adjusted:
-  - The "FIR Type" should be "Float->Float (Interpolating)",
-  - the cutoff frequency has to capture the message frequency, so setting it to twice the symbol rate (`symbol_rate*2`) will critically sample the message,
-  - the transition width to `symbol_rate*0.2`.
+Open the block and click "Open in Editor". You will now be able to edit the Python that processes the input. The code already filling the block takes the input and multiplies it by a constant, delivering the product as the blocks output. First look at the constructor (`__def init()`). It takes an argument and a default value for it, `example_param=1.0`. Anything added here becomes a parameter of the block which can be easily adjusted from the normal block parameters GUI. Since the cumulative sum requires no input paramters, remove the argument.
+
+A few lines lower is the name of the block, `name='Embedded Python Block'`. You can change it to something more meaningful, like `CumSum` so that the flowgraph is easy to interpret. The next two lines indicate the input and output signal types. The default is `np.complex64`. Looking back at the flowgraph you can see that the necessary datatype is a float (`np.float`) so change them appropriately.
+
+The callback slightly lower is for the example paramter and it can be removed since the `example_param` argument no longer exists. We will now add a variable to store the cumulative sum. Add the following line where the callback used to be.
+
+```python
+self.cumsum = [0.0]
+```
+
+Now the `work()` function must be changed. Reading through it now shows the multiplication with the example parameter. Remove this and replace it with the following:
+
+```python
+for i in np.arange(len(output_items[0])):
+  self.cumsum += input_items[0][i]
+  out_items[0][i] = self.cumsum
+
+return len(output_items[0])
+```
+
+The input to the block is delivered in chunks of samples (the size of the chunk depends on a number of factors including OS and available hardware, but is generally around 8192 samples). This code block will take the input, add every input to the existing cumulative sum and put it in the output buffer. The complete code snippet should look like the following.
+
+```python
+"""
+Embedded Python Blocks:
+
+Each time this file is saved, GRC will instantiate the first class it finds
+to get ports and parameters of your block. The arguments to __init__  will
+be the parameters. All of them are required to have default values!
+"""
+
+import numpy as np
+from gnuradio import gr
+
+
+class blk(gr.sync_block):
+    """Embedded Python Block - Cumulative Sum"""
+
+    def __init__(self):
+        gr.sync_block.__init__(
+            self,
+            name='CumSum',       # will show up in GRC
+            in_sig=[np.float32], # input datatype
+            out_sig=[np.float32] # output datatype
+        )
+        self.cumsum = [0.0]
+
+
+    def work(self, input_items, output_items):
+        in_arr = input_items[0]
+        out_arr = output_items[0]
+
+        for i in np.arange(len(output_items[0])):
+            self.cumsum += input_items[0][i]
+            output_items[0][i] = self.cumsum
+
+        return len(output_items[0])
+
+```
+
+Save your changes and exit back to the flowgraph.
+
+### Phase Mod
+
+It is helpful to see the [Phase Mod documentation](https://wiki.gnuradio.org/index.php/Phase_Mod). This block has one parameter, *Sensitivity* and the output is 
 
 ### Noise Source
 
-The *Amplitude* variable sets the noise standard deviation, $$\sigma$$. The noise power of pure White Gaussian noise is the variance of the distribution ($$\sigma^2$$) (text section 3.1.3.4). This means you can directly control the noise power by setting this value.
-
-Set the noise *Amplitude* to `sigma`.
+For now set the *Amplitude* to 0.
 
 ### Virtual Sink & Virtual source
 
