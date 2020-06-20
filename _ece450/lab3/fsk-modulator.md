@@ -19,7 +19,7 @@ You will build and study a complex baseband FSK modulator.
 For this section, the deliverables are:
 
 - the answer to one deliverable question,
-- a dataset for later use in this lab.
+- a flowgraph to resuse later in the lab.
 
 ---
 
@@ -143,11 +143,50 @@ For now leave it with default parameters.
 ## Run the experiment
 
 1. Add a *QT GUI Time Sink* to the flowgraph. Set the *Type* to *Float* and the *Number of Inputs* to 4. You can use the *Config* tab to label the 4 inputs as `m_alpha`, `int_m_alpha`, `Re(s~(t))` and `Im(s~(t))`. Connect the respective inputs to the output of the *Repeat*, *CumSum*, and *Phase Mod* blocks (you'll need a *Complex To Float* block to connect the output of the *Phase Mod*).
-   - Don't forget to activate the the Control Panel
-2. Run the flowgraph. Stop it soon after starting so that the plot freezes. You should see a figure like the following
-     ![tx_output.png](figures/tx_output.png)<br>
-     __*$$m(\alpha), \int_0^t m(\alpha) d\alpha, \mathbb{Re}\left\{\tilde{s}(t)\right\}, \mathbb{Im}\left\{\tilde{s}(t)\right\} plotted together in GNU Radio. *__
+   - Don't forget to activate the the Control Panel in the block!
+   - The ramp coming out of the *CumSum* block will rise and fall by much greater than the maximum value of 1 that the other outputs have. To "wrap" the ramp (much like phase wrapping), add another *Python Block* in between the output of the *CumSum* block and the input of the *QT GUI Time Sink* block. Replace the code in the block with the following segment
 
-{% include alert.html title="Deliverable question 1" class="info" content="What do your observations suggest about the relative impact on a communications system between a timing offset and noise?"%}
+     ```python
+     import numpy as np
+     from gnuradio import gr
+
+
+     class blk(gr.sync_block):
+       """Embedded Python Block that wraps the input given some bounds"""
+
+       def __init__(self, sample_rate=0.0, symbol_rate=0.0, low=-1.0, high=1.0):  # only default arguments here
+           """arguments to this function show up as parameters in GRC"""
+           gr.sync_block.__init__(
+               self,
+               name='Wrap',
+               in_sig=[np.float32],
+               out_sig=[np.float32]
+           )
+           # callbacks
+           self.samp_rate = sample_rate
+           self.symbol_rate = symbol_rate
+           self.low = low
+           self.high = high
+
+       def bound(self, value):
+          """Wraps and normalizes input"""
+           value = value/(self.samp_rate/self.symbol_rate)
+           diff = self.high-self.low
+           return (((value-self.low) % diff) + self.low)
+
+       def work(self, input_items, output_items):
+           for i in np.arange(len(output_items[0])):
+               output_items[0][i] = self.bound(input_items[0][i])
+
+           return len(output_items[0])
+     ```
+
+2. Run the flowgraph. Stop it soon after starting so that the plot freezes. You should see a figure like the following
+  ![tx_output.png](figures/tx_output.png)<br>
+  __*$$m(\alpha), \int_0^t m(\alpha) d\alpha, \mathbb{Re}\left\{\tilde{s}(t)\right\}, \mathbb{Im}\left\{\tilde{s}(t)\right\} plotted together in GNU Radio. *__
+
+3. If you wish to see the signal at passband, multiply the signal coming out of the *Phase Mod* block with a complex cosine with a frequency of 1500 Hz.
+
+{% include alert.html title="Deliverable question 1" class="info" content="In the figure above (and the simulation!) where $$m(\alpha)$$ changes value, it is clear that $$\int_0^t m(\alpha)d\alpha$$ changes direction and $$\mathbb{Im}\left\{ \tilde{s}(t) \right\}$$ obviously changes as well. Why does $$\mathbb{Re}\left\{ \tilde{s}(t) \right\}$$ not appear to change?"%}
 
 Review the [section deliverables](#part-2-deliverables) before moving on.

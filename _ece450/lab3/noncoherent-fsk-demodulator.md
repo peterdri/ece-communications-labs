@@ -25,15 +25,10 @@ For this section, the deliverables are:
 
 ## Building the flowgraph
 
-Construct the following GRC flowgraph.
+Construct the following GRC flowgraph. You can make a copy of the modulating flowgraph from the last section as a starting point by "Save As"-ing it.
 
-  ![lpf-blank-flowgraph.png](figures/lpf-blank-flowgraph.png)<br>
-  __*Blank impulse LPF shaping flowgraph*__
-
-### Variables
-
-- The `samp_rate` of this flowgraph is 100 kHz and the `symbol_rate` is 1 kHz.
-- Leave the `sigma` variable set to 0.
+  ![noncoherent-blank-flowgraph.png](figures/noncoherent-blank-flowgraph.png)<br>
+  __*Noncoherent BFSK simulation flowgraph*__
 
 ### Noise Source
 
@@ -44,7 +39,6 @@ math.sqrt( sig_pwr/ (10**(eb_n0_db/10)) * samp_rate/symbol_rate )
 ```
 
 This is the same expression as from the theory but where $$\frac{E_b}{N_0}$$ is set in units of dB.
-
 
 ### Low Pass Filter
 
