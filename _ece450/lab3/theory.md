@@ -5,7 +5,7 @@ title: Part 1 - Theory
 permalink: /ece450/lab3/theory
 course: ece450
 prev: /ece450/lab3
-next: /ece450/lab2/non-coherent-fsk
+next: /ece450/lab3/fsk-modulator
 ---
 
 

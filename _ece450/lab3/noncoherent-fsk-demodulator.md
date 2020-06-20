@@ -2,7 +2,7 @@
 layout: labitem
 title: Part 2 - Non-coherent FSK
 
-permalink: /ece450/lab3/non-coherent-fsk
+permalink: /ece450/lab3/noncoherent-fsk
 course: ece450
 prev: /ece450/lab3/theory
 next: /ece450/lab3/coherent-fsk

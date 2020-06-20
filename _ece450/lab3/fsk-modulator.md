@@ -5,7 +5,7 @@ title: Part 2 - FSK Modulator
 permalink: /ece450/lab3/fsk-modulator
 course: ece450
 prev: /ece450/lab3/theory
-next: /ece450/lab3/non-coherent-fsk
+next: /ece450/lab3/noncoherent-fsk
 ---
 
 ## Objectives
@@ -128,92 +128,25 @@ Save your changes and exit back to the flowgraph.
 
 ### Phase Mod
 
-It is helpful to see the [Phase Mod documentation](https://wiki.gnuradio.org/index.php/Phase_Mod). This block has one parameter, *Sensitivity* and the output is 
+It is helpful to see the [Phase Mod documentation](https://wiki.gnuradio.org/index.php/Phase_Mod). This block has one parameter, *Sensitivity* and the output is $$e^{j*sensitivity*input}$$. Recall from the theory section that
+
+$$
+\tilde{s}(t) = e^{\frac{j2\pi f_{dev}}{f_s} \int^t_0 m(\alpha)d\alpha}.
+$$
+
+Set the *Sensitivity* of the block to `2*math.pi*deviation/samp_rate` so that the output of the block is $$\tilde{s}(t)$$.
 
 ### Noise Source
 
-For now set the *Amplitude* to 0.
-
-### Virtual Sink & Virtual source
-
-These blocks can be considered as connected by an "invisible" line on the flowgraph. They can be used for more complex tasks, but here they just keep the flowgraph from being criss-crossed with lines. They are also used to simulate a "transmitter" and "receiver". In this case the *Virtual Sink* transmits the noisy baseband waveform while the *Virtual Source* receives it.
-
-Ensure that the *Stream ID* matches between the two.
-
-### Decimating FIR Filter
-
-Set the decimation parameter appropriately (think back to the interpolation done in the LPF), remembering to reference the symbol and sample rate variables. The block fails to compile without a taps argument so set *Taps* to 1 (meaning there is 1 tap with a value of 1).
-
-{% include alert.html title="Note" content="Some systems seem to throw a weird error unless the 1 is enclosed in square brackets. If you get this error try setting the taps to `[1]`."%}
-
-### Binary Slicer
-
-This block outputs a 0 for every negative input and a 1 for every positive output.
-
-### Pack K Bits
-
-Set *K* to 8. This is the packet byte size that the later *BER* block requires.
-
-### BER
-
-This computes the error between the two inputs. It outputs to log of the BER, so if it outputs a value of -2, the BER is $$10^{-2}=0.01$$.
-
-Set *Test Mode* to False, which will mean the block immediately starts outputting results (as opposed to waiting for the error rate to stabilize first). While *Test Mode* is False, the other parameters don't do anything, so you can leave them as they are.
-
-### QT GUI Number Sink
-
-This will draw the output of the BER block on a number line. Set the maximum to 0 (since $$10^0=1$$ meaning that every bit is wrong) and the minumum to -7.
-
-### Skip Head
-
-To compute the BER of the system, the input and output bitstreams must be aligned. The filter causes a delay which can be measured by correlating the bitstreams, or observing them using a *QT GUI Time Sink* as shown in the two figures below.
-
-To do this you can observe the overlapped bitstreams and try to find the offset between them. When the bitstreams are not aligned, the BER rate will be about 50% (this just means both streams are random and equally consist of 1s and 0s).
-
-  ![un-delayed-bitstreams.png](figures/un-delayed-bitstreams.png)<br>
-  __*A pattern found in the un-delayed bitstream. The blue bitstream between the blue arrows matches the red bitstream between the red arrows. BER=50%.*__
-
-You will know you have the correct delay when your error rate drops to 0.
-
-  ![delayed-bitstreams.png](figures/delayed-bitstreams.png)<br>
-  __*Delay corrected bitstreams. BER=0%.*__
-
-It is a finicky task to find the correct delay and not the intent of the lab. So, assuming you have correctly set your LPF parameters the *Skip Head* block should have the *Num Items* argument set to 6. This means the first six block inputs are discarded before the input is sent directly to the output.
-
-### Setting LPF Gain
-
-Test the system by running it. Observe the time sink connected to the end of the transmitter chain (below). Notice that the waveform amplitude is very low at the output of the filter. Find the amplitude of the pulse peaks and then change the "Gain" parameter in the *Low Pass Filter* block such that the waveform pulses peak at 1.
-
-  ![lpf-no-gain.png](figures/lpf-no-gain.png)<br>
-  __*Output of LPF before gain is applied.*__
-
-  ![lpf-with-gain.png](figures/lpf-with-gain.png)<br>
-  __*Output of LPF with the appropriate gain applied.*__
+For now leave it with default parameters.
 
 ## Run the experiment
 
-1. Run the flowgraph.
-2. Record the BER at $$\sigma$$ values of `[0.7, 0.55, 0.44, 0.35, 0.28]`. You will need to kill the flowgraph each time you need to set a new value.
-   - Plotting the time sink values also eats computational power. While waiting for the BER values to stabilize you may disable the *QT GUI Time Sink* blocks and any other unneeded QT GUI blocks.
-3. Offset the delay (in the *Skip Head* block) by a single sample. Check the BER with no added noise.
-4. Measure output powers as described below.
-   - As shown in the [theory section]({{ site.baseurl }}{% link _ece450/lab2/theory.md %}), $$SNR_{MAX} = \frac{2E_b}{N_0}$$.
-   - The $$SNR_{MAX}$$ is the ratio of the output signal and noise powers. To calculate the $$\frac{E_b}{N_0}$$ value for each above recorded BER value we need to find the output signal power and output noise power.
-   - Build the following three blocks to measure the signal power and attach the output of the *Decimating Filter* to both inputs of the multiply block.
-
-     ![power-measurement.png](figures/power-measurement.png)<br>
-    __*Flow diagram to measure average power of a data stream.*__
-
-   - The *Length* of the *Moving Average* block is 100000 and the *Scale* is the inverse (ensure that the inverse is a float and not an integer.)
-
-   {% include alert.html title="Note" content="Ensure that the *Scale* parameter is a float and not an integer. GR versions < 3.8 are build on Python 2 and so 1/100000 will result in the int 0. GR versions 3.8+ are built on Python 3 and so the same argument will yield the float 0.00001. In GR versions < 3.8 this can be solved by casting the entire argument as a float by wrapping it with a `float()`." %}
-
-   - Disable the *Binary Slicer*, *Skip Head*, both *Pack K Bits* blocks, the *BER* and it's number sink block.
-   - Set the *Amplitude* of the *Noise Source* block to 0 so that the signal $$a_i$$ goes throught the LPF and decimation with no noise added before the power is measured.
-   - Measure this value and record it.
-   - Now measure the noise power by setting the gain of the LPF to 0. Measure and record the noise power at the output of the decimator for `sigma` values of `[0.7, 0.55, 0.44, 0.35, 0.28]`. It takes some time for these numbers to stabilize.
-
-At this point you should have recorded 5 BER values, 5 output noise power values and 1 output signal power value.
+1. Add a *QT GUI Time Sink* to the flowgraph. Set the *Type* to *Float* and the *Number of Inputs* to 4. You can use the *Config* tab to label the 4 inputs as `m_alpha`, `int_m_alpha`, `Re(s~(t))` and `Im(s~(t))`. Connect the respective inputs to the output of the *Repeat*, *CumSum*, and *Phase Mod* blocks (you'll need a *Complex To Float* block to connect the output of the *Phase Mod*).
+   - Don't forget to activate the the Control Panel
+2. Run the flowgraph. Stop it soon after starting so that the plot freezes. You should see a figure like the following
+     ![tx_output.png](figures/tx_output.png)<br>
+     __*$$m(\alpha), \int_0^t m(\alpha) d\alpha, \mathbb{Re}\left\{\tilde{s}(t)\right\}, \mathbb{Im}\left\{\tilde{s}(t)\right\} plotted together in GNU Radio. *__
 
 {% include alert.html title="Deliverable question 1" class="info" content="What do your observations suggest about the relative impact on a communications system between a timing offset and noise?"%}
 
