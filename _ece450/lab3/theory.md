@@ -84,6 +84,8 @@ For a BFSK signal detected noncoherently, the minimum tone spacing is $$\frac{1}
 
 ### 1.2.2 Coherent FSK
 
+coming soon
+
 ## 1.3 Theoretical BER
 
 ### 1.3.1 Noncoherent FSK
@@ -106,17 +108,14 @@ Remember that in Lab 2 the simulation was real, not complex. In the real case, $
 
 ### 1.3.2 Coherent FSK
 
-<!-- ## 1.5 Theory summary
+coming soon
 
-Pulse shaping can be done in multiple ways. Above, three methods are considered:
+## 1.4 Theory summary
 
-1. Generate a pulse stream from a bit stream and LPF using a window that minimizes spectral leakage.
-2. Generate a pulse stream from a bit stream and filter using a window that has a zero-ISI characteristic.
-3. Generate a pulse stream from a bit stream and filter using a window that has a zero-ISI characteristic when used at both the receiver and the transmitter.
-
-During this lab you will experiment with the first and third options.
-
-BER can be calculated by measuring the SNR of a BPSK signal. -->
+1. FSK modulation assigns each input bit value a distinct frequency.
+2. Demodulation can be done coherently or non-coherently.
+3. When noncoherently demodulated, the signal can be transmitted with a tone spacing of $$\frac{1}{T}$$.
+4. When noncoherently demodulated, the signal can be transmitted with a tone spacing of $$\frac{1}{2T}$$.
 
 ## References
 
