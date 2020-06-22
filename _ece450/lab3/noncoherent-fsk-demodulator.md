@@ -1,6 +1,6 @@
 ---
 layout: labitem
-title: Part 2 - Non-coherent FSK
+title: Part 3 - Non-coherent FSK
 
 permalink: /ece450/lab3/noncoherent-fsk
 course: ece450
@@ -14,7 +14,7 @@ next: /ece450/lab3/coherent-fsk
 
 ---
 
-## Part 2 deliverables
+## Part 3 deliverables
 
 For this section, the deliverables are:
 
@@ -27,8 +27,14 @@ For this section, the deliverables are:
 
 Construct the following GRC flowgraph. You can make a copy of the modulating flowgraph from the last section as a starting point by "Save As"-ing it.
 
-  ![noncoherent-blank-flowgraph.png](figures/noncoherent-blank-flowgraph.png)<br>
+  ![bfsk-noncoherent-blank-flowgraph.png](figures/bfsk-noncoherent-blank-flowgraph.png)<br>
   __*Noncoherent BFSK simulation flowgraph*__
+
+### Modulator
+
+Keep the variables and the rest of the modulation chain unchanged. You can see that the *CumSum* and *Phase Mod* blocks have been replaced with a *Frequency Mod* block. [The documentation](https://wiki.gnuradio.org/index.php/Frequency_Mod) shows that this is an equivalent operation. For this reason you can opt not to replace it.
+
+Set the `sig_pwr` variable appropriately. We saw in the last part of the lab that the modulated signal has an *amplitude* of 1.
 
 ### Noise Source
 
@@ -38,26 +44,7 @@ Remember that the *Amplitude* variable sets the noise standard deviation, $$\sig
 math.sqrt( sig_pwr/ (10**(eb_n0_db/10)) * samp_rate/symbol_rate )
 ```
 
-This is the same expression as from the theory but where $$\frac{E_b}{N_0}$$ is set in units of dB.
-
-### Low Pass Filter
-
-The bitstream must be interpolated such that a single impulse happens at the `symbol_rate`. Then these impulses are to be pulse shaped. This can all be done directly in the *Low Pass Filter* block by setting the "Interpolation" parameter appropriately. Knowing the sampling and symbol rates, pick the appropriate interpolation rate.
-
-{% include alert.html title="Note" content="When possible it is best to not 'hard code' when you can reference variables. The interpolation rate can be set as a function of `samp_rate` and `symbol_rate`. You could type `samp_rate**2 * symbol_rate` in, and it would work (but that would be very wrong). This makes your program robust if you later change the sampling or symbol rate. " %}
-
-{% include alert.html title="Note" content="GRC often throws type errors like `Expression is invalid for type int`. To fix this you can either cast type by wrapping the argument in an `int()` or use the built in python operator `//`." %}
-
-- A few other LPF parameters need to be adjusted:
-  - The "FIR Type" should be "Float->Float (Interpolating)",
-  - the cutoff frequency has to capture the message frequency, so setting it to twice the symbol rate (`symbol_rate*2`) will critically sample the message,
-  - the transition width to `symbol_rate*0.2`.
-
-### Noise Source
-
-The *Amplitude* variable sets the noise standard deviation, $$\sigma$$. The noise power of pure White Gaussian noise is the variance of the distribution ($$\sigma^2$$) (text section 3.1.3.4). This means you can directly control the noise power by setting this value.
-
-Set the noise *Amplitude* to `sigma`.
+This is the same expression as from the theory but where $$\frac{E_b}{N_0}$$ is in units of dB.
 
 ### Virtual Sink & Virtual source
 
@@ -65,11 +52,28 @@ These blocks can be considered as connected by an "invisible" line on the flowgr
 
 Ensure that the *Stream ID* matches between the two.
 
-### Decimating FIR Filter
+### Receiver chain
 
-Set the decimation parameter appropriately (think back to the interpolation done in the LPF), remembering to reference the symbol and sample rate variables. The block fails to compile without a taps argument so set *Taps* to 1 (meaning there is 1 tap with a value of 1).
+This is a non-coherent receiver which is built from Sklar text figure 4.18 (below).
 
-{% include alert.html title="Note" content="Some systems seem to throw a weird error unless the 1 is enclosed in square brackets. If you get this error try setting the taps to `[1]`."%}
+  ![fig-4-18.png](figures/fig-4-18.png)<br>
+  __*Non-coherent quadrature FSK receiver (Sklar. fig. 4.18).*__
+
+Match the text figure with the flowgraph. Can you see that they're the same?
+
+### Signal Sources
+
+Rather than have 4 real multiplies, 2 complex multiplies will work (see in the above figure that each chain is multiplied with $$sin(\omega_i)$$ as well as $$cos(\omega_i)$$). Ensure that the upper signal source operates at $$f_c-f_{dev}$$ while the lower at $$f_c+f_{dev}$$ (if you reverse them you'll later need to reverse the order of the signal chains again before combining them).
+
+Set the amplitude to $$\sqrt{\frac{2}{T}}$$ as in the text figure.
+
+### Moving Average
+
+This block takes the average of all signals in *Length* and then scales the result by *Scale*. So for a moving average, $$\textit{Scale}=\frac{1}{\textit{Length}}$$. In this case it is being used to take the integral so a normal sum will do. The integral needed is from 0 to $$T$$, the symbol time ($$\int_0^T). Set the *Length* appropriately and set the *Scale* to 1.
+
+### Keep 1 in N
+
+Use this block to decimate the square wave form back into a one-sample-per-symbol bipolar bitstream. The argument is the decimation rate.
 
 ### Binary Slicer
 
@@ -89,57 +93,14 @@ Set *Test Mode* to False, which will mean the block immediately starts outputtin
 
 This will draw the output of the BER block on a number line. Set the maximum to 0 (since $$10^0=1$$ meaning that every bit is wrong) and the minumum to -7.
 
-### Skip Head
-
-To compute the BER of the system, the input and output bitstreams must be aligned. The filter causes a delay which can be measured by correlating the bitstreams, or observing them using a *QT GUI Time Sink* as shown in the two figures below.
-
-To do this you can observe the overlapped bitstreams and try to find the offset between them. When the bitstreams are not aligned, the BER rate will be about 50% (this just means both streams are random and equally consist of 1s and 0s).
-
-  ![un-delayed-bitstreams.png](figures/un-delayed-bitstreams.png)<br>
-  __*A pattern found in the un-delayed bitstream. The blue bitstream between the blue arrows matches the red bitstream between the red arrows. BER=50%.*__
-
-You will know you have the correct delay when your error rate drops to 0.
-
-  ![delayed-bitstreams.png](figures/delayed-bitstreams.png)<br>
-  __*Delay corrected bitstreams. BER=0%.*__
-
-It is a finicky task to find the correct delay and not the intent of the lab. So, assuming you have correctly set your LPF parameters the *Skip Head* block should have the *Num Items* argument set to 6. This means the first six block inputs are discarded before the input is sent directly to the output.
-
-### Setting LPF Gain
-
-Test the system by running it. Observe the time sink connected to the end of the transmitter chain (below). Notice that the waveform amplitude is very low at the output of the filter. Find the amplitude of the pulse peaks and then change the "Gain" parameter in the *Low Pass Filter* block such that the waveform pulses peak at 1.
-
-  ![lpf-no-gain.png](figures/lpf-no-gain.png)<br>
-  __*Output of LPF before gain is applied.*__
-
-  ![lpf-with-gain.png](figures/lpf-with-gain.png)<br>
-  __*Output of LPF with the appropriate gain applied.*__
-
 ## Run the experiment
 
 1. Run the flowgraph.
-2. Record the BER at $$\sigma$$ values of `[0.7, 0.55, 0.44, 0.35, 0.28]`. You will need to kill the flowgraph each time you need to set a new value.
-   - Plotting the time sink values also eats computational power. While waiting for the BER values to stabilize you may disable the *QT GUI Time Sink* blocks and any other unneeded QT GUI blocks.
-3. Offset the delay (in the *Skip Head* block) by a single sample. Check the BER with no added noise.
-4. Measure output powers as described below.
-   - As shown in the [theory section]({{ site.baseurl }}{% link _ece450/lab2/theory.md %}), $$SNR_{MAX} = \frac{2E_b}{N_0}$$.
-   - The $$SNR_{MAX}$$ is the ratio of the output signal and noise powers. To calculate the $$\frac{E_b}{N_0}$$ value for each above recorded BER value we need to find the output signal power and output noise power.
-   - Build the following three blocks to measure the signal power and attach the output of the *Decimating Filter* to both inputs of the multiply block.
+2. Record the BER at $$\frac{E_b}{N_0}$$ values of `[0, 2, 4, 6, 8, 10]`. You will need to kill the flowgraph each time you need to set a new value.
+   - Plotting GUI sink values also eats computational power. While waiting for the BER values to stabilize you may wish to disable any unneeded QT GUI blocks.
 
-     ![power-measurement.png](figures/power-measurement.png)<br>
-    __*Flow diagram to measure average power of a data stream.*__
+At this point you should have recorded 6 BER values.
 
-   - The *Length* of the *Moving Average* block is 100000 and the *Scale* is the inverse (ensure that the inverse is a float and not an integer.)
+{% include alert.html title="Deliverable question 2" class="info" content="What do you expect to happen to the BER as the frequency deviation increases? What are the pros/cons of doing this to your communication system?"%}
 
-   {% include alert.html title="Note" content="Ensure that the *Scale* parameter is a float and not an integer. GR versions < 3.8 are build on Python 2 and so 1/100000 will result in the int 0. GR versions 3.8+ are built on Python 3 and so the same argument will yield the float 0.00001. In GR versions < 3.8 this can be solved by casting the entire argument as a float by wrapping it with a `float()`." %}
-
-   - Disable the *Binary Slicer*, *Skip Head*, both *Pack K Bits* blocks, the *BER* and it's number sink block.
-   - Set the *Amplitude* of the *Noise Source* block to 0 so that the signal $$a_i$$ goes throught the LPF and decimation with no noise added before the power is measured.
-   - Measure this value and record it.
-   - Now measure the noise power by setting the gain of the LPF to 0. Measure and record the noise power at the output of the decimator for `sigma` values of `[0.7, 0.55, 0.44, 0.35, 0.28]`. It takes some time for these numbers to stabilize.
-
-At this point you should have recorded 5 BER values, 5 output noise power values and 1 output signal power value.
-
-{% include alert.html title="Deliverable question 1" class="info" content="What do your observations suggest about the relative impact on a communications system between a timing offset and noise?"%}
-
-Review the [section deliverables](#part-2-deliverables) before moving on.
+Review the [section deliverables](#part-3-deliverables) before moving on.
