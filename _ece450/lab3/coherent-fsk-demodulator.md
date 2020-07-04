@@ -1,20 +1,20 @@
 ---
 layout: labitem
-title: Part 3 - Coherent FSK
+title: Part 4 - Coherent FSK
 
 permalink: /ece450/lab3/coherent-fsk
 course: ece450
-prev: /ece450/lab3/non-coherent-fsk
+prev: /ece450/lab3/noncoherent-fsk
 next: /ece450/lab3/calculating-ber
 ---
 
 ## Objectives
 
-You will implement a communications system using a Root Raised Cosine (RRC) filter for pulse shaping.
+You will implement a coherent real passband FSK receiver to demodulate the transmitting signal chain previously built.
 
 ---
 
-## Part 3 deliverables
+## Part 4 deliverables
 
 For this section, the deliverables are:
 
@@ -23,86 +23,144 @@ For this section, the deliverables are:
 
 ---
 
-## RRC pulse shaping flowgraph
+## Building the flowgraph
 
-Construct the following GRC flowgraph. It is very similar to the previous pulse shaping flowgraphs. You can "File>Save As" in GRC in order to not begin from scratch again.
+Construct the following GRC flowgraph. You can make a copy of the modulating flowgraph from the last section as a starting point by "Save As"-ing it.
 
-  ![rrc-blank-flowgraph.png](figures/rrc-blank-flowgraph.png)<br>
-  __*Blank RRC pulse shaping flowgraph*__
+  ![bfsk-coherent-blank-flowgraph.png](figures/bfsk-coherent-blank-flowgraph.png)<br>
+  __*Coherent BFSK simulation flowgraph.*__
 
 ### Variables
 
-- Replace the `sigma` variable with an `eb_n0_db` variable and set the value to 0.
-- Leave the `sig_pwr` variable blank for now.
+Add a *Variable* block called `fc` set to 1800. This will be the center frequency of the transmitted real signal.
 
-{% include alert.html title="Note" content="GR version 3.8.0.0 on windows might cause problems if you don't cast the value to a `float()`." %}
+Set $$f_s$$ to 76800 Hz. Keep $$f_{sym}$$ at 1200 Hz and $$f_{dev}$$ at $$\frac{f_{sym}}{2}$$.
 
 ### Import
 
-The argument is `import math`. This will load the [python math library](https://docs.python.org/3/library/math.html). To call the library functions you would precede them with `math`. For example, to take the square root of the number 5 you would write `math.sqrt(5)` wherever you wanted the result.
+Use a second *Import* block to import [NumPy](https://numpy.org/), a common scientific computing package for Python. Import it using the following expression.
 
-### Root Raised Cosine Filter (Transmitting)
+```python
+import numpy as np
+```
 
-The tranmitter chain is now pulse shaping with a *Root Raised Cosine Filter* block. Some parameters for the filter are
+This syntax allows you to use the the package functions by calling `np.package_name` instead of typing out `numpy.package_name`.
 
-- the filter is of type "Float->Float (Interpolating)",
-- the filter roll-off factor ($$\alpha$$) indirectly specifies the bandwidth of the filter. Set $$\alpha=0.35$$.
-- An ideal RRC filter has an infinite number of taps but in practice must be windowed. Set the number of taps to the sampling rate.
-- The symbol rate is the same as it was in the last lab section,
-- The interpolation factor is the same as for the previous pulse-shaping method (and for all pulse shaping methods it is the number of samples per symbol when coming from a bit stream to a waveform).
-- The gain can be found in the same way as with the LPF pulse shaping. Measure the amplitude and set the gain such that the peak of the shaped pulses are at about 1.
+### Modulator
 
-### Root Raised Cosine Filter (Receiving)
+The modulator is the same as in the previous section with the addition of a complex multiplier to raise the baseband signal to a passband BFSK signal centered around `fc`. The real part of the signal is then taken and transmitted.
 
-The receiver chain is now using a matching *Root Raised Cosine Filter* to obtain a final pulse shape that is a raised cosine (review [the theory section]({{ site.baseurl }}{% link _ece450/lab2/theory.md %}) for more on this).
+### Noise Source
 
-- The filter is of type "Float->Float (Decimating)"
-- Set the number of taps to the sampling rate.
-- Set the symbol rate and decimation rates appropriately.
-- Do not change the gain, by observing the output of the filter you will see that the input symbols (scaled to 1 above) are all either 1 or -1.
+The amplitude (standard deviation) of the noise source is very close to the same as before but with a factor of 0.5 multiplied in.
 
-{% include alert.html title="Note" content="Since this is a **matched filter** it is the dual to the transmitter RRC filter. Its parameters should reflect this." %}
+$$
+\begin{align}
+\frac{E_b}{N_0} &= \frac{a_i^2}{\sigma_0^2}\frac{W}{R} = \frac{a_i^2}{\sigma_0^2}\frac{f_s}{f_{sym}} \text{(Complex baseband)} \\
+\frac{E_b}{N_0} &= \frac{a_i^2}{\sigma_0^2}\frac{W}{R} = \frac{1}{2}\frac{a_i^2}{\sigma_0^2}\frac{f_s}{f_{sym}} \text{(Real passband)} \\
+\end{align}
+$$
 
-{% include alert.html title="Deliverable question 2" class="info" content="Consider the time domain shape (impulse response) of the root raised cosine filter. In an ideal system, RRC filters have zero-ISI (inter-symbol interference). Why is this? It may help your understanding to draw multiple pulses `[1, 1, 1]` next to each other." %}
+{% include alert.html title="Deliverable question 3" content="Why does the real passband expression for $$\frac{E_b}{N_0}$$ have a factor of 0.5 that does not exist in the complex baseband?" %}
 
-### Skip Head
+Set the amplitude parameter to the following expression.
 
-The offset between sequences can be found as before. It is 1000 samples with the above listed filter parameters (which means a 500 sample delay for each component of the matched filter).
+```python
+math.sqrt( sig_pwr/ (10**(eb_n0_db/10)) * samp_rate/symbol_rate * 1/2 )
+```
 
-### Validate the filter
+This is the same expression as from the above theory but where $$\frac{E_b}{N_0}$$ is in units of dB.
 
-Ensure that the offset and matched filter are working by setting the *Amplitude* of the *Noise Source* block to 0 and checking that the BER is 0.
+### Receiver chain
 
-### Finding the signal power
+This is a coherent receiver which is built based on Sklar text section 4.4.4.
 
-In order to control the simulation, we need to set the `eb_n0_db` variable and have that control the noise power ($$\sigma$$) in the *Noise Source* block. This can be done using the equation you derived in the prelab. In translating the equation into a line of python (so that it can be used in GNU Radio), see that $$f_{SYM}$$ is `symbol_rate` and $$f_s$$ is `samp_rate`.
+### Decimating FIR Filter
 
-In this equation, $$a_i^2$$ is the signal power. This is the only parameter still unknown. Build the following three blocks to measure the signal power and attach the output of the transmitting RRC to both inputs of the multiply block.
+Each of these is a matched filter for a single symbol period of one of the two passband frequencies, $$f_c \pm f_dev$$.
 
-  ![power-measurement.png](figures/power-measurement.png)<br>
-  __*Flow diagram to measure average power of a data stream.*__
+Set the taps in the upper path to the following expression.
 
-The *Length* of the *Moving Average* block is 100000 and the *Scale* is the inverse (ensure that the inverse is a float and not an integer.)
+```python
+np.cos(2*np.pi*(fc+deviation)*np.arange(0,1/symbol_rate, 1/samp_rate))
+```
 
-{% include alert.html title="Note" content="Ensure that the *Scale* parameter is a float and not an integer. GR versions < 3.8 are build on Python 2 and so 1/100000 will result in the int 0. GR versions 3.8+ are built on Python 3 and so the same argument will yield the float 0.00001. In GR versions < 3.8 this can be solved by casting the entire argument as a float by wrapping it with a `float()`." %}
+Set the taps in the lower path to the following expression.
 
-Run the flowgraph and record this power value. Take a second and consider whether the value you have measured is reasonable. The peaks of the RRC output are at about 1 after the gain adjustment above. Save the measured value in the `sig_pwr` variable block.
+```python
+np.cos(2*np.pi*(fc-deviation)*np.arange(0,1/symbol_rate, 1/samp_rate))
+```
 
-Now all of the variables in the above derivation for $$\sigma$$ have been found. It is now possible to control the $$\frac{E_b}{N_0} \text{ (dB)}$$ of the system by holding the signal power constant and varying the noise power. Enter the expression for $$\sigma$$ in the *Amplitude* parameter of the *Noise Source* block. It should be a function of `samp_rate`, `symbol_rate`, `sig_pwr`, and `eb_n0_db`.
+The expressions are plotted below.
 
-## Running the experiment
+  ![coherent-taps.png](figures/coherent-taps.png)<br>
+  __*Taps for the two matched filters.*__
 
-<!-- 1. Run the flowgraph. Record the BER at $$\frac{E_b}{N_0}$$ values of 0, 2, 4, 6, 8 dB.
-   - Plotting the time sink values also eats computational power. You may disable the *QT GUI Time Sink* blocks and any other unneeded QT GUI blocks.
-   - __* Ensure that when you change the `eb_n0_db` variable value that the Amplitude of the Noise Source also changes. If sigma is not changing something is wrong (if you're on windows, you might be able to wrap the `eb_n0_db` variable in a `float()` cast. *__
-2. Offset the delay (in the *Skip Head* block) by a single sample. Check the BER with no added noise.
-3. When discussing an Eb/N0 value, it refers to the *received* energy per bit/noise power ratio. The $$\sigma$$ formula above is true for a matched filter as it relies on the *input* signal power and is true for WGN. What if this simulation was not a MF and not WGN? The standard method of calculating Eb/N0 would be to measure the output signal and noise powers as done in the [previous section]({{ site.baseurl }}{% link _ece450/lab2/lpf-shaping.md %}) of the lab. Conduct the appropriate measurements to find the Eb/N0 value independent of input signal or noise powers.
-   - Add the __*Multiply->Moving Average->QT GUI Number Sink*__ power measuring chain to the output of the receiving RRC filter. Record a power measurement there for:
-     - Signal power (set noise power to 0).
-     - Noise powers required for Eb/N0 of 0, 2, 4, 6, 8 dB (to do this, set the *Gain* in the Transmitting RRC to 0) -->
+### Multiply Const
 
-{% include alert.html title="Deliverable question 3" class="info" content="Consider the relative impact of noise versus a timing offset on the system. Does the RRC filter fare any better than the LPF did with an offset of 1 sample?" %}
+Following the theory in Sklar text section 4.4.4, the waveform can be normalized by the factor $$\sqrt{\frac{2}{T}}$$. Implement this factor using the available variables (it will be one over this number).
 
-From this section you should have recorded 5 BER values, 5 output noise power values and 1 output signal power value.
+### Keep 1 in N
 
-Review the [section deliverables](#part-3-deliverables) beforing moving on.
+Use these blocks to sample the output of the matched filters on the peaks of the waveform. The argument is the decimation rate. This also decimates the sample rate down to the GLFSR rate of one-sample-per-symbol.
+
+### Binary Slicer
+
+This block outputs a 0 for every negative input and a 1 for every positive output.
+
+### Pack K Bits
+
+Set *K* to 8. This is the packet byte size that the later *BER* block requires.
+
+### BER
+
+This computes the error between the two inputs. It outputs to log of the BER, so if it outputs a value of -2, the BER is $$10^{-2}=0.01$$.
+
+Set *Test Mode* to False, which will mean the block immediately starts outputting results (as opposed to waiting for the error rate to stabilize first). While *Test Mode* is False, the other parameters don't do anything, so you can leave them as they are.
+
+### QT GUI Number Sink
+
+This will draw the output of the BER block on a number line. Set the maximum to 0 (since $$10^0=1$$ meaning that every bit is wrong) and the minumum to -7.
+
+## Analysing the receiver
+
+To understand the demodulation it is important to view the waveform at various steps. First observe the transmitted waveform.
+
+- Place a *QT GUI Time Sink* with 2 "Float" inputs near the end of the receiver chain. Connect the outputs of the *Repeat* and *Complex To Real* blocks to the sink.
+- Put a `0*` in front of the *Noise Source*'s expression for $$\sigma$$ so that there is no noise in the waveform.
+- Run the flowgraph and observe.
+
+  ![transmitted-passband-waveform.png](figures/transmitted-passband-waveform.png)<br>
+  __*Transmitted passband waveform.*__
+
+The two distinct frequencies (1200 Hz and 2400 Hz) can seen clearly. One correlates with an input bit of -1 while the other correlates with an input bit of 1. When a single 1 or -1 is transmitted the waveform matches the taps which were [shown earlier](#decimating-fir-filter). When the bit repeats (`[1, 1, 1, ...]` or `[-1, -1, -1, ...]`) the waveform continues at that frequency until the bit value changes.
+
+Now observe various stages of the receiver.
+
+- Increase the number of inputs to the *QT GUI Time Sink* to 3. Connect the outputs of the two matched filters as well as the output of the *Repeat* block.
+
+  ![coherent-MF-output.png](figures/coherent-MF-output.png)<br>
+  __*Output of the matched filters.*__
+
+Notice the delay caused by the FIR filters between the filter outputs and the square waveform. It can be removed by delaying the square waveform at the input of the Sink by the number of filter taps ($$M$$, where this is an M-sample-per-symbol square wave). More importantly, notice that the waveforms coming out of the matched filter flip. One exists while the other is zero. It is no stretch to imagine these as 1's and 0's (amplitude "ons" and amplitude "offs").
+
+Disable the *QT GUI Time Sink* and add a new one with 1 "Float" inputs. View the outputs of the *Keep 1-in-N* blocks. These blocks sample the waveform peaks.
+
+  ![coherent-MF-output-decimated.png](figures/coherent-MF-output-decimated.png)<br>
+  __*Decimated output of the matched filters.*__
+
+Notice that in this noiseless system, the two signals are redundant. The same performance would be obtained by only observing the output of a single matched filter.
+
+{% include alert.html title="Deliverable Question 4" content="Once noise is added, imagine a situation where the decimated output of one MF stream is near to but not exactly zero. What do you expect at the output of the other decimated MF?"%}
+
+Disable all of the *QT GUI Time Sink* blocks. Remove the `0*` from the *Noise Source* $$\sigma$$ parmeter.
+
+## Run the experiment
+
+1. Run the flowgraph.
+2. Record the BER at $$\frac{E_b}{N_0}$$ values of `[0, 2, 4, 6, 8, 10]`. You will need to kill the flowgraph each time you need to set a new value.
+   - Plotting GUI sink values also eats computational power. While waiting for the BER values to stabilize you may wish to disable any unneeded QT GUI blocks.
+
+At this point you should have recorded 6 BER values.
+
+Review the [section deliverables](#part-4-deliverables) before moving on.

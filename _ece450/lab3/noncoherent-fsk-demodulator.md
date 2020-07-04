@@ -10,7 +10,7 @@ next: /ece450/lab3/coherent-fsk
 
 ## Objectives
 
-<!-- You will implement a communications system using impulses pulses as an input and a LPF (low pass filter) for pulse shaping. -->
+You will implement a non-coherent complex baseband FSK receiver to demodulate the transmitting signal chain previously built.
 
 ---
 
