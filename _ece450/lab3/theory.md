@@ -84,16 +84,28 @@ For a BFSK signal detected noncoherently, the minimum tone spacing is $$\frac{1}
 
 ### 1.2.2 Coherent FSK
 
-coming soon
+_Sklar text section 4.4.4._ Remembering that an FSK signal can be expressed as
+
+$$
+s_i(t) = \sqrt{\frac{2E}{T}}cos\left( \omega_i t + \phi \right), \text{(Sklar text eqn. 4.8)}
+$$
+
+the input bits $$a_{ij}$$ can be recovered by correlating the signal with their known modulation frequencies $$\omega_{ij}$$.
+
+$$
+a_{ij} = \int^T_0 \sqrt{\frac{2E}{T}}cos\left(\omega_i t \right) \sqrt{\frac{2}{T}}cos\left(\omega_j t \right) dt, \text{(Sklar text eqn. 4.38)}
+$$
+
+Where $$i=j$$ the correlator output is $$\sqrt{E}$$ (assuming the amplitude is normalized with the $$\frac{1}{\sqrt{\frac{2}{T}}}$$ term). When $$i \neq j$$ the correlator output is 0.
 
 ## 1.3 Theoretical BER
 
 ### 1.3.1 Noncoherent FSK
 
-_Sklar text section 4.7.4._ The theoretical probability of a bit error for a binary orthogonal non-coherent FSK simulation is 
+_Sklar text section 4.7.4._ The theoretical probability of a bit error for a binary orthogonal non-coherent FSK simulation is
 
 $$
-P_B = \frac{1}{2}e^{-\frac{E_b}{2N_0}}, \text{(Sklar text eqn. 4.9.6)}.
+P_B = \frac{1}{2}e^{-\frac{E_b}{2N_0}}, \text{(Sklar text eqn. 4.96)}.
 $$
 
 The $$\frac{E_b}{N_0}$$ value can be expressed in the same way as [Lab 2]({{site.baseurl}}{% link _ece450/lab2/theory.md%}),
@@ -104,11 +116,19 @@ $$
 
 Remember that in Lab 2 the simulation was real, not complex. In the real case, $$\frac{W}{R} = \frac{1}{2}\frac{f_s}{f_{sym}}$$ since the channel bandwidth is half of the receiver sample rate. In the complex case, $$\frac{W}{R}=\frac{f_s}{f_{sym}}$$.
 
-<!-- Unlike Lab 2, the output signal and noise power ratio is not equal to $$\frac{E_b}{N_0}$$ since  -->
-
 ### 1.3.2 Coherent FSK
 
-coming soon
+_Sklar text section 4.7.3._ The probability of a bit error for coherent detection of binary orthogonal FSK is
+
+$$
+P_B = Q\left( \sqrt{\frac{E_b}{N_0}} \right), \text{(Sklar text eqn. 4.82)}.
+$$
+
+In this case the use of a matched filter guarantees the expression
+
+$$
+\frac{E_b}{N_0} = \frac{a_i^2}{\sigma_0^2} \frac{W}{R}, \text{(all linear terms)}.
+$$
 
 ## 1.4 Theory summary
 
