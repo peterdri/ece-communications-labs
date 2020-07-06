@@ -27,8 +27,8 @@ For this section, the deliverables are:
 
 Construct the following GRC flowgraph. You can make a copy of the modulating flowgraph from the last section as a starting point by "Save As"-ing it.
 
-  ![bfsk-noncoherent-blank-flowgraph.png](figures/bfsk-noncoherent-blank-flowgraph.png)<br>
-  __*Noncoherent BFSK simulation flowgraph*__
+  ![bfsk-noncoherent-real-blank-flowgraph.png](figures/bfsk-noncoherent-real-blank-flowgraph.png)<br>
+  __*Noncoherent real BFSK simulation flowgraph*__
 
 ### Modulator
 
@@ -98,6 +98,12 @@ This will draw the output of the BER block on a number line. Set the maximum to 
 1. Run the flowgraph.
 2. Record the BER at $$\frac{E_b}{N_0}$$ values of `[0, 2, 4, 6, 8, 10]`. You will need to kill the flowgraph each time you need to set a new value.
    - Plotting GUI sink values also eats computational power. While waiting for the BER values to stabilize you may wish to disable any unneeded QT GUI blocks.
+3. Simplify the real receiver into an equivalent complex receiver. The flowgraph should now look like the following template.
+
+  ![bfsk-noncoherent-complex-blank-flowgraph.png](figures/bfsk-noncoherent-complex-blank-flowgraph.png)<br>
+  __*Noncoherent complex BFSK simulation flowgraph*__
+
+Check that the BER values are the same using the complex version.
 
 At this point you should have recorded 6 BER values.
 
