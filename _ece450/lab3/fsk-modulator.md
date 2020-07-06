@@ -144,7 +144,7 @@ For now leave it with default parameters.
 
 1. Add a *QT GUI Time Sink* to the flowgraph. Set the *Type* to *Float* and the *Number of Inputs* to 4. You can use the *Config* tab to label the 4 inputs as `m_alpha`, `int_m_alpha`, `Re(s~(t))` and `Im(s~(t))`. Connect the respective inputs to the output of the *Repeat*, *CumSum*, and *Phase Mod* blocks (you'll need a *Complex To Float* block to connect the output of the *Phase Mod*).
    - Don't forget to activate the the Control Panel in the block!
-   - The ramp coming out of the *CumSum* block will rise and fall by much greater than the maximum value of 1 that the other outputs have. To "wrap" the ramp (much like phase wrapping), add another *Python Block* in between the output of the *CumSum* block and the input of the *QT GUI Time Sink* block. Replace the code in the block with the following segment
+   - The ramp coming out of the *CumSum* block will rise and fall by much greater than the maximum value of 1 (as shown in the [theory section of this lab]({{ site.baseurl }}{% link _ece450/lab1/theory.md %}) that the other outputs have. To "wrap" the ramp (much like phase wrapping), add another *Python Block* in between the output of the *CumSum* block and the input of the *QT GUI Time Sink* block. This is done solely to keep the phase ramp within easy-to-read bounds that match the limits of the waveform amplitude. Replace the code in the block with the following segment
 
      ```python
      import numpy as np
