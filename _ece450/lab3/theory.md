@@ -34,7 +34,7 @@ which is the phase component of $$s(t)$$. Thus the phase of $$s(t)$$ is linearly
 
 Consider a binary bit stream `10101010...` and repeating each bit such that $$m(\alpha)$$ is a square wave signal is as below left. The integral is then below right. The ramps become the phase of the signal. Notice that in BFSK the absolute value of the slopes are equal, hence the two message frequencies deviating from $$f_c$$ by an equal amount.
 
-  !m-alpha-square-wave.png](figures/m-alpha-square-wave.png)<br>
+  ![m-alpha-square-wave.png](figures/m-alpha-square-wave.png)<br>
   __*Square wave bitstream (left) and phase of modulated bitstream (right).*__
 
 In the complex baseband this looks like the following figure
@@ -54,7 +54,13 @@ Consider now the complex baseband of these signals below.
   ![s-tilde-bitstream.png](figures/s-tilde-bitstream.png)<br>
   __*Complex baseband of FSK square pulse-shaped bits.*__
 
-Every time a bit changes, the frequency changes direction from $$+f_{dev}$$ to $$-f_{dev}$$.
+Every time a bit changes, the frequency changes direction from $$+f_{dev}$$ to $$-f_{dev}$$. This is easier to visualize using the interactive helix graphics below.
+
+{% include_relative figures/square-wave-complex-baseband.html %}
+  __*Complex baseband of FSK square waveform message.*__
+
+{% include_relative figures/GLFSR-complex-baseband.html %}
+  __*Complex baseband of FSK square pulse-shaped bits.*__
 
 ### 1.1.3 $$s(t)$$
 

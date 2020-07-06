@@ -183,7 +183,7 @@ For now leave it with default parameters.
 
 2. Run the flowgraph. Stop it soon after starting so that the plot freezes. You should see a figure like the following
   ![tx_output.png](figures/tx_output.png)<br>
-  __*$$m(\alpha), \int_0^t m(\alpha) d\alpha, \mathbb{Re}\left\{\tilde{s}(t)\right\}, \mathbb{Im}\left\{\tilde{s}(t)\right\} plotted together in GNU Radio. *__
+  __*$$m(\alpha), \int_0^t m(\alpha) d\alpha, \mathbb{Re}\left\{\tilde{s}(t)\right\}, \mathbb{Im}\left\{\tilde{s}(t)\right\}$$ plotted together in GNU Radio.*__
 
 3. If you wish to see the signal at passband, multiply the signal coming out of the *Phase Mod* block with a complex cosine with a frequency of 1500 Hz.
 
