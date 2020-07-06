@@ -56,11 +56,8 @@ Consider now the complex baseband of these signals below.
 
 Every time a bit changes, the frequency changes direction from $$+f_{dev}$$ to $$-f_{dev}$$. This is easier to visualize using the interactive helix graphics below.
 
-{% include_relative figures/square-wave-complex-baseband.html %}
-  __*Complex baseband of FSK square waveform message.*__
-
-{% include_relative figures/GLFSR-complex-baseband.html %}
-  __*Complex baseband of FSK square pulse-shaped bits.*__
+{% include_relative figures/helixes-theory.html %}
+  __*Complex baseband helixes of messages.*__
 
 ### 1.1.3 $$s(t)$$
 
