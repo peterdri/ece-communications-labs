@@ -19,7 +19,7 @@ You will build and study a complex baseband FSK modulator.
 For this section, the deliverables are:
 
 - the answer to two deliverable questions,
-- a flowgraph to resuse later in the lab.
+- a flowgraph to reuse later in the lab.
 
 ---
 
@@ -33,7 +33,7 @@ Construct the following GRC flowgraph.
 ### Variables
 
 - The `samp_rate` of this flowgraph is 76.8 kHz and the `symbol_rate` is 1200 Hz.
-- Set the `deviation` variable appropriately (review the [theory section]({{ site.baseurl }}{% link _ece450/lab3/theory.md %}) if needed).
+- Set the `deviation` variable appropriately for a noncoherent receiver (review the [theory section]({{ site.baseurl }}{% link _ece450/lab3/theory.md %}) if needed).
 - Leave the other variables set to 0 for now.
 
 ### Import
@@ -62,11 +62,11 @@ Now use the repeat block to turn the 1-sample-per-symbol signal into an M-sample
 
 ### Embedded Python Block
 
-This block allows you to create a custom block by writing some Python and embedding it in the flowgraph. Recalling the expression for a sampled complex baseband BFSK signal, the output of the *Repeat* block is $$m(\alpha)$$. This *Embedded Python Block* will be made into a cumculative sum block so that the output of the block is the integral, $$\int_0^t m(\alpha)d\alpha$$.
+This block allows you to create a custom block by writing some Python and embedding it in the flowgraph. Recalling the expression for a sampled complex baseband BFSK signal, the output of the *Repeat* block is $$m(\alpha)$$. This *Embedded Python Block* will be made into a cumulative sum block so that the output of the block is the integral, $$\int_0^t m(\alpha)d\alpha$$.
 
-Open the block and click "Open in Editor". You will now be able to edit the Python that processes the input. The code already filling the block takes the input and multiplies it by a constant, delivering the product as the blocks output. First look at the constructor (`__def init()`). It takes an argument and a default value for it, `example_param=1.0`. Anything added here becomes a parameter of the block which can be easily adjusted from the normal block parameters GUI. Since the cumulative sum requires no input paramters, remove the argument.
+Open the block and click "Open in Editor". You will now be able to edit the Python that processes the input. The code already filling the block takes the input and multiplies it by a constant, delivering the product as the blocks output. First look at the constructor (`__def init()__`). It takes an argument and a default value for it, `example_param=1.0`. Anything added here becomes a parameter of the block which can be easily adjusted from the normal block parameters GUI. Since the cumulative sum requires no input paramters, remove the argument.
 
-A few lines lower is the name of the block, `name='Embedded Python Block'`. You can change it to something more meaningful, like `CumSum` so that the flowgraph is easy to interpret. The next two lines indicate the input and output signal types. The default is `np.complex64`. Looking back at the flowgraph you can see that the necessary datatype is a float (`np.float`) so change them appropriately.
+A few lines lower is the name of the block, `name='Embedded Python Block'`. You can change it to something more meaningful, like `CumSum` so that the flowgraph is easy to interpret. The next two lines indicate the input and output signal types. The default is `np.complex64`. Looking back at the flowgraph you can see that the necessary datatype is a float (`np.float32`) so change them appropriately.
 
 The callback slightly lower is for the example paramter and it can be removed since the `example_param` argument no longer exists. We will now add a variable to store the cumulative sum. Add the following line where the callback used to be.
 
@@ -180,6 +180,8 @@ For now leave it with default parameters.
 
            return len(output_items[0])
      ```
+
+   Now you can open the block like any other and set the "Low" and "High" parameters to whatever you want. It should default to -1 and 1 respectively which is appropriate for this scenario.
 
 2. Run the flowgraph. Stop it soon after starting so that the plot freezes. You should see a figure like the following
   ![tx_output.png](figures/tx_output.png)<br>

@@ -139,8 +139,8 @@ $$
 
 1. FSK modulation assigns each input bit value a distinct frequency.
 2. Demodulation can be done coherently or non-coherently.
-3. When noncoherently demodulated, the signal can be transmitted with a tone spacing of $$\frac{1}{T}$$.
-4. When noncoherently demodulated, the signal can be transmitted with a tone spacing of $$\frac{1}{2T}$$.
+3. When noncoherently detected, the signal can be transmitted with a tone spacing of $$\frac{1}{T}$$.
+4. When coherently detected, the signal can be transmitted with a tone spacing of $$\frac{1}{2T}$$.
 
 **It may help to review the code used to generate these figures. They can be found at:**
 
