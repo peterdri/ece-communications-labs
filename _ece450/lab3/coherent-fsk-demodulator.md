@@ -34,7 +34,7 @@ Construct the following GRC flowgraph. You can make a copy of the modulating flo
 
 Add a *Variable* block called `fc` set to 1800. This will be the center frequency of the transmitted real signal.
 
-Set $$f_s$$ to 76800 Hz. Keep $$f_{sym}$$ at 1200 Hz and $$f_{dev}$$ at $$\frac{f_{sym}}{2}$$.
+Set $$f_s$$ to 76800 Hz. Keep $$f_{sym}$$ at 1200 Hz and set $$f_{dev}$$ to $$\frac{f_{sym}}{2}$$.
 
 ### Import
 
@@ -77,7 +77,7 @@ This is a coherent receiver which is built based on Sklar text section 4.4.4.
 
 ### Decimating FIR Filter
 
-Each of these is a matched filter for a single symbol period of one of the two passband frequencies, $$f_c \pm f_dev$$.
+Each of these is a matched filter for a single symbol period of one of the two passband frequencies, $$f_c \pm f_{dev}$$.
 
 Set the taps in the upper path to the following expression.
 

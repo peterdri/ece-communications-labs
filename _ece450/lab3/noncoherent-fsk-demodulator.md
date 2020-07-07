@@ -63,13 +63,13 @@ Match the text figure with the flowgraph. Can you see that they're the same?
 
 ### Signal Sources
 
-Rather than have 4 real multiplies, 2 complex multiplies will work (see in the above figure that each chain is multiplied with $$sin(\omega_i)$$ as well as $$cos(\omega_i)$$). Ensure that the upper signal source operates at $$f_c-f_{dev}$$ while the lower at $$f_c+f_{dev}$$ (if you reverse them you'll later need to reverse the order of the signal chains again before combining them).
+Rather than have 4 real multiplies, 2 complex multiplies will work (see in the above figure that each chain is multiplied with $$sin(\omega_i)$$ as well as $$cos(\omega_i)$$). Ensure that the upper signal source operates at $$f_c-f_{dev}$$ while the lower at $$f_c+f_{dev}$$ (if you reverse them you'll later need to reverse the order of the signal chains again before combining them). Remember that this is a complex _baseband_ simulation.  What is $$f_c$$ for a baseband signal?
 
 Set the amplitude to $$\sqrt{\frac{2}{T}}$$ as in the text figure.
 
 ### Moving Average
 
-This block takes the average of all signals in *Length* and then scales the result by *Scale*. So for a moving average, $$\textit{Scale}=\frac{1}{\textit{Length}}$$. In this case it is being used to take the integral so a normal sum will do. The integral needed is from 0 to $$T$$, the symbol time ($$\int_0^T). Set the *Length* appropriately and set the *Scale* to 1.
+This block takes the average of all signals in *Length* and then scales the result by *Scale*. So for a moving average, $$\textit{Scale}=\frac{1}{\textit{Length}}$$. In this case it is being used to take the integral so a normal sum will do. The integral needed is from 0 to $$T$$, the symbol time ($$\int_0^T$$). Set the *Length* appropriately and set the *Scale* to 1.
 
 ### Keep 1 in N
 
