@@ -32,7 +32,7 @@ Construct the following GRC flowgraph. You can make a copy of the modulating flo
 
 ### Modulator
 
-Keep the variables and the rest of the modulation chain unchanged. You can see that the *CumSum* and *Phase Mod* blocks have been replaced with a *Frequency Mod* block. [The documentation](https://wiki.gnuradio.org/index.php/Frequency_Mod) shows that this is an equivalent operation. For this reason you can opt not to replace it.
+Keep the variables and the rest of the modulation chain unchanged. You can see that the *CumSum* and *Phase Mod* blocks have been replaced with a *Frequency Mod* block. [The documentation](https://wiki.gnuradio.org/index.php/Frequency_Mod) shows that this is an equivalent operation. For this reason you can opt not to replace it. If you replace it copy the *Sensitivity* expression into the new block.
 
 Set the `sig_pwr` variable appropriately. We saw in the last part of the lab that the modulated signal has an *amplitude* of 1.
 
