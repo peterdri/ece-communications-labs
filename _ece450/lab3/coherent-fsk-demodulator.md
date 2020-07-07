@@ -137,7 +137,7 @@ The two distinct frequencies (1200 Hz and 2400 Hz) can seen clearly. One correla
 
 Now observe various stages of the receiver.
 
-- Increase the number of inputs to the *QT GUI Time Sink* to 3. Connect the outputs of the two matched filters as well as the output of the *Repeat* block.
+- Increase the number of inputs to the *QT GUI Time Sink* to 3. Connect the outputs of the two matched filters (after scaling) as well as the output of the *Repeat* block.
 
   ![coherent-MF-output.png](figures/coherent-MF-output.png)<br>
   __*Output of the matched filters.*__
