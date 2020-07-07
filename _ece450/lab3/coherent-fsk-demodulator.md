@@ -82,13 +82,13 @@ Each of these is a matched filter for a single symbol period of one of the two p
 Set the taps in the upper path to the following expression.
 
 ```python
-np.cos(2*np.pi*(fc+deviation)*np.arange(0,1/symbol_rate, 1/samp_rate))
+np.cos(2*np.pi*(fc+deviation)*np.arange(0, symbol_rate**-1, samp_rate**-1))
 ```
 
 Set the taps in the lower path to the following expression.
 
 ```python
-np.cos(2*np.pi*(fc-deviation)*np.arange(0,1/symbol_rate, 1/samp_rate))
+np.cos(2*np.pi*(fc-deviation)*np.arange(0, symbol_rate**-1, samp_rate**-1))
 ```
 
 The expressions are plotted below.
