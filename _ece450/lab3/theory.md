@@ -44,6 +44,8 @@ The same is true for a non-repeating bitstream as below. While the slope is cons
   ![m-alpha-bitstream.png](figures/m-alpha-bitstream.png)<br>
   __*Random bitstream with square pulses (left) and phase of modulated bitstream (right).*__
 
+{% include alert.html  title="Note" content="It is important to realize that $$\int_0^t m(\alpha)d\alpha$$ is __not__ bounded. Until a bit flips it will continue to increase (or decrease). If the bit sequence was `[1, 1, 1, 1, 1,...]` then the ramp would remain positive and continue until the first `-1` appeared at which point it would flip to a negative slope until another bit flip."%}
+
 ### 1.1.2 $$\tilde{s}(t)$$
 
 Consider now the complex baseband of these signals below.

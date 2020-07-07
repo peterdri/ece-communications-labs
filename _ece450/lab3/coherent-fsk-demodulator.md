@@ -61,7 +61,7 @@ $$
 \end{align}
 $$
 
-{% include alert.html title="Deliverable question 3" content="Why does the real passband expression for $$\frac{E_b}{N_0}$$ have a factor of 0.5 that does not exist in the complex baseband?" %}
+{% include alert.html title="Deliverable question 4" class="info" content="Why does the real passband expression for $$\frac{E_b}{N_0}$$ have a factor of 0.5 that does not exist in the complex baseband?" %}
 
 Set the amplitude parameter to the following expression.
 
@@ -151,7 +151,7 @@ Disable the *QT GUI Time Sink* and add a new one with 1 "Float" inputs. View the
 
 Notice that in this noiseless system, the two signals are redundant. The same performance would be obtained by only observing the output of a single matched filter.
 
-{% include alert.html title="Deliverable Question 4" content="Once noise is added, imagine a situation where the decimated output of one MF stream is near to but not exactly zero. What do you expect at the output of the other decimated MF?"%}
+{% include alert.html title="Deliverable Question 5" class="info" content="Once noise is added, imagine a situation where the decimated output of one MF stream is near to but not exactly zero. What do you expect at the output of the other decimated MF?"%}
 
 Disable all of the *QT GUI Time Sink* blocks. Remove the `0*` from the *Noise Source* $$\sigma$$ parmeter.
 

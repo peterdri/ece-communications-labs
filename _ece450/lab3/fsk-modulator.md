@@ -18,7 +18,7 @@ You will build and study a complex baseband FSK modulator.
 
 For this section, the deliverables are:
 
-- the answer to one deliverable question,
+- the answer to two deliverable questions,
 - a flowgraph to resuse later in the lab.
 
 ---
@@ -188,5 +188,7 @@ For now leave it with default parameters.
 3. If you wish to see the signal at passband, multiply the signal coming out of the *Phase Mod* block with a complex cosine with a frequency of 1500 Hz.
 
 {% include alert.html title="Deliverable question 1" class="info" content="In the figure above (and the simulation!) where $$m(\alpha)$$ changes value, it is clear that $$\int_0^t m(\alpha)d\alpha$$ changes direction and $$\mathbb{Im}\left\{ \tilde{s}(t) \right\}$$ obviously changes as well. Why does $$\mathbb{Re}\left\{ \tilde{s}(t) \right\}$$ not appear to change?"%}
+
+{% include alert.html title="Deliverable question 2" class="info" content="In the figure above (and the simulation!) where $$\int_0^t m(\alpha) d\alpha$$ has two distinct 'peak types'. One is a sawtooth (an equal but opposite slope on each side) while the other is sharper (a slope on one side but vertical on the other). What is the difference?"%}
 
 Review the [section deliverables](#part-2-deliverables) before moving on.

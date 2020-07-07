@@ -107,6 +107,6 @@ Check that the BER values are the same using the complex version.
 
 At this point you should have recorded 6 BER values.
 
-{% include alert.html title="Deliverable question 2" class="info" content="What do you expect to happen to the BER as the frequency deviation increases? What are the pros/cons of doing this to your communication system?"%}
+{% include alert.html title="Deliverable question 3" class="info" content="What do you expect to happen to the BER as the frequency deviation increases? What are the pros/cons of doing this to your communication system?"%}
 
 Review the [section deliverables](#part-3-deliverables) before moving on.

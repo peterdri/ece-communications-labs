@@ -59,6 +59,6 @@ A sample of what the plot might look like is included below (with all the labell
   ![BER-curve.png](figures/BER-curve.png)<br>
   __*Sample BER curve.*__
 
-{% include alert.html title="Deliverable question 5" class="info" content="Provide insight into your results. What does the BER curve tell you about the difference between coherent and noncoherent BFSK signals?" %}
+{% include alert.html title="Deliverable question 6" class="info" content="Provide insight into your results. What does the BER curve tell you about the difference between coherent and noncoherent BFSK signals?" %}
 
 Review the [section deliverables](#part-5-deliverables) beforing moving on.
