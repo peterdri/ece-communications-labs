@@ -169,7 +169,7 @@ For now leave it with default parameters.
            self.high = high
 
        def bound(self, value):
-          """Wraps and normalizes input"""
+           """Wraps and normalizes input"""
            value = value/(self.samp_rate/self.symbol_rate)
            diff = self.high-self.low
            return (((value-self.low) % diff) + self.low)
