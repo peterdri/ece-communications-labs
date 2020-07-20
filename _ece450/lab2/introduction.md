@@ -5,7 +5,7 @@ title: Lab 2 - Pulse Shaping and Matched Filters
 permalink: /ece450/lab2
 course: ece450
 next: /ece450/lab2/theory
-prev: /ece450/lab1
+prev: /ece450/lab1/conclusion
 ---
 
 In this lab, you will use GNURadio to construct a baseband digital communication system including data source, pulse shaping, AWGN channel, receiver and bit error rate counter. Previously (in [Lab 1]({{site.baseurl}}{% link _ece450/lab1/introduction.md %})) you built a 1-sample-per symbol system with no pulse shaping. In this lab you will build an N-sample-per-symbol system with pulse shaping.

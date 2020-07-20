@@ -1,21 +1,22 @@
 ---
 layout: labitem
-title: Lab 3 - Non-coherent vs Coherent BFSK
+title: Lab 4 - Coherent BPSK, DPSK and Noncoherent DPSK
 
-permalink: /ece450/lab3
+permalink: /ece450/lab4
 course: ece450
-next: /ece450/lab3/theory
-prev: /ece450/lab2/conclusion
+next: /ece450/lab4/theory
+prev: /ece450/lab3/conclusion
 ---
 
-In this lab, you will use GNURadio to build a M-samples per symbol BFSK simulation.
+In this lab, you will use GNURadio to build a M-samples per symbol BPSK simulation.
 
 **If you are unfamiliar with GNU Radio, it is strongly recommended that you complete the [introductory GRC tutorials]({{site.baseurl}}{% link _GRC-tutorials/introduction.md%}) hosted on this site before trying these labs.**
 
 You will learn about:
 
-- non-coherent FSK
-- coherent FSK
+- coherent BPSK
+- coherent DPSK
+- noncoherent DPSK
 
 <!-- ## Prelab
 

@@ -5,7 +5,7 @@ title: Lab 3 - Conclusion
 permalink: /ece450/lab3/conclusion
 course: ece450
 prev: /ece450/lab3/calculating-ber
-# next: /ece450/lab4
+next: /ece450/lab4
 ---
 
 <!-- In this lab, you used GNU Radio to test several different pulse shaping methods. You recorded BER values for each and wrote a short script to turn them into a $$BER-\frac{E_b}{N_0}$$ curve. You also learned about the importance of timing recovery. -->
