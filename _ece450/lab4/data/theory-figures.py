@@ -152,17 +152,12 @@ theory_c_psk = norm.sf(np.sqrt(2*theory_eb_n0_lin))
 print("Coherent BPSK: {}".format(np.log10(theory_c_psk)[::2]))
 
 # Differentially coherent DPSK theory
-theory_c_dpsk = 0.5 * np.exp(-theory_eb_n0_lin)
-print("Coherent DPSK: {}".format(np.log10(theory_c_dpsk)[::2]))
-
-# Noncoherent DPSK theory
-theory_nc_dpsk = 0.5 * np.exp(-0.5*theory_eb_n0_lin)
+theory_nc_dpsk = 0.5 * np.exp(-theory_eb_n0_lin)
 print("Noncoherent DPSK: {}".format(np.log10(theory_nc_dpsk)[::2]))
 
 fig, ax = plt.subplots()
 ax.plot(theory_eb_n0_db, theory_c_psk, label="Coherent BPSK")
 ax.plot(theory_eb_n0_db, theory_nc_dpsk, label='Noncoherent DPSK')
-ax.plot(theory_eb_n0_db, theory_c_dpsk, label='Coherent DPSK')
 
 ax.set_yscale('log')
 ax.set_xlabel('Eb/N0 (dB)')

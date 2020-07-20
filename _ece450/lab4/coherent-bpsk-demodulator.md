@@ -5,7 +5,7 @@ title: Part 3 - Coherent BPSK
 permalink: /ece450/lab4/coherent-bpsk
 course: ece450
 prev: /ece450/lab4/psk-modulator
-next: /ece450/lab4/coherent-dpsk
+next: /ece450/lab4/noncoherent-dpsk
 ---
 
 ## Objectives
@@ -54,11 +54,15 @@ This is a coherent receiver which relies on correlating the waveform with taps f
 
 These blocks will do the correlations against provided taps as well as decimate from M-sample-per-symbol down to 1-sample-per symbol. Set the taps of the upper chain to
 
-`np.ones((samp_rate//symbol_rate))+ 1j*np.ones((samp_rate//symbol_rate))`
+```python
+np.ones((samp_rate//symbol_rate))+ 1j*np.ones((samp_rate//symbol_rate))
+```
 
 and the taps of the lower chain to
 
-`-np.ones((samp_rate//symbol_rate)) - 1j*np.ones((samp_rate//symbol_rate))`.
+```python
+-np.ones((samp_rate//symbol_rate)) - 1j*np.ones((samp_rate//symbol_rate)).
+```
 
 These taps will match an M-sample-per-symbol complex baseband "1" and "0" respectively. Set the decimation rate to `samp_rate//symbol_rate` to match the *Repeat* block from earlier.
 
@@ -76,13 +80,13 @@ This block outputs a 0 for every negative input and a 1 for every positive outpu
 
 The *Decimating FIR Filter* causes a delay on the receiver signal chain. Use a 1 sample delay to align the signals.
 
-### Pack K Bits
-
-Set *K* to 8. This is the packet byte size that the later *BER* block requires.
-
 ### Skip Head
 
 Because of the filter, even once delayed the BER will take time to stabilize. This can be avoided by skipping the first part of each waveform before measuring the BER. Set the argument to 2048.
+
+### Pack K Bits
+
+Set *K* to 8. This is the packet byte size that the later *BER* block requires.
 
 ### BER
 
