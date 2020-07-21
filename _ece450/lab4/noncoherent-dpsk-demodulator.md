@@ -18,7 +18,7 @@ You will implement a complex noncoherent baseband DPSK receiver.
 
 For this section, the deliverables are:
 
-- the answers to one deliverable questions,
+- the answers to two deliverable questions,
 - a dataset for later use in this lab.
 
 ---
@@ -58,9 +58,9 @@ The lower is taps for `[1, 1]` and so should be set to
 np.concatenate((taps1, taps1)).
 ```
 
-Ensure the "Decimation" paramter is set appropriately to bring the signal down to 1-sample-per-symbol.
+Ensure the "Decimation" parameter is set appropriately to bring the signal down to 1-sample-per-symbol.
 
-### Complex To Mag^2
+### Complex to Mag^2
 
 These blocks take the envelope of the signal.
 
@@ -95,9 +95,15 @@ This will draw the output of the BER block on a number line. Set the maximum to 
 1. Run the flowgraph.
 2. Record the BER at $$\frac{E_b}{N_0}$$ values of `[0, 2, 4, 6, 8]`. You will need to kill the flowgraph each time you need to set a new value.
    - Plotting GUI sink values also eats computational power. While waiting for the BER values to stabilize you may wish to disable any unneeded QT GUI blocks.
-3. Change $$\phi$$ as you go and see that it has no impact on the BER value.
+3. Put a *QT GUI Time Sink* and a *QT GUI Constellation Sink* at the end of the modulation chain to observe the transmitted signal waveform and constellation.
+4. Change $$\phi$$ slowly and see that while the waveform changes, the BER value does not.
 
-{% include alert.html title="Deliverable question 4" class="info" content="It should be clear that since the $$\phi$$ value does not change the BER that this is a noncoherent receiver. What are the advantages of implementing a physical system like this? In what scenario would a coherent receiver be necessary?"%}
+{% include alert.html title="Deliverable question 3" class="info" content="It should be clear that since the $$\phi$$ value does not change the BER that this is a noncoherent receiver. What are the advantages of implementing a physical system like this? In what scenario would a coherent receiver be necessary?"%}
+
+{:start="5"}
+5. Put a `0*` in front of the *Amplitude* parameter of the *Noise Source* block. Slowly increase $$f_c$$ and while observing the waveform and the BER, find the frequency offset at which the BER starts to rise.
+
+{% include alert.html title="Deliverable question 4" class="info" content="At what frequency offset does the receiver stop working? What is the cause of this? What implication does it have on real DPSK receiver implementations?"%}
 
 At this point you should have recorded 5 BER values.
 

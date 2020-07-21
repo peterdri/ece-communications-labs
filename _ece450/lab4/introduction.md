@@ -15,7 +15,6 @@ In this lab, you will use GNURadio to build a M-samples per symbol BPSK simulati
 You will learn about:
 
 - coherent BPSK
-<!-- - coherent DPSK -->
 - noncoherent DPSK
 
 <!-- ## Prelab

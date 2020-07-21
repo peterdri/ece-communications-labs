@@ -32,23 +32,23 @@ Construct the following GRC flowgraph. You can make a copy of the modulating flo
 
 ### Modulator
 
-Keep the variables and the rest of the modulation chain unchanged. Change the *QT GUI Range* "Default" value to 0. Notice that in place of the *Signal Source* block there is now a *Multiply Const* block. Set the argument to $$e^{j\phi}$$ with `np.exp(1j*phi)`.
+Keep the variables and the rest of the modulation chain unchanged.
 
-Notice that since the M-sample-per-symbol bitstream is used for _both_ the real and the imaginary components of the complex stream, the `sig_pwr` value is 2. This can be confirmed with the a *Complex To Mag^2* -> *Moving Average* -> *QT GUI Number Sink* chain.
+Notice that since the M-sample-per-symbol bitstream is used for _both_ the real and the imaginary components of the complex stream, the `sig_pwr` value is 2. This can be confirmed with the a *Complex To Mag^2* -> *Moving Average* -> *QT GUI Number Sink* chain from previous labs.
 
 ### Noise Source
 
-Remember that the *Amplitude* variable sets the noise standard deviation, $$\sigma$$. Use the following expression to set $$\sigma$$ using the `eb_n0_db` variable.
+Remember from previous labs that the *Amplitude* variable sets the noise standard deviation, $$\sigma$$. Use the following expression to set $$\sigma$$ using the `eb_n0_db` variable.
 
 ```python
 math.sqrt( sig_pwr/ (10**(eb_n0_db/10)) * samp_rate/symbol_rate )
 ```
 
-This is the same expression as from the theory but where $$\frac{E_b}{N_0}$$ is in units of dB.
+This is the same expression as from the [theory section of the previous lab]({{ site.baseurl }}{% link _ece450/lab3/theory.md %}) but where $$\frac{E_b}{N_0}$$ is in units of dB.
 
 ### Receiver chain
 
-This is a coherent receiver which relies on correlating the waveform with taps for a BPSK "1" and "0" and seeing which has a stronger correlation.
+This is a coherent receiver which relies on correlating the waveform with taps for a BPSK "+1" (data 1) and "-1" (data 0) and seeing which has a stronger correlation.
 
 ### Decimating FIR Filter
 
@@ -65,6 +65,8 @@ and the taps of the lower chain to
 ```
 
 These taps will match an M-sample-per-symbol complex baseband "1" and "0" respectively. Set the decimation rate to `samp_rate//symbol_rate` to match the *Repeat* block from earlier.
+
+{% include alert.html title="Note" content="These taps are for the baseband signal. As the center frequency and phase sliders change, the signal is modulated by the changing $$f_c$$ and $$\phi$$ but the taps _do not change_. So the center frequency can be consider a frequency offset and the phase can be considered a phase offset."%}
 
 ### Multiply Const
 
@@ -104,9 +106,10 @@ This will draw the output of the BER block on a number line. Set the maximum to 
 2. Record the BER at $$\frac{E_b}{N_0}$$ values of `[0, 2, 4, 6, 8]`. You will need to kill the flowgraph each time you need to set a new value.
    - Plotting GUI sink values also eats computational power. While waiting for the BER values to stabilize you may wish to disable any unneeded QT GUI blocks.
 3. Put a `0*` in front of the *Noise Amplitude* argument. Restart the flowgraph and confirm that the BER is 0 (meaning no bit errors). Now change $$\phi$$ by a very small amount. Observe the BER rising.
+4. Set $$\phi$$ back to 0 and change $$f_c$$ by a small amount. Observe the BER rising.
 
 At this point you should have recorded 5 BER values.
 
-{% include alert.html title="Deliverable question 3" class="info" content="What does changing $$\phi$$ tell you about the phase coherency requirement of the receiver? How would a system like this be built in real life (i.e. how could coherency be maintained between transmitter and receiver)?"%}
+{% include alert.html title="Deliverable question 2" class="info" content="What does changing $$\phi$$ and $$f_c$$ tell you about the phase coherency and frequency stability requirement of the receiver? How would a system like this be built in real life (i.e. how could coherency be maintained between transmitter and receiver)?"%}
 
 Review the [section deliverables](#part-3-deliverables) before moving on.
