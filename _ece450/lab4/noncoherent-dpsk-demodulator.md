@@ -5,7 +5,7 @@ title: Part 4 - Noncoherent DPSK
 permalink: /ece450/lab4/noncoherent-dpsk
 course: ece450
 prev: /ece450/lab4/coherent-bpsk
-next: /ece450/lab4/calculating-ber
+next: /ece450/lab4/noncoherent-dpsk-2
 ---
 
 ## Objectives
