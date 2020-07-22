@@ -57,7 +57,7 @@ _Sklar text section 4.4.1._ As each bit is encoded with a starting phase, correl
 
 ### 1.2.2 Noncoherent DPSK
 
-_ECE350 text section 7.6, Sklar text section 4.7.5._ As the DPSK transmitter encoded every phase shift with a single bit. Considering every possible phase shift is between two bits, a similar receiver to the coherent BPSK receiver can be built with 4 arms of $$2T$$ taps each (see upper block diagram in the figure below). There will be one set of taps for each modulated bit sequence of `[0, 0]`, `[0, 1]`, `[1, 0]`, `[1, 1]`. Correlating the differentially encoded bitstream against these taps will deliver the decoded sequence.
+_ECE350 text section 7.6, Sklar text sections 4.5.2, 4.7.5._ As the DPSK transmitter encoded every phase shift with a single bit. Considering every possible phase shift is between two bits, a similar receiver to the coherent BPSK receiver can be built with 4 arms of $$2T$$ taps each (see upper block diagram in the figure below). There will be one set of taps for each modulated bit sequence of `[0, 0]`, `[0, 1]`, `[1, 0]`, `[1, 1]`. Correlating the differentially encoded bitstream against these taps will deliver the decoded sequence.
 
 Since $$corr($$`[1, 1]` $$,$$`[0, 0]` $$) = - corr($$`[1, 1]`$$,$$`[1, 1]`$$)$$, and $$corr($$`[1, 0]` $$,$$`[0, 1]` $$) = - corr($$`[0, 1]`$$,$$`[1, 0]`$$)$$, by comparing the magnitude of the correlation results the 4 taps receiver can be simplified to a 2 taps receiver (see lower block diagram in the figure below.
 
@@ -68,6 +68,11 @@ The taps for the two arms that match the earlier waveform are shown below.
 
   ![theory-dpsk-taps.png](figures/theory-dpsk-taps.png)<br>
   __*Taps for a noncoherent DPSK receiver matching earlier waveform. `[1, 1]` on left and `[1, 0]` on right.*__
+
+There is another simpler DPSK demodulator shown in Sklar text section 4.5.2. Shown below, it integrates every symbol period and compares it with the previous by delaying and multiplying.
+
+  ![theory-dpsk-demod-2.png](figures/theory-dpsk-demod-2.png)<br>
+  __*Block diagram for a noncoherent DPSK receiver (Sklar figure 4.17c).*__
 
 ## 1.3 Theoretical BER
 
@@ -92,7 +97,7 @@ $$
 The two binary phase shift keying encoding and decoding schemes being investigated in this lab are
 
 1. Coherent BPSK
-2. Noncoherent DPSK
+2. Noncoherent DPSK (there are two of these to study)
 
 The BER curves for these schemes is illustrated in the following figure.
 
