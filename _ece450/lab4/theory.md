@@ -81,7 +81,7 @@ There is another simpler DPSK demodulator shown in Sklar text section 4.5.2. Sho
 _Sklar text sectiion 4.7.1._ The probability of a bit error for coherent BPSK is the same as in [Lab 1]({{ site.baseurl }}{% link _ece450/lab1/theory.md%}),
 
 $$
-P_B = Q\left( \frac{2E_b}{N_0} \right), \text{(Sklar eqn. 4.79.)}
+P_B = Q\left( \sqrt{\frac{2E_b}{N_0}} \right), \text{(Sklar eqn. 4.79.)}
 $$
 
 ### 1.3.2 Noncoherent DPSK
