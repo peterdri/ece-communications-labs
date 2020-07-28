@@ -49,7 +49,7 @@ Use the moving average to integrate over a symbol period. This will be a functio
 
 ### Delay
 
-To match the theory block diagram above, delay the bitstream by a symbol period then multiply with it's undelayed self.
+To match the theory block diagram above, delay the bitstream by a symbol period, $$T$$, then multiply with its undelayed self. Remember that a symbol period is a unit of time and this is a discrete system. So to delay by $$T$$ is to delay by the number of samples which are contained within $$T$$.
 
 ### Keep 1 in N
 

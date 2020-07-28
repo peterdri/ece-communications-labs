@@ -41,7 +41,7 @@ Notice that since the M-sample-per-symbol bitstream is used for _both_ the real 
 Remember from previous labs that the *Amplitude* variable sets the noise standard deviation, $$\sigma$$. Use the following expression to set $$\sigma$$ using the `eb_n0_db` variable.
 
 ```python
-math.sqrt( sig_pwr/ (10**(eb_n0_db/10)) * samp_rate/symbol_rate )
+np.sqrt( sig_pwr/ (10**(eb_n0_db/10)) * samp_rate/symbol_rate )
 ```
 
 This is the same expression as from the [theory section of the previous lab]({{ site.baseurl }}{% link _ece450/lab3/theory.md %}) but where $$\frac{E_b}{N_0}$$ is in units of dB.
@@ -61,12 +61,12 @@ np.ones((samp_rate//symbol_rate))+ 1j*np.ones((samp_rate//symbol_rate))
 and the taps of the lower chain to
 
 ```python
--np.ones((samp_rate//symbol_rate)) - 1j*np.ones((samp_rate//symbol_rate)).
+-np.ones((samp_rate//symbol_rate)) - 1j*np.ones((samp_rate//symbol_rate))
 ```
 
 These taps will match an M-sample-per-symbol complex baseband "1" and "0" respectively. Set the decimation rate to `samp_rate//symbol_rate` to match the *Repeat* block from earlier.
 
-{% include alert.html title="Note" content="These taps are for the baseband signal. As the center frequency and phase sliders change, the signal is modulated by the changing $$f_c$$ and $$\phi$$ but the taps _do not change_. So the center frequency can be consider a frequency offset and the phase can be considered a phase offset."%}
+{% include alert.html title="Note" content="These taps are for the baseband signal. As the center frequency and phase sliders change, the signal is modulated by the changing $$f_c$$ and $$\phi$$ but the taps _do not change_. So the center frequency can be considered a frequency offset and the phase can be considered a phase offset. This means that no matter what $$f_c$$ and $$\phi$$ are the received waveform is being correlated against baseband taps."%}
 
 ### Multiply Const
 

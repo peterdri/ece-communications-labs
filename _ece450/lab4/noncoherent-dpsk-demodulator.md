@@ -49,13 +49,13 @@ while `taps2` should be set to `-taps1`. Each of these is $$1T$$ of the modulate
 Each of these is a matched filter for a two symbol periods. The filter will also decimate from M-samples-per-symbol to 1-sample-per-symbol. The upper is taps for `[1, -1]` and so should be set to
 
 ```python
-np.concatenate((taps1, taps2)).
+np.concatenate((taps1, taps2))
 ```
 
 The lower is taps for `[1, 1]` and so should be set to
 
 ```python
-np.concatenate((taps1, taps1)).
+np.concatenate((taps1, taps1))
 ```
 
 Ensure the "Decimation" parameter is set appropriately to bring the signal down to 1-sample-per-symbol.
@@ -103,7 +103,7 @@ This will draw the output of the BER block on a number line. Set the maximum to 
 {:start="5"}
 5. Put a `0*` in front of the *Amplitude* parameter of the *Noise Source* block. Slowly increase $$f_c$$ and while observing the waveform and the BER, find the frequency offset at which the BER starts to rise.
 
-{% include alert.html title="Deliverable question 4" class="info" content="At what frequency offset does the receiver stop working and what is the corresponding phase-per-bit value? What is the cause of the sudden receiver degradation at this frequency offset?"%}
+{% include alert.html title="Deliverable question 4" class="info" content="At what frequency offset does the receiver stop working and what is the corresponding phase-per-bit value?"%}
 
 At this point you should have recorded 5 BER values.
 
