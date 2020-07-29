@@ -62,6 +62,8 @@ The second will be used to cause a frequency offset from baseband (by having a c
 
 This block multiplies in a carrier frequency. Set the *Frequency* to `fc` and the *Initial Phase* to `phi`.
 
+{% include alert.html title="Note" content="In GR v3.7 and below there is no *Initial Phase* parameter. There is a simple work around. We know that the carrier frequency signal being built is $$e^{j\left( 2\pi f_c t + \phi \right)}$$. In GR v3.8 the *Signal Source* generates this. In GR v3.7 the *Signal Source* only generates $$e^{j 2\pi f_c t}$$. However $$e^{j\left( 2\pi f_c t + \phi \right)}=e^{j 2\pi f_c t}e^{j\phi}$$. If you are running GR v3.7 place a *Multipy Const* block after the *Signal Source* and set the value to $$e^{j\phi}$$ using `np.exp(1j*phi)`." %}
+
 ## Run the experiment
 
 1. Run the flowgraph and observe the waveform. Set the frequency offset to 1200. Since the carrier frequency is now equal to the symbol rate the flowgraph, there should be one period of the sine/cosine contained in each symbol.
