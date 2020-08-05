@@ -89,7 +89,7 @@ $$
 _Sklar text section 4.7.2._ Noncoherent DPSK is expected to perform worse than coherent BPSK as bit errors will often appear in pairs, increasing the required $$\frac{E_b}{N_0}$$ by approximately 1 dB.
 
 $$
-P_B = \frac{1}{2}e^{-\frac{E_b}{2N_0}}, \text{(Sklar eqn. 4.96.)}
+P_B = \frac{1}{2}e^{-\frac{E_b}{N_0}}, \text{(Sklar eqn. 4.100.)}
 $$
 
 ## 1.4 Theory summary
