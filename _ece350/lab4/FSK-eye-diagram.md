@@ -63,9 +63,9 @@ This part of the lab is a guide to measuring bit rates of real FSK signals. In i
 - You can click on the data labels ("Data 0", "Data 1", etc) to enable and disable different streams. Remember that each stream is just a delayed version of the input. As you disable streams you will see the redundancy in some of them.
   >Because this is a sine wave with a bit message of `101010...`, you will get a perfect eye diagram with only two streams (one delayed).
 
-{% include alert.html title="Deliverable Question 1" content="At what sample delay does this occur and how does this delay relate to the sampling rate?" %}
+{% include alert.html title="Deliverable Question 1" class="info" content="At what sample delay does this occur and how does this delay relate to the sampling rate?" %}
 
-{% include alert.html title="Deliverable Question 2" content="What is the bitrate of this source? How does this relate to the message frequency?" %}
+{% include alert.html title="Deliverable Question 2" class="info" content="What is the bitrate of this source? How does this relate to the message frequency?" %}
 
 - This flowgraph is not a deliverable.
 
@@ -100,7 +100,7 @@ This part of the lab is a guide to measuring bit rates of real FSK signals. In i
   ![eye_CREST-eyediagram.png](./figures/eyediagram_CREST-eyediagram.png)<br>
   __*Eye diagram of CREST FSK signal*__
 
-{% include alert.html title="Deliverable Question 3" content="What is the bit rate of the control channel for the CREST public safety radio system in bits-per-second? Hint: look at the time between the symbols." %}
+{% include alert.html title="Deliverable Question 3" class="info" content="What is the bit rate of the control channel for the CREST public safety radio system in bits-per-second? Hint: look at the time between the symbols." %}
 
 ## Deliverables
 

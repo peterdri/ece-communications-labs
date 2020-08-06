@@ -221,7 +221,7 @@ Remember that taking the real part of the complex signal is the same thing as ad
   ![part1_real-vs-complex-spectra.png](./figures/part1_real-vs-complex-spectra.png)<br>
   __*SSB complex vs real spectra*__
 
-{% include alert.html title="Deliverable Question 4" content="Why does taking the *real* part of a complex signal result in frequencies being *added* to the spectrum?" %}
+{% include alert.html title="Deliverable Question 4" class="info" content="Why does taking the *real* part of a complex signal result in frequencies being *added* to the spectrum?" %}
 
 - Save this flowgraph. It is a deliverable.
 

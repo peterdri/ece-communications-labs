@@ -69,7 +69,7 @@ This lab is a guide to AM signal waveforms. In this part you will learn:
     ![part1_basic_modulated_scope.png](./figures/part1_basic_modulated_scope.png)<br>
     __*Modulation signal in time domain*__
 
-{% include alert.html title="Deliverable Question 1" content="Why is the spectrum symmetrical about 0 Hz?" %}
+{% include alert.html title="Deliverable Question 1" class="info" content="Why is the spectrum symmetrical about 0 Hz?" %}
 
 - Now multiply the modulation waveform with the carrier signal to obtain the AM modulated waveform. Note the added *QT GUI Range* widget for _fc_.
 
@@ -201,7 +201,7 @@ Until now, we have only used a sinusoidal message. In this section, we will crea
     ![part1_modulated_prbs_square_fft.png](./figures/part1_modulated_prbs_square_fft.png)<br>
     __*Modulated carrier spectrum for a PRBS with square shape AM signal*__
 
-{% include alert.html title="Deliverable Question 2" content="Why are the peaks of the modulated signal (shown above in red) not all the same value (a theoretical value of 2)?" %}
+{% include alert.html title="Deliverable Question 2" class="info" content="Why are the peaks of the modulated signal (shown above in red) not all the same value (a theoretical value of 2)?" %}
 
 At this point, you should have:
 

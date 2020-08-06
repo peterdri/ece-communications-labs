@@ -95,9 +95,9 @@ You are not going to be provided with a detailed walkthrough of how to obtain th
   - Matlab: [findpeaks](https://www.mathworks.com/help/signal/ref/findpeaks.html)
   - Python: [scipy.signal.find_peaks](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks.html)
 
-{% include alert.html title="Deliverable Question 5" content="How many sync words are in the file?" %}
+{% include alert.html title="Deliverable Question 5" class="info" content="How many sync words are in the file?" %}
 
-{% include alert.html title="Deliverable Question 6" content="What is the spacing (in ms) between the sync words?" %}
+{% include alert.html title="Deliverable Question 6" class="info" content="What is the spacing (in ms) between the sync words?" %}
 
 ## Decoding text
 

@@ -40,9 +40,9 @@ In this section, we consider a practical FM receiver that can receive real off-a
   ![fmrx_USRP-receiver-grc.png](./figures/fmrx_USRP-receiver-grc.png)<br>
   __*FM receiver using the USRP Source stream*__
 
-{% include alert.html title="Deliverable Question 2" content="Which blocks from the File Sink stream are replaced with the *USRP Source* block? Which blocks are replaced with the *Frequency Xlating FIR Filter* block?" %}
+{% include alert.html title="Deliverable Question 2" class="info" content="Which blocks from the File Sink stream are replaced with the *USRP Source* block? Which blocks are replaced with the *Frequency Xlating FIR Filter* block?" %}
 
-{% include alert.html title="Deliverable Question 3" content="What is the transition width of the low pass filter used on the USRP's output?" %}
+{% include alert.html title="Deliverable Question 3" class="info" content="What is the transition width of the low pass filter used on the USRP's output?" %}
 
 - Execute the flowgraph.
 

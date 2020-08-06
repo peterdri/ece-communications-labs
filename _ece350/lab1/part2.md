@@ -122,7 +122,7 @@ In this step we will expand the frequency scale on the FFT display so that you c
 
 - Execute the new flow graph. You should now observe a frequency span of only 64 kHz (-32 kHz to +32 kHz).
 
-{% include alert.html title="Deliverable Question 3" content="What actual pass-band frequency range does this correspond to?" %}
+{% include alert.html title="Deliverable Question 3" class="info" content="What actual pass-band frequency range does this correspond to?" %}
 
 ### Selecting one channel by filtering
 

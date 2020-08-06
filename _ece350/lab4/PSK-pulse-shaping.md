@@ -84,7 +84,7 @@ In this section, we filter square pulses using a low-pass filter. For reference,
   ![pulse-shaping_LPF-square-waves-grc.png](./figures/pulse-shaping_LPF-square-waves-grc.png)<br>
   __*Flowgraph to pulse-shape square waves using a low pass filter*__
 
-{% include alert.html title="Deliverable Question 4" content="What is the advantage of using a rounded pulse rather than a square pulse?" %}
+{% include alert.html title="Deliverable Question 4" class="info" content="What is the advantage of using a rounded pulse rather than a square pulse?" %}
 
 - Add a *QT GUI Eye Diagram* at the output of the receiver to observe the received eye diagram. Observe how the received eye diagram changes as the frequency offset is changed from zero. Explain your observations.
   - You will need a *Complex To Real* block between the receiver output and the *QT GUI Eye Diagram* block.
