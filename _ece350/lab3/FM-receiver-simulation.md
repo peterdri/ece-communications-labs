@@ -8,8 +8,6 @@ prev: /ece350/lab3/FM-transmitter-sim
 next: /ece350/lab3/FM-receiver-USRP
 ---
 
-<!-- [**Back to Part 1**](FM-transmitter-simulation.md) | [**Begin Part 3**](FM-receiver-USRP.md) -->
-
 ## Objectives
 
 This part of the lab is a guide to receiving FM signal waveforms. You will:
@@ -21,11 +19,8 @@ This part of the lab is a guide to receiving FM signal waveforms. You will:
 ---
 
 ## Part 2 Deliverables
-<!-- #TODO review -->
 
 - One GRC files of an FM receiver. You will be stepped through building it.
-<!-- - There is 1 question in this part. It is clearly indicated.
-  - The question requires approximately 1 line of writing, and addresses a concept, not details. Answer the question and submit a single page containing the answers to your TA at the end of the lab. -->
 
 ---
 
@@ -153,10 +148,5 @@ At this point, you should have:
 From this lab part, keep the following for later submission to your TA:
 
 - `FM_receiver.grc`
-<!-- - The answer to [Question 1](#deliverable-question-1) -->
 
 **Do not attach the `top_block.py` or `.dat` files.**
-
-<!-- ---
-
-[**Back to Part 1**](FM-transmitter-simulation.md) | [**Begin Part 3**](FM-receiver-USRP.md) -->

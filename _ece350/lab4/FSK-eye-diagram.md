@@ -8,8 +8,6 @@ prev: /ece350/lab4
 next: /ece350/lab4/PSK-pulse-shaping
 ---
 
-<!-- [**Back to introduction**](introduction.md) | [**Begin Part 2**](PSK-pulse-shaping.md) -->
-
 ## Objectives
 
 This part of the lab is a guide to measuring bit rates of real FSK signals. In it you will:
@@ -65,19 +63,9 @@ This part of the lab is a guide to measuring bit rates of real FSK signals. In i
 - You can click on the data labels ("Data 0", "Data 1", etc) to enable and disable different streams. Remember that each stream is just a delayed version of the input. As you disable streams you will see the redundancy in some of them.
   >Because this is a sine wave with a bit message of `101010...`, you will get a perfect eye diagram with only two streams (one delayed).
 
----
+{% include alert.html title="Deliverable Question 1" content="At what sample delay does this occur and how does this delay relate to the sampling rate?" %}
 
-#### Deliverable Question 1
-
-At what sample delay does this occur and how does this delay relate to the sampling rate?
-
----
-
-#### Deliverable Question 2
-
-What is the bitrate of this source? How does this relate to the message frequency?
-
----
+{% include alert.html title="Deliverable Question 2" content="What is the bitrate of this source? How does this relate to the message frequency?" %}
 
 - This flowgraph is not a deliverable.
 
@@ -112,22 +100,10 @@ What is the bitrate of this source? How does this relate to the message frequenc
   ![eye_CREST-eyediagram.png](./figures/eyediagram_CREST-eyediagram.png)<br>
   __*Eye diagram of CREST FSK signal*__
 
----
-
-#### Deliverable Question 3
-
-What is the bit rate of the control channel for the CREST public safety radio system in bits-per-second?
-
-> Hint: look at the time between the symbols.
-
----
+{% include alert.html title="Deliverable Question 3" content="What is the bit rate of the control channel for the CREST public safety radio system in bits-per-second? Hint: look at the time between the symbols." %}
 
 ## Deliverables
 
 From this lab part, keep the following for later submission to your TA:
 
-- The answers to [Question 1](#deliverable-question-1), [Question 2](#deliverable-question-2), and [Question 3](#deliverable-question-3).
-
-<!-- ---
-
-[**Back to introduction**](introduction.md) | [**Begin Part 2**](PSK-pulse-shaping.md) -->
+- The answers to three deliverable questions.

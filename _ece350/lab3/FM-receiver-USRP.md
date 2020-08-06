@@ -8,8 +8,6 @@ prev: /ece350/lab3/FM-receiver-simulation
 next: /ece350/lab3/conclusion
 ---
 
-<!-- [**Back to Part 2**](FM-receiver-simulation.md) | [**Continue to conclusion**](conclusion.md) -->
-
 ## Objectives
 
 This part of the lab is a guide to receiving real FM signal waveforms. You will:
@@ -20,10 +18,8 @@ This part of the lab is a guide to receiving real FM signal waveforms. You will:
 ---
 
 ## Part 3 Deliverables
-<!-- #TODO review -->
 
-<!-- - Two GRC files of SSB demodulators. You will be stepped through building them. -->
-- There is 3 questions in this part. They are clearly indicated.
+- There are 3 questions in this part. They are clearly indicated.
   - Each question requires approximately 1 line of writing, and addresses a concept, not details. Answer the questions and submit a single page containing the answers to your TA at the end of the lab.
 
 ---
@@ -44,19 +40,9 @@ In this section, we consider a practical FM receiver that can receive real off-a
   ![fmrx_USRP-receiver-grc.png](./figures/fmrx_USRP-receiver-grc.png)<br>
   __*FM receiver using the USRP Source stream*__
 
----
+{% include alert.html title="Deliverable Question 2" content="Which blocks from the File Sink stream are replaced with the *USRP Source* block? Which blocks are replaced with the *Frequency Xlating FIR Filter* block?" %}
 
-#### Deliverable Question 2
-
-Which blocks from the File Sink stream are replaced with the *USRP Source* block? Which blocks are replaced with the *Frequency Xlating FIR Filter* block?
-
----
-
-#### Deliverable Question 3
-
-What is the transition width of the low pass filter used on the USRP's output?
-
----
+{% include alert.html title="Deliverable Question 3" content="What is the transition width of the low pass filter used on the USRP's output?" %}
 
 - Execute the flowgraph.
 
@@ -104,14 +90,9 @@ What is the transition width of the low pass filter used on the USRP's output?
 
 - Experiment more with the FM receiver. Notice that many signals can be received, FM signals are spaced every 0.2 MHz with an odd last digit, from 88.1 MHz up to 107.9 MHz.
 
-
 ## Deliverables
 
 From this lab part, there are the following deliverables:
-<!-- #TODO add -->
-<!-- - `FM_receiver.grc` -->
-- The answers to [Question 2](#deliverable-question-2) and [Question 3](#deliverable-question-3).
 
-<!-- ---
+- The answers to two deliverable questions.
 
-[**Back to Part 2**](FM-receiver-simulation.md) | [**Continue to conclusion**](conclusion.md) -->

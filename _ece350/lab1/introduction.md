@@ -30,8 +30,4 @@ To understand how demodulation techniques work, please review the theory of [AM 
 - A single page with answers to the questions posed throughout the lab.
   - There are several questions which are all carefully labelled **Deliverable Question X**. Each question should take only one to two sentences to answer and address the concepts being explored.
 
->There are also a number of questions included within the text which are not denoted "deliverable". Written answers to these questions are not required, but an effort should be made to think about and answer these questions as they are encountered.
-
-<!-- ---
-
-[**Begin Part 1**](part1.md) -->
+There are also a number of questions included within the text which are not denoted "deliverable". Written answers to these questions are not required, but an effort should be made to think about and answer these questions as they are encountered.

@@ -8,8 +8,6 @@ prev: /ece350/lab3
 next: /ece350/lab3/FM-receiver-simulation
 ---
 
-<!-- [**Back to Lab 3 Intro**](introduction.md) | [**Begin Part 2**](FM-receiver-simulation.md) -->
-
 ## Objectives
 
 This part of the lab is a guide to transmitting FM signal waveforms. You
@@ -22,7 +20,6 @@ will:
 ---
 
 ## Part 1 Deliverables
-<!-- #TODO review -->
 
 - One GRC file of an FM transmitter. You will be stepped through building it.
 - There is 1 question in this part. It is clearly indicated.
@@ -166,16 +163,11 @@ You'll start by transmitting a sinusoidal message. The equations for this are sh
     ![fmtx_s-of-t-sine-fft-zoomed.png](./figures/fmtx_s-of-t-sine-fft-zoomed.png)<br>
     __*Positive half of spectrum only to more clearly measure Bessel peaks*__
 
----
-#### Deliverable Question 1
-
-Show that the Bessel peaks have the correct values relative to each other. In other words, confirm that for the chosen vlaue of $$ \beta $$, the carrier wave and first sideband have the correct values relative to eachother as described by the following equation.
+{% include alert.html title="Deliverable Question 1" content="Show that the Bessel peaks have the correct values relative to each other. In other words, confirm that for the chosen vlaue of $$ \beta $$, the carrier wave and first sideband have the correct values relative to eachother as described by the following equation:
 
 $$ \Delta P = 20 log\frac{J_1(\beta)}{J_0(\beta)} $$
 
-You will want to reference a [table of Bessel functions](https://www.statisticshowto.datasciencecentral.com/wp-content/uploads/2017/01/bessel-tables.pdf) or use a Bessel calculator (built into Matlab/Python/most mathematical programming languages).
-
----
+You will want to reference a [table of Bessel functions](https://www.statisticshowto.datasciencecentral.com/wp-content/uploads/2017/01/bessel-tables.pdf) or use a Bessel calculator (built into Matlab/Python/most mathematical programming languages)." %}
 
 - Add a *File Sink* block to capture $$ s(t) $$ and save a file called `FM_TX_5kHz_sine.dat`. You will need to execute the flowgraph for a few seconds to build the file.
 
@@ -223,10 +215,6 @@ At this point, you should have:
 From this lab part, keep the following for later submission to your TA:
 
 - `FM_transmitter.grc`
-- The answer to [Question 1](#deliverable-question-1)
+- The answer to one deliverable question.
 
 **Do not attach the `top_block.py` or `.dat` files. You will use some of the `.dat` files in the next part though, so don't delete them yet!**
-
-<!-- ---
-
-[**Back to Lab 3 Intro**](introduction.md) | [**Begin Part 2**](FM-receiver-simulation.md) -->

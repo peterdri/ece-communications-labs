@@ -8,8 +8,6 @@ next: /ece350/lab1/AM-receivers
 prev: /ece350/lab1
 ---
 
-<!-- [**Back to Lab 1 Intro**](introduction.md) | [**Begin Part 2**](part2.md) -->
-
 ## Objectives
 
 This lab is a guide to AM signal waveforms. In this part you will learn:
@@ -71,13 +69,7 @@ This lab is a guide to AM signal waveforms. In this part you will learn:
     ![part1_basic_modulated_scope.png](./figures/part1_basic_modulated_scope.png)<br>
     __*Modulation signal in time domain*__
 
----
-
-#### Deliverable Question 1
-
-Why is the spectrum symmetrical about 0 Hz?
-
----
+{% include alert.html title="Deliverable Question 1" content="Why is the spectrum symmetrical about 0 Hz?" %}
 
 - Now multiply the modulation waveform with the carrier signal to obtain the AM modulated waveform. Note the added *QT GUI Range* widget for _fc_.
 
@@ -209,13 +201,7 @@ Until now, we have only used a sinusoidal message. In this section, we will crea
     ![part1_modulated_prbs_square_fft.png](./figures/part1_modulated_prbs_square_fft.png)<br>
     __*Modulated carrier spectrum for a PRBS with square shape AM signal*__
 
----
-
-#### Deliverable Question 2
-
-Why are the peaks of the modulated signal (shown above in red) not all the same value (a theoretical value of 2)?
-
----
+{% include alert.html title="Deliverable Question 2" content="Why are the peaks of the modulated signal (shown above in red) not all the same value (a theoretical value of 2)?" %}
 
 At this point, you should have:
 
@@ -239,10 +225,6 @@ From this lab part, keep the following files to submit to your TA after the seco
 
 - `waveform-builder.grc`
 - `AM_modulator.grc`.
-- The answers to [Question 1](#deliverable-question-1) and [Question 2](#deliverable-question-2.)
+- The answers to 2 deliverable questions.
 
 **Do not attach the `top_block.py` or `.dat` files. You will use some of the `.dat` files in the next part though, so don't delete them yet!**
-
-<!-- ---
-
-[**Back to Lab 1 Intro**](introduction.md) | [**Begin Part 2**](part2.md) -->

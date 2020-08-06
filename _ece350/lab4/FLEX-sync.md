@@ -8,8 +8,6 @@ prev: /ece350/lab4/PSK-pulse-shaping
 next: /ece350/lab4/conclusion
 ---
 
-<!-- [**Back to Part 2**](PSK-pulse-shaping.md) | [**Continue to conclusion**](conclusion.md) -->
-
 ## Objectives
 
 In this section, you will use some recorded frames from the [FLEX](http://en.wikipedia.org/wiki/FLEX_(protocol)) pager network and locate the frame synchronization word. The sync word allows the decoder to synchronize with the beginning of the message bits. A standard method for detecting the sync word is to correlate the incoming signal against the sync word.
@@ -39,6 +37,7 @@ Although FLEX can use a variety of modulation schemes, the sync word (marker) is
 - Download [this data file](./data/FLEX_bits.wav). It is already demodulated for you.
 
 - Create a new flowgraph, and use a *WAV File Source* along with a *QT GUI Time Sink* to view the demodulated FSK. You should now see what looks like a digital waveform as shown.
+
 {% include alert.html title="Note" content="The WAV file was recorded at 48 kHz." %}
 
     ![flex_bits.png](./figures/flex_bits.png)<br>
@@ -96,19 +95,9 @@ You are not going to be provided with a detailed walkthrough of how to obtain th
   - Matlab: [findpeaks](https://www.mathworks.com/help/signal/ref/findpeaks.html)
   - Python: [scipy.signal.find_peaks](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks.html)
 
----
+{% include alert.html title="Deliverable Question 5" content="How many sync words are in the file?" %}
 
-#### Deliverable Question 5
-
-How many sync words are in the file?
-
----
-
-#### Deliverable Question 6
-
-What is the spacing (in ms) between the sync words?
-
----
+{% include alert.html title="Deliverable Question 6" content="What is the spacing (in ms) between the sync words?" %}
 
 ## Decoding text
 
@@ -122,9 +111,6 @@ As an additional challenge (this is not a deliverable), try to decode some text.
 
 From this part of the lab keep the following files to submit to your TA after the lab:
 
-- The code written to find the sync words
+- the code written to find the sync words,
 
-- The answers to [Question 5](#deliverable-question-5) and [Question 6](#deliverable-question-6).
-
-<!-- ---
-[**Back to Part 2**](PSK-pulse-shaping.md) | [**Continue to conclusion**](conclusion.md) -->
+- the answers to two deliverable questions.

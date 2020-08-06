@@ -8,8 +8,6 @@ prev: /ece350/lab1/AM-transmitters
 next: /ece350/lab2
 ---
 
-<!-- [**Back to Part 1**](part1.md) | [**Continue to Lab 2**](../lab2/introduction.md) -->
-
 ## Objectives
 
 This part of the lab is a guide to building a practical AM receiver for receiving real AM signals. It all builds off of the last part (AM transmitters) and in it you will learn how to:
@@ -124,13 +122,7 @@ In this step we will expand the frequency scale on the FFT display so that you c
 
 - Execute the new flow graph. You should now observe a frequency span of only 64 kHz (-32 kHz to +32 kHz).
 
----
-
-#### Deliverable Question 3
-
-What actual pass-band frequency range does this correspond to?
-
----
+{% include alert.html title="Deliverable Question 3" content="What actual pass-band frequency range does this correspond to?" %}
 
 ### Selecting one channel by filtering
 
@@ -245,11 +237,8 @@ From this part of the lab, keep the following files to submit to your TA:
 
 - `AM_demodulator.grc`
 - `AM_demodulator_complex.grc`.
-- The answer to [Question 3](#deliverable-question-3).
+- The answer to 1 deliverable question.
 
 Combine these deliverables with those from the last part of the lab and submit them as a package. As your TA where to submit them, and remember to put your name and student number on everything (If you filled out the *Options* block in the `.grc` files correctly, your student numbers will be recorded in them.)
 
 **Do not attach the `top_block.py` or `.dat` files.**
-
-<!-- ---
-[**Back to Part 1**](part1.md) | [**Continue to Lab 2**](../lab2/introduction.md) -->

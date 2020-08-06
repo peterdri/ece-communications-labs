@@ -24,8 +24,4 @@ As you work, consider the following questions:
 - A single page with answers to the questions posed throughout the lab.
   - There are several questions which are all carefully labelled **Deliverable Question X**. Each question should take only one to two sentences to answer and address the concepts being explored.
 
->There are also a number of questions included within the text which are not denoted "deliverable". Written answers to these questions are not required, but an effort should be made to think about and answer these questions as they are encountered
-
-<!-- ---
-
-[**Begin Part 1**](FM-transmitter-simulation.md) -->
+There are also a number of questions included within the text which are not denoted "deliverable". Written answers to these questions are not required, but an effort should be made to think about and answer these questions as they are encountered

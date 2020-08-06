@@ -8,8 +8,6 @@ prev: /ece350/lab4/FSK-eye-diagram
 next: /ece350/lab4/FLEX-sync
 ---
 
-<!-- [**Back to Part 1**](FSK-eye-diagram.md) | [**Continue to Part 3**](FLEX-sync.md) -->
-
 ## Objectives
 
 In this section, we modify a complete PSK transmitter-receiver system assuming a perfect channel and perfect synchronization (timing).
@@ -86,13 +84,7 @@ In this section, we filter square pulses using a low-pass filter. For reference,
   ![pulse-shaping_LPF-square-waves-grc.png](./figures/pulse-shaping_LPF-square-waves-grc.png)<br>
   __*Flowgraph to pulse-shape square waves using a low pass filter*__
 
----
-
-#### Deliverable Question 4
-
-What is the advantage of using a rounded pulse rather than a square pulse?
-
----
+{% include alert.html title="Deliverable Question 4" content="What is the advantage of using a rounded pulse rather than a square pulse?" %}
 
 - Add a *QT GUI Eye Diagram* at the output of the receiver to observe the received eye diagram. Observe how the received eye diagram changes as the frequency offset is changed from zero. Explain your observations.
   - You will need a *Complex To Real* block between the receiver output and the *QT GUI Eye Diagram* block.
@@ -156,7 +148,4 @@ Continuing to use impulses for the input, we will now use a *Root Raised Cosine 
 
 From this part of the lab keep the following files to submit to your TA after the second (and final) part:
 
-- The answer to [Question 4](#deliverable-question-4)
-
-<!-- ---
-[**Back to Part 1**](FSK-eye-diagram.md) | [**Continue to Part 3**](FLEX-sync.md) -->
+- The answer to one deliverable question.

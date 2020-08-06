@@ -8,8 +8,6 @@ prev: /ece350/lab2
 next: /ece350/lab2/SSB-receiver
 ---
 
-<!-- [**Back to Lab 2 Intro**](introduction.md) | [**Begin Part 2**](SSB-receiver.md) -->
-
 ## Objectives
 
 This part of the lab will guide you through receiving and transmitting signals using a USRP software-defined radio. While using the USRP as a receiver you will learn about:
@@ -128,13 +126,7 @@ The main function of the USRP motherboard is to act as a [Digital Downconverter 
   ![part2_constellation-square.png](./figures/part2_constellation-square.png)<br>
   __*Square constellation plot showing extreme clipping in the ADCs*__
 
----
-
-#### Deliverable Question 1
-
-Why do you see the constellation plot of the I/Q plane get squashed from a circle into a square as you increase the power of the received signal?
-
----
+{% include alert.html title="Deliverable Question 1" content="Why do you see the constellation plot of the I/Q plane get squashed from a circle into a square as you increase the power of the received signal?" %}
 
 Look at the plot of the phase now. **Why does the phase ramp become a staircase? How does this relate to the constellation diagram?**
 
@@ -159,32 +151,16 @@ In this section, we test the transmit functions of the USRP that we can use late
 
 - What do you observe on the spectrum analyzer display with Q(t) = 0? Try the other two options for Q(t). What do you observe on the spectrum analyzer?
 
----
-
-#### Deliverable Question 2
-
-The GRC flowgraph shows a complex stream getting fed into the USRP. How come when **Q(t)=0** a real spectrum is shown on the spectrum analyzer?
-
----
+{% include alert.html title="Deliverable Question 2" content="The GRC flowgraph shows a complex stream getting fed into the USRP. How come when **Q(t)=0** a real spectrum is shown on the spectrum analyzer?" %}
 
 ### USRP power levels
 
 - What is the minimum and maximum signal power output from the USRP? The USRP output power level can be set via the *QT GUI Range Widget* seen when running the flowgraph.
 
----
-
-#### Deliverable Question 3
-
-Why, when the USRP is active in transmit-mode, is its minimum output power greater than 0?
-
----
+{% include alert.html title="Deliverable Question 3" content="Why, when the USRP is active in transmit-mode, is its minimum output power greater than 0?" %}
 
 ## Deliverables
 
 From this part of the lab keep the following files to submit to your TA:
 
-- The answers to [Question 1](#deliverable-question-1), [Question 2](#deliverable-question-2), [Question 3](#deliverable-question-3)
-
-<!-- ---
-
-[**Back to Lab 2 Intro**](introduction.md) | [**Begin Part 2**](SSB-receiver.md) -->
+- The answers to 3 deliverable questions.

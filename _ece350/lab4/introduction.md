@@ -24,8 +24,4 @@ At the end of the lab you will also be asked to evaluate your TA. The evaluation
 - A single page with answers to the questions posed throughout the lab.
   - There are several questions which are all carefully labelled **Deliverable Question X**. Each question should take only one to two sentences to answer and address the concepts being explored.
 
->There are also a number of questions included within the text which are not denoted "deliverable". Written answers to these questions are not required, but an effort should be made to think about and answer these questions as they are encountered
-
-<!-- ---
-
-[**Begin Part 1**](FSK-eye-diagram.md) -->
+There are also a number of questions included within the text which are not denoted "deliverable". Written answers to these questions are not required, but an effort should be made to think about and answer these questions as they are encountered

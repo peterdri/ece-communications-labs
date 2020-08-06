@@ -8,8 +8,6 @@ prev: /ece350/lab2/IQ-USRP
 next: /ece350/lab2/conclusion
 ---
 
-<!-- [**Back to Part 1**](USRP-IQ.md) | [**Continue to conclusion**](conclusion.md) -->
-
 ## Objectives
 
 This tutorial is a guide to receiving SSB signals. It will also illustrate some of the properties of complex (analytic) signals and show why we use them in communications systems. In this tutorial you will:
@@ -223,13 +221,7 @@ Remember that taking the real part of the complex signal is the same thing as ad
   ![part1_real-vs-complex-spectra.png](./figures/part1_real-vs-complex-spectra.png)<br>
   __*SSB complex vs real spectra*__
 
----
-
-#### Deliverable Question 4
-
-Why does taking the *real* part of a complex signal result in frequencies being *added* to the spectrum?
-
----
+{% include alert.html title="Deliverable Question 4" content="Why does taking the *real* part of a complex signal result in frequencies being *added* to the spectrum?" %}
 
 - Save this flowgraph. It is a deliverable.
 
@@ -307,7 +299,6 @@ Remember the two block diagrams at the start of building the SSB demodulators. O
 
 Download [this GRC file](./data/SSB_real_demodulator.grc). Open it and point the *File Source* block at `ssb_lsb_256k_complex2.dat`. Run the flowgraph, the audio should be the same as your first flowgraph. **Look through the flowgraph and identify the different key components: the first frequency shift, the LPF, and the second frequency shift.**
 
-
 <!-- #TODO Remove at a future date or reintegrate -->
 <!-- - A data file taken using a software receiver with a wire antenna about 6 meters above the ground is found [here](./data/SDRSharp_20130919_004154Z_14053kHz_IQ.wav).
   - Change the Wav File Source to read this file, and test your receiver using this file.
@@ -335,9 +326,6 @@ From this part of the lab keep the following files to submit to your TA after th
 - `SSB_DAT_demodulator.grc`
 - `SSB_WAV_demodulator.grc`
 
-- The answer to [Question 4](#deliverable-question-4)
+- The answer to one deliverable question.
 
 **Do not attach the `top_block.py` files to your submission.**
-
-<!-- ---
-[**Back to Part 1**](USRP-IQ.md) | [**Continue to conclusion**](conclusion.md) -->
