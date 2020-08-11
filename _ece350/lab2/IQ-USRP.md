@@ -1,35 +1,3 @@
----
-layout: labitem
-title: Part 1 - IQ and using a USRP
-permalink: /ece350/lab2/IQ-USRP
-
-course: ece350
-prev: /ece350/lab2
-next: /ece350/lab2/SSB-receiver
----
-
-## Objectives
-
-This part of the lab will guide you through receiving and transmitting signals using a USRP software-defined radio. While using the USRP as a receiver you will learn about:
-
-- frequency offsets
-- USRP clock sources and reference signal synchronization
-- dynamic range andclipping.
-
-While transmitting with the USRP, you will:
-
-- see the effect of transmitting real signals, as well as complex signals
-- explore the minimum and maximum power output from the USRP
-- measure the power of the USRPs transmission using both an oscilloscope and a spectrum analyzer
-
----
-
-## Part 1 Deliverables
-
-- There are several questions in this part of the lab. They are clearly indicated.
-  - Each question requires approximately 1 line of writing and addresses concepts, not details. Answer the questions and submit a single page containing the answers to your TA at the end of the lab.
-
----
 
 ## Setup
 
@@ -37,7 +5,7 @@ The small grey box is the USRP software‐defined radio. The USRP digitally down
 
 - Verify that the USRP at your station is connected as shown below. If it does not, there are BNC connector cables available at the front of the lab.
 
-  ![part2_usrp-connect.png](./figures/part2_usrp-connect.png)<br>
+  ![part2_usrp-connect.png]({{site.baseurl}}/_ece350/lab2/figures/part2_usrp-connect.png)<br>
   __*USRP front panel*__
 
 ## I/Q Receiver
@@ -46,7 +14,7 @@ For detailed information on the usage of the USRP, you can find the data sheet a
 
 Refer to the following block diagram to understand the receive path of the USRP as it is set up in the lab. The USRPs in the lab have the WBX daughtercard installed which feature a programmable attenuator, programmable local oscillator and analog I/Q mixer. The WBX daughterboard is an analog front end for the GNU Radio software. It consists of a local oscillator implemented as a wideband frequency synthesizer, thus allowing the USRP to receive signals in the range from 50 MHz to 2.2 GHz. The WBX Daughterboard performs complex downconversion of a 100 MHz slice of spectrum in the 50-2200 MHz range down to -50 to +50 MHz range for processing by the USRP motherboard.
 
-![USRP.png](./figures/USRP.png)<br>
+![USRP.png]({{site.baseurl}}/_ece350/lab2/figures/USRP.png)<br>
 __*USRP block diagram.*__
 
 The main function of the USRP motherboard is to act as a [Digital Downconverter (DDC)](http://en.wikipedia.org/wiki/Digital_down_converter). The motherboard implements a digital I/Q mixer, sample rate converter and lowpass filter. The samples are then sent to the host PC over a gigabit ethernet link.
@@ -55,7 +23,7 @@ The main function of the USRP motherboard is to act as a [Digital Downconverter 
 
 - Review [IQ theory](../../_docs/pdriessen_IQ.pdf).
 
-- Download and open the GRC file [general-IQ-from-USRP.grc](data/general-IQ-from-USRP.grc).
+- Download and open the GRC file [general-IQ-from-USRP.grc]({{site.baseurl}}/_ece350/lab2/data/general-IQ-from-USRP.grc).
 
   - The USRP source does all of the operations in red, green and blue from the figure above. It outputs the complex signal $$ I(t) + jQ(t) $$.
   - This output is connected to 4 blocks that extract the magnitude, phase, real and imaginary parts of the complex signal, as well as a constellation scope.
@@ -74,7 +42,7 @@ The main function of the USRP motherboard is to act as a [Digital Downconverter 
 
 - Determine the frequency $$ f_b $$ of the sine waves using the Phase display as well as the Real and Imaginary displays by placing your mouse cursor over the scope plot to show the time offset at different points on the waveform as in the figure below.
 
-  ![part2_phase-ramp-external-clk.png](./figures/part2_phase-ramp-external-clk.png)<br>
+  ![part2_phase-ramp-external-clk.png]({{site.baseurl}}/_ece350/lab2/figures/part2_phase-ramp-external-clk.png)<br>
   __*Phase ramp showing frequency offset*__
 
 - This frequency $$ f_b $$ represents the offset between the received RF signal $$ f_c $$ and the USRP local oscillator $$ f_{LO} $$, so that
@@ -117,13 +85,13 @@ The main function of the USRP motherboard is to act as a [Digital Downconverter 
 - Observe and describe how the signals look at each signal level, and explain why.
   >The waveform appearance results from clipping in the 2 ADCs (one ADC for I, one ADC for Q).
 
-  ![part2_constellation-round.png](./figures/part2_constellation-round.png)<br>
+  ![part2_constellation-round.png]({{site.baseurl}}/_ece350/lab2/figures/part2_constellation-round.png)<br>
   __*Round constellation plot showing no clipping in the ADCs*__
 
-  ![part2_constellation-squashed.png](./figures/part2_constellation-squashed.png)<br>
+  ![part2_constellation-squashed.png]({{site.baseurl}}/_ece350/lab2/figures/part2_constellation-squashed.png)<br>
   __*Squashed constellation plot showing some clipping in the ADCs*__
 
-  ![part2_constellation-square.png](./figures/part2_constellation-square.png)<br>
+  ![part2_constellation-square.png]({{site.baseurl}}/_ece350/lab2/figures/part2_constellation-square.png)<br>
   __*Square constellation plot showing extreme clipping in the ADCs*__
 
 {% include alert.html title="Deliverable Question 1" class="info" content="Why do you see the constellation plot of the I/Q plane get squashed from a circle into a square as you increase the power of the received signal?" %}
@@ -139,7 +107,7 @@ In this section, we test the transmit functions of the USRP that we can use late
 - Review the theory of [spectrum analyzers](../../_docs/pdriessen_textbook.pdf) (section 1.4)
   > For more detailed information, you may also wish to review [Spectrum Analyzer Basics](../../_docs/5965-7920E.pdf) and [The Basics of Spectrum Analyzers](../../_docs/spec_analyzer.pdf). **The concepts presented here will be applicable to any spectrum analyzer you may use in your career.**
 
-- Download and open [this GRC file](data/tx_carrier.grc).
+- Download and open [this GRC file]({{site.baseurl}}/_ece350/lab2/data/tx_carrier.grc).
 
 - Observe that the USRP sink center frequency is set to 50 MHz. This block represents the USRP transmitter hardware.
 
@@ -158,9 +126,3 @@ In this section, we test the transmit functions of the USRP that we can use late
 - What is the minimum and maximum signal power output from the USRP? The USRP output power level can be set via the *QT GUI Range Widget* seen when running the flowgraph.
 
 {% include alert.html title="Deliverable Question 3" class="info" content="Why, when the USRP is active in transmit-mode, is its minimum output power greater than 0?" %}
-
-## Deliverables
-
-From this part of the lab keep the following files to submit to your TA:
-
-- The answers to 3 deliverable questions.

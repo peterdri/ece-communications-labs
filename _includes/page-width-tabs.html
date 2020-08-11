@@ -1,0 +1,29 @@
+<!-- Uses permalink on page from which this html is included to find "tabs" in /data/sdr-labs -->
+{% assign tabs = site.data.sdr-labs[page.permalink] %}
+<div>
+    <ul class="nav nav-tabs" style="justify-content: center;">
+        {% for tab in tabs %}
+            {% if forloop.first == true %}
+                {% assign aClass = 'active' %}
+            {% else %}
+                {% assign aClass = '' %}
+            {% endif %}
+            <li class="nav-item">
+                <a class="nav-link {{ aClass }}" data-toggle="tab" href="{{ '#' | append: tab.title }}">{{ tab.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        {% for tab in tabs %}
+            {% if forloop.first == true %}
+                {% assign devClass = 'active show' %}
+            {% else %}
+                {% assign devClass = '' %}
+            {% endif %}
+            <div class="tab-pane fade {{ devClass }}" id="{{ tab.title }}"> <!-- id has to be the same as href above but without the # -->
+                {% capture my_include %}{% include_relative {{ tab.url }} %}{% endcapture %}
+                {{ my_include | markdownify }}
+            </div>
+        {% endfor %}
+    </div>
+</div>

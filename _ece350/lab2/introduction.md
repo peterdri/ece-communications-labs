@@ -4,7 +4,7 @@ title: Lab 2  - SSB, IQ and USRP Tutorial #Used for header nav
 
 permalink: /ece350/lab2
 course: ece350
-next: /ece350/lab2/IQ-USRP
+next: /ece350/lab2/IQ-SDR
 ---
 
 In this lab you will use the Universal Software Radio Peripherial (USRP) for both receiving and transmitting signals. The USRP is a I/Q receiver with wide bandwidth (100 MHz sampling rate), programmable center frequency, programmable gain and choice of sample rates.

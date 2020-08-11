@@ -1,0 +1,6 @@
+# Base item is the permalink of the parent page. Children urls are relative to the parent.
+/ece350/lab2/IQ-SDR:
+  - title: USRP
+    url: IQ-USRP.md
+  - title: RTL-SDR
+    url: IQ-RTL.md
