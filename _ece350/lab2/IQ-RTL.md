@@ -49,7 +49,7 @@ RTL-SDR is a name used by a variety of dongles which are all based on the same p
   ![part2_phase-ramp-rtl.png]({{site.baseurl}}/_ece350/lab2/figures/part2_phase-ramp-rtl.png)<br>
   __*Phase ramp showing frequency offset*__
 
-- This frequency $$ f_b $$ represents the offset between the received RF signal $$ f_c $$ and the USRP local oscillator $$ f_{LO} $$, so that
+- This frequency $$ f_b $$ represents the offset between the received RF signal $$ f_c $$ and the SDR's local oscillator $$ f_{LO} $$, so that
 
   $$ f_b  = f_c  - f_{LO} $$
 
@@ -74,59 +74,105 @@ RTL-SDR is a name used by a variety of dongles which are all based on the same p
 
   This is how you are able to read $$ f_b $$ directly off of the phase ramp.
 
-  - Confirm that $$ f_b $$ is as expected (ask your TA for $$ f_c $$)
-  - To find $$ f_c $$, ask your TA or go check the signal generator at the back of the lab.
-
-- The USRP source block has the *Clock Source* set to use an *External* 10 MHz clock reference frequency, and the same external reference is used for the signal generator. Thus the frequency difference between the USRP source block (local oscillator) and signal generator RF frequency will be observed to be exactly as expected from their respective frequency settings.
-
-  - If we change the USRP source block to use an *Internal* clock reference, then expect to observe some frequency error between the signal generator and the USRP frequency settings as they are running from independent oscillators.
-  - Try changing the USRP clock source to *Internal* and repeat the frequency measurement of the I and Q outputs. You will see the frequency drifting over time.
+- Assuming that $$f_c$$ is exactly 144 Mhz, use the phase ramp to find your RTL-SDRs local oscillator frequency. Confirm your solution for $$f_{LO}$$ with your TA.
 
 ### Dynamic range with IQ signals
 
-- Ask the TA to vary the 200 MHz signal generator level from ‐10 dBm (dB relative to one milliwatt) to 10 dBm in 1 dB steps. Some of the steps are shown in the figures below.
+> This section is possible to do in practice if you have a signal generator nearby. If so, set it to generate a 200 MHz tone with the minimum possible amplitude (when done in the lab the starting amplitude is -10 dBm) and plug the output into your RTL-SDR using a coaxial cable. Then slowly and carefully (so as not to fry your SDR), increase the amplitude until you see what is outlined below.
+>
+> If you do not have a signal generator at home follow along with the following explanation instead.
 
-- Observe and describe how the signals look at each signal level, and explain why.
-  >The waveform appearance results from clipping in the 2 ADCs (one ADC for I, one ADC for Q).
+As your radio receives a pure tone, the constellation looks like the following figure.
 
   ![part2_constellation-round.png]({{site.baseurl}}/_ece350/lab2/figures/part2_constellation-round.png)<br>
   __*Round constellation plot showing no clipping in the ADCs*__
 
+As the amplitude of the signal is increased, the radius of the circle grows until the ADCs (one for I and one for Q) begin clipping and the constellation starts to get "squashed" as in the following figure.
+
   ![part2_constellation-squashed.png]({{site.baseurl}}/_ece350/lab2/figures/part2_constellation-squashed.png)<br>
   __*Squashed constellation plot showing some clipping in the ADCs*__
 
+This continues until the constellation is a square at which point increasing the signal amplitude makes no difference to the constellation.
+
   ![part2_constellation-square.png]({{site.baseurl}}/_ece350/lab2/figures/part2_constellation-square.png)<br>
   __*Square constellation plot showing extreme clipping in the ADCs*__
-
+  
 {% include alert.html title="Deliverable Question 1" class="info" content="Why do you see the constellation plot of the I/Q plane get squashed from a circle into a square as you increase the power of the received signal?" %}
-
-Look at the plot of the phase now. **Why does the phase ramp become a staircase? How does this relate to the constellation diagram?**
 
 ## IQ Transmitter
 
 ### Carrier wave transmission
 
-In this section, we test the transmit functions of the USRP that we can use later when building a communications system. We will observe the transmitted spectrum, minimum and maximum power level in dBm. You will use both the osciloscope and the spectrum analyzer at your bench to view and measure the output from the USRP transmitter.
+The RTL-SDR is a receive-only SDR and so cannot transmit signals. Follow along with the description below to explore some key ideas to do with SDR transmission.
 
 - Review the theory of [spectrum analyzers](../../_docs/pdriessen_textbook.pdf) (section 1.4)
   > For more detailed information, you may also wish to review [Spectrum Analyzer Basics](../../_docs/5965-7920E.pdf) and [The Basics of Spectrum Analyzers](../../_docs/spec_analyzer.pdf). **The concepts presented here will be applicable to any spectrum analyzer you may use in your career.**
 
-- Download and open [this GRC file]({{site.baseurl}}/_ece350/lab2/data/tx_carrier.grc).
+Consider a setup where you have an SDR transmitting a complex signal. The complex signal is made up of two tones, a cosine and a sine as in the figure below.
 
-- Observe that the USRP sink center frequency is set to 50 MHz. This block represents the USRP transmitter hardware.
+  ![part2_tx_block_diagram.png]({{site.baseurl}}/_ece350/lab2/figures/part2_tx_block_diagram.png)<br>
+  __*GRC block diagram to transmit a complex signal through a USRP.*__
 
-- Observe that the sine and cosine signal sources are configured for 10 kHz.
+Notice that:
 
-- Connect the USRP Tx output to the spectrum analyzer and execute the flowgraph. A scope display will come up along with three buttons that allow you to select different values for Q(t).
+- the SDR's center frequency is set to 50 MHz,
+- the sine and cosine signal sources are set to 10 kHz.
 
-- Set the spectrum analyzer's center frequency to 50 MHz and the span to 50 kHz by using the FREQUENCY and SPAN buttons. Adjust the LEVEL as necessary.
+What frequency do you expect the transmitted signal to be at? The SDR will take a baseband input and shift it up to the desired passband center frequency. In this case the transmitted signal exists at 50.01 MHz (50 MHz + 10 kHz).
 
-- What do you observe on the spectrum analyzer display with Q(t) = 0? Try the other two options for Q(t). What do you observe on the spectrum analyzer?
+Plugging a USRP into a spectrum analyzer and running this program yields the following output.
 
-{% include alert.html title="Deliverable Question 2" class="info" content="The GRC flowgraph shows a complex stream getting fed into the USRP. How come when **Q(t)=0** a real spectrum is shown on the spectrum analyzer?" %}
+  ![part2_spectrum-analyzer1.png]({{site.baseurl}}/_ece350/lab2/figures/part2_spectrum-analyzer1.png)<br>
+  __*Spectrum analyzer output with $$f_c = 50.01 MHz$$.*__
+  <!-- TODO -->
+
+In this case $$f_c = 50.01 MHz$$. The signal is complex and can be written as:
+
+$$
+\begin{align}
+s(t) &= e^{j2\pi f_c t} \\
+&= sin(2\pi f_c t) + jcos(2\pi f_c t)\\
+\end{align}
+$$
+
+Now, changing the amplitude of the signal source which makes up $$Q$$ to be negative yields the following spectrum.
+
+  ![part2_spectrum-analyzer2.png]({{site.baseurl}}/_ece350/lab2/figures/part2_spectrum-analyzer2.png)<br>
+  __*Spectrum analyzer output with $$f_c = 49.99 MHz$$.*__
+  <!-- TODO -->
+
+In this case the signal can be written as:
+
+$$
+\begin{align}
+s(t) &= e^{j2\pi f_c t} \\
+&= sin(2\pi f_c t) - jcos(2\pi f_c t)\\
+\end{align}
+$$
+
+Finally, changing the amplitude of the signal source which is fed into  $$Q$$ to be 0 yields the following spectrum.
+
+  ![part2_spectrum-analyzer3.png]({{site.baseurl}}/_ece350/lab2/figures/part2_spectrum-analyzer3.png)<br>
+  __*Spectrum analyzer output with $$f_c = 49.99 MHz$$.*__
+  <!-- TODO -->
+
+In this case the signal can be written as:
+
+$$
+\begin{align}
+s(t) &= e^{j2\pi f_c t} \\
+&= sin(2\pi f_c t)\\
+\end{align}
+$$
+
+{% include alert.html title="Deliverable Question 2" class="info" content="The GRC flowgraph shows a *complex* stream getting fed into the USRP. How come when $$Q(t)=0$$ a *real* spectrum is shown on the spectrum analyzer?" %}
 
 ### USRP power levels
 
-- What is the minimum and maximum signal power output from the USRP? The USRP output power level can be set via the *QT GUI Range Widget* seen when running the flowgraph.
+The *USRP Sink* block as well as the *RTL-SDR Source* block set parameters for the radio hardware. In the last section it set the radio's center frequency. Another key parameter is to change the power output by a transmitter. Using the same flowgraph as above, the output power of the USRP is set to 0. The spectrum analyzer screen shows the following.
 
-{% include alert.html title="Deliverable Question 3" class="info" content="Why, when the USRP is active in transmit-mode, is its minimum output power greater than 0?" %}
+  ![part2_spectrum-analyzer4.png]({{site.baseurl}}/_ece350/lab2/figures/part2_spectrum-analyzer4.png)<br>
+  __*Spectrum analyzer output with a power of 0.*__
+  <!-- TODO -->
+
+{% include alert.html title="Deliverable Question 3" class="info" content="The USRP is plugged in, powered on and tied with coaxial cable into the spectrum analyzer. Why, when the USRP is active in transmit-mode, is its minimum output power greater than 0?" %}
