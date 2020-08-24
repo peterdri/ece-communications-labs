@@ -4,3 +4,9 @@
     url: IQ-USRP.md
   - title: RTL-SDR
     url: IQ-RTL.md
+
+/ece350/lab3/FM-receiver-SDR:
+  - title: USRP
+    url: FM-receiver-USRP.md
+  - title: RTL-SDR
+    url: FM-receiver-RTL.md

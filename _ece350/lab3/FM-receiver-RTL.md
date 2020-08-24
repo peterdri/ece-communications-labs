@@ -1,7 +1,7 @@
 
 ## FM broadcast receiver
 
-In this section, we consider a practical FM receiver that can receive real off-air FM signals using the USRP. You will adjust the FM receiver built in the last part of the lab to work with these real signals.
+In this section, we consider a practical FM receiver that can receive real off-air FM signals using the RTL-SDR. You will adjust the FM receiver built in the last part of the lab to work with these real signals.
 
 - Open the FM receiver flowgraph you completed in the last part of this lab.
 
@@ -12,8 +12,8 @@ In this section, we consider a practical FM receiver that can receive real off-a
 
 - The flowgraph should now look like the following figure.
 
-  ![fmrx_USRP-receiver-grc.png]({{site.baseurl}}/_ece350/lab3/figures/fmrx_USRP-receiver-grc.png)<br>
-  __*FM receiver using the USRP Source stream*__
+  ![fmrx_RTL-receiver-grc.png]({{site.baseurl}}/_ece350/lab3/figures/fmrx_RTL-receiver-grc.png)<br>
+  __*FM receiver using the RTL-SDR Source block*__
 
 {% include alert.html title="Deliverable Question 2" class="info" content="Which blocks from the File Sink stream are replaced with the *USRP Source* block? Which blocks are replaced with the *Frequency Xlating FIR Filter* block?" %}
 
@@ -34,8 +34,8 @@ In this section, we consider a practical FM receiver that can receive real off-a
 
 - The flowgraph should now look like the following figure.
 
-  ![fmrx_USRP-receiver-with-audio-grc.png]({{site.baseurl}}/_ece350/lab3/figures/fmrx_USRP-receiver-with-audio-grc.png)<br>
-  __*USRP FM receiver with an audio output*__
+  ![fmrx_RTL-receiver-with-audio-grc.png]({{site.baseurl}}/_ece350/lab3/figures/fmrx_RTL-receiver-with-audio-grc.png)<br>
+  __*RTL-SDR FM receiver with an audio output*__
 
 - Execute the flowgraph. Tune to 101.9 MHz (CFUV) which is the radio station run on UVic's campus transmitted from the Student Union Building.
 
@@ -45,7 +45,7 @@ In this section, we consider a practical FM receiver that can receive real off-a
 
 - Review the theory of [dynamic range]({{site.baseurl}}/_ece350/lab3/data/DynamicRange.pdf). These notes will also be useful for subsequent sections on dynamic range with IQ signals and on noise figure.
 
-- Tune the USRP to the FM broadcast station at 101.5 MHz.
+- Tune the RTL-SDR to the FM broadcast station at 101.5 MHz.
 
 - Increase the RF gain from 7 dB until you hear a second radio station at the same time, or instead of the original station.
 

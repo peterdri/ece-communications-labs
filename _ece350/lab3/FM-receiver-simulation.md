@@ -5,7 +5,7 @@ permalink: /ece350/lab3/FM-receiver-simulation
 
 course: ece350
 prev: /ece350/lab3/FM-transmitter-sim
-next: /ece350/lab3/FM-receiver-USRP
+next: /ece350/lab3/FM-receiver-SDR
 ---
 
 ## Objectives
