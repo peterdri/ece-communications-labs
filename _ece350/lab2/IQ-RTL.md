@@ -66,7 +66,7 @@ RTL-SDR is a name used by a variety of dongles which are all based on the same p
 
     $$ e^{-j\pi f_{LO} t}  = cos\left( 2\pi f_{LO} t \right) - jsin\left( 2\pi f_{LO} t \right) $$
 
-  When the two are multiplied, and $$ f_b  = f_c  - f_LO $$ is substituted:
+  When the two are multiplied, and $$ f_b  = f_c  - f_{LO} $$ is substituted:
 
     $$ I(t) = a(t)cos\left( 2\pi f_b t + \phi (t) \right) $$
 
@@ -103,7 +103,9 @@ This continues until the constellation is a square at which point increasing the
 
 ### Carrier wave transmission
 
-The RTL-SDR is a receive-only SDR and so cannot transmit signals. Follow along with the description below to explore some key ideas to do with SDR transmission.
+The RTL-SDR is a receive-only SDR and so cannot transmit signals. Follow along with the description and simulation below to explore some key ideas to do with SDR transmission.
+
+Download [this GRC file]({{site.baseurl}}/_ece350/lab2/data/RTLSDR_tx_sim.grc).
 
 - Review the theory of [spectrum analyzers](../../_docs/pdriessen_textbook.pdf) (section 1.4)
   > For more detailed information, you may also wish to review [Spectrum Analyzer Basics](../../_docs/5965-7920E.pdf) and [The Basics of Spectrum Analyzers](../../_docs/spec_analyzer.pdf). **The concepts presented here will be applicable to any spectrum analyzer you may use in your career.**
@@ -122,9 +124,10 @@ What frequency do you expect the transmitted signal to be at? The SDR will take 
 
 Plugging a USRP into a spectrum analyzer and running this program yields the following output.
 
-  ![part2_spectrum-analyzer1.png]({{site.baseurl}}/_ece350/lab2/figures/part2_spectrum-analyzer1.png)<br>
+  ![part2_spectrum-analyzer1.jpg]({{site.baseurl}}/_ece350/lab2/figures/part2_spectrum-analyzer1.jpg)<br>
   __*Spectrum analyzer output with $$f_c = 50.01 MHz$$.*__
-  <!-- TODO -->
+
+You can see the same thing by running the above GRC simulation and setting $$Q(t)=sin(2*\pi*f_c*t)$$. Look through the simulation to see how this works (what is it changing in the signal source blocks?).
 
 In this case $$f_c = 50.01 MHz$$. The signal is complex and can be written as:
 
@@ -137,9 +140,10 @@ $$
 
 Now, changing the amplitude of the signal source which makes up $$Q$$ to be negative yields the following spectrum.
 
-  ![part2_spectrum-analyzer2.png]({{site.baseurl}}/_ece350/lab2/figures/part2_spectrum-analyzer2.png)<br>
+  ![part2_spectrum-analyzer2.jpg]({{site.baseurl}}/_ece350/lab2/figures/part2_spectrum-analyzer2.jpg)<br>
   __*Spectrum analyzer output with $$f_c = 49.99 MHz$$.*__
-  <!-- TODO -->
+
+Running the simulation and setting $$Q(t)=-sin(2*\pi*f_c*t)$$ will show the same thing - a single frequency component shifted down from the center of the spectrum.
 
 In this case the signal can be written as:
 
@@ -152,9 +156,10 @@ $$
 
 Finally, changing the amplitude of the signal source which is fed into  $$Q$$ to be 0 yields the following spectrum.
 
-  ![part2_spectrum-analyzer3.png]({{site.baseurl}}/_ece350/lab2/figures/part2_spectrum-analyzer3.png)<br>
-  __*Spectrum analyzer output with $$f_c = 49.99 MHz$$.*__
-  <!-- TODO -->
+  ![part2_spectrum-analyzer3.jpg]({{site.baseurl}}/_ece350/lab2/figures/part2_spectrum-analyzer3.jpg)<br>
+  __*Spectrum analyzer output with $$f_c = 50 MHz$$.*__
+
+In the simulation, set $$Q(t)=0$$ to see this real signal.
 
 In this case the signal can be written as:
 
@@ -165,14 +170,18 @@ s(t) &= e^{j2\pi f_c t} \\
 \end{align}
 $$
 
-{% include alert.html title="Deliverable Question 2" class="info" content="The GRC flowgraph shows a *complex* stream getting fed into the USRP. How come when $$Q(t)=0$$ a *real* spectrum is shown on the spectrum analyzer?" %}
+{% include alert.html title="Deliverable Question 2" class="info" content="The GRC flowgraph simulation shows a *complex* stream getting fed into the *QT GUI Frequency Sink* block. How come when $$Q(t)=0$$ a *real* spectrum is shown on the Frequency sink (as well as the actual spectrum analyzer)?" %}
 
 ### USRP power levels
 
-The *USRP Sink* block as well as the *RTL-SDR Source* block set parameters for the radio hardware. In the last section it set the radio's center frequency. Another key parameter is to change the power output by a transmitter. Using the same flowgraph as above, the output power of the USRP is set to 0. The spectrum analyzer screen shows the following.
+The *USRP Sink* and *RTL-SDR Source* blocks include parameters for the radio hardware. In the last section the the radio center frequency was set. Another key parameter is to change the power output by a transmitter. The spectrum analyzer screen shows the following output for a positive gain value (note the dB level of the peak).
 
-  ![part2_spectrum-analyzer4.png]({{site.baseurl}}/_ece350/lab2/figures/part2_spectrum-analyzer4.png)<br>
-  __*Spectrum analyzer output with a power of 0.*__
-  <!-- TODO -->
+  ![part2_spectrum-analyzer3.jpg]({{site.baseurl}}/_ece350/lab2/figures/part2_spectrum-analyzer3.jpg)<br>
+  __*Spectrum analyzer output with a positive transmitter gain value.*__
+
+Without changing the *Signal Source* blocks, but changing the gain of the transmitter to 0 yields the following spectrum analyzer output. Again note the dB level of the peak.
+
+  ![part2_spectrum-analyzer4.jpg]({{site.baseurl}}/_ece350/lab2/figures/part2_spectrum-analyzer4.jpg)<br>
+  __*Spectrum analyzer output with a transmitter gain value of 0.*__
 
 {% include alert.html title="Deliverable Question 3" class="info" content="The USRP is plugged in, powered on and tied with coaxial cable into the spectrum analyzer. Why, when the USRP is active in transmit-mode, is its minimum output power greater than 0?" %}

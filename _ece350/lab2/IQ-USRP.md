@@ -62,7 +62,7 @@ The main function of the USRP motherboard is to act as a [Digital Downconverter 
 
     $$ e^{-j\pi f_{LO} t}  = cos\left( 2\pi f_{LO} t \right) - jsin\left( 2\pi f_{LO} t \right) $$
 
-  When the two are multiplied, and $$ f_b  = f_c  - f_LO $$ is substituted:
+  When the two are multiplied, and $$ f_b  = f_c  - f_{LO} $$ is substituted:
 
     $$ I(t) = a(t)cos\left( 2\pi f_b t + \phi (t) \right) $$
 
@@ -107,7 +107,7 @@ In this section, we test the transmit functions of the USRP that we can use late
 - Review the theory of [spectrum analyzers](../../_docs/pdriessen_textbook.pdf) (section 1.4)
   > For more detailed information, you may also wish to review [Spectrum Analyzer Basics](../../_docs/5965-7920E.pdf) and [The Basics of Spectrum Analyzers](../../_docs/spec_analyzer.pdf). **The concepts presented here will be applicable to any spectrum analyzer you may use in your career.**
 
-- Download and open [this GRC file]({{site.baseurl}}/_ece350/lab2/data/tx_carrier.grc).
+- Download and open [this GRC file]({{site.baseurl}}/_ece350/lab2/data/USRP_tx_carrier.grc).
 
 - Observe that the USRP sink center frequency is set to 50 MHz. This block represents the USRP transmitter hardware.
 
