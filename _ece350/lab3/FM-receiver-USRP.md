@@ -7,21 +7,13 @@ In this section, we consider a practical FM receiver that can receive real off-a
 
 - Disable the *File Source* stream up to and including the *Float To Complex* block.
 
-- Enable to *USRP Source* stream.
-  - Ensure that the output of the *Frequency Xlating FIR Filter* replaces the output of the *Float To Complex Block*.
+- Enable to *USRP Source* stream. You will need to reroute the inputs to the *Delay* and *Multiply Const* blocks from the newly enabled *Low Pass Filter*.
 
-- The flowgraph should now look like the following figure.
+{% include alert.html title="Deliverable Question 2" class="info" content="Which blocks from the File Sink stream are replaced with the *USRP Source* block? Which blocks are replaced with the *Low Pass Filter* block?" %}
 
-  ![fmrx_USRP-receiver-grc.png]({{site.baseurl}}/_ece350/lab3/figures/fmrx_USRP-receiver-grc.png)<br>
-  __*FM receiver using the USRP Source stream*__
+{% include alert.html title="Deliverable Question 3" class="info" content="What is the transition width of the low pass filter used on the USRP's output? Why was this value chosen? (Hint: Consider FM Broadcast channel spacings.)" %}
 
-{% include alert.html title="Deliverable Question 2" class="info" content="Which blocks from the File Sink stream are replaced with the *USRP Source* block? Which blocks are replaced with the *Frequency Xlating FIR Filter* block?" %}
-
-{% include alert.html title="Deliverable Question 3" class="info" content="What is the transition width of the low pass filter used on the USRP's output?" %}
-
-- Execute the flowgraph.
-
-- Observe the waterfall and spectrum.
+- Execute the flowgraph and Observe the waterfall and spectrum.
   - The radio is tuned to 98.1 MHz (an FM station in Seattle), the RF gain is set to 7.
 
 - Notice the noise level of the filtered signal is around ‐120 dBm and the signal peak level is 10‐20 dB higher than that.
@@ -37,9 +29,7 @@ In this section, we consider a practical FM receiver that can receive real off-a
   ![fmrx_USRP-receiver-with-audio-grc.png]({{site.baseurl}}/_ece350/lab3/figures/fmrx_USRP-receiver-with-audio-grc.png)<br>
   __*USRP FM receiver with an audio output*__
 
-- Execute the flowgraph. Tune to 101.9 MHz (CFUV) which is the radio station run on UVic's campus transmitted from the Student Union Building.
-
-- Sing along.
+- Execute the flowgraph. Tune to 101.9 MHz (CFUV) which is the radio station run on UVic's campus transmitted from the Student Union Building. Sing along.
 
 ## Dynamic Range with FM
 

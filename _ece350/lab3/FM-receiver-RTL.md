@@ -7,24 +7,16 @@ In this section, we consider a practical FM receiver that can receive real off-a
 
 - Disable the *File Source* stream up to and including the *Float To Complex* block.
 
-- Enable to *USRP Source* stream.
-  - Ensure that the output of the *Frequency Xlating FIR Filter* replaces the output of the *Float To Complex Block*.
+- Enable to *RTL-SDR Source* stream. You will need to reroute the inputs to the *Delay* and *Multiply Const* blocks from the newly enabled *Low Pass Filter*.
 
-- The flowgraph should now look like the following figure.
+{% include alert.html title="Deliverable Question 2" class="info" content="Which blocks from the File Sink stream are replaced with the *RTL-SDR Source* block? Which blocks are replaced with the *Low Pass Filter* block?" %}
 
-  ![fmrx_RTL-receiver-grc.png]({{site.baseurl}}/_ece350/lab3/figures/fmrx_RTL-receiver-grc.png)<br>
-  __*FM receiver using the RTL-SDR Source block*__
+{% include alert.html title="Deliverable Question 3" class="info" content="What is the transition width of the low pass filter used on the RTL-SDR's output? Why was this value chosen? (Hint: Consider FM Broadcast channel spacings.)" %}
 
-{% include alert.html title="Deliverable Question 2" class="info" content="Which blocks from the File Sink stream are replaced with the *USRP Source* block? Which blocks are replaced with the *Frequency Xlating FIR Filter* block?" %}
+- Execute the flowgraph and Observe the waterfall and spectrum.
+  - By default the radio is tuned to 98.1 MHz and the RF gain is set to 7.
 
-{% include alert.html title="Deliverable Question 3" class="info" content="What is the transition width of the low pass filter used on the USRP's output?" %}
-
-- Execute the flowgraph.
-
-- Observe the waterfall and spectrum.
-  - The radio is tuned to 98.1 MHz (an FM station in Seattle), the RF gain is set to 7.
-
-- Notice the noise level of the filtered signal is around ‐120 dBm and the signal peak level is 10‐20 dB higher than that.
+Look up a FM station in your area and tune to it using the slider. When you are centered on it, increase the RF gain until the channel is clearly visible in the spectrum.
 
 - This FM receiver is not particularly useful without an audio output.
   - Add a *Rational Resampler* block after the *Complex to Arg* block and resample the signal to 48 kHz. Set the *Type* to be *Float->Float (Real Taps)*.
@@ -37,21 +29,19 @@ In this section, we consider a practical FM receiver that can receive real off-a
   ![fmrx_RTL-receiver-with-audio-grc.png]({{site.baseurl}}/_ece350/lab3/figures/fmrx_RTL-receiver-with-audio-grc.png)<br>
   __*RTL-SDR FM receiver with an audio output*__
 
-- Execute the flowgraph. Tune to 101.9 MHz (CFUV) which is the radio station run on UVic's campus transmitted from the Student Union Building.
-
-- Sing along.
+- Execute the flowgraph and increase the RF Gain until the audio is legible. Sing along.
 
 ## Dynamic Range with FM
 
 - Review the theory of [dynamic range]({{site.baseurl}}/_ece350/lab3/data/DynamicRange.pdf). These notes will also be useful for subsequent sections on dynamic range with IQ signals and on noise figure.
 
-- Tune the RTL-SDR to the FM broadcast station at 101.5 MHz.
+- Tune the RTL-SDR to a weak FM channel. You can use a *QT GUI Waterfall* at the output of the *RTL-SDR Source* to search for a weak channel.
 
 - Increase the RF gain from 7 dB until you hear a second radio station at the same time, or instead of the original station.
 
   - Notice that the signal level increases and then suddenly both noise and signal jump up and the audio changes to a different program.
 
-  > What is happening is that a strong signal somewhere within the 40 MHz bandwidth of the USRP's receiver is clipping the 14 bit A/D converter in the USRP. The 14 bit A/D converter has a dynamic range of about 84 dB (14 bits times 6 dB per bit), so a signal above about ‐100 dBm + 84 dB = ‐16 dBm will clip the converter. With the RF gain set to around 20 dB, the receiver becomes non‐linear and the audio from the strong signal is cross‐modulating on top of the signal at 98.1 MHz.
+  > What is happening is that a strong signal somewhere within the 2.4 MHz bandwidth of the RTL-SDR's receiver is clipping the 8 bit A/D converter in the RTL-SDR. The 8 bit A/D converter has a dynamic range of about 48 dB (8 bits times 6 dB per bit), so a signal 48 dB above the noise floors value will clip the converter.
 
   - Cross‐modulation can be shown to occur by modelling the non‐linear receiver as having the output:
 
@@ -61,6 +51,6 @@ In this section, we consider a practical FM receiver that can receive real off-a
 
   - Reduce the RF gain and notice that the original signal is restored. Next, we will look for this strong signal.
 
-- Tune the FM receiver to 101.9 MHz (the local UVic radio station CFUV). Notice that the signal level is much higher (close to ‐30 dBm). Now increase the RF gain to at least 20 dB and observe the signal level can be increased to above ‐16 dBm, however, the audio is not changed. This signal at 101.9 MHz was causing the clipping.
+- Tune the FM receiver to the strongest FM station you can find. Notice that the signal level is much higher. Now increase the RF gain to at least 20 dB and observe the signal level can be increased to above the previous limit without the audio changing. This signal may have been causing the clipping.
 
 - Experiment more with the FM receiver. Notice that many signals can be received, FM signals are spaced every 0.2 MHz with an odd last digit, from 88.1 MHz up to 107.9 MHz.

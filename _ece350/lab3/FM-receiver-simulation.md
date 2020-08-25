@@ -80,26 +80,22 @@ This part of the lab is a guide to receiving FM signal waveforms. You will:
 ## Receiving a demodulating simulated FM signals
 
 - To begin, download this [partially completed flowgraph](./data/Incomplete-FM-Receiver.grc).
-  - The completed portion implements two sources:
-    - a *USRP Source* and filter as well which is "disabled".
+  - The completed portion implements three sources:
+    - a *RTL-SDR Source* and filter which are disabled,
+    - a *USRP Source* and filter which are disabled,
     - a *File Source*, down conversion, and filter which are "enabled".
   - Each of these sources can be used and controlled with the same *QT GUI Range* parameters.
-  - If you want to use the USRP as a source, disable the stream coming from the *File Source*. If you want to use the *File Source* stream, do the opposite.
-  - **For now, leave the *USRP Source* stream disabled and the *File Source* stream enabled.**
+  - If you want to use the USRP or RTL-SDR as a source, disable the stream coming from the *File Source*. If you want to use the *File Source* stream, do the opposite.
+  - **For now, leave the SDR streams disabled and the *File Source* stream enabled.**
 
 The output of each stream is $$ \tilde{s}(t) $$.
 
-Before you add or change anything, the flowgraph should look like the following figure.
+Before you add or change anything, the flowgraph should look like the following figure. Note that the *Signal Source* used to remove the carrier from the signal is set **negative** 25000 kHz.
 
   ![fmrx_incomplete-grc.png](./figures/fmrx_incomplete-grc.png)<br>
   __*Incomplete flowgraph for receiving FM signals*__
 
-- Open the *File Source* block and point it at `FM_TX_5kHz_sine.dat`.
-
-- Execute the flowgraph and check that the output at $$ \tilde{s}(t) $$ is as expected. The spectrum should look like the following figure after the filtering.
-
-  ![fmrx_filtered-fft.png](./figures/fmrx_filtered-fft.png)<br>
-  __*Spectrum after filtering*__
+- Open the *File Source* block and point it at `FM_TX_5kHz_sine.dat`. Execute the flowgraph and check that the output at $$ \tilde{s}(t) $$ is as expected. It should look like a frequency modulated sine wave since that's what it is.
 
 - Implement $$ m(t) = arg[ \tilde{s}(t-1) \tilde{s}^{*} (t) ] $$ from the [theory section](#theory) to extract the message from the baseband signal.
   - You will need a [Delay](https://wiki.gnuradio.org/index.php/Delay) block with the *Delay* property set to 1. This delays every sample that enters the block by 1 sample.
@@ -121,7 +117,7 @@ Before you add or change anything, the flowgraph should look like the following 
   __*Demodulated sine message, $$ m(t) $$ in time domain*__
 
   ![fmrx_m-of-t-sine-fft.png](./figures/fmrx_m-of-t-sine-fft.png)<br>
-  __*Demodulated sine message, $$ m(t) $$ in frqeuency domain*__
+  __*Demodulated sine message, $$ m(t) $$ in frequency domain*__
 
 - Switch the input file to be `FM_TX_5kHz_square.dat`. You should be able to read the `1010...` FSK sequence
 
@@ -129,12 +125,19 @@ Before you add or change anything, the flowgraph should look like the following 
   __*Demodulated FSK message, $$ m(t) $$ in time domain*__
 
   ![fmrx_m-of-t-square-fft.png](./figures/fmrx_m-of-t-square-fft.png)<br>
-  __*Demodulated FSK message, $$ m(t) $$ in frqeuency domain*__
+  __*Demodulated FSK message, $$ m(t) $$ in frequency domain*__
 
 - This flowgraph will be a deliverable. Save it as `FM_receiver.grc`, and in the *Options* block, set the following:
 
   - **Title:** FM receiver
   - **Author:** V00xxxxxx, V00yyyyyy (where all of your student numbers are included)
+
+## Advantage of a complex receiver versus a real receiver
+
+The receiver implemented above uses a complex signal for input. A real signal could be used instead but the flowgraph becomes much more complicated. The below flowgraph is equivalent to the one you implemented above.
+
+  ![fmrx_real-receiver-grc.png](./figures/fmrx_real-receiver-grc.png)<br>
+  __*Real FM receiver which is far more complicated than the complex receiver.*__
 
 ---
 

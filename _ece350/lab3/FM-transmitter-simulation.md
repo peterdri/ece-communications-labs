@@ -169,7 +169,7 @@ $$ \Delta P = 20 log\frac{J_1(\beta)}{J_0(\beta)} $$
 
 You will want to reference a [table of Bessel functions](https://www.statisticshowto.datasciencecentral.com/wp-content/uploads/2017/01/bessel-tables.pdf) or use a Bessel calculator (built into Matlab/Python/most mathematical programming languages)." %}
 
-- Add a *File Sink* block to capture $$ s(t) $$ and save a file called `FM_TX_5kHz_sine.dat`. You will need to execute the flowgraph for a few seconds to build the file.
+- Add a *File Sink* block to capture the complex output of the *Multiply* block and save a file called `FM_TX_5kHz_sine.dat`. You will need to execute the flowgraph for a few seconds to build the file.
 
 ## Building an FM transmitter for an FSK message
 
