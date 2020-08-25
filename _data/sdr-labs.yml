@@ -10,3 +10,9 @@
     url: FM-receiver-USRP.md
   - title: RTL-SDR
     url: FM-receiver-RTL.md
+
+/ece350/lab4/FSK-eye-diagram:
+  - title: USRP
+    url: FSK-eye-diagram-USRP.md
+  - title: RTL-SDR
+    url: FSK-eye-diagram-RTL.md

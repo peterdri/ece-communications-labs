@@ -42,7 +42,7 @@ This part of the lab is a guide to measuring bit rates of real FSK signals. In i
 - Open the *Options* block and check that the *Generate Options* parameter is set to *Hier Block (QT GUI)*.
   - The *Category* parameter controls where it can be found in the GRC search panel. This means that when compiled, your block will be available in the category called "GRC Hier Blocks".
   
-- Generate the flowgraph using the ![generate-button-grc.png](../intro/figures/tutorial1_generate2.png) button, instead of executing it.
+- Generate the flowgraph using the ![generate-button-grc.png]({{site.baseurl}}/_GRC-tutorials/figures/tutorial1_generate2.png) button, instead of executing it.
 
 - Open a new flowgraph, add a *Signal Source* of type *Float* and connect it to a *Throttle* block.
   - Set the *Waveform* parameter to either "Cosine" or "Sine".
@@ -69,38 +69,9 @@ This part of the lab is a guide to measuring bit rates of real FSK signals. In i
 
 - This flowgraph is not a deliverable.
 
-### A real-time USRP-received FSK signal
+{% include alert.html class="danger" title="Be careful" content="This lab section is possible to do at UVic in the Communications/SDR lab (A309) using an Ettus USRP and also remotely using an RTL-SDR. If you are unsure which to complete talk to your TA. Make sure to pick the right tab below (between USRP and RTL-SDR) so that you don't complete the wrong lab instructions." %}
 
-- Download and open [this GRC file](./data/Incomplete-FSK-receiver.grc). It is very similar to the one you built in the last lab.
-
-- Add a *QT GUI Eye Diagram* block.
-  - Use the included `delay` variable for the block's delay parameter
-  - It should look like the following figure
-
-  ![eyediagram_CREST-grc.png](./figures/eyediagram_CREST-grc.png)<br>
-  __*GRC file of FSK demodulation being fed into a user-controlled eye diagram*__
-
-- Execute the flowgraph and tune to the 2-level FSK signal at 142.17 MHz. This signal is the control channel for the [CREST public safety radio system](http://www.crest.ca/).
-
-  > The bandwidth of this signal is about 25 kHz compared to the 200 kHz for FM broadcast signals.
-
-  - In the waterfall plot, the CREST signal should be fairly strong as in the figure below.
-
-  ![eye_CREST-waterfall.png](./figures/eyediagram_CREST-waterfall.png)<br>
-  __*Waterfall of CREST FSK*__
-
-- Now go to the eye diagram and set the delay to 0. It should look like the following figure.
-  - By setting the delay to 0, you have perfectly overlapped all 10 streams.
-
-  ![eye_CREST-scope.png](./figures/eyediagram_CREST-scope.png)<br>
-  __*Demodulated CREST FSK*__
-
-- Now change the delay until the eye diagram becomes clear. It may help to increase the *RF Gain* parameter.
-
-  ![eye_CREST-eyediagram.png](./figures/eyediagram_CREST-eyediagram.png)<br>
-  __*Eye diagram of CREST FSK signal*__
-
-{% include alert.html title="Deliverable Question 3" class="info" content="What is the bit rate of the control channel for the CREST public safety radio system in bits-per-second? Hint: look at the time between the symbols." %}
+{% include page-width-tabs.html %}
 
 ## Deliverables
 
