@@ -18,18 +18,18 @@ For this section of the lab you will need to find a strong paging or FSK signal 
 
 In the waterfall plot, the FSK signal should be fairly strong as in the figure below.
 
-  ![eyediagram_FSK-waterfall.png]({{site.baseurl}}/_ece350/lab4/figures/eyediagram_FSK-waterfall.png)<br>
+  ![eyediagram_CREST-waterfall.png]({{site.baseurl}}/_ece350/lab4/figures/eyediagram_CREST-waterfall.png)<br>
   __*Waterfall of FSK*__
 
 - Now go to the eye diagram and set the delay to 0. It should look similar to the following figure.
   - By setting the delay to 0, you have perfectly overlapped all 10 streams.
 
-  ![eyediagram_FSK-scope.png]({{site.baseurl}}/_ece350/lab4/figures/eyediagram_FSK-scope.png)<br>
+  ![eyediagram_CREST-scope.png]({{site.baseurl}}/_ece350/lab4/figures/eyediagram_CREST-scope.png)<br>
   __*Demodulated FSK*__
 
 - Now change the delay until the eye diagram becomes clear. It may help to increase the *RF Gain* parameter.
 
-  ![eyediagram_FSK-eyediagram.png]({{site.baseurl}}/_ece350/lab4/figures/eyediagram_FSK-eyediagram.png)<br>
+  ![eyediagram_CREST-eyediagram.png]({{site.baseurl}}/_ece350/lab4/figures/eyediagram_CREST-eyediagram.png)<br>
   __*Eye diagram of FSK signal*__
 
 {% include alert.html title="Deliverable Question 3" class="info" content="What is the bit rate of the control channel for the FSK signal in bits-per-second? Hint: look at the time between the symbols.
