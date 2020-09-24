@@ -27,7 +27,7 @@ RTL-SDR is a name used by a variety of dongles which are all based on the same p
 
 ### I/Q Receiver output
 
-- Review [IQ theory](../../_docs/pdriessen_IQ.pdf).
+- Review [IQ theory](../../_docs/pdriessen_textbook.pdf) in the textbook (Section 1.1).
 
 - Download and open the GRC file [general-IQ-from-RTL.grc]({{site.baseurl}}/_ece350/lab2/data/general-IQ-from-RTL.grc).
 

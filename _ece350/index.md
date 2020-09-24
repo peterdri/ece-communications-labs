@@ -20,8 +20,8 @@ The lab component of this course consists of two introductory GNU Radio tutorial
 as well as four laboratories:
 
 - Lab 1 - AM signals.
-- Lab 2 - [USRP](http://en.wikipedia.org/wiki/Universal_Software_Radio_Peripheral) tutorials and SSB signals.
-- Lab 3 - Finding frame synchronization on the [FLEX](<http://en.wikipedia.org/wiki/FLEX_(protocol)>) pager network using the USRP and GNU Radio.
+- Lab 2 - SDR tutorials and SSB signals.
+- Lab 3 - Finding frame synchronization on the [FLEX](<http://en.wikipedia.org/wiki/FLEX_(protocol)>) pager network using an SDR and GNU Radio.
 - Lab 4 - Pulse shaping and PSK.
 - Optional activity:
   - Pass the amateur radio basic and advanced exams (contact Dr. Driessen).

@@ -20,7 +20,9 @@ This lab is a guide to AM signal waveforms. In this part you will learn:
 
 ## Part 1 Deliverables
 
-- GRC files of AM transmitter and waveform builder. You will be stepped through building them.
+- GRC files of AM transmitter and waveform builder. You will be stepped through building them. They will be named:
+  - `waveform-builder.grc`
+  - `AM_modulator.grc`
 - There are 2 questions spaced throughout this part. They are clearly indicated.
   - Each question requires approximately 1 line of writing, and address concepts, not details. Answer the questions and submit a single page containing the answers to your TA at the end of the lab.
 
@@ -56,7 +58,7 @@ This lab is a guide to AM signal waveforms. In this part you will learn:
     ![part1_mult_const_properties.png](./figures/part1_mult_const_properties.png)<br>
     __*Multiple const properties properties*__
 
-  {% include alert.html title="Note" content="This flowgraph is the graphical form of the modulation waveform, __1+k_a * m(t)__, where __m(t)__ is the *Signal Source* block, 1 is the *Add Const* block, and __k_a__ is the *Multiply Const* block." %}
+  {% include alert.html title="Note" content="This flowgraph is the graphical form of the modulation waveform, $$1+k_a * m(t)$$, where $$m(t)$$ is the *Signal Source* block, 1 is the *Add Const* block, and $$k_a$$ is the *Multiply Const* block." %}
 
 - When executed, the three plots should look like the following:
 
@@ -71,10 +73,10 @@ This lab is a guide to AM signal waveforms. In this part you will learn:
 
 {% include alert.html title="Deliverable Question 1" class="info" content="Why is the spectrum symmetrical about 0 Hz?" %}
 
-- Now multiply the modulation waveform with the carrier signal to obtain the AM modulated waveform. Note the added *QT GUI Range* widget for _fc_.
+- Now multiply the modulation waveform with the carrier signal to obtain the AM modulated waveform. Note the added *QT GUI Range* widget for $$f_c$$.
 
-  - Set the carrier signal source block frequency to _fc_.
-  - In the *QT GUI Range* widget for the _fc_ variable, set the maximum value as *samp_rate/2*
+  - Set the carrier signal source block frequency to `fc`.
+  - In the *QT GUI Range* widget for the `fc` variable, set the maximum value as `samp_rate/2`
   - In the *QT GUI Time Sink*:
     - change the number of inputs to two as shown, and connect one to each of the modulation waveform and the modulated carrier.
     - go to the *Config* tab and label the two lines as "Modulation waveform" and "Modulated signal" as appropriate.
@@ -84,7 +86,7 @@ This lab is a guide to AM signal waveforms. In this part you will learn:
 
   >In GNU Radio Companion, greyed out boxes are "disabled". You can do this by right clicking on a block and selecting "Disable", or just pressing the "d" key on your keyboard. They greyed out File Sink will be used later.
 
-- Explore the executed flowgraph. How does changing _fc_, _ka_, and _fm_ change the band pass time signal? How do they change the bandpass spectrum? The following figures show the default values.
+- Explore the executed flowgraph. How does changing $$f_c$$, $$k_a$$, and $$f_m$$ change the band pass time signal? How do they change the bandpass spectrum? The following figures show the default values.
 
   >When there are two inputs to a GUI Sink, they are plotted as different colors. You can click on their legend entries to hide and show each one.
 
@@ -113,11 +115,11 @@ Until now, we have only used a sinusoidal message. In this section, we will crea
 
 - Create the following flowgraph to make a symmetric square waveform
   - Set the sample rate to 200 kHz.
-  - Set a *Variable* block to have an ID of _fm_ and a value of 4000.
+  - Set a *Variable* block to have an ID of `fm` and a value of 4000.
   - Set the *Signal Source* block to:
 
     - Waveform: Square
-    - Frequency: fm
+    - Frequency: `fm`
     - Amplitude: 2
     - Offset: -1
 
@@ -134,7 +136,7 @@ Until now, we have only used a sinusoidal message. In this section, we will crea
 - Go back to your AM Modulator flowgraph and:
 
   - change the *Signal Source* block to a *File Source* block
-    - Ensure that you change the correct signal source. You are replacing *m(t)* **not** *fc*.
+    - Ensure that you change the correct signal source. You are replacing $$m(t)$$ **not** $$f_c$$.
   - select `square_waveform.dat` as the source file
   - enable to *File Sink* block, choose a save destination, and name the file `AM_modulated_square.dat`
   - execute the flowgraph.
@@ -147,9 +149,9 @@ Until now, we have only used a sinusoidal message. In this section, we will crea
 
 ### Two sine waves with selectable frequencies
 
-- Update the `waveform-builder.grc` flowgraph as below, where two sinusoidal signals with frequencies _f1_ and _f2_ are mixed together to create a two-tone signal with *(f1-f2)* and *(f1+f2)* tones.
+- Update the `waveform-builder.grc` flowgraph as below, where two sinusoidal signals with frequencies $$f_1$$ and $$f_2$$ are mixed together to create a two-tone signal with $$(f_1-f_2)$$ and $$(f_1+f_2)$$ tones.
 
-  - Update the *Signal Source* blocks to use the new variables, _f1_ and _f2_.
+  - Update the *Signal Source* blocks to use the new variables, `f1` and `f2`.
   - Save the output file as `two_sines_waveform.dat`
 
     ![part1_two_sines_flowgraph.png](./figures/part1_two_sines_flowgraph.png)<br>
@@ -170,8 +172,8 @@ Until now, we have only used a sinusoidal message. In this section, we will crea
     ![part1_PRBS_raise_cos_flowgraph.png](./figures/part1_PRBS_raise_cos_flowgraph.png)<br>
     __*PRBS with a root raised cosine shape saved to a `.dat` file*__
 
-  - The *Random Source* block generates a sequence of 1000 random bits which is repeated by keeping the _Repeat_ option as "Yes". The output type is "Byte" which is then converted to "Float" using a *Char to Float* block. The sequence of {0,1} bits are converted to {-1,1}, which is symmetric about zero by setting the parameters of the *Multiply Const* and *Add Const* blocks to 2 and -1 respectively.
-  - The sequence of {-1,1} is converted to a sequence of pulses using the *Root Raised Cosine Filter* block. The main parameter of a raised cosine filter is it's roll-off factor (alpha), which indirectly specifies the bandwidth of the filter. Ideal raised cosine filters have an infinite number of taps. Practical raised cosine filters are windowed. The window length is controlled here using the _span_in_symbol_duration_ variable. Here, we specify the window length as 6 symbol durations (i.e. the filter spans six symbol durations). Raised cosine filters are used for pulse shaping, where the signal is upsampled. To do this, specify the upsampling factor to match the _upsampling_factor_ variable.
+  - The *Random Source* block generates a sequence of 1000 random bits which is repeated by keeping the _Repeat_ option as "Yes". The output type is "Byte" which is then converted to "Float" using a *Char to Float* block. The sequence of `{0,1}` bits are converted to `{-1,1}`, which is symmetric about zero by setting the parameters of the *Multiply Const* and *Add Const* blocks to 2 and -1 respectively.
+  - The sequence of `{-1,1}` is converted to a sequence of pulses using the *Root Raised Cosine Filter* block. The main parameter of a raised cosine filter is it's roll-off factor ($$\alpha$$), which indirectly specifies the bandwidth of the filter. Ideal raised cosine filters have an infinite number of taps. Practical raised cosine filters are windowed. The window length is controlled here using the _span_in_symbol_duration_ variable. Here, we specify the window length as 6 symbol durations (i.e. the filter spans six symbol durations). Raised cosine filters are used for pulse shaping, where the signal is upsampled. To do this, specify the upsampling factor to match the _upsampling_factor_ variable.
   
       ![part1_RRC_parameters.png](./figures/part1_RRC_parameters.png)<br>
     __*Root Raised Cosine Filter properties*__
@@ -203,7 +205,7 @@ Until now, we have only used a sinusoidal message. In this section, we will crea
 
 {% include alert.html title="Deliverable Question 2" class="info" content="Why are the peaks of the modulated signal (shown above in red) not all the same value (a theoretical value of 2)?" %}
 
-At this point, you should have:
+From this section you should have:
 
 - two GRC files
   - `waveform-builder.grc`
@@ -219,12 +221,6 @@ At this point, you should have:
   - `prbs_square_waveform.dat`
   - `AM_modulated_prbs_square.dat`
 
-## Deliverables
+Review the [section deliverables](#part-1-deliverables) before moving on.
 
-From this lab part, keep the following files to submit to your TA after the second (and final) part:
-
-- `waveform-builder.grc`
-- `AM_modulator.grc`.
-- The answers to 2 deliverable questions.
-
-**Do not attach the `top_block.py` or `.dat` files. You will use some of the `.dat` files in the next part though, so don't delete them yet!**
+**You do not need to attach the `top_block.py` or `.dat` files. You will use some of the `.dat` files in the next part though, so don't delete them yet!**

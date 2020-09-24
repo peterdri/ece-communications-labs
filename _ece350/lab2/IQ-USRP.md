@@ -21,7 +21,7 @@ The main function of the USRP motherboard is to act as a [Digital Downconverter 
 
 ### I/Q Receiver output
 
-- Review [IQ theory](../../_docs/pdriessen_IQ.pdf).
+- Review [IQ theory](../../_docs/pdriessen_textbook.pdf) in the textbook (Section 1.1).
 
 - Download and open the GRC file [general-IQ-from-USRP.grc]({{site.baseurl}}/_ece350/lab2/data/general-IQ-from-USRP.grc).
 

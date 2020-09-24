@@ -5,7 +5,7 @@ permalink: /ece350/lab1/AM-receivers
 
 course: ece350
 prev: /ece350/lab1/AM-transmitters
-next: /ece350/lab2
+next: /ece350/lab1/conclusion
 ---
 
 ## Objectives
@@ -24,7 +24,9 @@ The second part addresses demodulating a provided data file which contains sever
 
 ## Part 2 Deliverables
 
-- GRC file of AM receiver with AGC as described below.
+- Two GRC files of AM receivers:
+  - `AM_demodulator.grc`
+  - `AM_demodulator_complex.grc`
 - There is 1 question in this part of the lab. It is clearly indicated as they were in the last part.
   - The question requires approximately 1 line of writing and address concepts, not details. Answer the questions and submit a single page containing the answers to your TA at the end of the lab. This should build upon your answers to the two questions posed in the last part (AM transmitters).
 
@@ -39,7 +41,7 @@ The second part addresses demodulating a provided data file which contains sever
   - **Title:** AM demodulator
   - **Author:** V00xxxxxx, V00yyyyyy (where all of your student numbers are included)
 
-- To recover the message from an AM modulated signal, we must first eliminate the effect of the carrier frequency by multiplying the received signal with the carrier waveform and low pass filtering it. This provides the baseband signal **1 + k_a * m(t)**. A DC blocker is then used to obtain **k_a * m(t)**.
+- To recover the message from an AM modulated signal, we must first eliminate the effect of the carrier frequency by multiplying the received signal with the carrier waveform and low pass filtering it. This provides the baseband signal $$1 + k_a * m(t)$$. A DC blocker is then used to obtain $$k_a * m(t)$$.
 
 - Build the following flowgraph in your `AM_demodulator.grc` file.
 
@@ -213,32 +215,12 @@ The volume adjustment can be automated with an [Automatic Gain Control (AGC) blo
 
 ---
 
-At this point, you should have:
+From this section you should have:
 
 - 4 GRC files
-  - `waveform-builder.grc`
-  - `AM_modulator.grc`
   - `AM_demodulator.grc`
   - `AM_demodulator_complex.grc`
-- 9 data files
-  - `AM_modulated_4kHz_sine.dat`
-  - `square_waveform.dat`
-  - `AM_modulated_square.dat`
-  - `two_sines_waveform.dat`
-  - `AM_modulated_two_sines.dat`
-  - `prbs_rrc_waveform.dat`
-  - `AM_modulated_prbs_rrc.dat`
-  - `prbs_square_waveform.dat`
-  - `AM_modulated_prbs_square.dat`
 
-## Deliverables
+Review the [section deliverables](#part-2-deliverables) before moving on.
 
-From this part of the lab, keep the following files to submit to your TA:
-
-- `AM_demodulator.grc`
-- `AM_demodulator_complex.grc`.
-- The answer to 1 deliverable question.
-
-Combine these deliverables with those from the last part of the lab and submit them as a package. As your TA where to submit them, and remember to put your name and student number on everything (If you filled out the *Options* block in the `.grc` files correctly, your student numbers will be recorded in them.)
-
-**Do not attach the `top_block.py` or `.dat` files.**
+**Do not save any `.py` or `.dat` files.**
