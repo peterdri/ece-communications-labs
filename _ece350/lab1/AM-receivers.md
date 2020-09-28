@@ -52,11 +52,6 @@ Remembering that the frequency of the modulated signal was 4 kHz, set the cutoff
   ![part2_low_pass.png](./figures/part2_low_pass.png)<br>
   __*Low pass filter parameters*__
 
-After the low pass filter, the signal is amplified. Use a *QT GUI Range* widget to control the amplification.
-
-  ![part2_amplifier.png](./figures/part2_amplifier.png)<br>
-  __*Amplifier parameters*__
-
 Run the flowgraph and analyze the output. Is it what you expected? You can also look at the other `.dat` files of modulated signals to demodulate them. Just remember to adjust the low pass filter parameters based on the modulated signal properties.
 
   ![part2_demodulated_scope.png](./figures/part2_demodulated_scope.png)<br>
