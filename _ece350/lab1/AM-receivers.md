@@ -57,11 +57,6 @@ After the low pass filter, the signal is amplified. Use a *QT GUI Range* widget 
   ![part2_amplifier.png](./figures/part2_amplifier.png)<br>
   __*Amplifier parameters*__
 
-The decimation rate of the *Low Pass Filter* block is set to four. To recover the signal frequency, we use a *Rational Resampler* block to restore to original sampling rate.
-
-  ![part2_rational_resampler.png](./figures/part2_rational_resampler.png)<br>
-  __*Rational resampler parameters*__
-
 Run the flowgraph and analyze the output. Is it what you expected? You can also look at the other `.dat` files of modulated signals to demodulate them. Just remember to adjust the low pass filter parameters based on the modulated signal properties.
 
   ![part2_demodulated_scope.png](./figures/part2_demodulated_scope.png)<br>
@@ -98,7 +93,7 @@ Save and execute the flow graph. You should observe an FFT display similar to th
 
 Note the following:
 
-- This data was recorded with a USRP set to 710 kHz. Thus, the signal you see at the center (indicated as 0 kHz) is actually at 710 kHz. Similarly, the signal at 80 kHz is actually at 710 kHz + 80 kHz = 790 kHz.
+- This data was recorded with a USRP set to 710 kHz. Thus, the signal you see at the center (indicated as 0 kHz) was actually at 710 kHz. Similarly, the signal at 80 kHz was actually at 710 kHz + 80 kHz = 790 kHz.
 - The display spans a frequency range from just below -120 kHz to just above 120 kHz. This exact span is 256 kHz, which corresponds to the sample rate that the data was recorded at.
 - The peaks that you observe on this display correspond to the carriers for AM broadcast signals. You should also be able to observe the sidebands for the stronger waveforms.
   

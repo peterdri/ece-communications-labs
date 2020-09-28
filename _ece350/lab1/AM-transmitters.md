@@ -138,7 +138,7 @@ Go back to your AM Modulator flowgraph and:
 
 - change the *Signal Source* block to a *File Source* block
   - Ensure that you change the correct signal source. You are replacing $$m(t)$$ **not** $$f_c$$.
-- set the source file to `square_waveform.dat` (it shouldn't exist yet, you're about to make it!)
+- set the source file to `square_waveform.dat` (the one you just created!)
 - enable to *File Sink* block, choose a save destination, and name the file `AM_modulated_square.dat`
 - execute the flowgraph.
 
