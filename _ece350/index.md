@@ -8,6 +8,8 @@ next: /ece350/lab1
 
 This lab is meant to be a supplement to your ECE350 class. It will provide you with a way to explore the concepts and techniques discussed in class in a more hands on way. In order to do this, we will be using [GNU Radio Companion](https://wiki.gnuradio.org/index.php/GNURadioCompanion), a graphical tool used to create and execute signal processing flowgraphs for Software Defined Radio. This is a very useful tool not only for demonstrating existing communication methods, but also for experimenting and developing new methods. It is heavily used both in the academic and professional worlds. For more information on Software Defined Radio, have a look at [this Wikipedia page](https://en.wikipedia.org/wiki/Software-defined_radio), or speak to your professor or TA.
 
+{% include alert.html title="Note" content="All ECE350 labs/tutorials were written with GNU Radio v3.7. I believe they should all work with v3.8 _but_ for a smoother experience you should stick with v3.7 (it's been supported for far longer)." %}
+
 This lab manual will regularly refer to the course textbook, available for free [here](../_docs/pdriessen_textbook.pdf).
 
 ### Deliverables
