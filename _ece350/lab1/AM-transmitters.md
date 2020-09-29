@@ -21,7 +21,7 @@ This lab is a guide to AM signal waveforms. In this part you will learn:
 ## Part 1 Deliverables
 
 - GRC files of AM transmitter and waveform builder. You will be stepped through building them. They will be named:
-  - `waveform-builder.grc`
+  - `waveform_builder.grc`
   - `AM_modulator.grc`
 - There are 2 questions spaced throughout this part. They are clearly indicated.
   - Each question requires approximately 1 line of writing, and address concepts, not details. Answer the questions and submit a single page containing the answers to your TA at the end of the lab.
@@ -150,7 +150,7 @@ Go back to your AM Modulator flowgraph and:
 
 ### Two sine waves with selectable frequencies
 
-Update the `waveform-builder.grc` flowgraph as below, where two sinusoidal signals with frequencies $$f_1$$ and $$f_2$$ are mixed together to create a two-tone signal with $$(f_1-f_2)$$ and $$(f_1+f_2)$$ tones.
+Update the `waveform_builder.grc` flowgraph as below, where two sinusoidal signals with frequencies $$f_1$$ and $$f_2$$ are mixed together to create a two-tone signal with $$(f_1-f_2)$$ and $$(f_1+f_2)$$ tones.
 
 - Update the *Signal Source* blocks to use the new variables, `f1` and `f2`.
 - Ensure the *Signal Source* block with the square waveform is disabled.
@@ -169,7 +169,7 @@ Use the new `two_sines_waveform.dat` in your AM modulator, saving the output as 
 
 ### Pseudo Random Binary Sequence (PRBS) with time domain raised cosine pulse shape over 6 symbols
 
-Once again edit the `waveform-builder.grc` flowgraph to the following. In it, a message signal is created from a sequence of random binary bits which is converted to a sequence of pulses shaped using a raised cosine pulse shaping filter.
+Once again edit the `waveform_builder.grc` flowgraph to the following. In it, a message signal is created from a sequence of random binary bits which is converted to a sequence of pulses shaped using a raised cosine pulse shaping filter.
 
   ![part1_PRBS_raise_cos_flowgraph.png](./figures/part1_PRBS_raise_cos_flowgraph.png)<br>
   __*PRBS with a root raised cosine shape saved to a `.dat` file*__
@@ -191,7 +191,7 @@ Save the output as `prbs_rrc_waveform.dat` and run it through the AM modulator, 
 
 ### PRBS with square pulse shape over 6 symbols
 
-Edit the `waveform-builder.grc` flowgraph and change the *Root Raised Cosine Filter* block to a *Interpolating FIR Filter* block, where all 8 of the taps are set to 1. This will make the pulse shape a square.
+Edit the `waveform_builder.grc` flowgraph and change the *Root Raised Cosine Filter* block to a *Interpolating FIR Filter* block, where all 8 of the taps are set to 1. This will make the pulse shape a square.
 
 {%include alert.html title="Note" content="In some versions of GR the taps need to be contained inside brackets. If you get an error running your interpolation filter set the taps to `[1,1,1,1,1,1,1,1]` including the brackets." %}
 
@@ -213,7 +213,7 @@ Save the waveform to `prbs_square_waveform.dat` and run it through the AM modula
 From this section you should have:
 
 - two GRC files
-  - `waveform-builder.grc`
+  - `waveform_builder.grc`
   - `AM_modulator.grc`
 - 9 data files
   - `AM_modulated_4kHz_sine.dat`

@@ -14,7 +14,7 @@ In this lab you built both an AM modulator and demodulator. You tested it on sim
 ## Deliverables
 
 - 4 GRC files:
-  - a waveform builder (`waveform-builder.grc`)
+  - a waveform builder (`waveform_builder.grc`)
   - an AM modulator/transmitter (`AM_modulator.grc`)
   - a real AM demodulator/receiver (`AM_demodulator.grc`)
   - a complex AM demodulator/receiver (`AM_demodulator_complex.grc`)
