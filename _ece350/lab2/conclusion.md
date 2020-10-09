@@ -16,7 +16,7 @@ In this lab you used a USRP to both transmit and receive complex data streams. Y
 
 ## Deliverables
 
-- 2 GRC files:
+- 2 GRC files (submit these in their current state/final form from the lab):
   - a resampling SSB receiver using Weaver\'s method (`SSB_DAT_demodulator.grc`)
   - a direct sampling SSB receiver using Weaver\'s method (`SSB_WAV_demodulator.grc`)
 - A single page with answers to the questions posed throughout the lab.

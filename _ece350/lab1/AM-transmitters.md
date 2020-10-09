@@ -127,7 +127,7 @@ Create the following flowgraph to make a symmetric square waveform
   ![part1_square_signal_to_file.png](./figures/part1_square_signal_to_file.png)<br>
   __*Square waveform generator*__
 
-This flowgraph will be your second deliverable. Save it as `waveform_builder.grc`, and in the *Options* block, set the following:
+This flowgraph will be your second deliverable. Name it `waveform_builder.grc`, and in the *Options* block, set the following:
 
 - **Title:** Waveform builder
 - **Author:** V00xxxxxx, V00yyyyyy (where all of your student numbers are included)
