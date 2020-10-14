@@ -78,9 +78,9 @@ RTL-SDR is a name used by a variety of dongles which are all based on the same p
 
 ### Dynamic range with IQ signals
 
-> This section is possible to do in practice if you have a signal generator nearby. If so, set it to generate a 200 MHz tone with the minimum possible amplitude (when done in the lab the starting amplitude is -10 dBm) and plug the output into your RTL-SDR using a coaxial cable. Then slowly and carefully (so as not to fry your SDR), increase the amplitude until you see what is outlined below.
->
-> If you do not have a signal generator at home follow along with the following explanation instead.
+{% include alert.html class="warning" title="Note" content="This section is possible to do in practice if you have a signal generator nearby. If so, set it to generate a 200 MHz tone with the minimum possible amplitude (when done in the lab the starting amplitude is -10 dBm) and plug the output into your RTL-SDR using a coaxial cable. Then slowly and carefully (so as not to fry your SDR), increase the amplitude until you see what is outlined below.
+
+If you do not have a signal generator at home read along with the following explanation instead." %}
 
 As your radio receives a pure tone, the constellation looks like the following figure.
 
