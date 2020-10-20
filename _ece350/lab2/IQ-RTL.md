@@ -58,19 +58,19 @@ RTL-SDR is a name used by a variety of dongles which are all based on the same p
     $$
     \begin{align*}
       s(t) &= a(t) e^{j\phi (t)} e^{j2\pi f_c t} \\
-      &= a(t)cos\left( 2\pi f_c t + \phi (t)\right) + ja(t)sin\left( 2\pi f_c t+ \phi (t) \right)
+      &= a(t)\cos\left( 2\pi f_c t + \phi (t)\right) + ja(t)\sin\left( 2\pi f_c t+ \phi (t) \right)
     \end{align*}
     $$
 
   The local oscillator is described by:
 
-    $$ e^{-j\pi f_{LO} t}  = cos\left( 2\pi f_{LO} t \right) - jsin\left( 2\pi f_{LO} t \right) $$
+    $$ e^{-j\pi f_{LO} t}  = \cos\left( 2\pi f_{LO} t \right) - j\sin\left( 2\pi f_{LO} t \right) $$
 
   When the two are multiplied, and $$ f_b  = f_c  - f_{LO} $$ is substituted:
 
-    $$ I(t) = a(t)cos\left( 2\pi f_b t + \phi (t) \right) $$
+    $$ I(t) = a(t)\cos\left( 2\pi f_b t + \phi (t) \right) $$
 
-    $$ Q(t) = a(t)sin \left( 2\pi f_b t + \phi (t) \right) $$
+    $$ Q(t) = a(t)\sin \left( 2\pi f_b t + \phi (t) \right) $$
 
   This is how you are able to read $$ f_b $$ directly off of the phase ramp.
 
@@ -134,7 +134,7 @@ In this case $$f_c = 50.01 MHz$$. The signal is complex and can be written as:
 $$
 \begin{align}
 s(t) &= e^{j2\pi f_c t} \\
-&= sin(2\pi f_c t) + jcos(2\pi f_c t)\\
+&= \cos(2\pi f_c t) + j\sin(2\pi f_c t)\\
 \end{align}
 $$
 
@@ -149,8 +149,8 @@ In this case the signal can be written as:
 
 $$
 \begin{align}
-s(t) &= e^{j2\pi f_c t} \\
-&= sin(2\pi f_c t) - jcos(2\pi f_c t)\\
+s(t) &= e^{-j2\pi f_c t} \\
+&= cos(2\pi f_c t) - j\sin(2\pi f_c t)\\
 \end{align}
 $$
 
@@ -165,8 +165,8 @@ In this case the signal can be written as:
 
 $$
 \begin{align}
-s(t) &= e^{j2\pi f_c t} \\
-&= sin(2\pi f_c t)\\
+s(t) &= e^{j2\pi f_c t}+e^{-j2\pi f_c t} \\
+&= \cos(2\pi f_c t)\\
 \end{align}
 $$
 

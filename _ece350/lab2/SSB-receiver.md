@@ -182,7 +182,6 @@ To do this on your flow graph, add a *Multiply* block as well as a *Signal Sourc
 
 Before executing the flowgraph, remember to change the *Bandwidth* property of the *QT GUI Frequency Sink* block to match the sampling rate at this point in the flowgraph. The flowgraph should now look like the following image.
 
-<!-- TODO fix -->
 ![part1_flowgraph-after-first-shift.png](./figures/part1_flowgraph-after-first-shift.png)<br> 
 __*Flowgraph after first frequency shift*__
 
