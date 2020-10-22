@@ -49,7 +49,7 @@ RTL-SDR is a name used by a variety of dongles which are all based on the same p
   ![part2_phase-ramp-rtl.png]({{site.baseurl}}/_ece350/lab2/figures/part2_phase-ramp-rtl.png)<br>
   __*Phase ramp showing frequency offset*__
 
-- This frequency $$ f_b $$ represents the offset between the received RF signal $$ f_c $$ and the SDR's local oscillator $$ f_{LO} $$, so that
+- As described above, this frequency $$ f_b $$ represents the offset between the received RF signal $$ f_c $$ and the SDR's local oscillator $$ f_{LO} $$, so that
 
   $$ f_b  = f_c  - f_{LO} $$
 
@@ -72,13 +72,15 @@ RTL-SDR is a name used by a variety of dongles which are all based on the same p
 
     $$ Q(t) = a(t)\sin \left( 2\pi f_b t + \phi (t) \right) $$
 
-  This is how you are able to read $$ f_b $$ directly off of the phase ramp.
+  Since instantaneous (and in this case unchanging) frequency is the derivative of phase, you can find the slope of the phase plot and that is $$f_b$$. Measuring the slope of the phase ramp is how you are able to read $$ f_b $$ directly from the "Phase" tab of the *QT GUI Sink*.
 
 - Assuming that $$f_c$$ is exactly 144 Mhz, use the phase ramp to find your RTL-SDRs local oscillator frequency. Confirm your solution for $$f_{LO}$$ with your TA.
 
 ### Dynamic range with IQ signals
 
-{% include alert.html class="warning" title="Note" content="This section is possible to do in practice if you have a signal generator nearby. If so, set it to generate a 200 MHz tone with the minimum possible amplitude (when done in the lab the starting amplitude is -10 dBm) and plug the output into your RTL-SDR using a coaxial cable. Then slowly and carefully (so as not to fry your SDR), increase the amplitude until you see what is outlined below.
+{% include alert.html class="warning" title="Note" content="This section is possible to do in practice if you have a signal generator nearby. If so, set it to generate a 200 MHz tone with a small amplitude (when done in the lab the starting amplitude is -10 dBm) and plug the output into your RTL-SDR using a coaxial cable. Then slowly and carefully (so as not to fry your SDR), increase the amplitude until you see what is outlined below.
+
+If using a signal generator to feed this tone into your RTL-SDR note that **the maximum allowable input power to the RTL-SDR is 10 dBm**.
 
 If you do not have a signal generator at home read along with the following explanation instead." %}
 
@@ -110,7 +112,34 @@ Download [this GRC file]({{site.baseurl}}/_ece350/lab2/data/RTLSDR_tx_sim.grc).
 - Review the theory of [spectrum analyzers](../../_docs/pdriessen_textbook.pdf) (section 1.4)
   > For more detailed information, you may also wish to review [Spectrum Analyzer Basics](../../_docs/5965-7920E.pdf) and [The Basics of Spectrum Analyzers](../../_docs/spec_analyzer.pdf). **The concepts presented here will be applicable to any spectrum analyzer you may use in your career.**
 
-Consider a setup where you have an SDR transmitting a complex signal. The complex signal is made up of two tones, a cosine and a sine as in the figure below.
+Look through the simulation and understand what is happening. Two real signals ($$I(t)$$ and $$Q(t)$$) are combined into a single complex signal ($$I(t)+jQ(t)$$). The simulation has been setup so that $$I(t)=\cos \left( 2\pi f_c t \right)$$ and $$Q(t)$$ is set using the GUI to one of:
+
+1. $$Q(t)=0$$
+2. $$Q(t)=\sin\left( 2\pi f_c t\right)$$
+3. $$Q(t)=-\sin\left( 2\pi f_c t\right)$$
+
+That makes the complex signal in the three cases:
+
+1. $$
+   \begin{align*}
+     \tilde{s}(t) =&\sin\left( 2\pi f_c t\right) + 0 \\
+     =&\Re \{ e^{j2\pi f_c t} \}
+   \end{align*}
+   $$
+2. $$
+   \begin{align*}
+     \tilde{s}(t) =&\sin\left( 2\pi f_c t\right) + j\cos\left( 2\pi f_c t\right) \\
+     =& e^{j2\pi f_c t}
+   \end{align*}
+   $$
+3. $$
+   \begin{align*}
+     \tilde{s}(t) =&\sin\left( 2\pi f_c t\right) - j\cos\left( 2\pi f_c t\right) \\
+     =& e^{-j2\pi f_c t}
+   \end{align*}
+   $$
+
+Now consider this exact same setup but where you have an SDR transmitting a complex signal. The complex signal is made up of two tones, a cosine and a sine as in the figure below.
 
   ![part2_tx_block_diagram.png]({{site.baseurl}}/_ece350/lab2/figures/part2_tx_block_diagram.png)<br>
   __*GRC block diagram to transmit a complex signal through a USRP.*__

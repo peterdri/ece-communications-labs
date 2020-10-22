@@ -219,7 +219,7 @@ __*SSB complex flowgraph*__
 
 ### Taking the real part of a complex signal
 
-Remember that taking the real part of the complex signal is the same thing as adding the negative frequencies! The last two block diagrams highlighted this. To check it yourself, add two *QT GUI Frequency Sinks*, one before and one after the *Complex To Real* block. Title them appropriately ("Complex (before)" and "Real (after)") and execute the flowgraph. It should look like the following image.
+Remember that taking the real part of the complex signal is the same thing as adding the negative frequencies! The last two block diagrams highlighted this. To check it yourself, add two *QT GUI Frequency Sinks*, one before and one after the *Complex To Real* block. Title them appropriately ("Complex (before)" and "Real (after)") and execute the flowgraph. It should look like the following image. See that the complex spectra only contains a lower sideband (upper subfigure) while once the real part of the signal is taken both side bands are shown (lower subfigure).
 
 ![part1_real-vs-complex-spectra.png](./figures/part1_real-vs-complex-spectra.png)<br>
 __*SSB complex vs real spectra*__
