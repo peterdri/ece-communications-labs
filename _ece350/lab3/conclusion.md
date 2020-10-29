@@ -5,18 +5,18 @@ title: Lab 3  - Conclusion #Used for header nav
 permalink: /ece350/lab3/conclusion
 course: ece350
 prev: /ece350/lab3/FM-receiver-SDR
-next: /ece350/lab4
+# next: /ece350/lab4
 ---
 
-In this lab you used a USRP and receive complex data streams. You both modulated and demodulated FM signals.
+In this lab you used an SDR and receive complex data streams. You both modulated and demodulated FM signals.
 
-**Please unplug your USRP's power cable before leaving the lab.**
+**If you completed the lab using a USRP, please unplug your USRP's power cable before leaving the lab.**
 
 ---
 
 ## Deliverables
 
-- 2 GRC files:
+- 2 GRC files (submit these in their current state/final form from the lab):
   - an FM transmitter (`FM_transmitter.grc`)
   - an FM receiver (`FM_receiver.grc`)
 - A single page with answers to the questions posed throughout the lab.
