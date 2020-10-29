@@ -72,9 +72,11 @@ RTL-SDR is a name used by a variety of dongles which are all based on the same p
 
     $$ Q(t) = a(t)\sin \left( 2\pi f_b t + \phi (t) \right) $$
 
-  Since instantaneous (and in this case unchanging) frequency is the derivative of phase, you can find the slope of the phase plot and that is $$f_b$$. Measuring the slope of the phase ramp is how you are able to read $$ f_b $$ directly from the "Phase" tab of the *QT GUI Sink*. Note that there is no "amplitude" on this phase plot - the phase is just wrapping from $$-\pi\to\pi$$. When we find the slope we are finding the time it takes for 1 period of $$f_b$$ which is the time it takes for 1 "wrap" of the phase ramp.
+  Since instantaneous (and in this case unchanging) frequency is the derivative of phase, you can find the slope of the phase plot and that is $$f_b$$. Measuring the slope of the phase ramp is how you are able to read $$ f_b $$ directly from the "Phase" tab of the *QT GUI Sink*.
+  
+{% include alert.html title="Note" content="Note that there is no 'amplitude' on this phase plot - the phase is just wrapping from $$-\pi\to\pi$$. When we find the slope we are finding the time it takes for 1 period of $$f_b$$ which is the time it takes for 1 'wrap' of the phase ramp. Do not think of finding slope as 'rise over run' unless you are aware that the 'rise' is 1 period (not 6.28)!" %}
 
-- Assuming that $$f_c$$ is exactly 144 Mhz, use the phase ramp to find your RTL-SDRs local oscillator frequency. Confirm your solution for $$f_{LO}$$ with your TA.
+- Assuming that $$f_c$$ is exactly 144 MHz, use the phase ramp to find your RTL-SDRs local oscillator frequency. Confirm your solution for $$f_{LO}$$ with your TA.
 
 ### Dynamic range with IQ signals
 
