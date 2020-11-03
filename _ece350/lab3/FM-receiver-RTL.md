@@ -5,11 +5,11 @@ In this section, we consider a practical FM receiver that can receive real off-a
 
 - Open the FM receiver flowgraph you completed in the last part of this lab.
 
-- Disable the *File Source* stream up to and including the *Float To Complex* block.
+- Disable the *File Source* stream up to and including the streams *Low Pass Filter* block.
 
 - Enable to *RTL-SDR Source* stream. You will need to reroute the inputs to the *Delay* and *Multiply Const* blocks from the newly enabled *Low Pass Filter*.
 
-{% include alert.html title="Deliverable Question 2" class="info" content="Which blocks from the File Sink stream are replaced with the *RTL-SDR Source* block? Which blocks are replaced with the *Low Pass Filter* block?" %}
+{% include alert.html title="Deliverable Question 2" class="info" content="Which blocks from the File Source stream are replaced with the *RTL-SDR Source* block? Which blocks are replaced with the *Low Pass Filter* block?" %}
 
 {% include alert.html title="Deliverable Question 3" class="info" content="What is the transition width of the low pass filter used on the RTL-SDR's output? Why was this value chosen? (Hint: Consider FM Broadcast channel spacings.)" %}
 

@@ -33,4 +33,3 @@ This part of the lab is a guide to receiving real FM signal waveforms. You will:
 From this lab part, there are the following deliverables:
 
 - The answers to two deliverable questions.
-

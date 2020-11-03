@@ -158,10 +158,9 @@ You'll start by transmitting a sinusoidal message. The equations for this are sh
 
 - Reset $$ f_c $$ to 25 kHz and $$ f_m $$ to 5 kHz.
 
-  - Measure the amplitude of the carrier wave and of the first sideband.
-
-    ![fmtx_s-of-t-sine-fft-zoomed.png](./figures/fmtx_s-of-t-sine-fft-zoomed.png)<br>
-    __*Positive half of spectrum only to more clearly measure Bessel peaks*__
+  - Measure the amplitude of the carrier wave and of the first sideband. To do this zoom in on either the positive or the negative half of the spectrum. Think about what $$f_c$$ is set to and find that. The first sideband is the one nearest to it.
+  
+The sidebands exist at discrete frequencies of $$\pm f_c \pm n f_m$$. Does the spectrum look like this? What are the sidebands spaced by? As you change the $$f_m$$ slider do they move? What about if you change the $$f_c$$ slider?
 
 {% include alert.html title="Deliverable Question 1" class="info" content="Show that the Bessel peaks have the correct values relative to each other. In other words, confirm that for the chosen vlaue of $$ \beta $$, the carrier wave and first sideband have the correct values relative to eachother as described by the following equation:
 
@@ -179,9 +178,9 @@ The integral of a square waveform is a triangular waveform with the same frequen
 
 - Change the *Signal Source* block to output a triangular waveform of frequency $$ f_m $$.
 
-- With the *File Sink* block disabled, execute the flowgraph and observe the various plots. Adjust the sliders so that $$ f_m $$ is 2 kHz see how it impacts the transmitted signal.
+- With the *File Sink* block disabled, execute the flowgraph and observe the various plots. Adjust the sliders so that $$ f_m $$ is 2 kHz see how it impacts the transmitted signal. Now change it to 8 kHz.
 
-- The following figures show $$ m(t)$$  and $$ s(t) $$ with a message frequency of 2 kHz.
+- The following figures show $$ m(t)$$  and $$ s(t) $$ with a message frequency of 8 kHz.
 
   ![fmtx_m-of-t-square-scope.png](./figures/fmtx_m-of-t-square-scope.png)<br>
   __*$$ m(t) $$ with default values in time domain*__

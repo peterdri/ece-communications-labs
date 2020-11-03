@@ -88,12 +88,7 @@ This part of the lab is a guide to receiving FM signal waveforms. You will:
   - If you want to use the USRP or RTL-SDR as a source, disable the stream coming from the *File Source*. If you want to use the *File Source* stream, do the opposite.
   - **For now, leave the SDR streams disabled and the *File Source* stream enabled.**
 
-The output of each stream is $$ \tilde{s}(t) $$.
-
-Before you add or change anything, the flowgraph should look like the following figure. Note that the *Signal Source* used to remove the carrier from the signal is set **negative** 25000 kHz.
-
-  ![fmrx_incomplete-grc.png](./figures/fmrx_incomplete-grc.png)<br>
-  __*Incomplete flowgraph for receiving FM signals*__
+The output of each stream is $$ \tilde{s}(t) $$. Note that the *Signal Source* used to shift the received signal down by the carrier frequency is set **negative** 25 kHz.
 
 - Open the *File Source* block and point it at `FM_TX_5kHz_sine.dat`. Execute the flowgraph and check that the output at $$ \tilde{s}(t) $$ is as expected. It should look like a frequency modulated sine wave since that's what it is.
 
@@ -111,7 +106,7 @@ Before you add or change anything, the flowgraph should look like the following 
   ![fmrx_receiver-grc.png](./figures/fmrx_receiver-grc.png)<br>
   __*FM receiver flowgraph*__
 
-- Execute the flowgraph. You should see the demodulated 2 kHz sine wave in the output spectrum and time scope.
+- Execute the flowgraph. You should see the demodulated 5 kHz sine wave in the output spectrum and time scope.
 
   ![fmrx_m-of-t-sine-scope.png](./figures/fmrx_m-of-t-sine-scope.png)<br>
   __*Demodulated sine message, $$ m(t) $$ in time domain*__
