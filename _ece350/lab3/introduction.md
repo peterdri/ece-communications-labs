@@ -7,12 +7,12 @@ course: ece350
 next: /ece350/lab3/FM-transmitter-sim
 ---
 
-In this lab you will create an FM modulator and demodulator, and then use the Universal Software Radio Peripherial (USRP) to receive FM signals in real-time.
+In this lab you will create an FM modulator and demodulator, and then use an SDR (software defined radio) to receive FM signals in real-time.
 
 As you work, consider the following questions:
 
 - What are the differences between an analog transmitter and a software-defined transmitter?
-- What are the differences between an analog receiver and a software-defined transmitter?
+- What are the differences between an analog receiver and a software-defined receiver?
 
 ---
 

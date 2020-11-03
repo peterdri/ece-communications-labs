@@ -27,7 +27,7 @@ will:
 
 ---
 
-You are going to build flowgraphs to transmit FM signals that are simulation-only and do not (yet) use the USRP (that will come later in this lab!).
+You are going to build flowgraphs to transmit FM signals that are simulation-only and do not (yet) use the SDR (that will come later in this lab!).
 
 ## Theory
 
@@ -77,11 +77,15 @@ How do you transmit a *real* signal (we'll call it $$ \phi $$) as *complex* ($$ 
     __*Flowgraph of a real signal unable to be connected to a complex sink*__
 
 - Add a [Phase Mod](https://wiki.gnuradio.org/index.php/Phase_Mod) block.
-  - Read the documentation on the block to understand what it is doing.
+  - Read the documentation on the block to understand what it is doing. It can be described by
+      
+      $$
+      \textrm{output}=e^{j(\textrm{input})(\textrm{sensitivity})}
+      $$
+
   - Notice the sensitivity parameter. Set it to be 1.
 
-- The input of the *Phase Mod* block is some GUI controlled number between $$ -\pi $$ and $$ \pi $$. The *Phase Mod* block output is $$ e^{jx\pi} $$ where $$ x $$ is the sensitivity parameter.
-  > Notice the $$ j $$ in the above equation, and also notice the way in which the sensitivity parameter can be used.
+- The input of the *Phase Mod* block is some GUI controlled number between $$ -\pi $$ and $$ \pi $$. The *Phase Mod* block output is then $$ e^{jx\pi} $$ where $$ x $$ is the sensitivity parameter. Notice the $$ j $$ in the above equation, and also notice the way in which the sensitivity parameter can be used.
 
 - The flowgraph should now look like the following figure.
 
@@ -111,6 +115,7 @@ You'll start by transmitting a sinusoidal message. The equations for this are sh
   - For the beta value, range from 0-10 with a default value of 4, and a step size of 0.025.
 
 - Begin by using a *Signal Source* block and a *Multiply Const* block to create the $$ \beta sin( 2\pi f_m t) $$ term.
+  - Use the *Multiply Const* block for $$\beta$$ instead of the *Amplitude* parameter of the signal source.
   - In the signal source, change the *Output Type* to *Float*, and the *Waveform* to *Sine*.
   - Use the variables from the *QT GUI Range* widgets for $$ \beta $$ and $$ f_m $$.
 
@@ -118,7 +123,7 @@ You'll start by transmitting a sinusoidal message. The equations for this are sh
 
 - In order to turn this signal into a complex exponential, we must take $$ e^{j\phi} $$ where $$ \phi $$ is the signal at this point.
   - Use the [Phase Mod](https://wiki.gnuradio.org/index.php/Phase_Mod) block as you did [earlier in this lab](#exploring-the-phase-mod-block).
-  - Notice that we could input the $$ \beta $$ value as the sensitivity instead of using the *Multiply Const* block.
+  - Notice that we could set the sensitivity parameter to $$ \beta $$ instead of using the *Multiply Const* block - the resulting equation is the same!
   - Set the *Sensitivity* parameter to 1.
 
 - The flow graph should now look like the following figure.
@@ -162,7 +167,7 @@ You'll start by transmitting a sinusoidal message. The equations for this are sh
   
 The sidebands exist at discrete frequencies of $$\pm f_c \pm n f_m$$. Does the spectrum look like this? What are the sidebands spaced by? As you change the $$f_m$$ slider do they move? What about if you change the $$f_c$$ slider?
 
-{% include alert.html title="Deliverable Question 1" class="info" content="Show that the Bessel peaks have the correct values relative to each other. In other words, confirm that for the chosen vlaue of $$ \beta $$, the carrier wave and first sideband have the correct values relative to eachother as described by the following equation:
+{% include alert.html title="Deliverable Question 1" class="info" content="Show that the Bessel peaks have the correct values relative to each other. In other words, confirm that for the chosen value of $$ \beta $$, the carrier wave and first sideband have the correct values relative to each other as described by the following equation:
 
 $$ \Delta P = 20 log\frac{J_1(\beta)}{J_0(\beta)} $$
 
