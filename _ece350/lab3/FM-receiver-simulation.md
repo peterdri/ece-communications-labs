@@ -77,7 +77,7 @@ This part of the lab is a guide to receiving FM signal waveforms. You will:
   >\end{align*}
   >$$
 
-## Receiving a demodulating simulated FM signals
+## Receiving and demodulating simulated FM signals
 
 - To begin, download this [partially completed flowgraph](./data/Incomplete-FM-Receiver.grc).
   - The completed portion implements three sources:
