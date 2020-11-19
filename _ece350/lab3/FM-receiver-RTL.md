@@ -7,7 +7,7 @@ In this section, we consider a practical FM receiver that can receive real off-a
   - Disable the *File Source* stream up to and including the streams *Low Pass Filter* block.
   - Enable to *RTL-SDR Source* stream. You will need to reroute the inputs to the *Delay* and *Multiply Const* blocks from the newly enabled *Low Pass Filter*.
 
-{% include alert.html title="Deliverable Question 2" class="info" content="Which blocks from the File Source stream are replaced with the *RTL-SDR Source* block? Which blocks are replaced with the *Low Pass Filter* block?" %}
+{% include alert.html title="Deliverable Question 2" class="info" content="Which blocks from the *File Source* stream are replaced with the *RTL-SDR Source* block? Which blocks are replaced with the *Low Pass Filter* block?" %}
 
 {% include alert.html title="Deliverable Question 3" class="info" content="What is the transition width of the low pass filter used on the RTL-SDR's output? Why was this value chosen? (Hint: Consider FM broadcast channel spacings. FM channels exist at the same frequencies everywhere in the world: 88.1 MHz, 88.3 MHz, 88.5 MHz, ..., 108.1 MHz. What happens if there are a series of closely packed channels at say 101.1, 101.3 and 101.5 MHz and you want to listen to the station at 101.3 MHz?)" %}
 
