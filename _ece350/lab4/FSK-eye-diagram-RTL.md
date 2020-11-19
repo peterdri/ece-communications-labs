@@ -14,6 +14,8 @@ For this section of the lab you will need to find a strong paging or FSK signal 
 
 - Execute the flowgraph and tune to your chosen 2-level FSK signal.
 
+{%include alert.html title="Note" content="You may need to set the device argument to `rtl=0`. Try with and without and see what works on your system!"%}
+
 > Check the bandwidth of the signal. You may need to adjust the filter parameters accordingly. The filter defaults to expecting a 25 kHz tone separation.
 
 In the waterfall plot, the FSK signal should be fairly strong as in the figure below.
