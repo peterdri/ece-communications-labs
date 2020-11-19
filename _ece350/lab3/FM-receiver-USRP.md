@@ -9,7 +9,7 @@ In this section, we consider a practical FM receiver that can receive real off-a
 
 - Enable to *USRP Source* stream. You will need to reroute the inputs to the *Delay* and *Multiply Const* blocks from the newly enabled *Low Pass Filter*.
 
-{% include alert.html title="Deliverable Question 2" class="info" content="Which blocks from the *File Source* stream are replaced with the *USRP Source* block? Which blocks are replaced with the *Low Pass Filter* block?" %}
+{% include alert.html title="Deliverable Question 2" class="info" content="Which blocks from the *File Source* stream are replaced with the *USRP Source* block?" %}
 
 {% include alert.html title="Deliverable Question 3" class="info" content="What is the transition width of the low pass filter used on the USRP's output? Why was this value chosen? (Hint: Consider FM Broadcast channel spacings.)" %}
 
