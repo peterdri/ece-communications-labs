@@ -35,6 +35,8 @@ RTL-SDR is a name used by a variety of dongles which are all based on the same p
   - This output is connected to 4 blocks that extract the magnitude, phase, real and imaginary parts of the complex signal, as well as a constellation scope and waterfall plot.
   - The *RTL-SDR Source* is tuned to a frequency of 144 MHz.
 
+{%include alert.html title="Note" content="You may need to set the device argument to `rtl=0`. Try with and without and see what works on your system!"%}
+
 - Execute the flowgraph. Observe the waterfall plot and see that there is a signal right in the center of the received spectrum at 144 MHz. Now observe the Output Display window with 4 tabs labelled **IQ Plane, Magnitude, Phase** and **IQ Scope Plot**.
 
   - The "IQ Plane" tab should show a circle. Turn up the *RF Gain* parameter to 60 and see if the increased gain makes the circle bigger. This makes sense as the amplitude of the received signal has become larger.

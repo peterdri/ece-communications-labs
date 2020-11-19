@@ -16,6 +16,8 @@ Execute the flowgraph. By default the radio is tuned to 98.1 MHz and the RF gain
 
 - You may find it helpful to add a *QT GUI Frequency Sink* and/or a *QT GUI Waterfall Sink* to the output of the *RTL-SDR Source* block (and set the sampling rate of the sink appropriately). This will allow you to observe where there are FM broadcast stations!
 
+{%include alert.html title="Note" content="You may need to set the device argument to `rtl=0`. Try with and without and see what works on your system!"%}
+
 Look up a FM station in your area and tune to it using the slider. When you are centered on it, increase the RF gain until the channel is clearly visible in the spectrum.
 
 {% include alert.html title="Note" content="Because you are receiving a real-life on-air signal, it will help to have an antenna connected to your RTL-SDR and have the antenna placed near a window."%}
