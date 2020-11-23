@@ -49,7 +49,7 @@ Replace the message signal source with a random data pattern generated using a G
 
 Connect a *Null Source* block to the other input of the *Float To Complex* block.
 
-The *GLFSR Source* outputs one sample per bit. Add a *Repeat* block after the *Float To Complex* conversion so that each data bit generates a square pulse. The original message sinusoid was operating at 500 Hz; equivalent to 1000 bits-per-second. Considering the sampling rate of 100 kHz, it follows that the *Repeat* block should be set to output 100 bits for every bit received from the *GLFSR Source*.
+The *GLFSR Source* outputs one sample per bit. Add a *Repeat* block after the *Float To Complex* conversion so that each data bit generates a square pulse. The original message square wave was operating at 500 Hz; equivalent to 1000 bits-per-second. Considering the sampling rate of 100 kHz, it follows that the *Repeat* block should be set to output 100 bits for every bit received from the *GLFSR Source*.
 
 Add a *QT GUI Time Sink* at the output of the *Repeat* block to observe the square pulses.
 
@@ -64,7 +64,8 @@ In this section, we filter square pulses using a low-pass filter. For reference,
 
 Add a *Low Pass Filter* to shape the square pulses into more rounded pulses.
 
-- Use a *Cutoff Frequency* of 1000 Hz and a *Transition Width* of 100 Hz. **Why were these numbers selected? Can you improve upon them?**
+<!--TODO are we setting this based on the 1/2T rule?? If not lets change -->
+- Use a *Cutoff Frequency* of 1000 Hz and a *Transition Width* of 100 Hz. **Why were these numbers selected? Can you improve upon them?** 
 
 Add a *QT GUI Time Sink* at the output of the *Low Pass Filter* to observe the transmitted rounded pulses.
 
@@ -115,6 +116,8 @@ Again visualize both the input to the LPF and the output using the same time sco
 
   ![pulse-shaping_LPF-impulse-and-shaped-scope.png](./figures/pulse-shaping_LPF-impulse-and-shaped-scope.png)<br>
   __*Time domain of impulses and LPF shaped impulses*__
+
+{% include alert.html title="Note" content="Notice that the impulses go (in theory) to $$\pm\infty$$. The *QT GUI Time Sink* will try and fit this in by having large y-limits. Disable autoscaling and set the y-axis limits so that you see an image like the one above." %}
 
 To line up the input and output of the filter, a delay of 120 samples will result in a plot like the following figure.
 

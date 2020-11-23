@@ -3,9 +3,10 @@
 
 Download and open [this GRC file]({{site.baseurl}}/_ece350/lab4/data/Incomplete-FSK-receiver-RTL-SDR.grc). It is very similar to the one you built in the last lab.
 
-Add a *QT GUI Eye Diagram* block.
+Open the *QT GUI Eye Diagram* block.
 
 - Use the included `delay` variable for the block's delay parameter
+- Set the Sample Rate parameter of teh *QT GUI Eye Diagram* to the variable `samp_rate`.
 - It should look like the following figure
 
   ![eyediagram_RTL-grc.png]({{site.baseurl}}/_ece350/lab4/figures/eyediagram_RTL-grc.png)<br>
@@ -18,7 +19,7 @@ For this section of the lab you will need to find a strong paging or FSK signal 
 
 Execute the flowgraph and tune to your chosen 2-level FSK signal.
 
-{%include alert.html title="Note" content="You may need to set the device argument to `rtl=0`. Try with and without and see what works on your system!"%}
+{%include alert.html title="Note" content="You may need to set the device argument to `rtl=0`. Try with and without and see what works on your system! Also, make sure that CubicSDR is closed while you're trying to run this flowgraph - otherwise GNU Radio can't access the radio."%}
 
 > Check the bandwidth of the signal. You may need to adjust the filter parameters accordingly. The filter defaults to expecting a 25 kHz tone separation.
 

@@ -34,7 +34,7 @@ There is a relatively strong (if you are near Victoria) FLEX pager network signa
 
 Although FLEX can use a variety of modulation schemes, the sync word (marker) is always sent as 2-level FSK at 1600 bits per second.
 
-Download [this data file]({{site.baseurl}}/_ece350/lab4/data/FLEX_bits.wav). It is already demodulated for you.
+Download [this data file](./data/FLEX_bits.wav). It is already demodulated for you.
 
 Create a new flowgraph, and use a *WAV File Source* along with a *QT GUI Time Sink* to view the demodulated FSK. You should now see what looks like a digital waveform as shown.
 

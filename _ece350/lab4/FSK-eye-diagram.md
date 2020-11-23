@@ -40,13 +40,13 @@ Open the *Options* block and check that the *Generate Options* parameter is set 
 
 - The *Category* parameter controls where it can be found in the GRC search panel. This means that when compiled, your block will be available in the category called "GRC Hier Blocks".
 
-Generate the flowgraph using the ![generate-button-grc.png]({{site.baseurl}}/_GRC-tutorials/figures/tutorial1_generate2.png) button, instead of executing it.
+Generate the flowgraph using the ![generate-button-grc.png]({{site.baseurl}}/_GRC-tutorials/figures/tutorial1_generate2.png) button (the icon changes with operating system, you can also go Run->Generate in the menu bar), instead of executing it.
 
 Open a new flowgraph, add a *Signal Source* of type *Float* and connect it to a *Throttle* block.
 
 - Set the *Waveform* parameter to either "Cosine" or "Sine".
 
-Now look for your newly built heirarchal block. If it is not there, you can reload all of the blocks with the ![reload-button-grc.png](./figures/reload-button-grc.png).
+Now look for your newly built heirarchal block. If it is not there, you can reload all of the blocks with the ![reload-button-grc.png](./figures/reload-button-grc.png) (icon should be similar on different operating systems).
 
 Add a *QT GUI Range* block to control the delay of the *QT GUI Eye Diagram* block.
 
