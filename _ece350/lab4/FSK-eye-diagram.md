@@ -54,6 +54,8 @@ Add a *QT GUI Range* block to control the delay of the *QT GUI Eye Diagram* bloc
 - Give it a default value of 1, a minimum of 0 and a maximum of 50
 - Call the variable `delay`
 - Set the *Delay* parameter of the *QT GUI Eye Diagram* block using this variable
+
+Also set the sample rate argument in the *QT GUI Eye Diagram* to `samp_rate`.
   
 Execute the flowgraph, now change the delay using the *QT GUI Range* slider until a clear eye diagram is visible. It should look like the following figure when you are at a delay of 16 samples.
 

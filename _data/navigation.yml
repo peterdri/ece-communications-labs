@@ -25,8 +25,8 @@
       url: /ece350/lab2
     - title: Lab 3
       url: /ece350/lab3
-    # - title: Lab 4
-    #   url: /ece350/lab4
+    - title: Lab 4
+      url: /ece350/lab4
 
 - title: ECE450
   course: ece450

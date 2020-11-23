@@ -155,6 +155,6 @@ Use an eye diagram at the output of the receiver to confirm the symbol rate you 
 
 ## Deliverables
 
-From this part of the lab keep the following files to submit to your TA after the second (and final) part:
+From this part of the lab keep the following files to submit to your TA when you have completed the lab:
 
 - The answer to one deliverable question.
