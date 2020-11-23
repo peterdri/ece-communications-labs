@@ -12,7 +12,7 @@ next: /ece350/lab4/conclusion
 
 In this section, you will use some recorded frames from the [FLEX](http://en.wikipedia.org/wiki/FLEX_(protocol)) pager network and locate the frame synchronization word. The sync word allows the decoder to synchronize with the beginning of the message bits. A standard method for detecting the sync word is to correlate the incoming signal against the sync word.
 
-Review the theory on [Frame Synchronization](../../_docs/FrameSync.pdf). Further description of frame synchronization is in the text *CR Johnson, WA Sethares, Software Receiver Design, Cambridge, 2011* chapter 8, section 8.5.
+Review the theory on [Frame Synchronization](({{site.baseurl}}/_docs/FrameSync.pdf). Further description of frame synchronization is in the text *CR Johnson, WA Sethares, Software Receiver Design, Cambridge, 2011* chapter 8, section 8.5.
 
 You will be provided with a data file from which you will extract information on the sync words.
 
@@ -34,7 +34,7 @@ There is a relatively strong (if you are near Victoria) FLEX pager network signa
 
 Although FLEX can use a variety of modulation schemes, the sync word (marker) is always sent as 2-level FSK at 1600 bits per second.
 
-Download [this data file](./data/FLEX_bits.wav). It is already demodulated for you.
+Download [this data file]({{site.baseurl}}/_ece350/lab4/data/FLEX_bits.wav). It is already demodulated for you.
 
 Create a new flowgraph, and use a *WAV File Source* along with a *QT GUI Time Sink* to view the demodulated FSK. You should now see what looks like a digital waveform as shown.
 
