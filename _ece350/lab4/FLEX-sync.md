@@ -12,7 +12,7 @@ next: /ece350/lab4/conclusion
 
 In this section, you will use some recorded frames from the [FLEX](http://en.wikipedia.org/wiki/FLEX_(protocol)) pager network and locate the frame synchronization word. The sync word allows the decoder to synchronize with the beginning of the message bits. A standard method for detecting the sync word is to correlate the incoming signal against the sync word.
 
-Review the theory on [Frame Synchronization](({{site.baseurl}}/_docs/FrameSync.pdf). Further description of frame synchronization is in the text *CR Johnson, WA Sethares, Software Receiver Design, Cambridge, 2011* chapter 8, section 8.5.
+Review the theory on [Frame Synchronization](../../_docs/FrameSync.pdf). Further description of frame synchronization is in the text *CR Johnson, WA Sethares, Software Receiver Design, Cambridge, 2011* chapter 8, section 8.5.
 
 You will be provided with a data file from which you will extract information on the sync words.
 
