@@ -6,7 +6,7 @@ Download and open [this GRC file]({{site.baseurl}}/_ece350/lab4/data/Incomplete-
 Open the *QT GUI Eye Diagram* block.
 
 - Use the included `delay` variable for the block's delay parameter
-- Set the Sample Rate parameter of teh *QT GUI Eye Diagram* to the variable `samp_rate`.
+- Set the Sample Rate parameter of the *QT GUI Eye Diagram* to the variable `samp_rate`.
 - It should look like the following figure
 
   ![eyediagram_RTL-grc.png]({{site.baseurl}}/_ece350/lab4/figures/eyediagram_RTL-grc.png)<br>
