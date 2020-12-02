@@ -147,4 +147,6 @@ From this lab part, keep the following for later submission to your TA:
 
 - `FM_receiver.grc`
 
+You will build upon this flowgraph further in the next part of the lab.
+
 **Do not attach the `top_block.py` or `.dat` files.**
