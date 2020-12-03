@@ -57,7 +57,7 @@ Add a *QT GUI Range* block to control the delay of the *QT GUI Eye Diagram* bloc
 
 Also set the sample rate argument in the *QT GUI Eye Diagram* to `samp_rate`.
   
-Execute the flowgraph, now change the delay using the *QT GUI Range* slider until a clear eye diagram is visible. It should look like the following figure when you are at a delay of 16 samples.
+Execute the flowgraph, now change the delay using the *QT GUI Range* slider until a clear eye diagram is visible. Notice that the eye appears at multiples of this value. This value is the number of samples in a bit, so if you delay by 2 or 3 or more bits you will still see an eye diagram. Notice that in _this case_ the eye diagram disappears when delayed by 2 bits. That is only because we are using a continuous wave! For a real data bitstream the delayed version will never "percetly line up" like this.
 
   ![eyediagram_sine-sim.png](./figures/eyediagram_sine-sim.png)<br>
   __*Eye diagram for a 1 kHz sine wave*__

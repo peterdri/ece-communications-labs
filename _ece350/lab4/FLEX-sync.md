@@ -22,7 +22,7 @@ You will be provided with a data file from which you will extract information on
 
 - The code written to find sync words in a provided file.
 
-- There are 2 questions in this part. They is clearly indicated.
+- There are 2 questions in this part. They are clearly indicated.
 
 ---
 
