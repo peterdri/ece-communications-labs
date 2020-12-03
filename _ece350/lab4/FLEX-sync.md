@@ -43,7 +43,7 @@ Create a new flowgraph, and use a *WAV File Source* along with a *QT GUI Time Si
   ![flex_bits.png](./figures/flex_bits.png)<br>
   __*Demodulated FLEX signal*__
 
-In the above snapshot of the waveform, the data bits can be visually observed as `00111101101101010100100100`.
+In the above snapshot of the waveform, the data bits can be visually observed as `00111101101101010100100100`. **Note:** this is not the syncword!
 
 ### Bit and Frame Sync
 
