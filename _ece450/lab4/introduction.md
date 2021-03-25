@@ -1,6 +1,6 @@
 ---
 layout: labitem
-title: Lab 4 - Coherent BPSK and noncoherent DPSK
+title: Lab 4 - Coherent BPSK and non-coherent DPSK
 
 permalink: /ece450/lab4
 course: ece450

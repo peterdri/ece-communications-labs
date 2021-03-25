@@ -1,6 +1,6 @@
 ---
 layout: labitem
-title: Lab 3 - Non-coherent vs Coherent BFSK
+title: Lab 3 - Non-coherent and coherent BFSK
 
 permalink: /ece450/lab3
 course: ece450

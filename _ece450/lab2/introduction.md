@@ -1,6 +1,6 @@
 ---
 layout: labitem
-title: Lab 2 - Pulse Shaping and Matched Filters
+title: Lab 2 - Pulse shaping and matched filters
 
 permalink: /ece450/lab2
 course: ece450

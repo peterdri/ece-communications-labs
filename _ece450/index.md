@@ -9,7 +9,7 @@ permalink: /ece450
 next: /ece450/lab1
 ---
 
-This lab is meant to be a supplement to your ECE450 class. It will provide you with a way to explore the concepts and techniques discussed in class in a more hands on way. The course requires an SDR (software defined radio) as well as access to GNU Radio, Matlab and Simulink.
+This lab is meant to be a supplement to your ECE450 class. It will provide you with a way to explore the concepts and techniques discussed in class in a more hands on way. The course requires access to GNU Radio ([free and open-sourced](https://www.gnuradio.org/)), and either Python ([free and open-sourced](https://www.python.org/)) or Matlab ([available for free to UVic students](https://www.matlab.uvic.ca)).
 
 If you are unfamiliar with GNU Radio, it is strongly recommended that you complete the [introductory GRC tutorials]({{site.baseurl}}{% link _GRC-tutorials/introduction.md%}) hosted on this site before trying these labs.
 
@@ -17,8 +17,8 @@ If you are unfamiliar with GNU Radio, it is strongly recommended that you comple
 
 - Lab 1 - Communication in AWGN channels
 - Lab 2 - Pulse-shaping and matched filters
-- Lab 3 -
-- Lab 4 -
+- Lab 3 - Non-coherent and coherent BFSK
+- Lab 4 - Coherent BPSK and non-coherent DPSK
 
 ## Deliverables
 
