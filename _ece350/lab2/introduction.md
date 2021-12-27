@@ -9,6 +9,9 @@ next: /ece350/lab2/IQ-SDR
 
 In this lab you will use the an SDR (software defined radio) for both receiving and transmitting signals. You will be using either an RTL-SDR (receive only) or a USRP (Universal Software Radio Peripheral, both receive and transmit). Both SDRs are I/Q receivers with wide bandwidth, programmable center frequency, programmable gain and a choice of sample rates.
 
+Test sensitivity of RTL stick at 25, 137, 470, 1090 MHz
+
+
 You will then begin using complex signals to create an SSB demodulator. As you work through it, keep the following questions in mind:
 
 - How is an SSB signal demodulated into an audio signal?
